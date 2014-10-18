@@ -4,10 +4,10 @@
 <head>
 <style type="text/css">
 	body{background:#000;color:#00ff00;text-shadow: 1px 1px 6px #4FC264;font-family:Monospace;top:0; text-align:justify;position:fixed;padding:10px;font-size:20px;}
-		a:link  {color:#00ff00; background-color:transparent}
-		a:visited {color:#00ff00; background-color:transparent}
-		a:hover   {color:#00ff00; background-color:transparent;text-decoration:underline;}
-		a:active  {color:#00ff00; background-color:transparent}
+	a:link  {color:#00ff00; background-color:transparent}
+	a:visited {color:#00ff00; background-color:transparent}
+	a:hover   {color:#00ff00; background-color:transparent;}
+	a:active  {color:#00ff00; background-color:transparent}
 .blink_text {
     animation-name: underscore_blink;
     animation-duration: 2s;
@@ -41,10 +41,15 @@
 <body>
 	-jetroid@eleanor:~$ ls -l <br>
 	total 8<br>
-	drwxr--r--  2 jetroid domain users 4096 Mar  03 &nbsp;2014 <a href="FC_Bartos_Flur" style="text-decoration:none;">FC_Bartos_Flur</a><br>
-	drwxr--r--  2 jetroid domain users 4096 Feb  12 &nbsp;2014 <a href="FC_QuaSH" style="text-decoration:none;">FC_QuaSH</a><br>
-	drwxr--r--  2 jetroid domain users 4096 Jul  18 &nbsp;2014 <a href="FC_Grid_Machine" style="text-decoration:none;">FC_Grid_Machine</a><br>
-	drwxr--r--  2 jetroid domain users 4096 Oct  04 11:56 <a href="FC_Flanger" style="text-decoration:none;">FC_Flanger</a><br>
-	-jetroid@eleanor:~$ <span class="blink_text">_</span><br>
+	drwxr--r--  2 jetroid domain users 4096 Mar  03 &nbsp;2014 <a onmouseover="hovered(this);" href="FC_Bartos_Flur" style="text-decoration:none;">FC_Bartos_Flur</a><br>
+	drwxr--r--  2 jetroid domain users 4096 Feb  12 &nbsp;2014 <a onmouseover="hovered(this);" href="FC_QuaSH" style="text-decoration:none;">FC_QuaSH</a><br>
+	drwxr--r--  2 jetroid domain users 4096 Jul  18 &nbsp;2014 <a onmouseover="hovered(this);" href="FC_Grid_Machine" style="text-decoration:none;">FC_Grid_Machine</a><br>
+	drwxr--r--  2 jetroid domain users 4096 Oct  04 11:56 <a onmouseover="hovered(this);" href="FC_Flanger" style="text-decoration:none;">FC_Flanger</a><br>
+	-jetroid@eleanor:~$ <span id="blink_text" class="blink_text">_</span><br>
+	<script type="text/javascript">
+		function hovered(e) {
+		    document.getElementById("blink_text").innerHTML = e.innerHTML;
+		}
+	</script>
 </body>
 </html>
