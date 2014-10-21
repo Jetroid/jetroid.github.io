@@ -23,7 +23,8 @@
 input {
     border: none;
     background: transparent;
-    color:#00B200;text-shadow: 1px 1px 6px #00CC00;font-family:Monospace;top:0; text-align:justify;position:fixed;padding:10px;font-size:20px;
+    color:#00B200;text-shadow: 1px 1px 6px #00CC00;font-family:Monospace;font-size:20px;
+    width:500px;
 }
 @-moz-keyframes underscore_blink {  
     0% { opacity: 1.0; }
@@ -47,28 +48,16 @@ input {
 <body>
 	-jetroid@eleanor:~$ ls -l <br>
 	total 8<br>
-	drwxr--r--  2 jetroid domain users 4096 Mar  03 &nbsp;2014 <a onmouseover="hovered(this);" onmouseout="reset();" href="FC_Bartos_Flur" style="text-decoration:none;">FC_Bartos_Flur</a><br>
-	drwxr--r--  2 jetroid domain users 4096 Feb  12 &nbsp;2014 <a onmouseover="hovered(this);" onmouseout="reset();" href="FC_QuaSH" style="text-decoration:none;">FC_QuaSH</a><br>
-	drwxr--r--  2 jetroid domain users 4096 Jul  18 &nbsp;2014 <a onmouseover="hovered(this);" onmouseout="reset();" href="FC_Grid_Machine" style="text-decoration:none;">FC_Grid_Machine</a><br>
-	drwxr--r--  2 jetroid domain users 4096 Oct  04 11:56 <a onmouseover="hovered(this);" onmouseout="reset();" href="FC_Flanger" style="text-decoration:none;">FC_Flanger</a><br>
-	-jetroid@eleanor:~$ <a onmouseover="hoveredUnderscore(this);" onmouseout="reset();"> <span id="blink_text" class="blink_text"><input type="text" name="input" value="_"></span></a><br>
+	drwxr--r--  2 jetroid domain users 4096 Mar  03 &nbsp;2014 <a onmouseover="hovered(this);" href="FC_Bartos_Flur" style="text-decoration:none;">FC_Bartos_Flur</a><br>
+	drwxr--r--  2 jetroid domain users 4096 Feb  12 &nbsp;2014 <a onmouseover="hovered(this);" href="FC_QuaSH" style="text-decoration:none;">FC_QuaSH</a><br>
+	drwxr--r--  2 jetroid domain users 4096 Jul  18 &nbsp;2014 <a onmouseover="hovered(this);" href="FC_Grid_Machine" style="text-decoration:none;">FC_Grid_Machine</a><br>
+	drwxr--r--  2 jetroid domain users 4096 Oct  04 11:56 <a onmouseover="hovered(this);" href="FC_Flanger" style="text-decoration:none;">FC_Flanger</a><br>
+	-jetroid@eleanor:~$ <span id="blink_text" class="blink_text"><input type="text" id="textEntry" value="Lockyer, you can type here now."></span><br>
+
 	<script type="text/javascript">
 		function hovered(e) {
-		    document.getElementById("blink_text").innerHTML = "cd " + e.innerHTML;
-		}
-		function hoveredUnderscore(e) {
-		    document.getElementById("blink_text").innerHTML = "&emsp;&emsp;Click one of the BLUE hyperlinks, above!";
-			document.getElementById("blink_text").style.fontSize = "12px";
-			document.getElementById("blink_text").style.color = "#333333";
-			document.getElementById("blink_text").className = "message";
-		}
-		
-		function reset() {
-		    document.getElementById("blink_text").innerHTML = "_";
-			document.getElementById("blink_text").style.fontSize = "20px";
-			document.getElementById("blink_text").style.color = "#00B200";
-			document.getElementById("blink_text").className = "blink_text";
-		}
+		    document.getElementById("textEntry").value = "cd " + e.innerHTML;
+		}		
 	</script>
 </body>
 </html>
