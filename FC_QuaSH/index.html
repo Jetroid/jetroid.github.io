@@ -1,12 +1,53 @@
+<!DOCTYPE html>
+<html>
 <head>
+	<title>cat Bartos_Flur.txt</title>
 <style>
-body{background:#000;color:#00ff00;text-shadow: 0 0 50px #4FC264;font-family:Monospace;}
-footer{top:0; width:100%;text-align:left;position:fixed;padding:10px;font-size:48px;}
-</style>
+	body{background:#000;color:#00ff00;text-shadow: 1px 1px 6px #4FC264;font-family:Monospace;text-align:justify;padding:10px;font-size:20px;}
+	a:link  {color:#00ff00; background-color:transparent}
+	a:visited {color:#00ff00; background-color:transparent}
+	a:hover   {color:#00ff00; background-color:transparent}
+	a:active  {color:#00ff00; background-color:transparent}
+</style> 
+
+<style type="text/css">
+.blink_text {
+    animation-name: underscore_blink;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    -webkit-animation-name: underscore_blink;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+}
+@-moz-keyframes underscore_blink {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes underscore_blink {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes underscore_blink {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+ </style>
 </head>
 <body>
-<footer>
-Hello World!
-</footer>
+	-jetroid@eleanor:~$ cd FC_QuaSH<br>
+	-jetroid@eleanor:~$ cat QuaSH.txt<br>
+QuaSH - Quantised Sample and Hold.<p> 
+  &nbsp;Originally developed to add more subsystems to my A Level Electronics Project, the first iteration was designed to co-exist with the Bartos Flur. As such, I used the Analogue inputs to scan each of the 8 inputs corresponding to the Bartos Flur outputs and decide which, if any, was high. (It made more sense to read the analogue inputs several times rather than waste components on a mixer.)<p>
+  &nbsp;I realised pretty early on that I had a problem; To Quantise, you want to have a total of 60 levels. As a PIC is binary, it is nicest to have 64 levels on 6 bits; hence, the upper 4 levels would be unused. 
+	-jetroid@eleanor:~$ <a href="http://www.jetroid.me/" style="text-decoration:none;"><span class="blink_text">cd ..</span></a><br>
 </body>
+
 </html>
