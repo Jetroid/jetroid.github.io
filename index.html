@@ -58,12 +58,13 @@ input {
 		function hovered(e) {
 		    document.getElementById("textEntry").value = "cd " + e.innerHTML;
 		}
-        function enterPressed(){
-            document.getElementById("textEntry").addEventListener('keypress', function (e) {
+        
+        document.getElementById("textEntry").addEventListener('keypress', function (e) {
             var key = e.which || e.keyCode;
             if (key == 13) { // 13 is enter
                 var text = document.getElementById("textEntry").value.split("cd ")[1];
                 window.location="/"+text;
+            }
         }
     }
 	</script>
