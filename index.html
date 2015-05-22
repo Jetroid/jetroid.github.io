@@ -54,21 +54,22 @@ input {
 	drwxr--r--  2 jetroid domain users 4096 Oct  04 11:56 <a onmouseover="hovered(this);" href="FC_Flanger" style="text-decoration:none;">FC_Flanger</a><br>
 	-jetroid@eleanor:~$ <span id="blink_text" class="blink_text"><input type="text" id="textEntry" value="" autofocus></span><br>
 
+    <script src="/jquery-2.1.4.js"></script>
 	<script type="text/javascript">
 		function hovered(e) {
 		    document.getElementById("textEntry").value = "cd " + e.innerHTML;
 		}
 
-        document.getElementById(document).ready(function() {
-            document.getElementById("#textEntry").focus().bind('blur', function() {
-                document.getElementById(this).focus();            
+        $(function() {
+            $("#textEntry").focus().bind('blur', function() {
+                $(this).focus();            
             }); 
     
             //disable tabindex on elements
-            document.getElementById("input").attr("tabindex", "-1");
+            $("input").attr("tabindex", "-1");
 
-            document.getElementById("html").click(function() {
-                document.getElementById("textEntry").val(document.getElementById("textEntry").val()).focus();
+            $("html").click(function() {
+                $("textEntry").val($("textEntry").val()).focus();
             });        
         });
         
