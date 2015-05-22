@@ -45,54 +45,22 @@
 	-jetroid@eleanor:~$ cd FC_Bartos_Flur<br>
 	-jetroid@eleanor:~$ cat Bartos_Flur.txt<br>
 The Bartos Flur - Voltage-Window Triggerer.<p> 
-  &nbsp;The Bartos Flur was an interesting project. Originally developed by Frequency Central using discrete electronics (Comparators, Op-Amp buffers, etc), the Bartos Flur outputs a trigger (short 
 
-pulse) whenever one of 8 even voltage windows across 0-5V is entered, on an output corresponding the band entered. In the original design, it was found that there was a critical issue when 
+  &nbsp;The Bartos Flur was an interesting project. Originally developed by Frequency Central in summer 2013 using discrete electronics (Comparators, etc), the Bartos Flur outputs a trigger (short pulse) whenever the voltage rises or falls into one of 8 bands across 0-5V. In the original design, it was found that there was a critical issue when processing squarewaves, which Frequency Central was having trouble solving. I was able to come up with an electronics-based solution to this problem using AND logic and delay, but this caused the circuit to grow in size to the extent that it was no longer feasible as a product. A new solution was needed. <p>
 
-processing squarewaves, which Frequency Central was having trouble solving. I was able to come up with an electronics-based solution to this problem using AND logic and delay, but this 
+  &nbsp;Given that I had to find a project to do for my A Level Electronics coursework, we decided that it could be a fulfilling, ambitious project to try and condense the entire circuit onto a single PIC. Unfortunately, upon analysis of the requirements of the coursework, we initially assessed the Bartos Flur to not have enough 'Sub-systems' (the coursework requires you to design 5), and so an extra part had to be developed to fit within the project spec. This extra feature was another PIC connected to 8 attenuating variable resistors. This second PIC sampled the value from the attenuators and quantised it to a semitone. This PIC eventually became known as the QuaSH, and will be used in future Frequency Central modules, including the upcoming 'Hutter Schneider' addon to the Bartos Flur which it was first designed for.<p>
 
-caused the circuit to grow in size to the extent that it was no longer feasible as a product. A new solution was needed. <p>
-  &nbsp;Given that I had to find a project to do for my A Level Electronics coursework, we decided that it could be a fulfilling project to try and condense the entire circuit onto a single PIC. 
+  &nbsp;It was a great challenge and it really let me get my feet wet with PICs. I had used them briefly in the Electronics project for the previous year, but nothing more than flashing LEDs on and off in a pre-defined sequence after the user presses a button a few times. No real branching, nothing special. Hence, this project was like jumping in at the deep end! I had to learn how to get analogue inputs (which I eventually found out I didn't have working 100% correctly until three weeks before the deadline! More on that later.), I had to learn how to output analogue values (for the QuaSH) and I also, crucially, had to learn how to use branching.<p>
+  
+  &nbsp;My initial attempt was funny. I was reading from the wrong end of the byte, so there were 32 or so voltage windows rather than the desired eight. I was able to fix this easily, and the majority of the project 'worked', all within a few days. Unfortunately, it was not bug free. Due to noise and such, when the voltage was at the borderline between two windows, both corresponding outputs would flicker rapidly on and off. This was not suitable. I attempted to solve this glitch in a variety of ways. My first attempt was using Hysteresis, which didn't go too well, and unfortunately I wasted a lot of time trying to get it to work. Later, I remembered the AND logic and delay solution I had used to fix the problem on the analogue Bartos Flur, and devised a very similar solution in the code for the digital version.<p>
+  
+  &nbsp;Next I had to develop a solution for the Clock problem. The Bartos Flur essentially had three states for the clock - connected on; connected off; and unconnected. Obviously, if you read the input directly, there is no difference between a 0V clock-off reading and a unconnected clock. Fortunately, the sockets used by Frequency Central come with a 'switched lug', which allows you to make the socket output something different if the clock is not connected. Unfortunately, this meant that I could no longer use binary inputs for the clock and had to resort to using a much slower analogue reading. <p>
+  
+  &nbsp;Now that I was using two separate Analogue channels in my PIC, I encountered the second problem which I struggled with for a while. The Datasheet for my PIC tells you that you must wait a certain amount of time between selecting a different channel and reading the new channel ('acquisition delay'), else you will get incorrect readings. I didn't see this and so I was very confused as to why my Clock (which I read first) seemed to read properly, yet subsequent reads did not. Fortunately, three weeks before the deadline for my project to be handed in I figured out where I had gone wrong and was able to fix the issue.<p>
 
-Unfortunately, upon analysis of the requirements of the project, we initially assessed the Bartos Flur to not have enough 'Sub-systems' (The project required 5.), and so an extra part had to 
-
-be developed to fit within the project spec. This extra feature was another PIC connected to 8 attenuating variable resistors. This second PIC sampled the value from the attenuators and 
-
-quantised it to a semitone. This eventually became known as the QuaSH, and will be used in future Frequency Central modules.<p>
-  &nbsp;It was a great challenge and it really let me get my feet wet with PICs. I had used them briefly in the Electronics project for the previous year, but nothing more than flashing LEDs on and 
-
-off in a pre-defined sequence after the user presses a button a few times. No branching, nothing special. Hence, this project was like jumping in at the deep end. I had to learn how to get 
-
-analogue inputs (which I eventually found out I didn't have working 100% correctly until three weeks before the deadline! (More on that later.)), I had to learn how to output analogue values 
-
-(for the QuaSH) and I also, crucially, had to learn how to use branching.<p>
-  &nbsp;My initial attempt was funny. I was reading from the wrong end of the byte, so there were 32 or so voltage windows rather than the desired eight. I was able to fix this easily, and the 
-
-majority of the project 'worked', all within a few days. Unfortunately, it was not bug free. Due to noise and such, when the voltage was at the borderline between two windows, both 
-
-corresponding outputs would flicker rapidly on and off. This was not suitable. I attempted to solve this glitch in a variety of ways. My first attempt was using Hysteresis, which didn't go too 
-
-well, and unfortunately I wasted a month trying to get it to work. Later, I remembered the AND logic and delay solution I had used to fix the problem on the analogue Bartos Flur, and devised 
-
-a very similar solution in the code for the digital version.<p>
-  &nbsp;Next I had to develop a solution for the Clock problem. The Bartos Flur had different functionality based on whether a clock was connected or not. Obviously, if you read the input directly, 
-
-there is no difference between a 0V clock-off reading and a unconnected clock. Fortunately, the sockets used by Frequency Central come with a 'switched lug', which allows you to make 
-
-the socket output something different if the clock is not connected. Unfortunately, this meant that I could no longer use binary inputs for the clock and had to resort to using a much slower 
-
-Analogue reading. <p>
-  &nbsp;Now that I was using two separate Analogue channels in my PIC, I encountered the second problem which I struggled with for a while. The Datasheet for my PIC tells you that you must wait 
-
-a certain amount of time between selecting a different channel and reading the new channel, else you will get very bad readings. I didn't see this and so I was very confused as to why my 
-
-Clock (which I read first) seemed to read properly, yet the Control Voltage read did not. Fortunately, three weeks before the deadline for my project to be handed in I figured out where I had 
-
-gone wrong and was able to fix the issue.<p>
-  &nbsp;The completed project worked just as well (if not better, having 'Gate' (long pulse) functionality) as the original analogue circuit, and Frequency Central was very pleased with it. There are 
-
-several improvements I want to make to the code before it goes into production, but otherwise the Bartos Flur is complete.<p>
-	-jetroid@eleanor:~$ <a href="http://www.jetroid.me/" style="text-decoration:none;"><span class="blink_text">cd ..</span></a><br>
+  &nbsp;The completed project worked just as well (if not better, having 'Gate' (long pulse) functionality) as the original analogue circuit, and Frequency Central was very pleased with it. I completely rewrote the code to be much more efficient in spring 2015 using the knowledge I had gained since. The Bartos Flur was released on 9th March 2015.<p>
+	
+  -jetroid@eleanor:~$ <a href="http://www.jetroid.me/" style="text-decoration:none;"><span class="blink_text">cd ..</span></a><br>
 </body>
 
 </html>
