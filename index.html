@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html onmousemove="focus()" onkeypress="focus()">
+<html onmousemove="focusFunction()" onkeypress="focusFunction()" onclick="focusFunction()">
 <title>ls -l</title>
 <head>
 <style type="text/css">
@@ -59,8 +59,7 @@ input {
 		    document.getElementById("textEntry").value = "cd " + e.innerHTML;
 		}
 
-        function focus(){
-            console.log("focus");
+        function focusFunction(){
             document.getElementById("textEntry").focus();
         }
 
