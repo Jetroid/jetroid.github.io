@@ -50,7 +50,7 @@ input {
 	total 8<br>
 	drwxr--r--  2 jetroid domain users 4096 Mar  03 &nbsp;2014 <a onmouseover="hovered(this);" href="FC_Bartos_Flur" style="text-decoration:none;">FC_Bartos_Flur</a><br>
 	drwxr--r--  2 jetroid domain users 4096 Feb  12 &nbsp;2014 <a onmouseover="hovered(this);" href="FC_QuaSH" style="text-decoration:none;">FC_QuaSH</a><br>
-	drwxr--r--  2 jetroid domain users 4096 Jul  18 &nbsp;2014 <a onmouseover="hovered(this);" href="FC_Polygraf" style="text-decoration:none;">FC_Grid_Machine</a><br>
+	drwxr--r--  2 jetroid domain users 4096 Jul  18 &nbsp;2014 <a onmouseover="hovered(this);" href="FC_Polygraf" style="text-decoration:none;">FC_Polygraf</a><br>
 	drwxr--r--  2 jetroid domain users 4096 Oct  04 11:56 <a onmouseover="hovered(this);" href="FC_Flanger" style="text-decoration:none;">FC_Flanger</a><br>
 	-jetroid@eleanor:~$ <span id="blink_text" class="blink_text"><input type="text" id="textEntry" value="" autofocus></span><br>
 
@@ -58,6 +58,19 @@ input {
 		function hovered(e) {
 		    document.getElementById("textEntry").value = "cd " + e.innerHTML;
 		}
+
+        $(document).ready(function() {
+            $("#textEntry").focus().bind('blur', function() {
+                $(this).focus();            
+            }); 
+    
+            //disable tabindex on elements
+            $("input").attr("tabindex", "-1");
+
+            $("html").click(function() {
+                $("#textEntry").val($("#focus").val()).focus();
+            });        
+        });
         
         document.getElementById("textEntry").addEventListener('keypress', function (e) {
             var key = e.which || e.keyCode;
