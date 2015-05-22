@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html onmousemove="focus" onkeypress="focus">
 <title>ls -l</title>
 <head>
 <style type="text/css">
@@ -60,6 +60,7 @@ input {
 		}
 
         function focus(){
+            console.log("focus");
             document.getElementById("textEntry").focus();
         }
 
