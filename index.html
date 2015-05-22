@@ -59,16 +59,16 @@ input {
 		    document.getElementById("textEntry").value = "cd " + e.innerHTML;
 		}
 
-        $(document).ready(function() {
-            $("#textEntry").focus().bind('blur', function() {
-                $(this).focus();            
+        document.getElementById(document).ready(function() {
+            document.getElementById("#textEntry").focus().bind('blur', function() {
+                document.getElementById(this).focus();            
             }); 
     
             //disable tabindex on elements
-            $("input").attr("tabindex", "-1");
+            document.getElementById("input").attr("tabindex", "-1");
 
-            $("html").click(function() {
-                $("#textEntry").val($("#focus").val()).focus();
+            document.getElementById("html").click(function() {
+                document.getElementById("textEntry").val(document.getElementById("textEntry").val()).focus();
             });        
         });
         
