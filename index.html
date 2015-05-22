@@ -59,15 +59,26 @@ input {
 		    document.getElementById("textEntry").value = "cd " + e.innerHTML;
 		}
 
+        //Function to ensure the text-entry-box remains in focus.
         function focusFunction(){
             document.getElementById("textEntry").focus();
+        }
+
+        //Function to check if two strings start the same way.
+        if (typeof String.prototype.startsWith != 'function') {
+            String.prototype.startsWith = function (str){
+                return this.slice(0, str.length) == str;
+            };
         }
 
         document.getElementById("textEntry").addEventListener('keypress', function (e) {
             var key = e.which || e.keyCode;
             if (key == 13) { // 13 is enter
-                var text = document.getElementById("textEntry").value.split("cd ")[1];
-                window.location="/"+text;
+                //Get the value of the text
+                var text = document.getElementById("textEntry").value;
+                if(text.startsWith("cd")){
+                    window.location="/"+text;
+                }                
             }
         });
 	</script>
