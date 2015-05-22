@@ -45,7 +45,7 @@ input {
 }
  </style>	
 </head>
-<body>
+<body onmousemove="focus" onkeypress="focus">
 	-jetroid@eleanor:~$ ls -l <br>
 	total 8<br>
 	drwxr--r--  2 jetroid domain users 4096 Mar  03 &nbsp;2014 <a onmouseover="hovered(this);" href="FC_Bartos_Flur" style="text-decoration:none;">FC_Bartos_Flur</a><br>
@@ -54,25 +54,15 @@ input {
 	drwxr--r--  2 jetroid domain users 4096 Oct  04 11:56 <a onmouseover="hovered(this);" href="FC_Flanger" style="text-decoration:none;">FC_Flanger</a><br>
 	-jetroid@eleanor:~$ <span id="blink_text" class="blink_text"><input type="text" id="textEntry" value="" autofocus></span><br>
 
-    <script src="/jquery-2.1.4.js"></script>
 	<script type="text/javascript">
 		function hovered(e) {
 		    document.getElementById("textEntry").value = "cd " + e.innerHTML;
 		}
 
-        $(function() {
-            $("#textEntry").focus().bind('blur', function() {
-                $(this).focus();            
-            }); 
-    
-            //disable tabindex on elements
-            $("input").attr("tabindex", "-1");
+        function focus(){
+            document.getElementById("textEntry").focus();
+        }
 
-            $("html").click(function() {
-                $("textEntry").val($("textEntry").val()).focus();
-            });        
-        });
-        
         document.getElementById("textEntry").addEventListener('keypress', function (e) {
             var key = e.which || e.keyCode;
             if (key == 13) { // 13 is enter
