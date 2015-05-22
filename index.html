@@ -77,7 +77,7 @@ input {
                 //Get the value of the text
                 var text = document.getElementById("textEntry").value;
                 if(text.startsWith("cd")){
-                    window.location="/"+text;
+                    window.location="/"+text.split("cd ")[1];
                 }                
             }
         });
