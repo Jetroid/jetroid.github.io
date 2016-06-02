@@ -32,20 +32,56 @@ var generateRandomInt = function(lower, upper){
 	return Math.floor(Math.random() * (upper+lower))+lower;
 }
 
+var addBreakIfNeeded = function(string, count){
+	if(count != 0 && count % 12 == 0){
+		string += "<BR/>";
+	}
+	return string;
+}
+
+var addWord = function(string, word, count){
+	//Add each letter of the word we have selected to the column
+	string += "<span>";
+	for(i = 0; i < word.length; i++){
+		string = addBreakIfNeeded(string, count);
+		string += word.charAt(i);
+		count++;
+	}
+	string += "</span>";
+	return [count, string];
+}
+
 var generateSymbolColumn = function() {
-	var symbols = ["!","\"","£","$","%","^","&","*","(",")",
+	var symbols = ["!","\"","`","$","%","^","&","*","(",")",
 			"-","_","+","=","{","[","}","]",":",";",
 			"@","\'","~","#","<",">",",",".","?","/",
-			"|","\\","`"]
+			"|","\\"]
 	var string = "";
+	var wordslength = 5;
+	var array = five.slice(0); //Copy the array
 	var count = 0;
-	do{
-		for(i = 0; i < 12; i++){
-			string += symbols[generateRandomInt(0,symbols.length)];
-		}
-		string += "<BR/>";
+	var numsymbols = 0;
+	while (count < 17*12) {
+		string += "<span>" + symbols[generateRandomInt(0,symbols.length)] + "</span>";
 		count++;
-	} while (count < 17);
+		numsymbols++;
+		if((count + wordslength < 17*12) 
+			&& (numsymbols > 0)
+			&& (numsymbols == 45 || (generateRandomInt(0,17) > 15))){
+			//Select a random word
+			var wordpos = generateRandomInt(0,array.length);
+			var word = array[wordpos];
+			//Remove the element from the array
+			array.splice(wordpos, 1);
+	
+			var returned = addWord(string, word, count);
+			string = returned[1];
+			count = returned[0];
+			numsymbols = 0;
+			
+		}
+		string = addBreakIfNeeded(string, count);
+	} 
 	return string;
 }
 
