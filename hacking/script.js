@@ -15,9 +15,10 @@ var convertToHex = function(d){
 	return "0x" + hex;
 }
 
-var generateColumn = function(value) {
-	var count = 0;
+var generatePointerColumn = function(value) {
 	var string = "";
+	
+	var count = 0;
 	do{
 		string += convertToHex(value) + "<BR/>";
 		value += 12;
@@ -26,15 +27,36 @@ var generateColumn = function(value) {
 	return string;
 }
 
-var value = getStartingValue();
-var column1 = generateColumn(value);
-var column2 = generateColumn(value+204);
-document.getElementById("leftpointers").innerHTML = column1;
-document.getElementById("rightpointers").innerHTML = column2;
-
-// Check for the various File API support.
-if (window.File && window.FileReader && window.FileList && window.Blob) {
-  // Great success! All the File APIs are supported.
-} else {
-  alert('The File APIs are not fully supported in this browser.');
+//Generate an Int between lower (inclusive) and upper (exclusive)
+var generateRandomInt = function(lower, upper){
+	return Math.floor(Math.random() * (upper+lower))+lower;
 }
+
+var generateSymbolColumn = function() {
+	var symbols = ["!","\"","£","$","%","^","&","*","(",")",
+			"-","_","+","=","{","[","}","]",":",";",
+			"@","\'","~","#","<",">",",",".","?","/",
+			"|","\\","`"]
+	var string = "";
+	var count = 0;
+	do{
+		for(i = 0; i < 12; i++){
+			string += symbols[generateRandomInt(0,symbols.length)];
+		}
+		string += "<BR/>";
+		count++;
+	} while (count < 17);
+	return string;
+}
+
+var value = getStartingValue();
+var pcolumn = generatePointerColumn(value);
+document.getElementById("leftpointers").innerHTML = pcolumn;
+var pcolumn = generatePointerColumn(value+204);
+document.getElementById("rightpointers").innerHTML = pcolumn;
+
+//We should have the array 'five' loaded in, which contains every 5 lettered english word.
+var column = generateSymbolColumn();
+document.getElementById("leftsymbols").innerHTML = column;
+var column = generateSymbolColumn();
+document.getElementById("rightsymbols").innerHTML = column;
