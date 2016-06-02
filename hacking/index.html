@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-16">
+		<meta charset="UTF-16"> <!-- Allows us to have special characters !-->
 		<link type="text/css" rel="stylesheet" href="stylesheet.css" />
 		<title>RobCo Terminal</title>
 	</head>
@@ -12,5 +12,13 @@
 			<p><br></p>
 			<p>2 Attempt(s) Left: ██ ██</p>
 		</div>
+		</div id="rest">
+			<div class="pointers content"><p id="leftpointers">0xFFFF</p></div>
+			<div class="symbols content"><p id="leftsymbols">?!@-'@'"#'([</p></div>
+			<div class="pointers content"><p id="rightpointers">0xFFFF</p></div>
+			<div class="symbols content"><p id="rightsymbols"></p></div>
+			<div class="results content"><p id="resultsblock"></p></div>
+		</div>
+		<script src="script.js"></script>
 	</body>
 </html>
