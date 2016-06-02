@@ -14,7 +14,7 @@ p {
 	color: #15763E;
 	background: transparent;
 	text-shadow: 0em 0em 0.5em #23824C;
-	font-family: Lucida Console, Lucida Sans Typewriter, monaco, Bitstream Vera Sans Mono, monospace;
+	font-family: monospace;
 	font-weight: bold;
 	font-size: 1.5em;
 }
