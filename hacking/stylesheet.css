@@ -19,19 +19,20 @@ p {
 	font-size: 1.5em;
 }
 #header {
-	padding: 1em 0 0 1em;
+	padding: 2em 0 0 3em;
 }
 .content {
-	padding: 2em 0 0 1em;
+	padding: 2em 0 0 3em;
 	height: 100%;
 	vertical-align:top;
 	display: inline-block;
 }
 .pointers {
-	width: 13em;	
+	width: 6em;	
 }
 .symbols {
-	width: 20em;
+	width: 18em;
+	letter-spacing: 0.6em;
 }
 .results {
 	width: 18em;
