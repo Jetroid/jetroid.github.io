@@ -16,29 +16,30 @@ p {
 	text-shadow: 0em 0em 0.5em #23824C;
 	font-family: monospace;
 	font-weight: bold;
-	font-size: 1.5em;
+	font-size: 3.7ch;
 }
 span:hover {
 	color: #062414;
 	text-shadow: 0em 0em 1em #23824C;
 	background: #15763E;
 }
-#header {
-	padding: 2em 0 0 3em;
+#header{
+	padding: 2em 0 0 3.7%;
 }
 .content {
-	padding: 2em 0 0 3em;
+	padding: 2em 0 0 3.7%;
 	height: 100%;
 	vertical-align:top;
 	display: inline-block;
+	/*background: orange;*/
 }
 .pointers {
-	width: 6em;	
+	width: 8%;	
 }
 .symbols {
-	width: 18em;
+	width: 22%;
 	letter-spacing: 0.6em;
 }
 .results {
-	width: 18em;
+	width: 20%;
 }

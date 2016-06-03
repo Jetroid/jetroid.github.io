@@ -85,6 +85,19 @@ var generateSymbolColumn = function() {
 	return string;
 }
 
+
+
+
+//
+//PLEASE NOTE: WE DO NOT RETURN THE ARRAY. WE MAY ENCOUNTER REPEATED WORDS IN BOTH LISTS
+//
+//
+
+
+
+
+
+
 var value = getStartingValue();
 var pcolumn = generatePointerColumn(value);
 document.getElementById("leftpointers").innerHTML = pcolumn;
