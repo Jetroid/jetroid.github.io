@@ -44,11 +44,21 @@ var addWord = function(string, word, count){
 	string += "<span>";
 	for(i = 0; i < word.length; i++){
 		string = addBreakIfNeeded(string, count);
-		string += word.charAt(i);
+		string += word.charAt(i)
 		count++;
+		if(i+1 == word.length){
+			string += "</span>";	
+		}
+		string += " ";
 	}
-	string += "</span>";
 	return [count, string];
+}
+
+var highlightBrackets = function(string, left, right) {
+	var symbolregex = "[ |`!\"$%^&*()_\\-+={}\\[\\]:;@'~#<>,.?/]*"
+	var re = new RegExp("(\\" + left + symbolregex + "\\" + right + ")", "g");
+	console.log(re);
+	return string.replace(re, function(v) { console.log(v); return "<span>" + v + "</span>"; });
 }
 
 var generateSymbolColumn = function() {
@@ -62,12 +72,13 @@ var generateSymbolColumn = function() {
 	var count = 0;
 	var numsymbols = 0;
 	while (count < 17*12) {
-		string += "<span>" + symbols[generateRandomInt(0,symbols.length)] + "</span>";
+		string += symbols[generateRandomInt(0,symbols.length)] + " ";
 		count++;
 		numsymbols++;
 		if((count + wordslength < 17*12) 
-			&& (numsymbols > 0)
+			&& (numsymbols > 1)
 			&& (numsymbols == 45 || (generateRandomInt(0,17) > 15))){
+			
 			//Select a random word
 			var wordpos = generateRandomInt(0,array.length);
 			var word = array[wordpos];
@@ -81,12 +92,16 @@ var generateSymbolColumn = function() {
 			
 		}
 		string = addBreakIfNeeded(string, count);
-	} 
+	}
+	string = highlightBrackets(string, "[", "]");
+	string = highlightBrackets(string, "(", ")");
+	string = highlightBrackets(string, "{", "}");
+	string = highlightBrackets(string, "<", ">");
+	var re = new RegExp(" ([\\\\|`!\"$%^&*()_\\-+={}\\[\\]:;@'~#<>,.?/]) ", "g");
+	string = string.replace(re, function(v) { console.log(v); return " <span>" + v.trim() + "</span> "; });
+	string = string.replace(re, function(v) { console.log(v); return " <span>" + v.trim() + "</span> "; });
 	return string;
 }
-
-
-
 
 //
 //PLEASE NOTE: WE DO NOT RETURN THE ARRAY. WE MAY ENCOUNTER REPEATED WORDS IN BOTH LISTS
