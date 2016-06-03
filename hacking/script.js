@@ -57,8 +57,7 @@ var addWord = function(string, word, count){
 var highlightBrackets = function(string, left, right) {
 	var symbolregex = "[ |`!\"$%^&*()_\\-+={}\\[\\]:;@'~#<>,.?/]*"
 	var re = new RegExp("(\\" + left + symbolregex + "\\" + right + ")", "g");
-	console.log(re);
-	return string.replace(re, function(v) { console.log(v); return "<span>" + v + "</span>"; });
+	return string.replace(re, function(v) { return "<span>" + v + "</span>"; });
 }
 
 var generateSymbolColumn = function() {
@@ -98,8 +97,8 @@ var generateSymbolColumn = function() {
 	string = highlightBrackets(string, "{", "}");
 	string = highlightBrackets(string, "<", ">");
 	var re = new RegExp(" ([\\\\|`!\"$%^&*()_\\-+={}\\[\\]:;@'~#<>,.?/]) ", "g");
-	string = string.replace(re, function(v) { console.log(v); return " <span>" + v.trim() + "</span> "; });
-	string = string.replace(re, function(v) { console.log(v); return " <span>" + v.trim() + "</span> "; });
+	string = string.replace(re, function(v) { return " <span>" + v.trim() + "</span> "; });
+	string = string.replace(re, function(v) { return " <span>" + v.trim() + "</span> "; });
 	return string;
 }
 
@@ -107,11 +106,6 @@ var generateSymbolColumn = function() {
 //PLEASE NOTE: WE DO NOT RETURN THE ARRAY. WE MAY ENCOUNTER REPEATED WORDS IN BOTH LISTS
 //
 //
-
-
-
-
-
 
 var value = getStartingValue();
 var pcolumn = generatePointerColumn(value);
