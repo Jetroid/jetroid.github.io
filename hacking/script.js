@@ -41,23 +41,17 @@ var addBreakIfNeeded = function(string, count){
 
 var addWord = function(string, word, count){
 	//Add each letter of the word we have selected to the column
-	string += "<span>";
+	string += "<span class='word'>";
 	for(i = 0; i < word.length; i++){
 		string = addBreakIfNeeded(string, count);
 		string += word.charAt(i)
 		count++;
+		string += " ";
 		if(i+1 == word.length){
 			string += "</span>";	
 		}
-		string += " ";
 	}
 	return [count, string];
-}
-
-var highlightBrackets = function(string, left, right) {
-	var symbolregex = "[ |`!\"$%^&*()_\\-+={}\\[\\]:;@'~#<>,.?/]*"
-	var re = new RegExp("(\\" + left + symbolregex + "\\" + right + ")", "g");
-	return string.replace(re, function(v) { return "<span>" + v + "</span>"; });
 }
 
 var generateSymbolColumn = function() {
@@ -71,9 +65,12 @@ var generateSymbolColumn = function() {
 	var count = 0;
 	var numsymbols = 0;
 	while (count < 17*12) {
-		string += symbols[generateRandomInt(0,symbols.length)] + " ";
+		string += "<span class='symbol' onmouseover=\"hoversym(this)\" >" 
+		+ symbols[generateRandomInt(0,symbols.length)] + " </span>";
 		count++;
 		numsymbols++;
+		
+		//Choose to add a word
 		if((count + wordslength < 17*12) 
 			&& (numsymbols > 1)
 			&& (numsymbols == 45 || (generateRandomInt(0,17) > 15))){
@@ -92,14 +89,95 @@ var generateSymbolColumn = function() {
 		}
 		string = addBreakIfNeeded(string, count);
 	}
-	string = highlightBrackets(string, "[", "]");
-	string = highlightBrackets(string, "(", ")");
-	string = highlightBrackets(string, "{", "}");
-	string = highlightBrackets(string, "<", ">");
-	var re = new RegExp(" ([\\\\|`!\"$%^&*()_\\-+={}\\[\\]:;@'~#<>,.?/]) ", "g");
-	string = string.replace(re, function(v) { return " <span>" + v.trim() + "</span> "; });
-	string = string.replace(re, function(v) { return " <span>" + v.trim() + "</span> "; });
 	return string;
+}
+
+var detectClosingBracket = function(span){
+	var opening_bracket = span.innerHTML;
+	var object = span;
+	//Get the appropriate closing bracket
+	var closing_bracket = null;
+	switch(opening_bracket) {
+	    case "&lt; ":
+		closing_bracket = "&gt; ";
+		break;
+	    case "{ ":
+		closing_bracket = "} ";
+		break;
+	    case "[ ":
+		closing_bracket = "] ";
+		break;
+	    case "( ":
+		closing_bracket = ") ";
+		break;
+	    default:
+		closing_bracket = null;
+	}
+	//Recursively look at next elements hoping for a closing bracket
+	//If we hit a break or a letter (word), we didn't find one.
+	
+	//An array to hold the elements we looked at
+	var arr = [span];
+	do {
+	    object = object.nextElementSibling;
+	    arr.push(object);
+	    console.log("checking " + object.innerHTML);
+	    if(object.innerHTML == closing_bracket){
+	    	console.log("woo pair found!");
+	    	return arr;
+	    }else if(object.innerHTML.match(/[A-Z]/g)
+	    		|| object.innerHTML == ""){
+	    	console.log("no pair found. :(");
+	    	return false;
+	    }
+	}
+	while (true);
+}
+var spantodelete = null;
+var hovercleanup = function() {
+	if(spantodelete == null){
+		return;
+	}
+	var parent = spantodelete.parentNode;
+	var ugly_children = spantodelete.children;
+	var pretty_children = [];
+	
+	//JavaScript doesn't have a clone feature... -_-
+	//We copy to a new array to avoid changes affecting our array
+	for (var i = 0; i < ugly_children.length; i++) {
+		var child = ugly_children[i];
+		pretty_children.push(child);
+	}
+	
+	//Now we move children of newspan into the parent.
+	for (var i = 0; i < pretty_children.length; i++) {
+		var child = pretty_children[i];
+		spantodelete.removeChild(child);
+		parent.insertBefore(child, spantodelete);
+	}
+	parent.removeChild(spantodelete);
+	spantodelete = null;
+}
+var hoversym = function(span) {
+	hovercleanup();
+	var open_regex = /&lt; |[{\[\(] /g;
+	console.log(span.innerHTML);
+	//If touch an opening bracket
+	if (span.innerHTML.match(open_regex)){
+		console.log("left bracket touched!");
+		var returned = detectClosingBracket(span);
+		var parent = span.parentNode;
+		if(returned){
+			var newspan = document.createElement("SPAN");
+			newspan.className = "bracketpair";
+			parent.insertBefore(newspan, span);
+			for (var i = 0; i < returned.length; i++) {
+				parent.removeChild(returned[i]);
+				newspan.appendChild(returned[i]);
+			}
+			spantodelete = newspan;
+		}
+	}
 }
 
 //
