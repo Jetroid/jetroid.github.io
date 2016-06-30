@@ -1,5 +1,8 @@
 var words = [];
 var goalWord = "";
+var attempts = 4;
+var hadRefresh = false;
+var clickedBrackets = new Set();
 
 var addFeedback = function(feedback){
 	var feedbackContent = document.getElementById("feedback").innerHTML;
@@ -11,24 +14,34 @@ var setEntry = function(span){
 	document.getElementById("entry").innerHTML = "<br>>" + span.innerHTML.replace(/<br>/g,"")
 	+ "<span id=\"blinker\">█<span>";
 }
+var setAttempts = function(){
+	var content = attempts + " Attempt(s) Left:";
+	for (i = 0; i < attempts; i++){
+		content += " ██";
+	} 
+	document.getElementById("attemptsleft").innerHTML = content;
+	if(attempts == 1){
+		document.getElementById("message").innerHTML = "!!! WARNING: LOCKOUT IMMINENT !!!";
+	}
+}
 
 var clicked = function(span){
 	if(span.className == "word"){
 		var dirtyWord = span.innerHTML.replace(/<br>/g,"");
 		var word = dirtyWord.replace(/ /g,"")
+		addFeedback(">" + dirtyWord);
 		if (word.match(/\.+/)){
-			addFeedback(">" + dirtyWord);
 			addFeedback(">Error");
 		}else if (word != goalWord){
 			var correct = 0;
 			for(i = 0; i < 5; i++){
 				if(goalWord.charAt(i) == word.charAt(i)) correct++;
 			}
-			addFeedback(">" + dirtyWord);
 			addFeedback(">Entry Denied");
 			addFeedback(">"+ correct + "/5 correct.");
+			attempts--;
+			setAttempts();
 		}else{
-			addFeedback(">" + word);
 			addFeedback(">Exact match!");
 			addFeedback(">Please wait");
 			addFeedback(">while system");
@@ -39,19 +52,44 @@ var clicked = function(span){
 		addFeedback(">" + symbol);
 		addFeedback(">Error");
 	}else if(span.className == "bracketpair"){
-		//Select the dud word to remove
-		var selectedWord = generateRandomInt(0, words.length);
-		var dudWord = words[selectedWord];
-		words.splice(selectedWord, 1);
+		//Display the selected item
+		//We must go through each child and get it's
+		//content else the <span> tags will preserve
+		var children = span.children;
+		var content = "";
+		for(i = 0; i < children.length; i++){
+			content += children[i].innerHTML;
+		}
+		addFeedback(">" + content);
+	
+		//Make the brackets no longer clickable
+		span.removeAttribute("onclick");
+		var firstChild = span.firstElementChild;
+		firstChild.onclick = function(){clicked(firstChild)};
+		hovercleanup();
 		
-		//Remove the dud word.
-		document.getElementById(dudWord).innerHTML = 
-		document.getElementById(dudWord).innerHTML.replace(/[A-Z]/g,".");
 		
-		//Display the readout
-		var pair = span.innerHTML;
-		addFeedback(">" + pair);
-		addFeedback(">Dud removed.");
+		//Choose between replenishing and removing dud
+		if(!hadRefresh && generateRandomInt(0,10) > 7){
+			//Replenish Tries
+			hadRefresh = true;
+			attempts = 4;
+			setAttempts();
+			addFeedback(">Allowance");
+			addFeedback(">replenished.");
+		}else{
+			//Remove Dud
+		
+			//Select the dud word to remove
+			var selectedWord = generateRandomInt(0, words.length);
+			var dudWord = words[selectedWord];
+			words.splice(selectedWord, 1);
+		
+			//Remove the dud word.
+			document.getElementById(dudWord).innerHTML = 
+			document.getElementById(dudWord).innerHTML.replace(/[A-Z]/g,".");
+			addFeedback(">Dud removed.");
+		}
 	}
 }
 
@@ -121,7 +159,7 @@ var generateSymbolColumn = function() {
 		
 		//Choose to add a word
 		if((count + wordslength < 17*12) 
-			&& (numsymbols > 1)
+			&& (numsymbols > 4)
 			&& (numsymbols == 45 || (generateRandomInt(0,17) > 15))){
 			
 			//Select a random word
@@ -178,7 +216,7 @@ var detectClosingBracket = function(span){
 	    	//Found pair of matched brackets
 	    	//Return array containing the nodes we visited
 	    	return arr;
-	    }else if(object.innerHTML.match(/[A-Z]/g)
+	    }else if(object.className == "word"
 	    		|| object.innerHTML == ""){
 	    	return false;
 	    }
@@ -215,16 +253,15 @@ var hoversym = function(span) {
 	hovercleanup();
 	var open_regex = /&lt; |[{\[\(] /g;
 	//If touch an opening bracket
-	if (span.innerHTML.match(open_regex)){
+	if (span.innerHTML.match(open_regex) && !clickedBrackets.has(span)){
 		var returned = detectClosingBracket(span);
 		var parent = span.parentNode;
 		if(returned){
 			returned[0].removeAttribute("onclick");
+			clickedBrackets.add(span);
 			var newspan = document.createElement("SPAN");
 			newspan.className = "bracketpair";
-			console.log("before");
 			newspan.onclick = function(){clicked(newspan)};
-			console.log("after");
 			parent.insertBefore(newspan, span);
 			for (var i = 0; i < returned.length; i++) {
 				parent.removeChild(returned[i]);
@@ -235,12 +272,6 @@ var hoversym = function(span) {
 		}
 	}
 }
-
-//
-//PLEASE NOTE: WE DO NOT RETURN THE ARRAY. WE MAY ENCOUNTER REPEATED WORDS IN BOTH LISTS
-//
-//
-
 
 //Generate the pointers
 
@@ -265,6 +296,7 @@ words.splice(selectedWord, 1);
 console.log(goalWord);
 
 //Generate the feedback panel
+
 var feedbackPanel = "";
 for(i = 0; i < 15; i++){
 	feedbackPanel += "<br>";
