@@ -4,6 +4,9 @@ var addFeedback = function(feedback){
 	feedbackContent += "> " + feedback + "<br>";
 	document.getElementById("feedback").innerHTML = feedbackContent;
 }
+var setEntry = function(span){
+	document.getElementById("entry").innerHTML = "> " + span.innerHTML.replace(/<br>| /g,"");
+}
 
 var goalWord = "";
 var clicked = function(span){
@@ -42,7 +45,7 @@ var addBreakIfNeeded = function(string, count){
 
 var addWord = function(string, word, count){
 	//Add each letter of the word we have selected to the column
-	string += "<span class='word' onclick=\"clicked(this)\">";
+	string += "<span class='word' onmouseover=\"setEntry(this)\" onclick=\"clicked(this)\">";
 	for(i = 0; i < word.length; i++){
 		string = addBreakIfNeeded(string, count);
 		string += word.charAt(i)
@@ -168,6 +171,7 @@ var hovercleanup = function() {
 	spantodelete = null;
 }
 var hoversym = function(span) {
+	setEntry(span);
 	hovercleanup();
 	var open_regex = /&lt; |[{\[\(] /g;
 	//If touch an opening bracket
@@ -186,6 +190,7 @@ var hoversym = function(span) {
 				parent.removeChild(returned[i]);
 				newspan.appendChild(returned[i]);
 			}
+			setEntry(newspan);
 			spantodelete = newspan;
 		}
 	}

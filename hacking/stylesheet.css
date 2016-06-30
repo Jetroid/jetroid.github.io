@@ -40,10 +40,9 @@ span:hover {
 }
 .results {
 	width: 20%;
-	position: relative
+	position: relative;
 	height: 100%;
 }
 #entry {
-	position: absolute
 	bottom: 0;
 }
