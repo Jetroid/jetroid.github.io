@@ -1,9 +1,14 @@
-//We will have 2 columns, each with 17 rows, each containing 12 characters.
-//We want to generate a hex pointer for each row. Each row is 12d higher than the previous.
-//The maximum row should not exceed 65535 (FFFF). The final row will be 408 higher than the first.
-//Therefore we want to generate a starting value between 0 (inclusive) and 65127 (inclusive)
-var getStartingValue = function(){
-	return Math.floor(Math.random() * 65128);
+var addFeedback = function(feedback){
+	var feedbackContent = document.getElementById("feedback").innerHTML;
+	feedbackContent = feedbackContent.replace(/^.*?<br>/, "");
+	feedbackContent += "> " + feedback + "<br>";
+	document.getElementById("feedback").innerHTML = feedbackContent;
+}
+
+var goalWord = "";
+var clicked = function(){
+	console.log("called");
+	addFeedback(this.innerHTML.replace(/<br>| /g,""));
 }
 
 //Convert to Hex and pad to 4 chars. Prepend with '0x'
@@ -14,7 +19,8 @@ var convertToHex = function(d){
 	}
 	return "0x" + hex;
 }
-
+	
+//Generate the hex pointers on either side of the symbols
 var generatePointerColumn = function(value) {
 	var string = "";
 	
@@ -27,11 +33,6 @@ var generatePointerColumn = function(value) {
 	return string;
 }
 
-//Generate an Int between lower (inclusive) and upper (exclusive)
-var generateRandomInt = function(lower, upper){
-	return Math.floor(Math.random() * (upper+lower))+lower;
-}
-
 var addBreakIfNeeded = function(string, count){
 	if(count != 0 && count % 12 == 0){
 		string += "<BR/>";
@@ -41,7 +42,7 @@ var addBreakIfNeeded = function(string, count){
 
 var addWord = function(string, word, count){
 	//Add each letter of the word we have selected to the column
-	string += "<span class='word'>";
+	string += "<span class='word' onclick=\"clicked;\">";
 	for(i = 0; i < word.length; i++){
 		string = addBreakIfNeeded(string, count);
 		string += word.charAt(i)
@@ -54,6 +55,11 @@ var addWord = function(string, word, count){
 	return [count, string];
 }
 
+//Generate an Int between lower (inclusive) and upper (exclusive)
+var generateRandomInt = function(lower, upper){
+	return Math.floor(Math.random() * (upper+lower))+lower;
+}
+var words = [];
 var generateSymbolColumn = function() {
 	var symbols = ["!","\"","`","$","%","^","&","*","(",")",
 			"-","_","+","=","{","[","}","]",":",";",
@@ -61,11 +67,11 @@ var generateSymbolColumn = function() {
 			"|","\\"]
 	var string = "";
 	var wordslength = 5;
-	var array = five.slice(0); //Copy the array
+	var array = five; //Copy the array
 	var count = 0;
 	var numsymbols = 0;
 	while (count < 17*12) {
-		string += "<span class='symbol' onmouseover=\"hoversym(this)\" >" 
+		string += "<span class='symbol' onmouseover=\"hoversym(this)\" onclick=\"clicked;\">" 
 		+ symbols[generateRandomInt(0,symbols.length)] + " </span>";
 		count++;
 		numsymbols++;
@@ -78,8 +84,12 @@ var generateSymbolColumn = function() {
 			//Select a random word
 			var wordpos = generateRandomInt(0,array.length);
 			var word = array[wordpos];
+			
 			//Remove the element from the array
 			array.splice(wordpos, 1);
+			
+			//Store the word with the other words in a list.
+			words.push(word);
 	
 			var returned = addWord(string, word, count);
 			string = returned[1];
@@ -121,13 +131,12 @@ var detectClosingBracket = function(span){
 	do {
 	    object = object.nextElementSibling;
 	    arr.push(object);
-	    console.log("checking " + object.innerHTML);
 	    if(object.innerHTML == closing_bracket){
-	    	console.log("woo pair found!");
+	    	//Found pair of matched brackets
+	    	//Return array containing the nodes we visited
 	    	return arr;
 	    }else if(object.innerHTML.match(/[A-Z]/g)
 	    		|| object.innerHTML == ""){
-	    	console.log("no pair found. :(");
 	    	return false;
 	    }
 	}
@@ -161,15 +170,17 @@ var hovercleanup = function() {
 var hoversym = function(span) {
 	hovercleanup();
 	var open_regex = /&lt; |[{\[\(] /g;
-	console.log(span.innerHTML);
 	//If touch an opening bracket
 	if (span.innerHTML.match(open_regex)){
-		console.log("left bracket touched!");
 		var returned = detectClosingBracket(span);
 		var parent = span.parentNode;
 		if(returned){
+			//returned[0].removeAttribute("onclick");
 			var newspan = document.createElement("SPAN");
 			newspan.className = "bracketpair";
+			console.log("before");
+			newspan.onclick = clicked;
+			console.log("after");
 			parent.insertBefore(newspan, span);
 			for (var i = 0; i < returned.length; i++) {
 				parent.removeChild(returned[i]);
@@ -185,14 +196,30 @@ var hoversym = function(span) {
 //
 //
 
-var value = getStartingValue();
+
+//Generate the pointers
+
+var value = Math.floor(Math.random() * 65128);
 var pcolumn = generatePointerColumn(value);
 document.getElementById("leftpointers").innerHTML = pcolumn;
 var pcolumn = generatePointerColumn(value+204);
 document.getElementById("rightpointers").innerHTML = pcolumn;
+
+//Generate the symbols 
 
 //We should have the array 'five' loaded in, which contains every 5 lettered english word.
 var column = generateSymbolColumn();
 document.getElementById("leftsymbols").innerHTML = column;
 var column = generateSymbolColumn();
 document.getElementById("rightsymbols").innerHTML = column;
+
+//Select the goal word
+var selectedWord = generateRandomInt(0, words.length);
+goalWord = words[selectedWord];
+
+//Generate the feedback panel
+var feedbackPanel = "";
+for(i = 0; i < 16; i++){
+	feedbackPanel += "<br>";
+}
+document.getElementById("feedback").innerHTML = feedbackPanel;

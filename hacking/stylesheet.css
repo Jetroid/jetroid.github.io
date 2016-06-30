@@ -28,7 +28,6 @@ span:hover {
 }
 .content {
 	padding: 2em 0 0 0;
-	height: 100%;
 	vertical-align:top;
 	display: inline-block;
 }
@@ -41,4 +40,10 @@ span:hover {
 }
 .results {
 	width: 20%;
+	position: relative
+	height: 100%;
+}
+#entry {
+	position: absolute
+	bottom: 0;
 }
