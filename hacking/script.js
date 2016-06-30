@@ -1,17 +1,58 @@
+var words = [];
+var goalWord = "";
+
 var addFeedback = function(feedback){
 	var feedbackContent = document.getElementById("feedback").innerHTML;
 	feedbackContent = feedbackContent.replace(/^.*?<br>/, "");
-	feedbackContent += "> " + feedback + "<br>";
+	feedbackContent += feedback + "<br>";
 	document.getElementById("feedback").innerHTML = feedbackContent;
 }
 var setEntry = function(span){
-	document.getElementById("entry").innerHTML = "> " + span.innerHTML.replace(/<br>| /g,"");
+	document.getElementById("entry").innerHTML = "<br>>" + span.innerHTML.replace(/<br>/g,"")
+	+ "<span id=\"blinker\">█<span>";
 }
 
-var goalWord = "";
 var clicked = function(span){
-	console.log("called");
-	addFeedback(span.innerHTML.replace(/<br>| /g,""));
+	if(span.className == "word"){
+		var dirtyWord = span.innerHTML.replace(/<br>/g,"");
+		var word = dirtyWord.replace(/ /g,"")
+		if (word.match(/\.+/)){
+			addFeedback(">" + dirtyWord);
+			addFeedback(">Error");
+		}else if (word != goalWord){
+			var correct = 0;
+			for(i = 0; i < 5; i++){
+				if(goalWord.charAt(i) == word.charAt(i)) correct++;
+			}
+			addFeedback(">" + dirtyWord);
+			addFeedback(">Entry Denied");
+			addFeedback(">"+ correct + "/5 correct.");
+		}else{
+			addFeedback(">" + word);
+			addFeedback(">Exact match!");
+			addFeedback(">Please wait");
+			addFeedback(">while system");
+			addFeedback(">is accessed.");
+		}
+	}else if(span.className == "symbol"){
+		var symbol = span.innerHTML;
+		addFeedback(">" + symbol);
+		addFeedback(">Error");
+	}else if(span.className == "bracketpair"){
+		//Select the dud word to remove
+		var selectedWord = generateRandomInt(0, words.length);
+		var dudWord = words[selectedWord];
+		words.splice(selectedWord, 1);
+		
+		//Remove the dud word.
+		document.getElementById(dudWord).innerHTML = 
+		document.getElementById(dudWord).innerHTML.replace(/[A-Z]/g,".");
+		
+		//Display the readout
+		var pair = span.innerHTML;
+		addFeedback(">" + pair);
+		addFeedback(">Dud removed.");
+	}
 }
 
 //Convert to Hex and pad to 4 chars. Prepend with '0x'
@@ -45,7 +86,7 @@ var addBreakIfNeeded = function(string, count){
 
 var addWord = function(string, word, count){
 	//Add each letter of the word we have selected to the column
-	string += "<span class='word' onmouseover=\"setEntry(this)\" onclick=\"clicked(this)\">";
+	string += "<span class='word' id=\"" + word + "\" onmouseover=\"setEntry(this)\" onclick=\"clicked(this)\">";
 	for(i = 0; i < word.length; i++){
 		string = addBreakIfNeeded(string, count);
 		string += word.charAt(i)
@@ -62,11 +103,10 @@ var addWord = function(string, word, count){
 var generateRandomInt = function(lower, upper){
 	return Math.floor(Math.random() * (upper+lower))+lower;
 }
-var words = [];
 var generateSymbolColumn = function() {
 	var symbols = ["!","\"","`","$","%","^","&","*","(",")",
 			"-","_","+","=","{","[","}","]",":",";",
-			"@","\'","~","#","<",">",",",".","?","/",
+			"@","\'","~","#","<",">",",","?","/",
 			"|","\\"]
 	var string = "";
 	var wordslength = 5;
@@ -221,10 +261,12 @@ document.getElementById("rightsymbols").innerHTML = column;
 //Select the goal word
 var selectedWord = generateRandomInt(0, words.length);
 goalWord = words[selectedWord];
+words.splice(selectedWord, 1);
+console.log(goalWord);
 
 //Generate the feedback panel
 var feedbackPanel = "";
-for(i = 0; i < 16; i++){
+for(i = 0; i < 15; i++){
 	feedbackPanel += "<br>";
 }
 document.getElementById("feedback").innerHTML = feedbackPanel;
