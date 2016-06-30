@@ -6,9 +6,9 @@ var addFeedback = function(feedback){
 }
 
 var goalWord = "";
-var clicked = function(){
+var clicked = function(span){
 	console.log("called");
-	addFeedback(this.innerHTML.replace(/<br>| /g,""));
+	addFeedback(span.innerHTML.replace(/<br>| /g,""));
 }
 
 //Convert to Hex and pad to 4 chars. Prepend with '0x'
@@ -42,7 +42,7 @@ var addBreakIfNeeded = function(string, count){
 
 var addWord = function(string, word, count){
 	//Add each letter of the word we have selected to the column
-	string += "<span class='word' onclick=\"clicked;\">";
+	string += "<span class='word' onclick=\"clicked(this)\">";
 	for(i = 0; i < word.length; i++){
 		string = addBreakIfNeeded(string, count);
 		string += word.charAt(i)
@@ -71,7 +71,7 @@ var generateSymbolColumn = function() {
 	var count = 0;
 	var numsymbols = 0;
 	while (count < 17*12) {
-		string += "<span class='symbol' onmouseover=\"hoversym(this)\" onclick=\"clicked;\">" 
+		string += "<span class='symbol' onmouseover=\"hoversym(this)\" onclick=\"clicked(this)\">" 
 		+ symbols[generateRandomInt(0,symbols.length)] + " </span>";
 		count++;
 		numsymbols++;
@@ -175,11 +175,11 @@ var hoversym = function(span) {
 		var returned = detectClosingBracket(span);
 		var parent = span.parentNode;
 		if(returned){
-			//returned[0].removeAttribute("onclick");
+			returned[0].removeAttribute("onclick");
 			var newspan = document.createElement("SPAN");
 			newspan.className = "bracketpair";
 			console.log("before");
-			newspan.onclick = clicked;
+			newspan.onclick = function(){clicked(newspan)};
 			console.log("after");
 			parent.insertBefore(newspan, span);
 			for (var i = 0; i < returned.length; i++) {
