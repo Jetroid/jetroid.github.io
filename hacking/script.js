@@ -12,7 +12,7 @@ var addFeedback = function(feedback){
 }
 var setEntry = function(span){
 	document.getElementById("entry").innerHTML = "<br>>" + span.innerHTML.replace(/<br>/g,"")
-	+ "<span id=\"blinker\">█<span>";
+	+ "<span id=\"flasher\">█<span>";
 }
 var setAttempts = function(){
 	var content = attempts + " Attempt(s) Left:";
@@ -22,6 +22,7 @@ var setAttempts = function(){
 	document.getElementById("attemptsleft").innerHTML = content;
 	if(attempts == 1){
 		document.getElementById("message").innerHTML = "!!! WARNING: LOCKOUT IMMINENT !!!";
+		document.getElementById("message").className = "blinker";
 	}
 }
 

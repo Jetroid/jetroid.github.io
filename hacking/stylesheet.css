@@ -46,17 +46,21 @@ span:hover {
 #entry {
 	bottom: 0;
 }
-@keyframes blink {  
+@keyframes flash {  
   0% { opacity: 1.0; }
   50% { opacity: 0.0; }
   100% { opacity: 1.0; }
 }
-@-webkit-keyframes blink {
+@-webkit-keyframes flash {
   0% { opacity: 1.0; }
   50% { opacity: 0.0; }
   100% { opacity: 1.0; }
 }
-#blinker {
-  animation: blink 0.5s step-start 0s infinite;
-  -webkit-animation: blink 0.5s step-start 0s infinite;
-} 
+#flasher {
+  animation: flash 0.5s step-start 0s infinite;
+  -webkit-animation: flash 0.5s step-start 0s infinite;
+}
+.blinker {
+  animation: flash 1s step-start 0s infinite;
+  -webkit-animation: flash 1s step-start 0s infinite;
+}
