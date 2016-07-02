@@ -5,23 +5,30 @@
 		<link type="text/css" rel="stylesheet" href="stylesheet.css" />
 		<title>RobCo Terminal</title>
 	</head>
-	<body>
-		<div id="header">
-			<p>Welcome to RobCo Industries (TM) TermLink</p>
-			<p id="message">Enter Password</p>
-			<p><br></p>
-			<p id="attemptsleft">4 Attempt(s) Left: ██ ██ ██ ██</p>
-		</div>
-		</div id="rest">
-			<div class="pointers content" id="leftpointersdiv"><p id="leftpointers"></p></div>
-			<div class="symbols content"><p id="leftsymbols"></p></div>
-			<div class="pointers content"><p id="rightpointers"></p></div>
-			<div class="symbols content"><p id="rightsymbols"></p></div>
-			<div class="results content">
-				<p id="feedback"></p>
-				<p id="entry"><br>> <span id="flasher">█<span></p>
+	<body onselectstart="return false;">
+		<div id="structure"> 
+			<div id="header">
+				<p>Welcome to RobCo Industries (TM) TermLink</p>
+				<p id="message">Enter Password</p>
+				<p><br></p>
+				<p id="attemptsleft">4 Attempt(s) Left: ██ ██ ██ ██</p>
+			</div>
+			<div id="rest">
+				<div class="pointers content" id="leftpointersdiv" onmouseout= ><p id="leftpointers"></p></div>
+				<div class="symbols content"><p id="leftsymbols"></p></div>
+				<div class="pointers content"><p id="rightpointers"></p></div>
+				<div class="symbols content"><p id="rightsymbols"></p></div>
+				<div class="results content">
+					<p id="feedback"></p>
+					<p id="entry"><br>> <span id="flasher">█<span></p>
+				</div>
 			</div>
 		</div>
+		<audio id="login" src="sounds/login.ogg"></audio>
+		<audio id="incorrect" src="sounds/incorrect.ogg"></audio>
+		<audio id="correct" src="sounds/correct.ogg"></audio>
+		<audio id="enter" src="sounds/enter.ogg"></audio>
+		<audio id="locked" src="sounds/locked.ogg"></audio>
 		<script src="5.js"></script>
 		<script src="script.js"></script>
 	</body>

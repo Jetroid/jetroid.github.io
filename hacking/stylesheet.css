@@ -45,22 +45,31 @@ span:hover {
 }
 #entry {
 	bottom: 0;
+	from { width: 0 }
+	to { width:16.3em }
 }
-@keyframes flash {  
-  0% { opacity: 1.0; }
-  50% { opacity: 0.0; }
-  100% { opacity: 1.0; }
+@keyframes flash {	
+	0% { opacity: 1.0; }
+	50% { opacity: 0.0; }
+	100% { opacity: 1.0; }
 }
 @-webkit-keyframes flash {
-  0% { opacity: 1.0; }
-  50% { opacity: 0.0; }
-  100% { opacity: 1.0; }
+	0% { opacity: 1.0; }
+	50% { opacity: 0.0; }
+	100% { opacity: 1.0; }
 }
 #flasher {
-  animation: flash 0.5s step-start 0s infinite;
-  -webkit-animation: flash 0.5s step-start 0s infinite;
+	animation: flash 0.5s step-start 0s infinite;
+	-webkit-animation: flash 0.5s step-start 0s infinite;
 }
 .blinker {
-  animation: flash 1s step-start 0s infinite;
-  -webkit-animation: flash 1s step-start 0s infinite;
+	animation: flash 1s step-start 0s infinite;
+	-webkit-animation: flash 1s step-start 0s infinite;
+}
+#splashpage {
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
 }

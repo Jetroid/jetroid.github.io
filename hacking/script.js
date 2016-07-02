@@ -3,6 +3,7 @@ var goalWord = "";
 var attempts = 4;
 var hadRefresh = false;
 var clickedBrackets = new Set();
+var terminalLocked = false;
 
 var addFeedback = function(feedback){
 	var feedbackContent = document.getElementById("feedback").innerHTML;
@@ -24,9 +25,22 @@ var setAttempts = function(){
 		document.getElementById("message").innerHTML = "!!! WARNING: LOCKOUT IMMINENT !!!";
 		document.getElementById("message").className = "blinker";
 	}
+	if(attempts == 0){
+		terminalLocked = true;
+		addFeedback(">Lockout in");
+		addFeedback(">progress.");
+		setTimeout(function() {
+			document.getElementById("locked").play();
+			document.getElementById("structure").innerHTML = 
+			"<p id=\"splashpage\">TERMINAL LOCKED<br><br>PLEASE CONTACT AN ADMINISTRATOR</p>";
+		}, 2000);
+	}
 }
 
 var clicked = function(span){
+	if(terminalLocked) return;
+	document.getElementById("enter").play();
+
 	if(span.className == "word"){
 		var dirtyWord = span.innerHTML.replace(/<br>/g,"");
 		var word = dirtyWord.replace(/ /g,"")
@@ -34,6 +48,7 @@ var clicked = function(span){
 		if (word.match(/\.+/)){
 			addFeedback(">Error");
 		}else if (word != goalWord){
+			document.getElementById("incorrect").play();
 			var correct = 0;
 			for(i = 0; i < 5; i++){
 				if(goalWord.charAt(i) == word.charAt(i)) correct++;
@@ -43,6 +58,8 @@ var clicked = function(span){
 			attempts--;
 			setAttempts();
 		}else{
+			terminalLocked = true;
+			document.getElementById("correct").play();
 			addFeedback(">Exact match!");
 			addFeedback(">Please wait");
 			addFeedback(">while system");
@@ -251,10 +268,10 @@ var hovercleanup = function() {
 }
 var hoversym = function(span) {
 	setEntry(span);
-	hovercleanup();
 	var open_regex = /&lt; |[{\[\(] /g;
 	//If touch an opening bracket
 	if (span.innerHTML.match(open_regex) && !clickedBrackets.has(span)){
+		hovercleanup();
 		var returned = detectClosingBracket(span);
 		var parent = span.parentNode;
 		if(returned){
@@ -303,3 +320,6 @@ for(i = 0; i < 15; i++){
 	feedbackPanel += "<br>";
 }
 document.getElementById("feedback").innerHTML = feedbackPanel;
+
+//Play login sound
+document.getElementById("login").play();
