@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html onmousemove="focusFunction()" onkeypress="focusFunction()" onclick="focusFunction()">
+<title>ls -l</title>
+<head>
+<style type="text/css">
+	body{background:#000;color:#00B200;text-shadow: 1px 1px 6px #00CC00;font-family:Monospace;top:0; text-align:justify;position:fixed;padding:10px;font-size:20px;}
+	a:link  {color:#1919FF; text-shadow: 1px 1px 6px #3333FF;background-color:transparent}
+	a:visited {color:#1919FF; text-shadow: 1px 1px 6px #3333FF; background-color:transparent}
+	a:hover   {color:#1919FF; text-shadow: 1px 1px 6px #3333FF; background-color:transparent;}
+	a:active  {color:#1919FF; text-shadow: 1px 1px 6px #3333FF; background-color:transparent}
+	.message{text-shadow:0px 0px 0px #000000;}
+.blink_text {
+    animation-name: underscore_blink;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    -webkit-animation-name: underscore_blink;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+}
+input {
+    border: none;
+    outline: none;
+    background: transparent;
+    color:#00B200;text-shadow: 1px 1px 6px #00CC00;font-family:Monospace;font-size:20px;
+    width:500px;
+}
+@-moz-keyframes underscore_blink {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes underscore_blink {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes underscore_blink {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+ </style>	
+</head>
+<body>
+	-jetroid@eleanor:~$ ls -l <br>
+	total 8<br>
+	drwxr--r--  2 jetroid domain users 4096 Mar  03 &nbsp;2014 <a onmouseover="hovered(this);" href="FC_Bartos_Flur" style="text-decoration:none;">FC_Bartos_Flur</a><br>
+	drwxr--r--  2 jetroid domain users 4096 Feb  12 &nbsp;2014 <a onmouseover="hovered(this);" href="FC_QuaSH" style="text-decoration:none;">FC_QuaSH</a><br>
+	drwxr--r--  2 jetroid domain users 4096 Jul  18 &nbsp;2014 <a onmouseover="hovered(this);" href="FC_Event_Horizon" style="text-decoration:none;">FC_Event_Horizon</a><br>
+	drwxr--r--  2 jetroid domain users 4096 Oct  04 11:56 <a onmouseover="hovered(this);" href="FC_Flanger" style="text-decoration:none;">FC_Flanger</a><br>
+	-jetroid@eleanor:~$ <span id="blink_text" class="blink_text"><input type="text" id="textEntry" value="" autofocus></span><br>
+
+	<script type="text/javascript">
+		function hovered(e) {
+		    document.getElementById("textEntry").value = "cd " + e.innerHTML;
+		}
+
+        //Function to ensure the text-entry-box remains in focus.
+        function focusFunction(){
+            document.getElementById("textEntry").focus();
+        }
+
+        //Function to check if two strings start the same way.
+        if (typeof String.prototype.startsWith != 'function') {
+            String.prototype.startsWith = function (str){
+                return this.slice(0, str.length) == str;
+            };
+        }
+
+        document.getElementById("textEntry").addEventListener('keypress', function (e) {
+            var key = e.which || e.keyCode;
+            if (key == 13) { // 13 is enter
+                //Get the value of the text
+                var text = document.getElementById("textEntry").value;
+                if(text.startsWith("cd")){
+                    window.location="/"+text.split("cd ")[1];
+                }                
+            }
+        });
+	</script>
+</body>
+</html>

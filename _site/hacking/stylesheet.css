@@ -1,0 +1,73 @@
+html, body {
+	width:100%;
+	height:100%;
+	margin:0;
+	padding:0;
+}
+body {
+	background: #062414;
+	box-shadow: inset 0 0 23em 1em #000;
+	overflow: hidden;
+}
+p {
+	margin: 0;
+	color: #15763E;
+	background: transparent;
+	text-shadow: 0em 0em 0.5em #23824C;
+	font-family: monospace;
+	font-weight: bold;
+	font-size: 1.7vw;
+}
+span:hover {
+	color: #062414;
+	text-shadow: 0em 0em 1em #23824C;
+	background: #15763E;
+}
+#structure {
+	padding: 3vw 0em 0em 3vw;
+}
+.content {
+	padding: 2em 0 0 0;
+	vertical-align:top;
+	display: inline-block;
+}
+.pointers {
+	width: 7%;	
+}
+.symbols {
+	padding: 2em 2% 0 2%;
+	width: 25%;
+}
+.results {
+	width: 26%;
+	position: relative;
+	height: 100%;
+}
+#entry {
+	bottom: 0;
+}
+@keyframes flash {	
+	0% { opacity: 1.0; }
+	50% { opacity: 0.0; }
+	100% { opacity: 1.0; }
+}
+@-webkit-keyframes flash {
+	0% { opacity: 1.0; }
+	50% { opacity: 0.0; }
+	100% { opacity: 1.0; }
+}
+#flasher {
+	animation: flash 0.5s step-start 0s infinite;
+	-webkit-animation: flash 0.5s step-start 0s infinite;
+}
+.blinker {
+	animation: flash 1s step-start 0s infinite;
+	-webkit-animation: flash 1s step-start 0s infinite;
+}
+#splashpage {
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+}
