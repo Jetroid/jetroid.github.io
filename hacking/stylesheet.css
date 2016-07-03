@@ -16,15 +16,15 @@ p {
 	text-shadow: 0em 0em 0.5em #23824C;
 	font-family: monospace;
 	font-weight: bold;
-	font-size: 1.6vw;
+	font-size: 1.7vw;
 }
 span:hover {
 	color: #062414;
 	text-shadow: 0em 0em 1em #23824C;
 	background: #15763E;
 }
-#header, #leftpointersdiv {
-	padding: 2em 0 0 2.7%;
+#structure {
+	padding: 3vw 0em 0em 3vw;
 }
 .content {
 	padding: 2em 0 0 0;
@@ -36,17 +36,15 @@ span:hover {
 }
 .symbols {
 	padding: 2em 2% 0 2%;
-	width: 24%;
+	width: 25%;
 }
 .results {
-	width: 24%;
+	width: 26%;
 	position: relative;
 	height: 100%;
 }
 #entry {
 	bottom: 0;
-	from { width: 0 }
-	to { width:16.3em }
 }
 @keyframes flash {	
 	0% { opacity: 1.0; }

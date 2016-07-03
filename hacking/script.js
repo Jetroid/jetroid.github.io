@@ -11,8 +11,22 @@ var addFeedback = function(feedback){
 	feedbackContent += feedback + "<br>";
 	document.getElementById("feedback").innerHTML = feedbackContent;
 }
+var clearEntry = function() {
+	document.getElementById("entry").innerHTML = "<br>> <span id=\"flasher\">█<span>";
+	document.getElementById("key2").play();
+}
 var setEntry = function(span){
-	document.getElementById("entry").innerHTML = "<br>>" + span.innerHTML.replace(/<br>/g,"")
+	var content = span.innerHTML.replace(/<br>/g,"");
+	var content = content.replace(/<s.*?>|<\/s.*?>/g,"");
+	for(i = 0; i < content.length; i++){
+		setTimeout(function() {
+			var key = "key" + generateRandomInt(1,12);
+			if(document.getElementById(key) != null){
+				document.getElementById(key).play();
+			}
+		}, i * 50);
+	}
+	document.getElementById("entry").innerHTML = "<br>>" + content
 	+ "<span id=\"flasher\">█<span>";
 }
 var setAttempts = function(){
@@ -85,7 +99,7 @@ var clicked = function(span){
 		var firstChild = span.firstElementChild;
 		firstChild.onclick = function(){clicked(firstChild)};
 		hovercleanup();
-		
+		clickedBrackets.add(firstChild);
 		
 		//Choose between replenishing and removing dud
 		if(!hadRefresh && generateRandomInt(0,10) > 7){
@@ -243,11 +257,12 @@ var detectClosingBracket = function(span){
 }
 var spantodelete = null;
 var hovercleanup = function() {
+	console.log("cleanup");
 	if(spantodelete == null){
 		return;
 	}
 	var parent = spantodelete.parentNode;
-	var ugly_children = spantodelete.children;
+	var ugly_children = spantodelete.childNodes;
 	var pretty_children = [];
 	
 	//JavaScript doesn't have a clone feature... -_-
@@ -262,6 +277,7 @@ var hovercleanup = function() {
 		var child = pretty_children[i];
 		spantodelete.removeChild(child);
 		parent.insertBefore(child, spantodelete);
+		
 	}
 	parent.removeChild(spantodelete);
 	spantodelete = null;
@@ -271,55 +287,51 @@ var hoversym = function(span) {
 	var open_regex = /&lt; |[{\[\(] /g;
 	//If touch an opening bracket
 	if (span.innerHTML.match(open_regex) && !clickedBrackets.has(span)){
-		hovercleanup();
+		
 		var returned = detectClosingBracket(span);
 		var parent = span.parentNode;
 		if(returned){
-			returned[0].removeAttribute("onclick");
-			clickedBrackets.add(span);
+			span.removeAttribute("onclick");
+			
 			var newspan = document.createElement("SPAN");
 			newspan.className = "bracketpair";
 			newspan.onclick = function(){clicked(newspan)};
+			newspan.onmouseout = function(){hovercleanup();}
 			parent.insertBefore(newspan, span);
 			for (var i = 0; i < returned.length; i++) {
 				parent.removeChild(returned[i]);
 				newspan.appendChild(returned[i]);
 			}
-			setEntry(newspan);
 			spantodelete = newspan;
+			setEntry(newspan);
 		}
 	}
 }
 
-//Generate the pointers
 
-var value = Math.floor(Math.random() * 65128);
-var pcolumn = generatePointerColumn(value);
-document.getElementById("leftpointers").innerHTML = pcolumn;
-var pcolumn = generatePointerColumn(value+204);
-document.getElementById("rightpointers").innerHTML = pcolumn;
+window.onload = function(){
+	//Generate the pointers
+	var value = Math.floor(Math.random() * 65128);
+	var pcolumn = generatePointerColumn(value);
+	document.getElementById("leftpointers").innerHTML = pcolumn;
+	var pcolumn = generatePointerColumn(value+204);
+	document.getElementById("rightpointers").innerHTML = pcolumn;
 
-//Generate the symbols 
+	//Generate the symbols 
 
-//We should have the array 'five' loaded in, which contains every 5 lettered english word.
-var column = generateSymbolColumn();
-document.getElementById("leftsymbols").innerHTML = column;
-var column = generateSymbolColumn();
-document.getElementById("rightsymbols").innerHTML = column;
+	//We should have the array 'five' loaded in, which contains every 5 lettered english word.
+	var column = generateSymbolColumn();
+	document.getElementById("leftsymbols").innerHTML = column;
+	var column = generateSymbolColumn();
+	document.getElementById("rightsymbols").innerHTML = column;
 
-//Select the goal word
-var selectedWord = generateRandomInt(0, words.length);
-goalWord = words[selectedWord];
-words.splice(selectedWord, 1);
-console.log(goalWord);
+	//Select the goal word
+	var selectedWord = generateRandomInt(0, words.length);
+	goalWord = words[selectedWord];
+	words.splice(selectedWord, 1);
+	console.log(goalWord);
 
-//Generate the feedback panel
+	//Play login sound
+	document.getElementById("login").play();
 
-var feedbackPanel = "";
-for(i = 0; i < 15; i++){
-	feedbackPanel += "<br>";
 }
-document.getElementById("feedback").innerHTML = feedbackPanel;
-
-//Play login sound
-document.getElementById("login").play();
