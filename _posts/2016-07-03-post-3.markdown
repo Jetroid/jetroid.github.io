@@ -1,0 +1,6 @@
+---
+layout: post
+title:  "Blog Post #3"
+date:   2016-07-03 19:12:02 +0100
+---
+Hello World!

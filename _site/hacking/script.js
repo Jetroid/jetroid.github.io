@@ -45,7 +45,7 @@ var setAttempts = function(){
 		addFeedback(">progress.");
 		setTimeout(function() {
 			document.getElementById("locked").play();
-			document.getElementById("structure").innerHTML = 
+			document.getElementById("hacking").innerHTML = 
 			"<p id=\"splashpage\">TERMINAL LOCKED<br><br>PLEASE CONTACT AN ADMINISTRATOR</p>";
 		}, 2000);
 	}
@@ -77,6 +77,12 @@ var clicked = function(span){
 			addFeedback(">Please wait");
 			addFeedback(">while system");
 			addFeedback(">is accessed.");
+			setTimeout(function() {
+				document.getElementById("hacking").style.display="none";
+				document.getElementById("loggedin").style.display="block";
+				//Play login sound
+			document.getElementById("login").play();
+			}, 2000);
 		}
 	}else if(span.className == "symbol"){
 		var symbol = span.innerHTML;
