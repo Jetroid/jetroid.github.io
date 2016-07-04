@@ -78,12 +78,24 @@ span:hover{
 #divider {
 	height: 0.5vh;
 	background: #15763E;
-	left: 10%;
 	width: 80%;
-	transform: translateX(10%);
 	box-shadow: 0em 0em 0.5em #23824C;
-	margin: 1em 0 0 0;
+	margin: 1em 0 1em 10%;
 }
-#welcome, .post {
-	margin: 0.5% 0 0 10%;
+#welcome, .post, .post-title {
+	padding: 0.25% 0 0.25% 10%;
+	text-align: left;
+	width: 80%;
+}
+.post-title p:hover{
+	color: #062414;
+	text-shadow: 0em 0em 1em #23824C;
+	background: #15763E;
+}
+.post-container {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	margin:0;
+	padding:0;
 }

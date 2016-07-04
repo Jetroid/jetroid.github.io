@@ -9,7 +9,7 @@
 		<title>RobCo Terminal</title>
 	</head>
 	<body onselectstart="return false;">
-		<div id="hacking"> 
+		<div id="hacking" style="display:none;"> 
 			<div id="header">
 				<p>Welcome to RobCo Industries (TM) TermLink</p>
 				<p id="message">Enter Password</p>
@@ -44,23 +44,30 @@
 			<audio id="key9" src="sounds/key9.ogg"></audio>
 			<audio id="key10" src="sounds/key10.ogg"></audio>
 			<audio id="key11" src="sounds/key11.ogg"></audio>
+			<audio id="click" src="sounds/click.wav"></audio>
 		</div>
 		<script src="5.js"></script>
 		<script src="script.js"></script>
-		<div id="loggedin" style="display:none;">
+		<div id="loggedin">
 			<div id="os-header">
 				<p>ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM</p>
 				<p>COPYRIGHT 2075-2077 ROBCO INDUSTRIES</p>
 				<p>-Server 4-</p>
+				<p id="welcome"><br>Jet Holt's Private Terminal - *STRICTLY CONFIDENTIAL*</p>
+				<div id="divider"></div>
 			</div>
-			<p id="welcome"><br>Jet Holt's Private Terminal - *STRICTLY CONFIDENTIAL*</p>
-
-			<div id="divider"></div>
-			<div id="posts">
+			<div id="post-titles">
 			{% for post in site.posts %}
-				<div class="post"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">[ {{ post.title }} ]</a></div>
+				<div class="post-title"><p onclick="viewPost('{{post.title}}')" onmouseover="clickNoise();">
+					>&nbsp;&nbsp;{{ post.title }}
+				</p></div>
 			{% endfor %}
 			</div>
+			{% for post in site.posts %}
+			<div id="{{ post.title }}" class="post-container" onclick="exitPost('{{post.title}}')" style="display:none;">
+				<div class="post">{{ post.content }}</div>
+			</div>
+			{% endfor %}
 		</div>
 	</body>
 </html>

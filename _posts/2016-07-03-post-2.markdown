@@ -3,4 +3,4 @@ layout: post
 title:  "Blog Post #2"
 date:   2016-07-03 19:12:02 +0100
 ---
-Hello World!
+Hello World! This is Blog Post 2!

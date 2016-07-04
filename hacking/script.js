@@ -5,6 +5,21 @@ var hadRefresh = false;
 var clickedBrackets = new Set();
 var terminalLocked = false;
 
+var clickNoise = function(){
+	document.getElementById("click").currentTime = 0;
+	document.getElementById("click").play();
+}
+var viewPost = function(postID){
+	document.getElementById("post-titles").style.display="none";
+	document.getElementById(postID).style.display="block";
+	document.getElementById("enter").play();
+}
+var exitPost = function(postID){
+	document.getElementById(postID).style.display="none";
+	document.getElementById("post-titles").style.display="block";
+	document.getElementById("enter").play();
+}
+
 var addFeedback = function(feedback){
 	var feedbackContent = document.getElementById("feedback").innerHTML;
 	feedbackContent = feedbackContent.replace(/^.*?<br>/, "");
