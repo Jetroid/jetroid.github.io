@@ -7,7 +7,6 @@ html, body {
 body {
 	background: #062414;
 	box-shadow: inset 0 0 23em 1em #000;
-	overflow: hidden;
 }
 p, a{
 	margin: 0;
@@ -80,7 +79,7 @@ span:hover{
 	background: #15763E;
 	width: 80%;
 	box-shadow: 0em 0em 0.5em #23824C;
-	margin: 1em 0 1em 10%;
+	margin: 0 0 0 10%;
 }
 #welcome, .post, .post-title {
 	padding: 0.25% 0 0.25% 10%;
@@ -92,10 +91,10 @@ span:hover{
 	text-shadow: 0em 0em 1em #23824C;
 	background: #15763E;
 }
+.post {
+	text-align: justify;
+}
 .post-container {
-	position: absolute;
-	width: 100%;
 	height: 100%;
-	margin:0;
-	padding:0;
+	overflow-y: scroll;
 }

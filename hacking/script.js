@@ -4,20 +4,34 @@ var attempts = 4;
 var hadRefresh = false;
 var clickedBrackets = new Set();
 var terminalLocked = false;
+var currentPost = null;
 
-var clickNoise = function(){
-	document.getElementById("click").currentTime = 0;
-	document.getElementById("click").play();
+var tickNoise = function(){
+	document.getElementById("tick").currentTime = 0;
+	document.getElementById("tick").play();
 }
 var viewPost = function(postID){
-	document.getElementById("post-titles").style.display="none";
+	document.getElementById("post-titles-container").style.display="none";
 	document.getElementById(postID).style.display="block";
 	document.getElementById("enter").play();
+	currentPost = postID;
 }
-var exitPost = function(postID){
-	document.getElementById(postID).style.display="none";
-	document.getElementById("post-titles").style.display="block";
-	document.getElementById("enter").play();
+var exitPost = function(){
+	if(currentPost){
+		document.getElementById(currentPost).style.display="none";
+		document.getElementById("post-titles-container").style.display="block";
+		document.getElementById("enter").play();
+		currentPost = null;
+	}
+}
+var resizeLoggedIn = function(){
+	var osheader = document.getElementById("os-header");
+	var height = osheader.offsetHeight;
+	height += parseInt(window.getComputedStyle(osheader).getPropertyValue('margin-top'));
+	height += parseInt(window.getComputedStyle(osheader).getPropertyValue('margin-bottom'));
+	var content = document.getElementById("blog-content");
+  var height = document.body.offsetHeight - height;
+  content.style.height = height + 'px';
 }
 
 var addFeedback = function(feedback){
@@ -50,9 +64,12 @@ var setAttempts = function(){
 		content += " ██";
 	} 
 	document.getElementById("attemptsleft").innerHTML = content;
-	if(attempts == 1){
+	if(attempts <= 1){
 		document.getElementById("message").innerHTML = "!!! WARNING: LOCKOUT IMMINENT !!!";
 		document.getElementById("message").className = "blinker";
+	}else{
+		document.getElementById("message").innerHTML = "Enter Password";
+		document.getElementById("message").className = "";
 	}
 	if(attempts == 0){
 		terminalLocked = true;
@@ -95,6 +112,9 @@ var clicked = function(span){
 			setTimeout(function() {
 				document.getElementById("hacking").style.display="none";
 				document.getElementById("loggedin").style.display="block";
+				window.addEventListener("load", resizeLoggedIn, false);
+				window.addEventListener("resize", resizeLoggedIn, false);
+				resizeLoggedIn();
 				//Play login sound
 				document.getElementById("login").play();
 			}, 2000);
@@ -352,4 +372,5 @@ window.onload = function(){
 
 	//Play login sound
 	document.getElementById("login").play();
+		resizeLoggedIn();
 }
