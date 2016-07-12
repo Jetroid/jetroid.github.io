@@ -94,7 +94,9 @@ span:hover{
 .post {
 	text-align: justify;
 }
+.post * {
+	padding: 1% 0 1% 0;
+}
 .post-container {
 	height: 100%;
-	overflow-y: scroll;
 }

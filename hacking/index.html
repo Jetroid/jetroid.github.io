@@ -7,7 +7,9 @@
 		<meta charset="UTF-16"> <!-- Allows us to have special characters !-->
 		<link type="text/css" rel="stylesheet" href="stylesheet.css" />
 		<title>RobCo Terminal</title>
+		<link type="text/css" rel="stylesheet" href="simple-scrollbar.css"/>
 		<!--[if IE 9]><script src="https://cdn.jsdelivr.net/classlist/2014.01.31/classList.min.js"></script><![endif]-->
+		<script src="simple-scrollbar.min.js"></script>
 	</head>
 	<body onselectstart="return false;">
 		<div id="hacking" style="display:none;"> 
@@ -58,7 +60,7 @@
 				<div id="divider"></div>
 			</div>
 			<div id="blog-content">
-				<div id="post-titles-container">
+				<div id="post-titles-container" ss-container>
 				{% for post in site.posts %}
 					<div class="post-title"><p onclick="viewPost('{{post.title}}')" onmouseover="tickNoise();">
 						>&nbsp;&nbsp;{{ post.title }}
@@ -66,7 +68,7 @@
 				{% endfor %}
 				</div>
 				{% for post in site.posts %}
-				<div id="{{ post.title }}"  class="post-container" onclick="exitPost()" style="display:none;">
+				<div id="{{ post.title }}"  class="post-container" onclick="exitPost()" style="display:none;" ss-container>
 					<div class="post">{{ post.content }}</div>
 				</div>
 				{% endfor %}

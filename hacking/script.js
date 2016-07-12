@@ -372,5 +372,5 @@ window.onload = function(){
 
 	//Play login sound
 	document.getElementById("login").play();
-		resizeLoggedIn();
+	resizeLoggedIn();
 }
