@@ -13,6 +13,11 @@ var tickNoise = function(){
 var viewPost = function(postID){
 	document.getElementById("post-titles-container").style.display="none";
 	document.getElementById(postID).style.display="block";
+	//simple-scrollbar creates two nested elements inside our container.
+	//The second nested child is the one which scrolls - reset it to the top
+	var scrollingElement = document.getElementById(postID).firstChild.firstChild;
+	scrollingElement.scrollTop = 0;
+	
 	document.getElementById("enter").play();
 	currentPost = postID;
 }
