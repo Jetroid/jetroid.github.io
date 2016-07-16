@@ -13,7 +13,7 @@ I usually find that if I have a concrete goal I learn more trying to meet it, ra
 I finished my hacking simulator a few days ago, and was very pleased with the result.
 I'm sure that my source code would make a more experienced web developer weep, but I'm a beginner in this particular aspect of design. Cut me some slack!
 
-![image of hacking minigame]({{ site.url }}/assets/images/hacking-minigame.png)
+![image of hacking minigame](/assets/images/hacking-minigame.png)
 
 
 It was only when I had completed it that I realised I had no 'win condition'.
@@ -27,7 +27,7 @@ I could use the logged-in portion of the terminal as my blog!
 Having a command-line type interface for my blog is not a new idea, per se.
 My website was originally a really bad (read: barely functional) knock off of a terminal.
 
-![image of old website]({{ site.url }}/assets/images/old-site.png)
+![image of old website](/assets/images/old-site.png)
 
 This older website was really clunky - it was my literally first foray into HTML - and whilst I was very proud of it at the time, it doesn't really meet my requirements.
 I want to be able to...
