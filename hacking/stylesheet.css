@@ -17,7 +17,7 @@ p, a{
 	font-weight: bold;
 	font-size: 1.7vw;
 }
-span:hover{
+span:hover, .bracketpair{
 	color: #062414;
 	text-shadow: 0em 0em 1em #23824C;
 	background: #15763E;
