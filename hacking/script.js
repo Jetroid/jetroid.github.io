@@ -359,16 +359,26 @@ var fixImages = function(){
 	for (i = 0; i < images.length; i++){
 		var image = images[i];
 		var parent = image.parentNode;
-		
+
 		var parentdiv = document.createElement("DIV");
 		parentdiv.className = "image-container";
-		
+
+		var textbox = document.createElement("DIV");
+		var text = document.createElement("P");
+		text.className = "image-text";
+		text.innerHTML = image.alt;
+
 		var colordiv = document.createElement("DIV");
 		colordiv.className = "image-color";
-		
+
 		parent.insertBefore(parentdiv, image);
 		parent.removeChild(image);
-		parentdiv.appendChild(colordiv);
+
+		parentdiv.appendChild(textbox);
+
+		textbox.appendChild(colordiv);
+		textbox.appendChild(text);
+
 		colordiv.appendChild(image);
 	}
 }

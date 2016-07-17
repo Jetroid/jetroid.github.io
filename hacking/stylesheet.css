@@ -114,6 +114,10 @@ img {
 	margin: 0 auto;
 	display: table;
 }
+.image-text{
+	font-size: 15px;
+	text-align: center;
+}
 @-moz-document url-prefix() {
     img {
         width: 100%;
