@@ -87,15 +87,15 @@ a certain amount of time between selecting a different channel and reading that 
 This is known as an Acquisition Delay and if you do not include one,
 you will get incorrect readings. 
 I didn't see this (RTFM!!) and so I was very confused as to why 
-my Clock read was accurate, but my band reads were not.
+my clock read was accurate, but my band reads were not.
 Fortunately, three weeks before the deadline for my project
 I figured out the problem and was able to fix the issue.
 
 ![Bartos Flur Commercial Panel](/assets/images/bartos-flur-finished-panel.jpg)
 
-The completed project worked just as well 
-(if not better, as it features 'Gate' (long pulse) functionality)
-as the original analogue circuit.
+The completed project worked just as well as 
+(if not better than, as it features 'Gate' (long pulse) functionality)
+the original analogue circuit.
 Frequency Central was very pleased with the outcome. 
 
 I rewrote some of the logic code in Spring 2015 in preparation for the
