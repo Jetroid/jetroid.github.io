@@ -16,7 +16,6 @@ p, a{
 	font-family: monospace;
 	font-weight: bold;
 	font-size: 1.7vw;
-	text-decoration: none;
 }
 span:hover{
 	color: #062414;
@@ -94,13 +93,29 @@ span:hover{
 .post {
 	text-align: justify;
 }
-.post * {
+.post p {
 	padding: 1% 0 1% 0;
+	clear: both;
 }
 .post-container {
 	height: 100%;
 }
 img {
-	width: 100%;
-	height: 50%;
+	max-width: 100%;
+	display: block;
+  mix-blend-mode: screen;
+}
+.image-color {
+	float: left;
+	box-shadow: 0em 0em 2em #23824C;
+  background-color: #15763E;
+}
+.image-container{
+	margin: 0 auto;
+	display: table;
+}
+@-moz-document url-prefix() {
+    img {
+        width: 100%;
+    }
 }

@@ -354,6 +354,25 @@ var generateSymbolColumn = function() {
 	return string;
 }
 
+var fixImages = function(){
+	var images = document.querySelectorAll("img");
+	for (i = 0; i < images.length; i++){
+		var image = images[i];
+		var parent = image.parentNode;
+		
+		var parentdiv = document.createElement("DIV");
+		parentdiv.className = "image-container";
+		
+		var colordiv = document.createElement("DIV");
+		colordiv.className = "image-color";
+		
+		parent.insertBefore(parentdiv, image);
+		parent.removeChild(image);
+		parentdiv.appendChild(colordiv);
+		colordiv.appendChild(image);
+	}
+}
+
 window.onload = function(){
 	//Generate the pointers
 	var value = Math.floor(Math.random() * 65128);
@@ -378,4 +397,7 @@ window.onload = function(){
 	//Play login sound
 	document.getElementById("login").play();
 	resizeLoggedIn();
+
+	fixImages();
+	
 }

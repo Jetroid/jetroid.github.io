@@ -49,21 +49,19 @@
 			<audio id="key11" src="sounds/key11.ogg"></audio>
 			<audio id="tick" src="sounds/click.wav"></audio>
 		</div>
-		<script src="5.js"></script>
-		<script src="script.js"></script>
 		<div id="loggedin"  style="display:none;">
 			<div id="os-header">
 				<p>ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM</p>
 				<p>COPYRIGHT 2075-2077 ROBCO INDUSTRIES</p>
 				<p>-Server 4-</p>
-				<p id="welcome"><br>Jet Holt's Private Terminal - *STRICTLY CONFIDENTIAL*</p>
+				<p id="welcome"><br>Overseer Holt's Private Terminal - *STRICTLY CONFIDENTIAL*</p>
 				<div id="divider"></div>
 			</div>
 			<div id="blog-content">
 				<div id="post-titles-container" ss-container>
 				{% for post in site.posts %}
 					<div class="post-title"><p onclick="viewPost('{{post.title}}')" onmouseover="tickNoise();">
-						>&nbsp;&nbsp;{{ post.title }}
+						>&nbsp;&nbsp;{{post.date | date: "%Y/%m/%d" }} - {{ post.title }}
 					</p></div>
 				{% endfor %}
 				</div>
@@ -74,5 +72,7 @@
 				{% endfor %}
 			</div>
 		</div>
+		<script src="5.js"></script>
+		<script src="script.js"></script>
 	</body>
 </html>
