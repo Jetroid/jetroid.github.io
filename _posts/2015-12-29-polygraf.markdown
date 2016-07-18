@@ -1,0 +1,98 @@
+---
+layout: post
+title:  "Polygraf"
+date:   2015-12-29 20:00:00 +0100
+---
+My Father runs a small business called Frequency Central which
+designs, builds and sells synthesiser modules.
+The Polygraf is one such module.
+
+The Polygraf has had several names and forms. 
+The story behind how the Polygraf came about is quite a humorous one.
+After having completed the Bartos Flur,
+I was looking at some existing modules for
+inspiration to build a new project for fun and for the experience.
+I decided to attempt to replicate my interpretation of what a module *might* do.
+I had no idea what the module actually did - 
+I never touched it, played with it, nor analysed its functions. 
+I simply looked at the front panel, and not particularly hard either.
+
+![Grid Machine Prototype](/assets/images/polygraf-grid-machine.jpg)
+
+To put it simply: 
+As I know nothing about musical tech,
+the module I looked at did not do at all what I thought it did.
+The module was a sequencer running a pre-defined sequence 
+and you could use switches to determine whether a particular output was
+on or off for the entire sequence.
+The circuit I made, later dubbed the 'Grid Machine'
+was much more like a drum machine: 
+You could program in 8 output, 16 stage sequences, which the module will remember in EEPROM.
+The Grid Machine was able to support 15 user defined sequences 
+plus one hard-coded-by-Frequency-Central that cannot change.
+
+The problem with the Grid Machine was that the interface was not intuitive.
+My Father commented that I had designed a device that only I knew how to use,
+and that you would have to have a good understanding of binary to even
+attempt to understand.
+The project was discarded, despite being fully functional.
+
+![Polygraf Prototype Board](/assets/images/polygraf-prototype.jpg)
+
+Spring 2015 brought many changes.
+Frequency Central decided that there was merit to the idea - 
+it just needed an improved interface. 
+We decided to outfit it with two seven segment displays,
+sacrificing 4 of the outputs.
+This changes the functionality dramatically.
+The interface would be much more usable,
+whilst having only 4 outputs meant that now we
+could store 32 sequences, 30 of which were user-programmable.
+
+The plan for the module also changed. 
+Rather than recording beats and outputting these through drum modules,
+the four outputs would be connected to a 4514 4-to-16-line decoder.
+Each of these 16 lines would then be connected to (variable?) resistors,
+such that each line has its own voltage value. These voltages would then
+be fed into a Voltage Controlled Oscillator (VCO) to produce sound.
+As such, the module as a whole would be able to record sequences of
+oscillations.
+
+![Polygraf in development](/assets/images/polygraf-in-development.jpg)
+
+It was unclear if this extra circuit would be sold as an expansion module,
+or if it would be sold built-in to the Polygraf. 
+I wasn't too concerned about this extra circuit, 
+as it did not require any additional programming -
+the core PIC would remain the same. 
+I had a certain level of fondness for the original idea as a drum-machine,
+but Frequency Central thought strongly that the extra circuit
+made a much more desirable product.
+
+![Polygraf Mockup](/assets/images/polygraf-panel-mockup.jpg)
+
+I worked on and off on the Polygraf (then known as the Event Horizon)
+for a long time. I made significant progress during Summer 2015, 
+but external factors such as my Degree and Internship prevented me from completing it.
+I decided during my winter break 
+(when I should probably have been revising for my exams!)
+that I would complete the project before I went back to University.
+
+![Polygraf Panel](/assets/images/polygraf-panel.jpg)
+
+My Father was amazed with the completed project. 
+He loved how simple the seven segments made the module to use,
+and he happily spent some time programming new sequences into it from artists he liked.
+The plan is to ship the Polygraf with all sequences pre-programmed with beats from 
+popular songs, as well as two generic beats called Motorik and Disco
+(for the two hard-coded sequences).
+To my delight, he even decided that the Polygraf was better as a stand-alone module,
+rather than shipping with the additional circuit I described earlier.
+
+Although the development prototype is fully functional,
+we still need to decide on the pre-programmed sequences
+and build a production-spec prototype. The project still has a way to go,
+as the PCB needs to be designed before we can even think about selling it.
+I'm really happy with how the project went, as it was collaboratively developed
+and grew naturally from idea to idea.
+
