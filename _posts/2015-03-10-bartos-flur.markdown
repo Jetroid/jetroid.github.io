@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Bartos Flur"
+title:  "FC Bartos Flur"
 date:   2015-03-10 20:00:00 +0100
 ---
 

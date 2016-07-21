@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Polygraf"
+title:  "FC Polygraf"
 date:   2015-12-29 20:00:00 +0100
 ---
 My Father runs a small business called Frequency Central which
