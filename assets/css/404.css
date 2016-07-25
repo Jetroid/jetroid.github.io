@@ -1,0 +1,38 @@
+body {
+  background-image: url("/assets/images/404-background2.jpg");
+  background-position: center;      /* center the image */
+  background-size: cover;           /* cover the entire window */
+}
+#splash {
+	display: block;
+	position: absolute;
+	max-width: 800px;
+  top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	overflow: none;
+}
+#image {
+	background-image: url("/assets/images/spaceman-shrug.jpg");
+	background-position: center;
+	background-size: cover;
+	width: 150px;
+	height: 150px;
+	border-radius: 150px;
+	float: left;
+}
+#text{
+	display: inline-block;
+	font-weight: bold;
+	font-family: monospace;
+	font-size: 16px;
+	color: #cfcfc9;
+}
+#text > a {
+	color: #d05d5d;
+	font-size: 18px;
+	text-decoration: none;
+}
+#text > span {
+	font-size: 40px;
+}

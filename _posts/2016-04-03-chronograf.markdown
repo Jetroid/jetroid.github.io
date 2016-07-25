@@ -68,6 +68,8 @@ that I was able to confirm that it actually did not work correctly.
 This problem resulted simply from having bits in the wrong memory locations.
 I completed the Chronograf on 2016/01/19.
 
+![Chronograf Prototype](/assets/images/chronograf-prototype.jpg)
+
 Later, in a lecture about embedded hardware, our lecturer set us the challenge
 of using an AVR to read the interval between two button presses and flash
 an LED at that same interval using C code.

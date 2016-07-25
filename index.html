@@ -1,22 +1,22 @@
 ---
 ---
-
-<div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.content }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-</div>
+<!DOCTYPE html>
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="/assets/css/homepage.css">
+		<title>Jetroid</title>
+	</head>
+	<body>
+		{% include head.html %}
+		<div id="splash">
+			<div id="image"></div>
+			<div id="text">
+				I'm <a href="about">Jet Holt</a>, 
+				a <a href="https://github.com/Jetroid">programmer</a> studying 
+				<a href="http://www.ecs.soton.ac.uk/programmes/g401-meng-computer-science-4-yrs">Computer Science</a> at 
+				<a href="http://www.southampton.ac.uk/">Southampton University.</a>
+				I'm interested in a <a href="blog">variety of fields</a> and am passionate about <nobr>Sci-Fi</nobr>.
+			</div>
+		</div>
+	</body>
+</html>

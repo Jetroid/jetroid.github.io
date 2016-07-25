@@ -20,6 +20,8 @@ It would be very simple to program, and would not require a complicated circuit.
 Designing the PCB should be quick, and the component cost would be low.
 There was no real reason *not* to make it.
 
+![Deep Thought Prototype](/assets/images/deep-thought-prototype.jpg)
+
 It really wasn't a complicated project, 
 and I completed it within days of discussing it,
 later fixing a few issues once a hardware prototype had been built. 
