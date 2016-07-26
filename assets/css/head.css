@@ -5,8 +5,8 @@ html, body {
 	padding:0;
 }
 #header-main {
-	overflow: hidden;
-  position: relative;
+	position: fixed;
+	display: table;
 	width: 100%;
 	background: rgba(55, 55, 49, 0.9);
 }
@@ -14,39 +14,49 @@ html, body {
 	font-weight: bold;
 	font-family: monospace;
 }
-#header-main > p {
+#header-main > a {
 	display: inline-block;
 	color: #d05d5d;
 	font-size: 18px;
 	margin: 5px 5px 5px 5px;
+	text-decoration: none;
 }
-#header-links {
+#navbar {
 	display: inline-block;
 	position: absolute;
-	right: 0;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
 	height: 100%;
-  top: 0;
+	right: 0;
 }
-#header-links > a {
+#navbar li {
 	display: inline-block;
-	color: #cfcfc9;
-	font-size: 16px;
-	text-decoration: none;
+	overflow: auto;
+	bottom: 0;
+	height: 100%;
+}
+#navbar li a, #navbar li a span {
+	display: block;
 	width: 10vw;
 	min-width: 100px;
 	height: 100%;
+	text-decoration: none;
 }
-#header-links > a > span {
-	width: 10vw;
-	text-align: center;
+#navbar li a span{
 	position: absolute;
-	bottom: 5px;
+	color: #cfcfc9;
+	font-size: 16px;
+	text-align: center;
+	height: auto;
+	bottom: 0;
+	padding: 0 0 5px 0;
 }
-#header-links > a:hover{
+#navbar li a:hover{
 	background: rgba(14, 14, 12, 0.75);
 }
-#header-links > a:active{
-background: rgba(14, 14, 12, 0.75);
+#navbar li a:active{
+	background: rgba(14, 14, 12, 0.75);
 	position: relative;
 	top: 3px;
 }
