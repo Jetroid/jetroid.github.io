@@ -18,6 +18,7 @@ body, html {
   content:'';
   display:inline-block;
   width:99%;
+  vertical-align:top;
 }
 #nav > * {
 	line-height:3vh;
@@ -36,7 +37,7 @@ body, html {
 }
 #nav ul li {
 	right: 0;
-	padding: 20px 3vw 5px 3vw;
+	padding: 20px 0.5vw 5px 3vw;
 	display: inline;
 }
 #nav a > p {
@@ -52,6 +53,10 @@ body, html {
 	top: initial;
 	bottom: 0;
 }
-
-
-
+#nav li a:hover{
+	position: relative;
+	top: 3px;
+}
+#nav li a:active{
+	color: {{ site.style.highlight }};
+}
