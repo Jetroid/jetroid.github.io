@@ -1,13 +1,46 @@
+---
+layout: compress
+---
 <!DOCTYPE html>
 <html>
-  <body>
-    <h1>Default</h1>
-    <div class="page-content">
-      <div class="wrapper" background-color="black">
-        {{ content }}
-      </div>
-    </div>
-
-  </body>
-
+	<head>
+	{% include sitewide.html %}
+	<!-- Custom Includes - use custom_head_include in YAML front mattter !-->
+	{% if page.custom_head_include %}
+		{% for head_include in page.custom_head_include %}
+		{% include {{ head_include }}.html %}
+		{% endfor %}
+	{% endif %}
+	{% if layout.custom_head_include %}
+		{% for head_include in layout.custom_head_include %}
+		{% include {{ head_include }}.html %}
+		{% endfor %}
+	{% endif %}
+	<!-- Custom Stylesheets - use custom_head_include in YAML front mattter !-->
+	{% if page.custom_css %}
+		{% for stylesheet in page.custom_css %}
+		<link rel="stylesheet" href="assets/css/{{ stylesheet }}.css" type="text/css">
+		{% endfor %}
+	{% endif %}
+	{% if layout.custom_css %}
+		{% for stylesheet in layout.custom_css %}
+		<link rel="stylesheet" href="assets/css/{{ stylesheet }}.css" type="text/css">
+		{% endfor %}
+	{% endif %}
+	<!-- Custom JS - use custom_head_include in YAML front mattter !-->
+	{% if page.custom_js %}
+		{% for js_file in page.custom_js %}
+		<script src='assets/javascripts/{{ js_file }}.js' type="text/javascript"></script>
+		{% endfor %}
+	{% endif %}
+	{% if layout.custom_js %}
+		{% for js_file in layout.custom_js %}
+		<script src='assets/javascripts/{{ js_file }}.js' type="text/javascript"></script>
+		{% endfor %}
+	{% endif %}
+	</head>
+	<body>
+		{% include head.html %}
+		{{ content }}
+	</body>
 </html>
