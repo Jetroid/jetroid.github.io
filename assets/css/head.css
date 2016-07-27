@@ -32,7 +32,6 @@ html, body {
 }
 #navbar li {
 	display: inline-block;
-	overflow: auto;
 	bottom: 0;
 	height: 100%;
 }
