@@ -1,11 +1,19 @@
 ---
 layout: default
+custom_css: 
+- blog
+custom_head_include:
+- background
+background: blog-background.jpg
 ---
-<div class="post-header">
-  <h1 class="post-title">{{ page.title }}</h1>
-  <p>{{ page.date | date: "%Y/%m/%d" }}</p>
+<div id="page-header">
+  <h1 id="page-title">{{ page.title }}</h1>
+  <p id="page-subtitle">{{ page.date | date: "%Y/%m/%d" }}</p>
 </div>
-<div class="post-content" itemprop="articleBody">
+<div class="post-container">
+	<h2 class="post-title">{{ page.title }}</h2>
+	<p class="post-date">{{ page.date | date: "%Y/%m/%d" }}</p>
+	<div class="divider"></div>
   {{ content }}
 </div>
 

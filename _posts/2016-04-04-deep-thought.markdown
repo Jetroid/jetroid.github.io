@@ -2,6 +2,7 @@
 layout: post
 title:  "FC Deep Thought"
 date:   2016-04-03 20:00:00 +0100
+summary: "A look at how to get the most out of a simple concept."
 ---
 My Father runs a small business called Frequency Central which
 designs, builds and sells synthesiser modules.

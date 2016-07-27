@@ -1,0 +1,9 @@
+<style>
+body {
+  background-image: url("/assets/images/{% if page.background %}{{ page.background }}{% else if layout.background %}{{ layout.background }}{% else %}default-background.jpg{% endif %}");
+  background-position: center;      /* center the image */
+  background-size: cover;           /* cover the entire window */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+</style>

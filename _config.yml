@@ -9,3 +9,8 @@ github_username:  jetroid
 
 # Build settings
 markdown: kramdown
+
+# Style settings - will be used in css
+style:
+    text: "#cfcfc9"
+    highlight: "#d05d5d"

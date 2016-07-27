@@ -1,9 +1,5 @@
 ---
 ---
-body {
-  background-position: center;      /* center the image */
-  background-size: cover;           /* cover the entire window */
-}
 #splash {
 	display: block;
 	position: absolute;
@@ -24,10 +20,10 @@ body {
 	font-weight: bold;
 	font-family: monospace;
 	font-size: 16px;
-	color: #cfcfc9;
+	color: {{ site.style.text }};
 }
 #text > a {
-	color: #d05d5d;
+	color: {{ site.style.highlight }};
 	font-size: 18px;
 	text-decoration: none;
 }
