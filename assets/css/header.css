@@ -1,0 +1,27 @@
+body, html {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+#nav ul {
+	margin: 0;
+}
+#nav ul {
+	text-align: right;
+	list-style: none;
+}
+#nav ul li {
+	right: 0;
+	display: inline;
+}
+#nav ul li p {
+	display: inline;
+	font-size: 2rem;
+}
+#nav {
+	top:0;
+	margin-top: 0;
+	padding-top:0;
+	background: rgba(55, 55, 49, 0.7);
+}
