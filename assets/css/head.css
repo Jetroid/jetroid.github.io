@@ -34,6 +34,7 @@ body, html {
 	margin: 0;
 	text-align: right;
 	list-style: none;
+	padding: 0;
 }
 #nav ul li {
 	right: 0;
@@ -59,4 +60,15 @@ body, html {
 }
 #nav li a:active{
 	color: {{ site.style.highlight }};
+}
+
+/* Different looks for mobiles... */
+@media (max-width: 395px){
+	#nav ul li {
+		width: 25vw;
+		padding: 20px 0 5px 0;
+	}
+	#nav > a, #nav > ul {
+		display: block;
+	}
 }
