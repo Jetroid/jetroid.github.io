@@ -1,43 +1,64 @@
 ---
-layout: compress
+layout: compress;
 ---
 <!DOCTYPE html>
 <html>
 	<head>
 	{% include sitewide.html %}
-	<!-- Custom Includes - use custom_head_include in YAML front mattter !-->
+	
+	<!-- This whole section is incredibly ugly, but unfortunately necessary 
+	as liquid 3.0.6 does not support concat !-->
+	{% assign delim = "|" %}
+	<!-- Custom Includes - use custom_head_include in YAML front matter !-->
+	{% assign had_elements = "" %}
 	{% if page.custom_head_include %}
 		{% for head_include in page.custom_head_include %}
-		{% include {{ head_include }}.html %}
+			{% capture had_elements %}{{ had_elements | join: delim }}{{ delim }}{{ head_include }}{% endcapture %}
+			{% assign had_elements = had_elements | split: delim %}
+			{% include {{ head_include }}.html %}
 		{% endfor %}
 	{% endif %}
 	{% if layout.custom_head_include %}
 		{% for head_include in layout.custom_head_include %}
-		{% include {{ head_include }}.html %}
+			{% if had_elements contains head_include %}{% else %}
+				{% include {{ head_include }}.html %}
+			{% endif %}
 		{% endfor %}
 	{% endif %}
-	<!-- Custom Stylesheets - use custom_head_include in YAML front mattter !-->
+	<!-- Custom Stylesheets - use custom_css in YAML front matter !-->
+	{% assign had_elements = "" %}
 	{% if page.custom_css %}
 		{% for stylesheet in page.custom_css %}
-		<link rel="stylesheet" href="/assets/css/{{ stylesheet }}.css" type="text/css">
+			{% capture had_elements %}{{ had_elements | join: delim }}{{ delim }}{{ stylesheet }}{% endcapture %}
+			{% assign had_elements = had_elements | split: delim %}
+			<link rel="stylesheet" href="/assets/css/{{ stylesheet }}.css" type="text/css">
 		{% endfor %}
 	{% endif %}
 	{% if layout.custom_css %}
 		{% for stylesheet in layout.custom_css %}
-		<link rel="stylesheet" href="/assets/css/{{ stylesheet }}.css" type="text/css">
+			{% if had_elements contains stylesheet %}{% else %}
+				<link rel="stylesheet" href="/assets/css/{{ stylesheet }}.css" type="text/css">
+			{% endif %}
 		{% endfor %}
 	{% endif %}
-	<!-- Custom JS - use custom_head_include in YAML front mattter !-->
+	<!-- Custom JS - use custom_js in YAML front matter !-->
+	{% assign had_elements = "" %}
 	{% if page.custom_js %}
 		{% for js_file in page.custom_js %}
-		<script src='/assets/javascripts/{{ js_file }}.js' type="text/javascript"></script>
+			{% capture had_elements %}{{ had_elements | join: delim }}{{ delim }}{{ js_file }}{% endcapture %}
+			{% assign had_elements = had_elements | split: delim %}
+			<script src='/assets/javascripts/{{ js_file }}.js' type="text/javascript"></script>
 		{% endfor %}
 	{% endif %}
 	{% if layout.custom_js %}
 		{% for js_file in layout.custom_js %}
-		<script src='/assets/javascripts/{{ js_file }}.js' type="text/javascript"></script>
+			{% if had_elements contains js_file %}{% else %}
+				<script src='/assets/javascripts/{{ js_file }}.js' type="text/javascript"></script>
+			{% endif %}
 		{% endfor %}
 	{% endif %}
+	
+	
 	</head>
 	<body>
 		{% include head.html %}

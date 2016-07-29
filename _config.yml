@@ -9,6 +9,8 @@ github_username:  jetroid
 
 # Build settings
 markdown: kramdown
+compress_html:
+  comments: all
 
 # Style settings - will be used in css
 style:
