@@ -61,7 +61,7 @@ body, html {
 #nav li a:active{
 	color: {{ site.style.highlight }};
 }
-
+.nobr	{ white-space:nowrap; }
 /* Different looks for mobiles... */
 @media (max-width: 395px){
 	#nav ul li {
