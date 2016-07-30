@@ -1,5 +1,3 @@
-<style>
 #image {
 	background-image: url("/assets/images/{{ page.image }}");
 }
-</style>

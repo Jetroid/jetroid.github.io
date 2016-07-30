@@ -9,22 +9,24 @@ layout: compress;
 	<!-- This whole section is incredibly ugly, but unfortunately necessary 
 	as liquid 3.0.6 does not support concat !-->
 	{% assign delim = "|" %}
-	<!-- Custom Includes - use custom_head_include in YAML front matter !-->
+	<!-- Custom Includes - use custom_style_includes in YAML front matter !-->
+	<style>
 	{% assign had_elements = "" %}
-	{% if page.custom_head_include %}
-		{% for head_include in page.custom_head_include %}
-			{% capture had_elements %}{{ had_elements | join: delim }}{{ delim }}{{ head_include }}{% endcapture %}
+	{% if page.custom_style_includes %}
+		{% for style_include in page.custom_style_includes %}
+			{% capture had_elements %}{{ had_elements | join: delim }}{{ delim }}{{ style_include }}{% endcapture %}
 			{% assign had_elements = had_elements | split: delim %}
-			{% include {{ head_include }}.html %}
+			{% include {{ style_include }}.css %}
 		{% endfor %}
 	{% endif %}
-	{% if layout.custom_head_include %}
-		{% for head_include in layout.custom_head_include %}
-			{% if had_elements contains head_include %}{% else %}
-				{% include {{ head_include }}.html %}
+	{% if layout.custom_style_includes %}
+		{% for style_include in layout.custom_style_includes %}
+			{% if had_elements contains style_include %}{% else %}
+				{% include {{ style_include }}.css %}
 			{% endif %}
 		{% endfor %}
 	{% endif %}
+	</style>
 	<!-- Custom Stylesheets - use custom_css in YAML front matter !-->
 	{% assign had_elements = "" %}
 	{% if page.custom_css %}
