@@ -54,14 +54,35 @@ body, html {
 	top: initial;
 	bottom: 0;
 }
-#nav li a:hover{
+#nav a:hover{
 	position: relative;
 	top: 3px;
 }
-#nav li a:active{
+#nav a:active{
 	color: {{ site.style.highlight }};
 }
 .nobr	{ white-space:nowrap; }
+
+#blog-dropdown {
+	display: inline;
+	position: relative;
+}
+.dropdown-content {
+		display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: rgba(55, 55, 49, 0.9);
+}
+.dropdown-content a {
+    padding: 4px 16px;
+    text-decoration: none;
+    display: block !important;
+}
+#blog-dropdown:hover .dropdown-content {
+    display: block;
+}
+
 /* Different looks for mobiles... */
 @media (max-width: 395px){
 	#nav ul li {
