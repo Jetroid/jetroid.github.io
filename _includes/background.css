@@ -1,4 +1,5 @@
 body {
+	background-color: {% if page.background.color %}{{ page.background.color }}{% else %}{{ site.style.background-hex }}{% endif %};
   background-image: url("/assets/images/{% if page.background.image %}{{ page.background.image }}{% else if layout.background.image %}{{ layout.background.image }}{% else %}default-background.jpg{% endif %}");
   background-position: {% if page.background.position %}{{ page.background.position }}{% else %}center{% endif %};
   background-size: cover;
