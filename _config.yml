@@ -18,3 +18,5 @@ compress_html:
 style:
     text: "#cfcfc9"
     highlight: "#d05d5d"
+    background-rgb: "55, 55, 49,"
+    background-hex: "#373731"

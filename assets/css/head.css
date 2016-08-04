@@ -9,7 +9,7 @@ body, html {
 #nav {
 	padding-top: 5px;
   line-height:0;
-	background: rgba(55, 55, 49, 0.9);
+	background: rgba({{ site.style.background-rgb }} 0.9);
 	font-family: monospace;
 	text-align:justify;
 	color: {{ site.style.text }};
@@ -72,7 +72,7 @@ body, html {
     position: absolute;
     left: 0;
     right: 0;
-    background: rgba(55, 55, 49, 0.9);
+    background: rgba({{ site.style.background-rgb }} 0.9);
 }
 .dropdown-content a {
     padding: 4px 16px;

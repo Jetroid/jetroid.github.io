@@ -28,7 +28,7 @@ h2.post-title{
 	margin-top: 0;
 }
 .post-container, #navigation{
-	background: rgba(55, 55, 49, 0.7);
+	background: rgba({{ site.style.background-rgb }} 0.7);
 	padding: 5px 15vw 20px 15vw;
 }
 .post-container a {
