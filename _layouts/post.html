@@ -16,5 +16,16 @@ background:
 	<p class="post-date">{{ page.date | date: "%Y/%m/%d" }}</p>
 	<div class="divider"></div>
   {{ content }}
+  <div class="divider"></div>
+</div>
+<div id="navigation">
+  {% if page.previous.url %}
+    <a id="prev-post" href="{{page.previous.url}}">&lsaquo;{{page.previous.title}}</a>
+  {% else %} <p id="prev-post">&nbsp;&nbsp;---</p>
+  {% endif %}
+  {% if page.next.url %}
+    <a id="next-post" href="{{page.next.url}}">{{page.next.title}}&rsaquo;</a>
+  {% else %} <p id="next-post">---&nbsp;&nbsp;</p>
+  {% endif %}
 </div>
 

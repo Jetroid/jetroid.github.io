@@ -27,7 +27,7 @@ h2.post-title{
 .post-date {
 	margin-top: 0;
 }
-.post-container{
+.post-container, #navigation{
 	background: rgba(55, 55, 49, 0.7);
 	padding: 5px 15vw 20px 15vw;
 }
@@ -51,4 +51,23 @@ h2.post-title{
 }
 .separator {
 	height: 50px;
+}
+#navigation {
+	margin: 0;
+	padding: 5px;
+  font-size: 3vw;
+  display: block;
+  width: auto;
+  overflow: hidden;
+}
+#navigation * {
+	margin: 0;
+	color: {{ site.style.highlight }};
+	text-decoration: none;
+  display: block;
+  width: 50%;
+  float: left;
+}
+#navigation #next-post {
+  text-align: right;
 }
