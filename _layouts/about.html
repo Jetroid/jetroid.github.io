@@ -1,0 +1,38 @@
+---
+layout: default
+custom_css:
+- about
+custom_style_includes:
+- background
+- image
+background: 
+ image: background-about.jpg
+ position: top center
+ color: "#31302F"
+---
+<div id="about-container">
+	<div id="about-content">
+		<div id="about-images">
+		  <div class="imageContainer" style="background-image: url(/assets/images/about-me4.jpg);"></div>
+		  <div class="imageContainer" style="background-image: url(/assets/images/about-me3.jpg);"></div>
+		  <div class="imageContainer" style="background-image: url(/assets/images/about-me2.jpg);"></div>
+			<div class="imageContainer" style="background-image: url(/assets/images/about-me1.jpg);"></div>
+		  <div class="clearer"></div>
+		</div>
+		<div id="about-text">
+			{{ content }}
+		</div>
+	</div>
+</div>
+<div id="timeline-container">
+	<div id="timeline">
+		{% assign sorted = site.timeline | sort: 'year' | reverse %}
+		{% for entry in sorted %}
+		<div class="timeline-block">
+			<h1 class="timeline-block-date timeline-block-date-year">{{ entry.year }}</h1>
+			{% if entry.specific %}<p class="timeline-block-date timeline-block-date-specific">{{ entry.specific }}</p>{% endif %}
+			<div class="timeline-block-content">{{ entry.content }}</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
