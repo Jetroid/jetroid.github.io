@@ -25,6 +25,7 @@ body{
 	margin: 10px 0;
 	border-radius: 15px;
 	padding: 2px 20px 2px 20px;
+	line-height: 1.5;
 	background: rgba({{ site.style.background-rgb }} 0.7);
 }
 
@@ -76,6 +77,7 @@ body{
 	margin-left: 100px;
 	padding: 2px 20px 2px 20px;
 	border-radius: 15px;
+	line-height: 1.5;
 	background: rgba({{ site.style.background-rgb }} 0.7);
 }
 .timeline-block-content a {
@@ -94,6 +96,9 @@ body{
 		padding: 25px;
 		margin: 10px 25px;
 	}
+	.timeline-block-content{
+		line-height: initial;
+	}
 }
 /* Different look for large screens */
 @media (min-width: 1440px){
@@ -107,7 +112,7 @@ body{
 	.timeline-block-date-year {
 		font-size: 50px;
 	}
-	.timeline-block-date-specific {
+	.timeline-block-date-specific,#about-text {
 		padding: 50px 4px;
 		font-size: 28px;
 	}
