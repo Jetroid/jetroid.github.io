@@ -11,21 +11,8 @@ layout: compress
 	{% assign delim = "|" %}
 	<!-- Custom Includes - use custom_style_includes in YAML front matter !-->
 	<style>
-	{% assign had_elements = "" %}
-	{% if page.custom_style_includes %}
-		{% for style_include in page.custom_style_includes %}
-			{% capture had_elements %}{{ had_elements | join: delim }}{{ delim }}{{ style_include }}{% endcapture %}
-			{% assign had_elements = had_elements | split: delim %}
-			{% include {{ style_include }}.css %}
-		{% endfor %}
-	{% endif %}
-	{% if layout.custom_style_includes %}
-		{% for style_include in layout.custom_style_includes %}
-			{% if had_elements contains style_include %}{% else %}
-				{% include {{ style_include }}.css %}
-			{% endif %}
-		{% endfor %}
-	{% endif %}
+	{% include head.css %}
+	{% include master.scss %}
 	</style>
 	<!-- Custom Stylesheets - use custom_css in YAML front matter !-->
 	{% assign had_elements = "" %}
