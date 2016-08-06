@@ -11,8 +11,11 @@ layout: compress
 	{% assign delim = "|" %}
 	<!-- Custom Includes - use custom_style_includes in YAML front matter !-->
 	<style>
-	{% include head.css %}
-	{% include master.scss %}
+	{% capture include_to_scssify %}
+		{% include head.css %}
+		{% include master.scss %}
+	{% endcapture %}
+  {{ include_to_scssify | scssify }}
 	</style>
 	<!-- Custom Stylesheets - use custom_css in YAML front matter !-->
 	{% assign had_elements = "" %}
