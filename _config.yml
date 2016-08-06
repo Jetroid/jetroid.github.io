@@ -16,6 +16,8 @@ collections:
 markdown: kramdown
 compress_html:
   comments: all
+sass:
+  style: compressed
 
 # Style settings - will be used in css
 style:
