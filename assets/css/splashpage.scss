@@ -28,6 +28,7 @@
 	font-family: monospace;
 	font-size: 2.4vh;
 	color: {{ site.style.text }};
+	line-height: 2;
 }
 #text > a {
 	color: {{ site.style.highlight }};
