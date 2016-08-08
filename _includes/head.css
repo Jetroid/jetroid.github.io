@@ -80,11 +80,14 @@ body, html {
     text-decoration: none;
     display: block !important;
 }
-#blog-dropdown:hover .dropdown-content {
-    display: block;
+/* Mobiles shouldn't show option for alternate blog types */
+@media (min-width: 500px){
+	#blog-dropdown:hover .dropdown-content {
+		  display: block;
+	}
 }
 
-/* Different looks for mobiles... */
+/* Different looks for small mobiles... */
 @media (max-width: 395px){
 	#nav ul li {
 		width: 25vw;
