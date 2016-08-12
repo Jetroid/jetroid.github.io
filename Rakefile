@@ -52,7 +52,7 @@ task :compress do
   abort("rake aborted: '#{CONFIG['images']}' directory not found.") unless FileTest.directory?(CONFIG['images'])
   Dir.chdir("#{CONFIG['images']}") do
   	puts "Optimising PNGs"
-  	sh 'optipng -quiet -o3 *.png'
+  	sh 'optipng -quiet -o3 -strip all *.png'
   	puts "Optimising JPGs"
   	sh 'jpegoptim -s -q *.jpg'
   	puts "Done"
