@@ -73,3 +73,6 @@ img + em {
 	display: block;
 	text-align: center;
 }
+pre {
+	white-space: pre-wrap;
+}

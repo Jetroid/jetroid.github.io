@@ -33,14 +33,14 @@ CONFIG = {
 # Usage: rake compress
 desc "Compress all images (of type .jpg and .png) in #{CONFIG['images']}"
 task :compress do
-	abort("rake aborted: '#{CONFIG['images']}' directory not found.") unless FileTest.directory?(CONFIG['images'])
-	Dir.chdir("#{CONFIG['images']}") do
-		puts "Optimising PNGs"
-		sh 'optipng -quiet -strip all -o3 *.png'
-		puts "Optimising JPGs"
-		sh 'jpegoptim -s -q *.jpg'
-		puts "Done"
-	end
+  abort("rake aborted: '#{CONFIG['images']}' directory not found.") unless FileTest.directory?(CONFIG['images'])
+  Dir.chdir("#{CONFIG['images']}") do
+    puts "Optimising PNGs"
+    sh 'optipng -quiet -strip all -o3 *.png'
+    puts "Optimising JPGs"
+    sh 'jpegoptim -s -q *.jpg'
+    puts "Done"
+  end
 end # task :compress 
 ```
 
