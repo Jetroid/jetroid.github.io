@@ -9,7 +9,7 @@ body {
 	background: #062414;
 	box-shadow: inset 0 0 23em 1em #000;
 }
-p, a, h1, h2, h3, h4, h5, h6, span{
+p, a, h1, h2, h3, h4, h5, h6, span, code{
 	margin: 0;
 	color: #15763E;
 	background: transparent;
@@ -18,7 +18,7 @@ p, a, h1, h2, h3, h4, h5, h6, span{
 	font-weight: bold;
 	font-size: 1.7vw;
 }
-span:hover, .bracketpair{
+#hacking span:hover, .bracketpair{
 	color: #062414;
 	text-shadow: 0em 0em 1em #23824C;
 	background: #15763E;
