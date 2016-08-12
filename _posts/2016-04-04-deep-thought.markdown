@@ -22,6 +22,7 @@ Designing the PCB should be quick, and the component cost would be low.
 There was no real reason *not* to make it.
 
 ![Deep Thought Prototype](/assets/images/deep-thought-prototype.jpg)
+*Deep Thought Prototype*
 
 It really wasn't a complicated project, 
 and I completed it within days of discussing it,

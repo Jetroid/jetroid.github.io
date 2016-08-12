@@ -363,21 +363,17 @@ var fixImages = function(){
 		var parentdiv = document.createElement("DIV");
 		parentdiv.className = "image-container";
 
-		var textbox = document.createElement("DIV");
-		var text = document.createElement("P");
-		text.className = "image-text";
-		text.innerHTML = image.alt;
-
 		var colordiv = document.createElement("DIV");
 		colordiv.className = "image-color";
+
+		var clearfix = document.createElement("DIV");
+		clearfix.style.clear = "both";
 
 		parent.insertBefore(parentdiv, image);
 		parent.removeChild(image);
 
-		parentdiv.appendChild(textbox);
-
-		textbox.appendChild(colordiv);
-		textbox.appendChild(text);
+		parentdiv.appendChild(colordiv);
+		parentdiv.appendChild(clearfix);
 
 		colordiv.appendChild(image);
 	}

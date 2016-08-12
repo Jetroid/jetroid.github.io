@@ -19,6 +19,7 @@ I never touched it, played with it, nor analysed its functions.
 I simply looked at the front panel, and not particularly hard either.
 
 ![Grid Machine Prototype](/assets/images/polygraf-grid-machine.jpg)
+*Grid Machine Prototype*
 
 To put it simply: 
 As I know nothing about musical tech,
@@ -39,6 +40,7 @@ attempt to understand.
 The project was discarded, despite being fully functional.
 
 ![Polygraf Prototype Board](/assets/images/polygraf-prototype.jpg)
+*Polygraf Prototype Board*
 
 Spring 2015 brought many changes.
 Frequency Central decided that there was merit to the idea - 
@@ -60,6 +62,7 @@ As such, the module as a whole would be able to record sequences of
 oscillations.
 
 ![Polygraf in development](/assets/images/polygraf-in-development.jpg)
+*Polygraf in development*
 
 It was unclear if this extra circuit would be sold as an expansion module,
 or if it would be sold built-in to the Polygraf. 
@@ -71,6 +74,7 @@ but Frequency Central thought strongly that the extra circuit
 made a much more desirable product.
 
 ![Polygraf Mockup](/assets/images/polygraf-panel-mockup.jpg)
+*Polygraf Mockup*
 
 I worked on and off on the Polygraf (then known as the Event Horizon)
 for a long time. I made significant progress during Summer 2015, 
@@ -80,6 +84,7 @@ I decided during my winter break
 that I would complete the project before I went back to University.
 
 ![Polygraf Panel](/assets/images/polygraf-panel.jpg)
+*Polygraf Panel*
 
 My Father was amazed with the completed project. 
 He loved how simple the seven segments made the module to use,

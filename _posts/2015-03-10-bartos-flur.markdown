@@ -23,6 +23,7 @@ to the extent that it was no longer feasible as a product.
 A new solution was needed.
 
 ![Frequency Central's initial prototype](/assets/images/bartos-flur-original-prototype.jpg)
+*Frequency Central's initial prototype*
 
 At the same time,
 I needed to find a project to do for my A Level Electronics coursework,
@@ -39,6 +40,7 @@ This PIC eventually became known as the QuaSH,
 and may one day be used in future Frequency Central modules.
 
 ![Electronics Project Bartos Flur](/assets/images/bartos-flur-electronics-project.jpg)
+*Electronics Project Bartos Flur*
 
 It was a great challenge and it really let me get my feet wet with PICs.
 I had used them briefly in the previous year of my Electronics course,
@@ -52,6 +54,7 @@ I had to learn how to output analogue values (for the QuaSH)
 and I also crucially had to learn how to use conditional branching.
 
 ![Frequency Central's prototype using my PIC](/assets/images/bartos-flur-copper-prototype.jpg)
+*Frequency Central's prototype using my PIC*
 
 My initial attempt was funny.
 I was reading from the wrong end of the byte,
@@ -72,6 +75,7 @@ The new system requires multiple samples of the same band before being accepted
 and outputting on that band.
 
 ![Bartos Flur Commercial PCB](/assets/images/bartos-flur-finished-pcb.jpg)
+*Bartos Flur Commercial PCB*
 
 Next I had to develop a solution for the Clock problem.
 The Bartos Flur essentially had three states for the clock - 
@@ -85,6 +89,7 @@ than a binary input.
 
 
 ![Bartos Flur Commercial Panel](/assets/images/bartos-flur-finished-panel.jpg)
+*Bartos Flur Commercial Panel*
   
 Now that I was using two separate Analogue channels in my PIC,
 I encountered the second problem which I struggled with for a while.
@@ -106,3 +111,4 @@ I rewrote some of the logic code in Spring 2015 in preparation for the
 commercial release, and the Bartos Flur was subsequently released for sale on 9th March 2015.
 
 ![Bartos Flur Cake Edition](/assets/images/bartos-flur-cake.jpg)
+*Bartos Flur Cake Edition*

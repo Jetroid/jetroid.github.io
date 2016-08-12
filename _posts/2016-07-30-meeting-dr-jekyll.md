@@ -61,6 +61,7 @@ any jekyll-processed page using the 'site' variable -
 <span class="nobr">{% raw %}{{ site.variablename }}{% endraw %}</span>.
 
 ![Jekyll Font Variables](/assets/images/jekyll-font-variables.png)
+*Jekyll Font Variables*
 
 For my initial usage, I'm just using this to store the colours of my fonts - 
 <span class="nobr">{% raw %}{{ site.style.text }}{% endraw %}</span> is {{ site.style.text }}
@@ -70,6 +71,7 @@ if these two values are different to the previous two,
 then I decided to change my colours and the variables helped me do that easily!
 
 ![Jekyll Font Variables in use](/assets/images/jekyll-font-variables-used.png)
+*Jekyll Font Variables in use*
 
 Page and Layout specific CSS and JS
 ===================================
@@ -103,6 +105,7 @@ and was a [new feature](https://github.com/jekyll/jekyll/issues/4123)
 introduced after Matt Gemell's post was written.
 
 ![Custom CSS request in yaml front matter](/assets/images/jekyll-custom-css-yaml-front-matter.png)
+*Custom CSS request in yaml front matter*
 
 The naïve approach here would be two for-loops, 
 one for page and once layout, but what if both post and layout include the same thing?
@@ -132,6 +135,7 @@ to Github as if it were a non-Jekyll (read: regular ol' boring static) site.
 For me, this isn't a good solution as I really like Github Pages compiling for me.
 
 ![Custom CSS in my 'default' layout when using plugin](/assets/images/jekyll-custom-css.png)
+*Custom CSS in my 'default' layout when using plugin*
 
 Neither the naïve solution of two for-loops,
 nor the plugin solution are optimal for the reasons given.
@@ -172,6 +176,7 @@ and if present adds the specified css from the _includes/ directory,
 using <span class="nobr">{% raw %}{% include {{ style_include }}.css %}{% endraw %}</span>.
 
 ![Custom syle include to set the background on my blog](/assets/images/jekyll-custom-style-include.png)
+*Custom syle include to set the background on my blog*
 
 I can then use variables in the yaml front matter to specify 
 the actual picture to be used in the included snippet.

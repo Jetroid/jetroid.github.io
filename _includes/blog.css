@@ -69,3 +69,7 @@ h2.post-title{
 #navigation #next-post {
   text-align: right;
 }
+img + em {
+	display: block;
+	text-align: center;
+}

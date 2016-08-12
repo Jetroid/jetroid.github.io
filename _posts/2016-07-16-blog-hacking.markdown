@@ -17,6 +17,7 @@ I am very passionate about the Fallout series,
 and I only had to take the project as far as I wanted.
 
 ![Image of the hacking minigame in Fallout 3](/assets/images/hacking-minigame-reference.jpg)
+*Image of the hacking minigame in Fallout 3*
 
 I finished the layout of the hacking portion several weeks ago,
 and was very pleased with the result. 
@@ -48,12 +49,14 @@ I'm sure that my source code would make a more experienced web developer weep,
 but I'm a beginner! Cut me some slack!
 
 ![Image of the hacking minigame](/assets/images/hacking-minigame-game.png)
+*Image of the hacking minigame*
 
 It was only when I had completed it that I realised I had no 'win condition'.
 Making a lose condition was trivial - 
 I could simply implement the 'Lockout' screen that the series has.
 
 ![Image of the hacking minigame's lockout screen](/assets/images/hacking-minigame-lockout.png)
+*Image of the hacking minigame's lockout screen*
 
 Winning was a little harder.
 Hacking terminals in Fallout typically grants you the ability to read the various musings,
@@ -68,6 +71,7 @@ My first attempt at a website last year was a really bad
 (read: barely functional) knock off of a linux terminal.
 
 ![Image of the old website](/assets/images/hacking-minigame-old-site.png)
+*Image of the old website*
 
 This older website was really clunky - it was my literally first foray into HTML - 
 and whilst I was very proud of it at the time, it never really met my requirements.
@@ -86,3 +90,4 @@ I write them once into a file in my _posts/ directory, and I can use
 them across the site.
 
 ![Image of this blog post](/assets/images/hacking-minigame-blog-post.png)
+*Image of this blog post*

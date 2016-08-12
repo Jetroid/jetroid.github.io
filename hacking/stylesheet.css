@@ -122,8 +122,9 @@ img {
 	margin: 0 auto;
 	display: table;
 }
-.image-text{
-	font-size: 15px;
+.image-container + em {
+	font-size: 15px !important;
+	display: block;
 	text-align: center;
 }
 @-moz-document url-prefix() {
