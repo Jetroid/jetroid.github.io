@@ -2,7 +2,7 @@
 layout: post
 title: "Caption Contest"
 date: 2016-08-12 11:37:33 +0100
-background: 
+background: "caption-beauty.jpg"
 summary: "A brief guide to adding image captions to Jekyll blog posts."
 ---
 To add an image to a Markdown post, you write something like this: 
@@ -40,3 +40,6 @@ img + em {
 ```
 
 This is a really nice script-free solution to a problem I had.
+
+![This image has a caption!](/assets/images/caption-beauty.jpg)
+*This image has a caption!*
