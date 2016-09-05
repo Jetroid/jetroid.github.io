@@ -4,6 +4,7 @@ title:  "FC Chronograf"
 date:   2016-04-02 20:00:00 +0100
 background: "chronograf-beauty.jpg"
 summary: "The story of the timer-based Chronograf module."
+background-color: "#83807A"
 ---
 My Father runs a small business called Frequency Central which
 designs, builds and sells synthesiser modules.

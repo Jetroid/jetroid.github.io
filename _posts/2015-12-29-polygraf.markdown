@@ -4,6 +4,7 @@ title:  "FC Polygraf"
 date:   2015-12-29 20:00:00 +0100
 summary: "The story of the development of Polygraf, which went through many iterations and required several new skills."
 background: "polygraf-in-development.jpg"
+background-color: "#6B6E72"
 ---
 My Father runs a small business called Frequency Central which
 designs, builds and sells synthesiser modules.

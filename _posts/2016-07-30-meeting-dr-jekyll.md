@@ -4,6 +4,7 @@ title: "Meeting Dr. Jekyll"
 date: 2016-07-30 13:53:45 +0100
 background: "jekyll-beauty.jpg"
 summary: "A look at how I made the most of Jekyll in building my website."
+background-color: "#000102"
 ---
 It's no secret that my website is hosted on the wonderful [GitHub Pages](https://pages.github.com/).
 There are many advantages to this - 

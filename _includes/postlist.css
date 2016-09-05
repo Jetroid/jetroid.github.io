@@ -8,7 +8,6 @@ h2.post-title{
 	margin-top: 0;
 }
 .post-container{
-	background-image: url("/assets/images/background-blog.jpg");
   background-position: center;
   background-size: cover;
   /*background-repeat: no-repeat;*/
