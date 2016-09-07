@@ -37,6 +37,7 @@ I was asked recently what my website was *for*; what was it meant to achieve?
 I thought about this, and I decided that these are the main aims:
 
 My website should be...
+
 - a way for individuals (or otherwise) to see at-a-glance what sort of person I am.
 - a platform for me to be able to write useful posts. (tips, tutorials, etc)
 - a record of the projects I complete. (more for my own self-worth than anything else)
@@ -78,6 +79,9 @@ to make it a little more visually interesting.
 As the page scrolls, 
 the link blocks are like little windows on to the pictures. I think it looks cool!
 
+![My new homepage design. Links appear below the blurb as slide-y images](/assets/images/designed-new.png)
+*My new homepage design. Links appear below the blurb as slide-y images!*
+
 My refinements left me with a problem:
 I would be left with only two tabs on my navbar - Home and About.
 
@@ -87,17 +91,9 @@ or do away with the navbar completely.
 My personal stance is that I don't particularly like navbars;
 They're a website version of the tabs you'd find in a folder.
 They hint as if to say that "all of the important content is here!",
-and I personally feel like the limit the exploration of the page you can perform.
-
-This usually isn't the reality, 
-and I often can find pages that a navbar *doesn't*
-link to but should. If it is the reality that it links to
-*all* the important content, then it will become completely unusable.
+which I personally feel disincentivises page exploration.
 
 I chose to remove the navbar and link to pages through posts or my homepages' 'blurb'.
-
-![My new homepage design. Links appear below the blurb as slide-y images](/assets/images/designed-new.png)
-*My new homepage design. Links appear below the blurb as slide-y images!*
 
 Why did the original design have these flaws?
 ---------------------------------------------
