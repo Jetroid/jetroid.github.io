@@ -30,15 +30,19 @@ image: me.jpg
 		</div>
 	</div>
 </div>
-{% for post in site.posts %}
-<a href="{{ post.url | prepend: site.baseurl }}"><div class="post-container" style="background-image: url(/assets/images/{{ post.background }});{% if post.background-color %}background-color:{{ post.background-color }}{% endif %}">
-	<div class="post-shadow">
-		<h2 class="post-title">{{ post.title }}</h2>
-		<p class="post-date">{{ post.date | date: "%Y/%m/%d" }}</p>
-		<div class="divider"></div>
-		<p class="post-summary">{{ post.summary }}</p>
-  </div>
-</div></a>
-<div class="separator"></div>
-{% endfor %}
-<div style="height:25vh;"></div>
+<div id="posts">
+	{% for post in site.posts %}
+	<div class="post">
+		<a href="{{ post.url | prepend: site.baseurl }}">
+			<div class="post-background" style="background-image: url(/assets/images/{{ post.background }});{% if post.background-color %}background-color:{{ post.background-color }}{% endif %}">
+				<div class="post-shadow">
+					<h2 class="post-title">{{ post.title }}</h2>
+					<p class="post-date">{{ post.date | date: "%Y/%m/%d" }}</p>
+					<div class="divider"></div>
+					<p class="post-summary">{{ post.summary }}</p>
+				</div>
+			</div>
+		</a>
+	</div>
+	{% endfor %}
+</div>
