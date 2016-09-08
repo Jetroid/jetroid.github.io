@@ -8,4 +8,8 @@ body{
 	font-family: monospace;
 	color: {{ site.style.text }}
 }
+a {
+	text-decoration: none;
+	color: {{ site.style.highlight }}
+}
 .nobr	{ white-space:nowrap; }
