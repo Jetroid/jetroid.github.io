@@ -7,7 +7,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "jetholt.com" # the base hostname & protocol for your site
 github_username:  jetroid
 
-permalink: pretty
+permalink: :title/
 
 collections:
 - timeline
