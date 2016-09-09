@@ -32,3 +32,13 @@ It turns out that I took my photograph at 19:49, and she took hers at 19:54.
 If you examine them closely, you can notice the same clouds in both images.
 I think that it's crazy that this happened,
 and I can't help wondering if other pictures were taken at the same time.
+
+**Update:**
+
+Crazier still, she sent me a second photo that she took,
+which has even more similarities.
+
+![Her second photo.](/assets/images/connected-minds-hers2.jpg)
+*Her second photo.*
+
+Even the position of the lamp post is the same!
