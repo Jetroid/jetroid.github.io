@@ -40,8 +40,8 @@ task :post do
     post.puts "layout: post"
     post.puts "title: \"#{title.gsub(/-/,' ')}\""
     post.puts "date: #{ date } #{ time }"
-    post.puts "background: "
-    post.puts "background-color: "
+    post.puts "background: \"\""
+    post.puts "background-color: \"\""
     post.puts "summary: \"\""
     post.puts "---"
   end
