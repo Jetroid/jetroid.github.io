@@ -1,4 +1,7 @@
 #linkback {
 	font-size: 5vh;
 	position: fixed;
+	font-weight: bold;
+	text-shadow: 2px 0px {{ site.style.background-hex }};
+	z-index: 2;
 }
