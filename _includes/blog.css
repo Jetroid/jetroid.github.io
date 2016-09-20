@@ -14,7 +14,7 @@ body{
 	margin-bottom: 5px;
 }
 #page-subtitle{
-	padding: 0px 10px;
+	margin: 0;
 }
 h1#page-title{
 	font-size: 3rem;
@@ -30,7 +30,8 @@ h2.post-title{
 }
 .post-container, #navigation{
 	background: rgba({{ site.style.background-rgb }} 0.7);
-	padding: 5px 15vw 20px 15vw;
+	padding-top: 5px;
+	padding-bottom: 20px;
 }
 .post-container a {
 	display: inline;
@@ -78,4 +79,20 @@ img + em {
 }
 pre {
 	white-space: pre-wrap;
+}
+.post-container, #navigation, #page-subtitle{
+		padding-left: 5vh;
+		padding-right: 5vh;
+}
+@media (min-width: 500px){
+	.post-container, #page-title, #page-subtitle{
+		padding-left: 10vh;
+		padding-right: 10vh;
+	}
+}
+@media (min-width: 800px){
+	.post-container, #page-title, #page-subtitle{
+		padding-left: 15vh;
+		padding-right: 15vh;
+	}
 }
