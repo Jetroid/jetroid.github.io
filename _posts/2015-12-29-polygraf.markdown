@@ -6,11 +6,12 @@ summary: "The story of the development of Polygraf, which went through many iter
 background: "polygraf-in-development.jpg"
 background-color: "#6B6E72"
 ---
-My Father runs a small business called Frequency Central which
+My Father runs a small business called [Frequency Central](http://frequencycentral.co.uk) which
 designs, builds and sells synthesiser modules.
 The Polygraf is one such module.
 
-The Polygraf has had several names and forms. 
+The Polygraf has had several names and forms.
+
 The story behind how the Polygraf came about is quite a humorous one.
 After having completed the Bartos Flur,
 I was looking at some existing modules for
@@ -18,27 +19,64 @@ inspiration to build a new project for fun and for the experience.
 I decided to attempt to replicate my interpretation of what a module *might* do.
 I had no idea what the module actually did - 
 I never touched it, played with it, nor analysed its functions. 
-I simply looked at the front panel, and not particularly hard either.
+I simply looked at the front panel - and not *particularly* hard either!
+
+As I know nothing about musical tech,
+the module I looked at did not do **at all** what I thought it did.
+
+The module I looked at was a sequencer running through outputs in a pre-defined sequence,
+and you could use switches to determine whether a particular output was
+on or off for the entire sequence.
+
+The circuit I made, later dubbed the 'Grid Machine'
+was much more like a drum machine (which I didn't know about at the time) -
+You could program in sequences which the module will remember in EEPROM
+and can play back at any time.
+The Grid Machine was able to support 15 user defined sequences 
+plus one hard-coded-by-Frequency-Central sequence (for technical reasons).
 
 ![Grid Machine Prototype](/assets/images/polygraf-grid-machine.jpg)
 *Grid Machine Prototype*
 
-To put it simply: 
-As I know nothing about musical tech,
-the module I looked at did not do at all what I thought it did.
-The module was a sequencer running a pre-defined sequence 
-and you could use switches to determine whether a particular output was
-on or off for the entire sequence.
-The circuit I made, later dubbed the 'Grid Machine'
-was much more like a drum machine: 
-You could program in 8 output, 16 stage sequences, which the module will remember in EEPROM.
-The Grid Machine was able to support 15 user defined sequences 
-plus one hard-coded-by-Frequency-Central that cannot change.
+Programming this was actually really fun to do.
+I felt quite versed with Assembly by now, and the project was quite challenging.
+
+The main challenge was how to store the data and formatting it appropriately.
+I knew nothing about filesystems at this time,
+and essentially rolled my own very simple one whilst designing it.
+
+I started by working through the data I needed to store.
+
+For each step, 8 outputs could be on independantly of each other.
+Okay, I can store the configuration of that really easily in a byte,
+with each bit representing if a specific output is on or off.
+Each sequence can have 16 steps, so let's allocate 16 bytes to each sequence.
+But a sequence can terminate early - we need some way of denoting if a sequence
+should stop prematurely.
+Let's give each sequence an extra half a byte to denote which step it should stop at.
+
+Very quickly the storage method materialised.
+One byte storing the length of the sequence
+(which wastes half a byte, but I had nothing extra to store there anyway),
+followed by 16 bytes which contain the output sequence.
+
+The PIC I was using had 256 EEPROM bytes, and as each sequence used 17 bytes,
+it was easy to see that I could have 15 sequences.
+I opted to hard-code an extra sequence in there to round it out to 16 sequences
+as it's a much nicer number to work with.
+
+I was really happy with the Grid Machine.
+I could encode different sequences on to the PIC
+(each output was also an input with a corresponding switch,
+though I only had 4 switches on my prototype)
+and play them back after.
 
 The problem with the Grid Machine was that the interface was not intuitive.
 My Father commented that I had designed a device that only I knew how to use,
 and that you would have to have a good understanding of binary to even
 attempt to understand.
+I thought these comments were unfair,
+but accepted that the interface could use improvement.
 The project was discarded, despite being fully functional.
 
 ![Polygraf Prototype Board](/assets/images/polygraf-prototype.jpg)
@@ -48,30 +86,36 @@ Spring 2015 brought many changes.
 Frequency Central decided that there was merit to the idea - 
 it just needed an improved interface. 
 We decided to outfit it with two seven segment displays,
-sacrificing 4 of the outputs.
-This changes the functionality dramatically.
+sacrificing 4 of the outputs (the PIC didn't have enough I/O pins).
+
+This changed the functionality dramatically.
+
 The interface would be much more usable,
 whilst having only 4 outputs meant that now we
 could store 32 sequences, 30 of which were user-programmable.
 
+![Polygraf in development](/assets/images/polygraf-in-development.jpg)
+*Polygraf in development*
+
 The plan for the module also changed. 
 Rather than recording beats and outputting these through drum modules,
 the four outputs would be connected to a 4514 4-to-16-line decoder.
-Each of these 16 lines would then be connected to (variable?) resistors,
+
+Each of these 16 lines would then be connected to variable resistors,
 such that each line has its own voltage value. These voltages would then
 be fed into a Voltage Controlled Oscillator (VCO) to produce sound.
 As such, the module as a whole would be able to record sequences of
 oscillations.
 
-![Polygraf in development](/assets/images/polygraf-in-development.jpg)
-*Polygraf in development*
-
 It was unclear if this extra circuit would be sold as an expansion module,
 or if it would be sold built-in to the Polygraf. 
+
 I wasn't too concerned about this extra circuit, 
 as it did not require any additional programming -
 the core PIC would remain the same. 
-I had a certain level of fondness for the original idea as a drum-machine,
+
+I had a certain level of fondness for the original idea as a drum-machine
+(ie, without the extra circuit),
 but Frequency Central thought strongly that the extra circuit
 made a much more desirable product.
 
@@ -81,6 +125,7 @@ made a much more desirable product.
 I worked on and off on the Polygraf (then known as the Event Horizon)
 for a long time. I made significant progress during Summer 2015, 
 but external factors such as my Degree and Internship prevented me from completing it.
+
 I decided during my winter break 
 (when I should probably have been revising for my exams!)
 that I would complete the project before I went back to University.
@@ -89,11 +134,14 @@ that I would complete the project before I went back to University.
 *Polygraf Panel*
 
 My Father was amazed with the completed project. 
+
 He loved how simple the seven segments made the module to use,
 and he happily spent some time programming new sequences into it from artists he liked.
+
 The plan is to ship the Polygraf with all sequences pre-programmed with beats from 
 popular songs, as well as two generic beats called Motorik and Disco
 (for the two hard-coded sequences).
+
 To my delight, he even decided that the Polygraf was better as a stand-alone module,
 rather than shipping with the additional circuit I described earlier.
 
