@@ -4,8 +4,14 @@ body{
 }
 #page-header{
 	width: 100%;
-	padding: 2em 0 2em 0;
+	padding: 2em 0;
 	text-align: center;
+}
+/* Bigger header on larger screens */
+@media (min-width: 1081px){
+	#page-header{
+		padding: 10vh 0;
+	}
 }
 #page-title{
 	color: {{ site.style.highlight }};
@@ -16,11 +22,16 @@ body{
 #page-subtitle{
 	margin: 0;
 }
+.divider{
+	width: 100%;
+	height: 0.3vh;
+	background: {{ site.style.text}}
+}
 #post-content *, p {
 	font-size: 3vh;
 }
 h1{
-	font-size: 5vh !important;
+	font-size: 8vh !important;
 }
 h2, h3, h4, h5, h6{
 	margin-top: 0;
@@ -50,19 +61,25 @@ h2, h3, h4, h5, h6{
 	margin: 0 auto;
 }
 #post-content *:first-child {
-	margin-top: 5px;
+	margin-top: 1vh;
 }
-#post-content > p {
-	text-align: justify;
+/* Captions for images */
+img + em {
+	display: block;
+	text-align: center;
 }
-.divider{
-	width: 100%;
-	height: 1px;
-	background: {{ site.style.text}}
+/* Code blocks should wrap and be even more background-ier!*/
+pre {
+	white-space: pre-wrap;
+	background: {{ site.style.background-hex }};
 }
-.separator {
-	height: 50px;
+/* Justify text on non-mobiles */
+@media (min-width: 500px){
+	#post-content > p {
+		text-align: justify;
+	}
 }
+/* Next Post and Previous Post buttons */
 #navigation {
 	margin: 0;
 	padding: 5px;
@@ -80,21 +97,15 @@ h2, h3, h4, h5, h6{
 #navigation #next-post {
 	text-align: right;
 }
-/* Break the navigation out on to one line on larger screens */
 @media (min-width: 500px){
+	/* Break the navigation out on to one line on larger screens */
 	#navigation * {
 		width: 50%;
 		float: left;
 		margin: 0;
 	}
 }
-img + em {
-	display: block;
-	text-align: center;
-}
-pre {
-	white-space: pre-wrap;
-}
+/* YouTube stuff */
 .youtube {
 	position: relative;
 	padding-bottom: 56.25%; /* 16:9 */
