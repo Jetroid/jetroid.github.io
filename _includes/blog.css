@@ -16,17 +16,20 @@ body{
 #page-subtitle{
 	margin: 0;
 }
-h1#page-title{
-	font-size: 3rem;
+#post-content *, p {
+	font-size: 3vh;
 }
-h2.post-title{
-	color: {{ site.style.highlight }};
+h1{
+	font-size: 5vh !important;
+}
+h2, h3, h4, h5, h6{
 	margin-top: 0;
 	margin-bottom: 0;
-	font-size: 2rem;
+	font-size: 4vh !important;
 }
 .post-date {
 	margin-top: 0;
+	margin-bottom: 0;
 }
 .post-container, #navigation{
 	background: rgba({{ site.style.background-rgb }} 0.7);
@@ -45,6 +48,12 @@ h2.post-title{
 	display: block;
 	max-width: 100%;
 	margin: 0 auto;
+}
+#post-content *:first-child {
+	margin-top: 5px;
+}
+#post-content > p {
+	text-align: justify;
 }
 .divider{
 	width: 100%;

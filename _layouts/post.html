@@ -15,7 +15,9 @@ background:
 	<a href="{{ page.url | prepend: site.baseurl }}"><h2 class="post-title">{{ page.title }}</h2></a>
 	<p class="post-date">{{ page.date | date: "%Y/%m/%d" }}</p>
 	<div class="divider"></div>
-  {{ content }}
+	<div id="post-content">
+		{{ content }}
+	</div>
 	<div class="divider"></div>
 </div>
 <div id="navigation">
