@@ -106,8 +106,13 @@ It seems that this was once not the case,
 and was a [new feature](https://github.com/jekyll/jekyll/issues/4123) 
 introduced after Matt Gemell's post was written.
 
-![Custom CSS request in yaml front matter](/assets/images/jekyll-custom-css-yaml-front-matter.png)
-*Custom CSS request in yaml front matter*
+```yaml
+---
+layout: default
+custom_css:
+- splashpage
+---
+```
 
 The naïve approach here would be two for-loops, 
 one for page and once layout, but what if both post and layout include the same thing?
