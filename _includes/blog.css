@@ -57,19 +57,19 @@ h2.post-title{
 #navigation {
 	margin: 0;
 	padding: 5px;
-  font-size: 3vw;
-  display: block;
-  width: auto;
-  overflow: hidden;
+	font-size: 3vh;
+	display: block;
+	width: auto;
+	overflow: hidden;
 }
 #navigation * {
 	margin: 0;
-  display: block;
-  width: 100%;
-  margin: 5px 0;
+	display: block;
+	width: 100%;
+	margin: 5px 0;
 }
 #navigation #next-post {
-  text-align: right;
+	text-align: right;
 }
 /* Break the navigation out on to one line on larger screens */
 @media (min-width: 500px){
@@ -101,8 +101,8 @@ pre {
 }
 /* Size the borders responsively */
 .post-container, #navigation, #page-subtitle{
-		padding-left: 5vh;
-		padding-right: 5vh;
+	padding-left: 5vh;
+	padding-right: 5vh;
 }
 @media (min-width: 500px){
 	.post-container, #page-title, #page-subtitle{
