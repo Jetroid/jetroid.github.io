@@ -132,5 +132,5 @@ commercial release, and the Bartos Flur was subsequently [released for sale](htt
 A demo of the Bartos Flur is presented below:
 
 <div class="youtube">
-    <iframe src="http://www.youtube.com/embed/1FPRsnys_6w" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/1FPRsnys_6w" frameborder="0" allowfullscreen></iframe>
 </div>
