@@ -4,7 +4,7 @@
 }
 #splash{
 	display: block;
-	position: absolute;
+	position: relative;
 	width: 80vw;
 	left: 10vw;
 	top: 30vh;
