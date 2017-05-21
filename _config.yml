@@ -18,6 +18,10 @@ compress_html:
   comments: all
 sass:
   style: compressed
+#Jekyll Sitemap must come after any gems which generate content
+#gems which come after sitemap will not be included in the sitemap
+gems:
+  - jekyll-sitemap
 
 # Style settings - will be used in css
 style:
@@ -25,3 +29,7 @@ style:
     highlight: "#d05d5d"
     background-rgb: "55, 55, 49,"
     background-hex: "#373731"
+
+#Do not index oldstuff
+exclude:
+  - oldstuff
