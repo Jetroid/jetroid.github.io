@@ -63,13 +63,27 @@ h1{
 	height: auto;
 	margin: 0 auto;
 }
-#post-content *:first-child {
+#post-content > p:first-child {
 	margin-top: 1vh;
 }
 /* Captions for images */
 img + em {
 	display: block;
 	text-align: center;
+}
+/* Quotes */
+blockquote {
+	background: rgba({{ site.style.background-rgb }} 0.3);
+	border: 2px solid {{ site.style.highlight }};
+	border-style: none none none solid;
+	padding: 0.6em 2em;
+}
+blockquote p {
+	margin: 0;
+}
+/* Source for quotes */
+blockquote + em {
+	color: red;
 }
 /* Code blocks should wrap and be even more background-ier!*/
 pre {
