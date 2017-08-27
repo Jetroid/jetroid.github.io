@@ -6,9 +6,6 @@ layout: compress
 	<head>
 	{% include sitewide.html %}
 	<meta name="google-site-verification" content="9pNs8vHQ1C9hsyUgQ6tFQDPzNH_ANAd8kB9GcnBARYc" />
-	<!-- This whole section is incredibly ugly, but unfortunately necessary 
-	as liquid 3.0.6 does not support concat !-->
-	{% assign delim = "|" %}
 	<!-- Custom Includes - use custom_style_includes in YAML front matter !-->
 	<style>
 	{% capture include_to_scssify %}
@@ -18,42 +15,22 @@ layout: compress
 		{% endif %}
 		{% include master.scss %}
 	{% endcapture %}
-  {{ include_to_scssify | scssify }}
+	{{ include_to_scssify | scssify }}
 	</style>
 	<!-- Custom Stylesheets - use custom_css in YAML front matter !-->
-	{% assign had_elements = "" %}
-	{% if page.custom_css %}
-		{% for stylesheet in page.custom_css %}
-			{% capture had_elements %}{{ had_elements | join: delim }}{{ delim }}{{ stylesheet }}{% endcapture %}
-			{% assign had_elements = had_elements | split: delim %}
+	{% if page.custom_css or layout.custom_css %}
+		{% assign stylesheets = page.custom_css | concat layout.custom_css | uniq %}
+		{% for stylesheet in stylesheets %}
 			<link rel="stylesheet" href="/assets/css/{{ stylesheet }}.css" type="text/css">
 		{% endfor %}
 	{% endif %}
-	{% if layout.custom_css %}
-		{% for stylesheet in layout.custom_css %}
-			{% if had_elements contains stylesheet %}{% else %}
-				<link rel="stylesheet" href="/assets/css/{{ stylesheet }}.css" type="text/css">
-			{% endif %}
-		{% endfor %}
-	{% endif %}
 	<!-- Custom JS - use custom_js in YAML front matter !-->
-	{% assign had_elements = "" %}
-	{% if page.custom_js %}
-		{% for js_file in page.custom_js %}
-			{% capture had_elements %}{{ had_elements | join: delim }}{{ delim }}{{ js_file }}{% endcapture %}
-			{% assign had_elements = had_elements | split: delim %}
+	{% if page.custom_js or layout.custom_css %}
+		{% assign js_files = page.custom_js | concat layout.custom_js | uniq %}
+		{% for js_file in js_files %}
 			<script src='/assets/javascripts/{{ js_file }}.js' type="text/javascript"></script>
 		{% endfor %}
 	{% endif %}
-	{% if layout.custom_js %}
-		{% for js_file in layout.custom_js %}
-			{% if had_elements contains js_file %}{% else %}
-				<script src='/assets/javascripts/{{ js_file }}.js' type="text/javascript"></script>
-			{% endif %}
-		{% endfor %}
-	{% endif %}
-	
-	
 	</head>
 	<body>
 		{% if page.donotlinkback %}{% else %}
