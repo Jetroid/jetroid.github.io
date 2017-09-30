@@ -9,6 +9,9 @@ github_username:  jetroid
 
 permalink: :title/
 
+paginate: 6
+paginate_path: "/page:num/"
+
 collections:
 - timeline
 
@@ -21,6 +24,7 @@ sass:
 #Jekyll Sitemap must come after any gems which generate content
 #gems which come after sitemap will not be included in the sitemap
 gems:
+  - jekyll-paginate
   - jekyll-sitemap
 
 # Style settings - will be used in css

@@ -5,11 +5,13 @@ custom_style_includes:
 - splashpage
 - background
 - postlist
+- blog
 background: 
  image: background-homepage.png
  color: "#160B04"
 image: me.jpg
 ---
+{% if paginator.page == 1 %}
 <div id="splash-container">
 	<div id="splash">
 		<div id="image"></div>
@@ -31,8 +33,13 @@ image: me.jpg
 		</div>
 	</div>
 </div>
+{% else %}
+<div id="page-header">
+	<h1 id="page-title">Page {{ paginator.page}}</h1>
+</div>
+{% endif %}
 <div id="posts">
-	{% for post in site.posts %}
+	{% for post in paginator.posts %}
 	{% if post.unlisted != true or hasposted != true %}
 	<div class="post">
 		<a href="{{ post.url | prepend: site.baseurl }}">
@@ -49,4 +56,14 @@ image: me.jpg
 	{% endif %}
 	{% assign hasposted = true %}
 	{% endfor %}
+</div>
+<div id="navigation">
+	{% if paginator.previous_page %}
+		<a id="prev-post" href="{{paginator.previous_page_path}}">&lsaquo;Page {{ paginator.previous_page }}</a>
+	{% else %} <p id="prev-post">&nbsp;&nbsp;---</p>
+	{% endif %}
+	{% if paginator.next_page %}
+		<a id="next-post" href="{{paginator.next_page_path}}">Page {{paginator.next_page}}&rsaquo;</a>
+	{% else %} <p id="next-post">---&nbsp;&nbsp;</p>
+	{% endif %}
 </div>
