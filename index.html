@@ -33,6 +33,7 @@ image: me.jpg
 </div>
 <div id="posts">
 	{% for post in site.posts %}
+	{% if post.unlisted != true or hasposted != true %}
 	<div class="post">
 		<a href="{{ post.url | prepend: site.baseurl }}">
 			<div class="post-background" style="background-image: url(/assets/images/{{ post.background }});{% if post.background-color %}background-color:{{ post.background-color }}{% endif %}">
@@ -45,5 +46,7 @@ image: me.jpg
 			</div>
 		</a>
 	</div>
+	{% endif %}
+	{% assign hasposted = true %}
 	{% endfor %}
 </div>
