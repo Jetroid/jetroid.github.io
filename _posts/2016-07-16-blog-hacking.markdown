@@ -46,12 +46,13 @@ the element is deleted and the child elements are returned to their original pos
 
 Once bracket highlighting was implemented,
 it was fairly trivial to add the gameplay features.
-You can play it [here!](http://jetroid.github.io/hacking)
+You can play it [here!](/hacking)
 I'm sure that my source code would make a more experienced web developer weep,
 but I'm a beginner! Cut me some slack!
 
-![Image of the hacking minigame](/assets/images/hacking-minigame-game.png)
-*Image of the hacking minigame*
+[![Image of the hacking minigame](/assets/images/hacking-minigame-game.png)
+*Image of the hacking minigame*](/hacking)
+
 
 It was only when I had completed it that I realised I had no 'win condition'.
 Making a lose condition was trivial - 
