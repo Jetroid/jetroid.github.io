@@ -30,6 +30,13 @@ body{
 #post-content *, p {
 	font-size: 3vh;
 }
+/* Make font size less gaudy on large screens */
+@media (min-width: 500px){
+	#post-content *, p {
+		font-size: 2.5vh;
+	}
+}
+
 h1{
 	font-size: 8vh !important;
 }
@@ -158,5 +165,11 @@ pre {
 	.post-container, #page-title, #page-subtitle{
 		padding-left: 15vh;
 		padding-right: 15vh;
+	}
+}
+@media (min-width: 1400px){
+	.post-container, #page-title, #page-subtitle{
+		padding-left: 25vh;
+		padding-right: 25vh;
 	}
 }
