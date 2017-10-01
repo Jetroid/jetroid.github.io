@@ -53,10 +53,10 @@ One of my housemates is going through some problems of his own;
 they aren't really something I really understand - 
 in fact, he outright refuses to talk about what's going on in his life -
 but he hasn't been himself and I feel like I can't really interact with him.
-His problems 
-- or the fact that he excludes me by not talking about them? 
-- or the fact that he lets them affect his mood? (and hence all interactions with him)
-- makes him essentially unavailable to interact with.
+His problems -
+or the fact that he excludes me by not talking about them? -
+or the fact that he lets them affect his mood? (and hence all interactions with him) -
+makes him essentially unavailable to interact with.
 
 Then, a few days ago, I had an experience which shook my world.
 It's not something I particularly want to talk about;
@@ -343,8 +343,8 @@ I find it really inspiring to read some of [levels.io](https://levels.io)'s earl
 entries, where he wasn't fully sure of himself and where things could have gone in a
 very different way for him.
 
-I'm hopeful that one day, somebody with aspirations will read my older entries
-- this one, perhaps - and understand my struggle, and I hope it inspires them
+I'm hopeful that one day, somebody with aspirations will read my older entries -
+this one, perhaps - and understand my struggle, and I hope it inspires them
 to help themselves or see what they have to do. 
 
 I went into a lot of uncomfortable detail about some of my failings in this post,
