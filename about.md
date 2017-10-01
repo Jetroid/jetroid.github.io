@@ -1,5 +1,6 @@
 ---
 layout: about
+title: About
 ---
 Hey, I'm Jet.
 
