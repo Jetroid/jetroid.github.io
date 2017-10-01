@@ -42,5 +42,12 @@ img + em {
 
 This is a really nice script-free solution to a problem I had.
 
+The following code produces the image at the bottom
+
+```markdown
+![This image has a caption!](/assets/images/caption-beauty.jpg)
+*This image has a caption!*
+```
+
 ![This image has a caption!](/assets/images/caption-beauty.jpg)
 *This image has a caption!*
