@@ -201,6 +201,9 @@ Having people to interact with at all times was really great,
 and knowing that they wouldn't let me slip back into my previous routine ensured
 that I kept making progress.
 
+![Viewing the last sunset of spring with my best friend](/assets/images/depression-sunset.png)
+*Viewing the last sunset of spring with my [best friend](https://daniellockyer.com/)*
+
 Now
 ---
 
