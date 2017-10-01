@@ -76,15 +76,22 @@ blockquote {
 	background: rgba({{ site.style.background-rgb }} 0.3);
 	border: 2px solid {{ site.style.highlight }};
 	border-style: none none none solid;
-	padding: 0.6em 2em;
+	margin: 1em 0
+}
+/*Make blockquote more eye-catching on desktops*/
+@media (min-width: 500px){
+	blockquote {
+		margin: 1em 1em
+	}
 }
 blockquote p {
-	margin: 0;
+	margin: 0 0 0 1em;
 }
 /* Source for quotes */
 blockquote + em {
 	color: red;
 }
+
 /* Code blocks should wrap and be even more background-ier!*/
 pre {
 	white-space: pre-wrap;
