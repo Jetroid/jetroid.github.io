@@ -97,10 +97,9 @@ I set up my 'default' template to contain liquid code in the head to add
 stylesheets and javascripts to the &lt;head&gt; element.
 The liquid logic given in Matt Gemmell's post worked well if I wanted
 to include custom css or js in just the post,
-but if I wanted to include custom css or js in templates too,
+but if I wanted to include custom css or js in templates,
 I found that they did not appear.
-
-This is because layouts now fall under a seperate variable,
+This is because layouts fall under a seperate variable,
 <span class="nobr">{% raw %}{% layout %}{% endraw %}</span> rather than
 <span class="nobr">{% raw %}{% post %}{% endraw %}</span>.
 It seems that this was once not the case, 
@@ -124,8 +123,7 @@ without duplicates.
 
 Liquid is one of the more frustrating parts of Jekyll,
 and unfortunately the method you would need to join two arrays (concat) is 
-~~[not in Jekyll at this time](https://github.com/jekyll/jekyll/issues/5160)~~
-now supported! See *Update 01/10/2017* below!
+[not in Jekyll at this time](https://github.com/jekyll/jekyll/issues/5160).
 
 I used the source code for 
 [concat](https://github.com/Shopify/liquid/blob/19c6eb426ab90aa74ae826cfbe20d3c20c978116/lib/liquid/standardfilters.rb#L218-223) 
@@ -155,21 +153,12 @@ In the dark recesses of the Shopify site, I found my
 Whilst liquid 3.0.6 does not support appending to arrays, 'Alex' revealed a work around.
 I now keep an array of items I have seen,
 and don't add the layout version if the array already contains it.
-~~The solution I wrote is available
+The solution I wrote is available
 [here](https://gist.github.com/Jetroid/bd71e5bbc2de763d0973e706efc91d7c).
 It's a really ugly solution, but it is better than the alternatives.
 I'm using a slightly-modified version to include Javascripts, too,
 which makes my 'default' template long and unweildy.
-I can't wait for Jekyll to update the Liquid version so I can use concat!~~
-
-Update 01/10/2017:
-==================
-
-Github Pages and Jekyll now use version 4.0.0 of Liquid.
-This means that the chunk of liquid code in the head of my
-default template can now simply become [this](https://gist.github.com/Jetroid/4ccb2d96634920035fca017986d72c19).
-
-So much cleaner!
+I can't wait for Jekyll to update the Liquid version so I can use concat!
 
 Page-unique style and Templates
 ===============================
