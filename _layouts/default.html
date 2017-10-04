@@ -25,7 +25,7 @@ layout: compress
 		{% endfor %}
 	{% endif %}
 	<!-- Custom JS - use custom_js in YAML front matter !-->
-	{% if page.custom_js or layout.custom_css %}
+	{% if page.custom_js or layout.custom_js %}
 		{% assign js_files = page.custom_js | concat layout.custom_js | uniq %}
 		{% for js_file in js_files %}
 			<script src='/assets/javascripts/{{ js_file }}.js' type="text/javascript"></script>
