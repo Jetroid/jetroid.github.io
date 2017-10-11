@@ -5,6 +5,8 @@ date: 2017-08-05 15:39:43 +0100
 background: "depression-beauty.jpg"
 background-color: "#777"
 summary: "My experiences with depression over the last year."
+categories:
+ - "Experiences"
 ---
 
 >All this running around... 

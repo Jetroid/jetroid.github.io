@@ -1,0 +1,4 @@
+---
+category: "Experiences"
+permalink: "/experiences/"
+---

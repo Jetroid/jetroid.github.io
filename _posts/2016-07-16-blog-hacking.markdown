@@ -5,6 +5,9 @@ date:   2016-07-16 16:42:25 +0100
 background: "hacking-minigame-game.png"
 summary: "On how a throwaway idea can lead to something beautiful."
 background-color: "#072916"
+categories:
+ - "Projects"
+ - "Jekyll"
 ---
 Six weeks ago, in an effort to learn the skills of Web Development,
 I decided to immitate Fallout 3's terminal hacking.

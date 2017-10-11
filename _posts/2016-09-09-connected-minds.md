@@ -6,6 +6,8 @@ background: "connected-minds-mine.jpg"
 background-color: "#67585D"
 summary: "My sister and I take almost the same photo, minutes apart."
 unlisted: true
+categories:
+ - "Experiences"
 ---
 Something crazy happened today.
 

@@ -10,7 +10,18 @@ github_username:  jetroid
 permalink: :title/
 
 collections:
-- timeline
+  timeline:
+    output: false
+  category:
+    output: true
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: category
+    values:
+      layout: category
 
 # Build settings
 markdown: kramdown

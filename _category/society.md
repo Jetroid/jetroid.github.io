@@ -1,0 +1,4 @@
+---
+category: "Society"
+permalink: "/society/"
+---

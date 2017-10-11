@@ -6,6 +6,8 @@ background: "towards-what-beauty.jpg"
 background-color: "#5e655d"
 summary: ""
 unlisted: true
+categories:
+ - "Experiences"
 ---
 
 A few days ago, I had an experience which shook up my world and made me re-evaluate

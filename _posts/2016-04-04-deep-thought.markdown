@@ -5,6 +5,9 @@ date:   2016-04-03 20:00:00 +0100
 background: "deep-thought-beauty.jpg"
 summary: "A look at how to get the most out of a simple concept."
 background-color: "#7A7164"
+categories:
+ - "Frequency Central"
+ - "Projects"
 ---
 My Father runs a small business called [Frequency Central](http://frequencycentral.co.uk) which
 designs, builds and sells synthesiser modules.

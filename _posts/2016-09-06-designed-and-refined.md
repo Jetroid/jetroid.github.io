@@ -5,6 +5,8 @@ date: 2016-09-6 17:56:23 +0100
 background: "designed-beauty.jpg"
 background-color: "#0D1934"
 summary: "Why I redesigned my homepage to better achieve its purpose."
+categories:
+ - "Jekyll"
 ---
 This summer I decided to learn web development skills;
 I had felt somewhat impotent not being able to create webpages.

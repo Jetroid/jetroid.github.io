@@ -1,0 +1,28 @@
+body {
+	 background-color: #160B04;
+}
+h1, p {
+	margin: 0;
+}
+h1 + p{
+	text-align: justify;
+}
+p + p{
+	padding-top: 10px;
+}
+td {
+	padding: 5px;
+}
+#index {
+	padding-top: 40px;
+}
+@media (min-width: 500px){
+	#index {
+		padding: 40px 30px;
+	}
+}
+@media (min-width: 900px){
+	#index {
+		padding: 80px 20vw;
+	}
+}

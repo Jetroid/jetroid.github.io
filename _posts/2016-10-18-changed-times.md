@@ -5,6 +5,8 @@ date: 2016-10-18 21:12:29 +0100
 background: "changed-times-beauty.jpg"
 background-color: "#896844"
 summary: "A look at alternative lifestyles in the digital age."
+categories:
+ - "Society"
 ---
 Recently, I've been thinking about how different things are; how things have changed compared to the past.
 

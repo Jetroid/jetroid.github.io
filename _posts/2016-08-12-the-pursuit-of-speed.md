@@ -5,6 +5,9 @@ date: 2016-08-12 13:36:48 +0100
 background: "speed-beauty.jpg"
 summary: "A look at how I increased the speed of my Jekyll site. OR: How I almost wrote a CSS Minifier."
 background-color: "#665745"
+categories:
+ - "Tutorials"
+ - "Jekyll"
 ---
 Following my [previous post](/2016/07/30/meeting-dr-jekyll/),
 I wanted to realistically look at how quick my site is,

@@ -5,6 +5,9 @@ date: 2016-08-12 11:37:33 +0100
 background: "caption-beauty.jpg"
 summary: "A brief guide to adding image captions to Jekyll blog posts."
 background-color: "#7B7B6E"
+categories:
+ - "Tutorials"
+ - "Jekyll"
 ---
 To add an image to a Markdown post, you write something like this: 
 

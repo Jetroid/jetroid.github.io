@@ -5,6 +5,9 @@ date:   2015-12-29 20:00:00 +0100
 summary: "The story of the development of Polygraf, which went through many iterations and required several new skills."
 background: "polygraf-in-development.jpg"
 background-color: "#6B6E72"
+categories:
+ - "Frequency Central"
+ - "Projects"
 ---
 My Father runs a small business called [Frequency Central](http://frequencycentral.co.uk) which
 designs, builds and sells synthesiser modules.

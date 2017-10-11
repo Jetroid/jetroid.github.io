@@ -5,6 +5,9 @@ date:   2015-03-10 20:00:00 +0100
 summary: "A look at the trials and tribulations of learning assembly, and the process of the development of my first Synthesiser Module, the Bartos Flur - from concept to release." 
 background: "bartos-flur-electronics-project.jpg"
 background-color: "#564940"
+categories:
+ - "Frequency Central"
+ - "Projects"
 ---
 
 The Bartos Flur was an interesting project I undertook.

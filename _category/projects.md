@@ -1,0 +1,4 @@
+---
+category: "Projects"
+permalink: "/projects/"
+---
