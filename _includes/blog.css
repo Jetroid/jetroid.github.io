@@ -18,9 +18,13 @@ body{
 	font-family: "Roboto",Helvetica,sans-serif;
 	font-weight: 100;
 	margin-bottom: 5px;
+	font-weight: bold;
+	text-shadow: 2px 2px {{ site.style.background-hex }};
 }
 #page-subtitle{
 	margin: 0;
+	font-weight: bold;
+	text-shadow: 2px 2px {{ site.style.background-hex }};
 }
 .divider{
 	width: 100%;

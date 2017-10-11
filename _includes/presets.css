@@ -12,6 +12,12 @@ a {
 	text-decoration: none;
 	color: {{ site.style.highlight }}
 }
+a:hover{
+	top: 0.08em;
+	right: 0.08em;
+	position: relative;
+	text-shadow: 0.08em -0.08em {{ site.style.background-hex }};
+}
 .nobr	{ white-space:nowrap; }
 /* Force mobile browsers not to remove their
 url bar when scrolling.

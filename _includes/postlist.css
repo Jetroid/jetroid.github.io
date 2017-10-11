@@ -18,6 +18,12 @@
 .post-shadow:hover{
 	background: rgba({{ site.style.background-rgb }} 0.8);
 }
+/* Override sitewide 'a' tag default hover action */
+.post a:hover {
+	top: 0;
+	right: 0;
+	text-shadow: 2px 2px {{ site.style.background-hex }};
+}
 .post * {
 	text-decoration: none;
 	color: {{ site.style.text }};
