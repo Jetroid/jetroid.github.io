@@ -2,10 +2,9 @@
 layout: post
 title: "The Race for Space"
 date: 2017-10-11 13:48:09 +0100
-background:
-  image: "space-race-beauty.jpg"
-  position: right
-  color: #000
+background: "space-race-beauty.jpg"
+background-position: "right"
+background-color: "#000"
 summary: "A Space Race themed album leads to learning more about humanity's past."
 unlisted: true
 categories:

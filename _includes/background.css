@@ -1,8 +1,20 @@
 body {
-	background-color: {% if page.background.color %}{{ page.background.color }}{% else %}{{ site.style.background-hex }}{% endif %};
-  background-image: url("/assets/images/{% if page.background.image %}{{ page.background.image }}{% else if page.background %}{{ page.background }}{% else if layout.background.image %}{{ layout.background.image }}{% else %}default-background.jpg{% endif %}");
-  background-position: {% if page.background.position %}{{ page.background.position }}{% else %}center{% endif %};
+
+{% capture background-color %}{% if page.background-color %}{{ page.background-color }}{% else if layout.background-color %}{{ layout.background-color }}{% endif %}{% endcapture %}
+
+  background-color: {% unless background-color == "" or background-color == nil %}{{ background-color }}{% else %}{{ site.style.background-hex }}{% endunless %};
+
+{% capture background-image %}{% if page.background %}{{ page.background }}{% else if layout.background %}{{ layout.background }}{% else %}default-background.jpg{% endif %}{% endcapture %}
+
+{% unless background-image == "none" or background-image == "" or background-image == nil %}
+
+  background-image: url("/assets/images/{{ background-image }}");
+
+  {% capture background-position %}{% if page.background-position %}{{ page.background-position }}{% else if layout.background-position %}{{ layout.background-position }}{% endif %}{% endcapture %}
+
+  background-position: {% unless background-position == "" or background-image == nil %}{{ background-position }}{% else %}center center{% endunless %};
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+{% endunless %}
 }
