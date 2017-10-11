@@ -42,13 +42,13 @@ layout: compress
 		{% for js_file in page.custom_js %}
 			{% capture had_elements %}{{ had_elements | join: delim }}{{ delim }}{{ js_file }}{% endcapture %}
 			{% assign had_elements = had_elements | split: delim %}
-			<script src='/assets/javascripts/{{ js_file }}.js' type="text/javascript"></script>
+			<script src='/assets/js/{{ js_file }}.js' type="text/javascript"></script>
 		{% endfor %}
 	{% endif %}
 	{% if layout.custom_js %}
 		{% for js_file in layout.custom_js %}
 			{% if had_elements contains js_file %}{% else %}
-				<script src='/assets/javascripts/{{ js_file }}.js' type="text/javascript"></script>
+				<script src='/assets/js/{{ js_file }}.js' type="text/javascript"></script>
 			{% endif %}
 		{% endfor %}
 	{% endif %}
