@@ -5,15 +5,18 @@ custom_style_includes:
 - background
 background-color: "#160B04"
 ---
-<table id="index">
-{% for post in site.posts %}
-<tr>
-	<td><h1>{{ post.date | date: "%b '%y" }}</h1></td>
-	<td>{% for category in post.categories %}
-	<p><a href="/{{ category | replace: ' ', '-' | downcase }}/">{{ category }}</a></p>
+<div id="index">
+	<h1>Index</h1>
+	<table>
+	{% for post in site.posts %}
+		<tr>
+			<td><h1>{{ post.date | date: "%b '%y" }}</h1></td>
+			<td>{% for category in post.categories %}
+			<p><a href="/{{ category | replace: ' ', '-' | downcase }}/">{{ category }}</a></p>
+			{% endfor %}
+			</td>
+			<td><a href="{{ post.url | prepend: site.baseurl }}"><h1>{{ post.title }}</h1><p>{{ post.summary }}</p></a></td>
+		</tr>
 	{% endfor %}
-	</td>
-	<td><a href="{{ post.url | prepend: site.baseurl }}"><h1>{{ post.title }}</h1><p>{{ post.summary }}</p></a></td>
-</tr>
-{% endfor %}
-</table>
+	</table>
+</div>

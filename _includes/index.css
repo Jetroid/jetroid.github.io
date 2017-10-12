@@ -1,6 +1,9 @@
 body {
 	 background-color: #160B04;
 }
+#index > h1 {
+	padding-bottom: 5px;
+}
 h1, p {
 	margin: 0;
 }

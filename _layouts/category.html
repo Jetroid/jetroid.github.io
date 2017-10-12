@@ -4,13 +4,14 @@ custom_style_includes:
 - index
 ---
 <div id="index">
-View <a href="/index/">all posts</a>.
-<table>
-{% for post in site.categories[page.category] %}
-<tr>
-	<td><h1>{{ post.date | date: "%b '%y" }}</h1></td>
-	<td><a href="{{ post.url | prepend: site.baseurl }}"><h1>{{ post.title }}</h1><p>{{ post.summary }}</p></a></td>
-</tr>
-{% endfor %}
-</table>
+	<h1>{{ page.category }}</h1>
+	View <a href="/index/">all posts</a>.
+	<table>
+	{% for post in site.categories[page.category] %}
+		<tr>
+			<td><h1>{{ post.date | date: "%b '%y" }}</h1></td>
+			<td><a href="{{ post.url | prepend: site.baseurl }}"><h1>{{ post.title }}</h1><p>{{ post.summary }}</p></a></td>
+		</tr>
+	{% endfor %}
+	</table>
 </div>
