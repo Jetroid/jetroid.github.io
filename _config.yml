@@ -1,11 +1,7 @@
-
 title: Jetroid!!
-email: your-email@domain.com
-description: > # this means to ignore newlines until "baseurl:"
-  The personal site for Jet 'Jetroid' Holt
+description: The personal site for Jet 'Jetroid' Holt
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://jetholt.com" # the base hostname & protocol for your site
-github_username:  jetroid
 
 permalink: :title/
 
@@ -31,7 +27,7 @@ sass:
   style: compressed
 #Jekyll Sitemap must come after any gems which generate content
 #gems which come after sitemap will not be included in the sitemap
-gems:
+plugins:
   - jekyll-sitemap
 
 # Style settings - will be used in css

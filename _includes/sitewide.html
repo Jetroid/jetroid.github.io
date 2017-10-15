@@ -1,3 +1,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>{% if page.title %}{{ page.title }} -{% endif %}Jetroid</title>
-		<link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico">
+<title>{% if page.title %}{{ page.title }} - {% endif %}Jetroid</title>
+<link rel="shortcut icon" type="image/x-icon" href="{{ site.url }}/assets/images/favicon.ico">
+{% capture background-image %}{% if page.background %}{{ page.background }}{% else if layout.background %}{{ layout.background }}{% else %}default-background.jpg{% endif %}{% endcapture %}
+{% unless background-image == "none" or background-image == "" or background-image == nil %}
+<meta property="og:image" content="{{ site.url }}/assets/images/{{ background-image }}";
+{% endunless %}
+<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}Jetroid's Blog{% endif %}" />
+<meta property="og:locale" content="en_GB" />
+<meta name="description" content="{% if page.summary %}{{ page.summary }}{% else %}{{ site.description}}{% endif %}" />
+<meta property="og:description" content="{% if page.summary %}{{ page.summary }}{% else %}{{ site.description}}{% endif %}" />
+<link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+<meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+<meta property="og:site_name" content="Jetroid" />
