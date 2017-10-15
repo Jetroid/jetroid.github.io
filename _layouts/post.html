@@ -6,20 +6,22 @@ custom_style_includes:
 background: "background-blog.jpg"
 background-color: "#848485"
 ---
-<div id="page-header">
+<header id="page-header">
 	<a href="{{ page.url | prepend: site.baseurl }}"><h1 id="page-title">{{ page.title }}</h1></a>
 	<p id="page-subtitle">{{ page.summary }}</p>
-</div>
-<div class="post-container">
-	<a href="{{ page.url | prepend: site.baseurl }}"><h2 class="post-title">{{ page.title }}</h2></a>
-	<p class="post-date">{{ page.date | date: "%Y/%m/%d" }}</p>
+</header>
+<article class="post-container">
+	<header>
+		<h2 class="post-title"><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></h2>
+		<time class="post-date">{{ page.date | date: "%Y/%m/%d" }}</time>
+	</header>
 	<div class="divider"></div>
 	<div id="post-content">
 		{{ content }}
 	</div>
 	<div class="divider"></div>
-</div>
-<div id="navigation">
+</article>
+<footer id="navigation">
 	{% if page.previous.url %}
 		<a id="prev-post" href="{{page.previous.url}}">&lsaquo;{{page.previous.title}}</a>
 	{% else %} <p id="prev-post">&nbsp;&nbsp;---</p>
@@ -28,5 +30,5 @@ background-color: "#848485"
 		<a id="next-post" href="{{page.next.url}}">{{page.next.title}}&rsaquo;</a>
 	{% else %} <p id="next-post">---&nbsp;&nbsp;</p>
 	{% endif %}
-</div>
+</footer>
 

@@ -4,8 +4,10 @@ custom_style_includes:
 - index
 ---
 <div id="index">
-	<h1>{{ page.category }}</h1>
-	<p>View <a href="/index/">all posts</a>.</p>
+    <header>
+	    <h1>{{ page.category }}</h1>
+	    <p>View <a href="/index/">all posts</a>.</p>
+	</header>
 	<table>
 	{% for post in site.categories[page.category] %}
 		<tr>

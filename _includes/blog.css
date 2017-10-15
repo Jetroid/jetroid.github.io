@@ -153,6 +153,7 @@ pre {
 	left: 0;
 	width: 100%;
 	height: 100%;
+	border: none;
 }
 /* Size the borders responsively */
 .post-container, #navigation, #page-subtitle{

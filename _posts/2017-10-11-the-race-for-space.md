@@ -22,7 +22,7 @@ Public Service Broadcasting filmed the video for ‘Sputnik’ in front of the i
 > -- <cite>[Public Service Broadcasting - Sputnik](https://www.youtube.com/watch?v=It42TsD7_sI)'s video description</cite>
 
 <div class="youtube">
-    <iframe src="https://www.youtube.com/embed/It42TsD7_sI" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/It42TsD7_sI" allowfullscreen></iframe>
 </div>
 
 I've been really exploring the history of the Space Race recently.
@@ -60,7 +60,7 @@ I can only imagine the fear and anticipation the people on the ground were feeli
 Their decisions would reflect on their entire country, and would be remembered forever.
 
 <div class="youtube">
-    <iframe src="https://www.youtube.com/embed/BHIo6qwJarI" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/BHIo6qwJarI" allowfullscreen></iframe>
 </div>
 
 It was a tense situation - the Lunar Module was low on fuel.

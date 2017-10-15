@@ -2,7 +2,7 @@
 layout: post
 title:  "FC Bartos Flur"
 date:   2015-03-10 20:00:00 +0100
-summary: "A look at the trials and tribulations of learning assembly, and the process of the development of my first Synthesiser Module, the Bartos Flur - from concept to release." 
+summary: "A look at the trials and tribulations of learning assembly, and the process of the development of my first Synthesiser Module, the Bartos Flur - from concept to release."
 background: "bartos-flur-electronics-project.jpg"
 background-color: "#564940"
 categories:
@@ -37,13 +37,13 @@ I needed to find a project to do for my A Level Electronics coursework,
 due Spring 2014.
 
 We decided that it could be a fulfilling and ambitious project
-to try to condense the entire circuit onto a single PIC. 
+to try to condense the entire circuit onto a single PIC.
 Unfortunately, upon analysis of the requirements of the coursework,
-we initially assessed the Bartos Flur to not have enough 'Sub-systems' - 
+we initially assessed the Bartos Flur to not have enough 'Sub-systems' -
 (the coursework requires you to design 5),
 and so an extra feature set had to be developed to fit within the project spec.
 This extra feature was another PIC connected to 8 attenuating variable resistors
-designed to quantise the voltage of the bands to semitones set by the variable resistors. 
+designed to quantise the voltage of the bands to semitones set by the variable resistors.
 
 This PIC eventually became known as the QuaSH,
 and may one day be used in future Frequency Central modules.
@@ -84,7 +84,7 @@ I attempted to solve this problem in a variety of ways.
 My first attempt was using [Hysteresis](https://en.wikipedia.org/wiki/Hysteresis),
 which didn't work too well, and unfortunately wasted a lot of my time trying to implement.
 
-Later, I remembered the AND logic and delay solution that I had used to fix 
+Later, I remembered the AND logic and delay solution that I had used to fix
 the problem on the analogue Bartos Flur (the solution which I mentioned briefly at the start of this article!),
 and devised a very similar solution in the code for the digital version.
 
@@ -95,10 +95,10 @@ and outputting on that band.
 *Bartos Flur Commercial PCB*
 
 Next I had to develop a solution for the Clock problem.
-The Bartos Flur essentially had three states for the clock - 
-connected on; connected off; and unconnected. 
+The Bartos Flur essentially had three states for the clock -
+connected on; connected off; and unconnected.
 
-Obviously, if you read the input directly, 
+Obviously, if you read the input directly,
 there is no difference between a 0V clock-off reading and a unconnected clock.
 
 Fortunately, the sockets used by Frequency Central come with a 'switched lug',
@@ -109,22 +109,22 @@ than a binary input.
 
 ![Bartos Flur Commercial Panel](/assets/images/bartos-flur-finished-panel.jpg)
 *Bartos Flur Commercial Panel*
-  
+
 Now that I was using two separate Analogue channels in my PIC,
 I encountered the second problem which I struggled with for a while.
 
 The Datasheet for the 16F684 tells you that you must wait
 a certain amount of time between selecting a different channel and reading that channel.
 This is known as an Acquisition Delay and if you do not include one,
-you will get incorrect readings. 
-I didn't see this (RTFM!!) and so I was very confused as to why 
+you will get incorrect readings.
+I didn't see this (RTFM!!) and so I was very confused as to why
 my clock read was accurate, but my band reads were not.
 Fortunately, three weeks before the deadline for my course
 I figured out the problem and was able to fix the issue.
 
 The completed project worked just as well as the original analogue circuit.
 (better, actually, as it features optional 'Gate' (long pulse) functionality)
-Frequency Central was very pleased with the outcome. 
+Frequency Central was very pleased with the outcome.
 
 I rewrote some of the logic code in Spring 2015 in preparation for the
 commercial release, and the Bartos Flur was subsequently [released for sale](http://www.frequencycentral.co.uk/?page_id=1589) on 9th March 2015.
@@ -135,5 +135,5 @@ commercial release, and the Bartos Flur was subsequently [released for sale](htt
 A demo of the Bartos Flur is presented below:
 
 <div class="youtube">
-    <iframe src="https://www.youtube.com/embed/1FPRsnys_6w" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/1FPRsnys_6w" allowfullscreen></iframe>
 </div>
