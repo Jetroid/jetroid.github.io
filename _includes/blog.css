@@ -31,6 +31,10 @@ body{
 	height: 0.3vh;
 	background: {{ site.style.text}}
 }
+#post-content > h1:first-child,
+#post-content > h2:first-child{
+    padding-top: 20px;
+}
 #post-content *, p {
 	font-size: 3vh;
 }
