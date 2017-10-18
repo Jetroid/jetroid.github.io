@@ -30,7 +30,7 @@ task :post do
   if File.exist?(filename)
     abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
   end
-  
+
   puts "Creating new post: #{filename}"
   open(filename, 'w') do |post|
     post.puts "---"
@@ -40,22 +40,12 @@ task :post do
     post.puts "background: \"\""
     post.puts "background-color: \"\""
     post.puts "summary: \"\""
+    post.puts "categories:"
+    post.puts " - \"\""
     post.puts "---"
   end
 end # task :post
 
-# Usage: rake compress
-desc "Compress all images (of type .jpg and .png) in #{CONFIG['images']}"
-task :compress do
-  abort("rake aborted: '#{CONFIG['images']}' directory not found.") unless FileTest.directory?(CONFIG['images'])
-  Dir.chdir("#{CONFIG['images']}") do
-  	puts "Optimising PNGs"
-  	sh 'optipng -quiet -o3 -strip all *.png'
-  	puts "Optimising JPGs"
-  	sh 'jpegoptim -s -q *.jpg'
-  	puts "Done"
-	end
-end # task :compress
 
 def ask(message, valid_options)
   if valid_options
