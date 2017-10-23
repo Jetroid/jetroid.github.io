@@ -9,7 +9,7 @@ categories:
  - "Tutorials"
  - "Jekyll"
 ---
-Following my [previous post](/2016/07/30/meeting-dr-jekyll/),
+Following my [previous post](/meeting-dr-jekyll/),
 I wanted to realistically look at how quick my site is,
 and what specifically was slowing it down.
 Google's [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/)
@@ -27,7 +27,7 @@ The tool also identified that the links on my homepage may be difficult to use o
 My CSS and JS were also not compressed, which PageSpeed Insights didn't seem to pick up on.
 
 To solve my compression issue, 
-I wrote a [Rake](http://rake.rubyforge.org) Task to losslessly compress all my images with Optipng and Jpegoptim.
+I wrote a [Rake](https://ruby.github.io/rake/) Task to losslessly compress all my images with Optipng and Jpegoptim.
 
 ```rake
 SOURCE = "."
