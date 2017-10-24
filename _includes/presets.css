@@ -18,6 +18,10 @@ a:hover{
 	position: relative;
 	text-shadow: 0.08em -0.08em {{ site.style.background-hex }};
 }
+code.highlighter-rouge {
+    background: {{ site.style.background-hex }};
+    white-space: pre;
+}
 .nobr	{ white-space:nowrap; }
 /* Force mobile browsers not to remove their
 url bar when scrolling.
