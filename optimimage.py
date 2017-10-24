@@ -17,7 +17,7 @@ dir = os.path.dirname(os.path.abspath(__file__))
 #For each gallery directory, find all files and build the yaml.
 for folder in FOLDERS:
 
-	#generate the path to the yaml file Jekyll will use
+    #generate the path to the yaml file Jekyll will use
     folderpath = os.path.join(dir, folder)
     yamlfile = os.path.join(folderpath, YAML_FILE)
 
@@ -52,10 +52,9 @@ for folder in FOLDERS:
         if imagepath in staged_files:
             if image.endswith(".jpg") or image.endswith(".jpeg"):
                 os.system("convert " + imagepath + " -sampling-factor 4:2:0 -strip -quality 85 -interlace JPEG -colorspace RGB " + imagepath)
-                repo.git.add(imagepath)
             elif image.endswith(".png"):
                 os.system("optipng -quiet -o1 -strip all " + imagepath);
-                repo.git.add(imagepath)
+            repo.git.add(imagepath)
             #Remember the images
             images.append(image)
 
