@@ -126,6 +126,24 @@ img {
 	display: block;
 	text-align: center;
 }
+/* YouTube stuff */
+.youtube {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+	box-shadow: 0em 0em 2em #23824C;
+    background-color: #15763E;
+}
+.youtube iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+	mix-blend-mode: screen;
+}
 @-moz-document url-prefix() {
     img {
         width: 100%;
