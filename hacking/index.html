@@ -57,8 +57,8 @@
 				<p id="welcome"><br>Overseer Holt's Private Terminal - *STRICTLY CONFIDENTIAL*</p>
 				<div id="divider"></div>
 			</div>
-			<div id="blog-content">
-				<div id="post-titles-container" ss-container>
+			<div id="blog-content" ss-container>
+				<div id="post-titles-container">
 				{% for post in site.posts %}
 					<div class="post-title"><p onclick="viewPost('{{post.title}}')" onmouseover="tickNoise();">
 						>&nbsp;&nbsp;{{post.date | date: "%Y/%m/%d" }} - {{ post.title }}
@@ -66,7 +66,7 @@
 				{% endfor %}
 				</div>
 				{% for post in site.posts %}
-				<div id="{{ post.title }}"  class="post-container" onclick="exitPost()" style="display:none;" ss-container>
+				<div id="{{ post.title }}"  class="post-container" onclick="exitPost()" style="display:none;">
 					<div class="post">{{ post.content }}</div>
 				</div>
 				{% endfor %}
