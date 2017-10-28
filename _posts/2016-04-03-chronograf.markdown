@@ -35,7 +35,7 @@ My brief experience with timers hadn't been a good one,
 and this module would be completely based around timers.
 I resolved to complete the Polygraf and think about it.
 
-![Chronograf Calculations](/assets/images/chronograf-spreadsheet.png)
+![Chronograf Calculations]({{ site.url }}/assets/images/chronograf-spreadsheet.png)
 *Chronograf Calculations*
 
 I finished the Polygraf on 2015/12/29,
@@ -57,7 +57,7 @@ Once calculated, I needed some way to pull these out of LibreOffice Calc and int
 I saved the values I needed as a CSV file and then wrote a quick python script
 to convert it to the desired format. This proved useful and effective.
 
-![Chronograf Data Script](/assets/images/chronograf-python-script.png)
+![Chronograf Data Script]({{ site.url }}/assets/images/chronograf-python-script.png)
 *Chronograf Data Script*
 
 On New Years Eve 2015, I worked solidly into the new year.
@@ -84,7 +84,7 @@ that I was able to confirm that it actually did not work correctly.
 This problem resulted simply from having bits in the wrong memory locations.
 I completed the Chronograf on 2016/01/19.
 
-![Chronograf Prototype](/assets/images/chronograf-prototype.jpg)
+![Chronograf Prototype]({{ site.url }}/assets/images/chronograf-prototype.jpg)
 *Chronograf Prototype*
 
 Later, in a lecture about embedded hardware, our lecturer set us the challenge

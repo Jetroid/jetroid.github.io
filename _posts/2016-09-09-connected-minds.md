@@ -18,13 +18,13 @@ They were striking and vivid.
 I took a picture, thought little of it, 
 and shared it on Facebook when I got home.
 
-![The photograph I took.](/assets/images/connected-minds-mine.jpg)
+![The photograph I took.]({{ site.url }}/assets/images/connected-minds-mine.jpg)
 *The photograph I took.*
 
 My sister replied shortly after with her own picture,
 which I appreciated and commented on how the composition was near identical.
 
-![The photograph my sister took.](/assets/images/connected-minds-hers.jpg)
+![The photograph my sister took.]({{ site.url }}/assets/images/connected-minds-hers.jpg)
 *The photograph my sister took.*
 
 It was only afterwards that I thought about how unusual it was that
@@ -41,7 +41,7 @@ and I can't help wondering if other pictures were taken at the same time.
 Crazier still, she sent me a second photo that she took,
 which has even more similarities.
 
-![Her second photo.](/assets/images/connected-minds-hers2.jpg)
+![Her second photo.]({{ site.url }}/assets/images/connected-minds-hers2.jpg)
 *Her second photo.*
 
 Even the position of the lamp post is the same!

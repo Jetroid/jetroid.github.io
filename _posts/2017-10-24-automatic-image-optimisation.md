@@ -23,11 +23,11 @@ I'm not clear if the PageSpeed Insights score translates directly
 to your score on the actual search ranking algorithm,
 but it gives you good places to start to potentially improve your search rank.
 
-I've [written about PageSpeed Insights](/the-pursuit-of-speed/) before,
+I've [written about PageSpeed Insights]({{ site.url }}/the-pursuit-of-speed/) before,
 back when I first made this site in 2016. I left off at 98/100.
 Sadly, things have changed.
 
-![The initial re-analysis of my site](/assets/images/image-compression-initial.png)
+![The initial re-analysis of my site]({{ site.url }}/assets/images/image-compression-initial.png)
 *The initial re-analysis of my site*
 
 In 2016, I found that I was unable to reach 100
@@ -66,7 +66,7 @@ and [May 18th 2017](http://web.archive.org/web/20170516170210/https://developers
 Google now want you to [compress JPEG images to 85%](https://developers.google.com/speed/docs/insights/OptimizeImages),
 and use browser caching of [at least one week](https://developers.google.com/speed/docs/insights/LeverageBrowserCaching).
  
-![Google's requirements for JPEG compression](/assets/images/image-compression-jpeg-tips.png)
+![Google's requirements for JPEG compression]({{ site.url }}/assets/images/image-compression-jpeg-tips.png)
 *Google's requirements for JPEG compression*
 
 Leverage Browser Caching
@@ -77,7 +77,7 @@ It's a really easy thing to change thanks to CloudFlare.
 (This article is not sponsored by CloudFlare, I promise!)
 I'd previously set my caching to 4 hours. This time I bumped it up to 2 months.
 
-![Changing the Cache Expiration on CloudFlare](/assets/images/image-compression-cloudflare.png)
+![Changing the Cache Expiration on CloudFlare]({{ site.url }}/assets/images/image-compression-cloudflare.png)
 *Changing the Cache Expiration on CloudFlare*
 
 For those that don't know, caching means that the browser doesn't have to
@@ -92,7 +92,7 @@ I think this might just be a bug or something, as I know I did the right thing.
 (Ignore the fact that there is still an entry for browser caching,
 that's Google Analytics as I mentioned earlier.)
 
-![PageSpeed Analysis after extending browser caching duration](/assets/images/image-compression-post-cloudflare.png)
+![PageSpeed Analysis after extending browser caching duration]({{ site.url }}/assets/images/image-compression-post-cloudflare.png)
 *PageSpeed Analysis after extending browser caching duration*
 
 Now, I believe we had some images to compress...
@@ -100,7 +100,7 @@ Now, I believe we had some images to compress...
 Optimise Images
 ---------------
 
-When I [wrote my Rake task](/the-pursuit-of-speed/),
+When I [wrote my Rake task]({{ site.url }}/the-pursuit-of-speed/),
 I was concerned about lossy compression because I knew that
 [repeated compression](https://www.youtube.com/watch?v=NssbjwuWYYI)
 leads to some pretty horrific data rot over time.
@@ -111,7 +111,7 @@ files, adapt some other script I had made previously,
 or make something new entirely.
 
 Something I've been working on recently is a website for my sister.
-(Despite my intentions when I wrote my *[Towards What](/towards-what/#projects)*
+(Despite my intentions when I wrote my *[Towards What]({{ site.url }}/towards-what/#projects)*
 post, I didn't manage to complete it by the October 8th Deadline.
 This isn't a failure, I've still been very productive, just not on this project.)
 
@@ -153,5 +153,5 @@ completeness, you can find that [here](https://raw.githubusercontent.com/amberro
 
 After running my script, my PageSpeed went right back up!
 
-![PageSpeed Analysis after optimising images](/assets/images/image-compression-final.png)
+![PageSpeed Analysis after optimising images]({{ site.url }}/assets/images/image-compression-final.png)
 *PageSpeed Analysis after optimising images*

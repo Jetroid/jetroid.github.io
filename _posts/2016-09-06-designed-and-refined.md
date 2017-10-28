@@ -21,7 +21,7 @@ I decided to reflect on what I had built and how it contributed to my identity.
 
 Here's how my homepage looked, in its entirety: 
 
-![The entirety of my old homepage](/assets/images/designed-old.jpg)
+![The entirety of my old homepage]({{ site.url }}/assets/images/designed-old.jpg)
 *The entirety of my old homepage*
 
 Visually, it's nice.
@@ -53,11 +53,11 @@ The rest of the aims are met on other pages.
 I realised that the homepage is where you should come for all the latest updates.
 To get those, you would have to click through to the blog:
 
-![The blog page - complete with self deprecation in true british style!](/assets/images/designed-blog.png)
+![The blog page - complete with self deprecation in true british style!]({{ site.url }}/assets/images/designed-blog.png)
 *The blog page - complete with self deprecation in true british style!*
 
 To get in touch with me, you had to visit the contact page.
-[(A page dedicated to *just* my email link!)](/assets/images/designed-contact.png)
+[(A page dedicated to *just* my email link!)]({{ site.url }}/assets/images/designed-contact.png)
 
 The fact that the pages people actually wanted to visit were spread across the site was a problem.
 
@@ -81,7 +81,7 @@ to make it a little more visually interesting.
 As the page scrolls, 
 the link blocks are like little windows on to the pictures. I think it looks cool!
 
-![My new homepage design. Links appear below the blurb as slide-y images](/assets/images/designed-new.png)
+![My new homepage design. Links appear below the blurb as slide-y images]({{ site.url }}/assets/images/designed-new.png)
 *My new homepage design. Links appear below the blurb as slide-y images!*
 
 My refinements left me with a problem:
@@ -122,7 +122,7 @@ makes them much less monotonous.
 experiencing delight when they discover a page they like.
 A navbar prevents this and disincentives exploration with the idea that
 "It's all there". Without a navbar, I won't link directly to my 'cooler' pages.
-(eg, previously I linked to [my Fallout hacking minigame](/hacking)
+(eg, previously I linked to [my Fallout hacking minigame]({{ site.url }}/hacking)
 on a drop-down for the 'Blog' on the navbar).
 I will link to important pages in my 'blurb' on my homepage,
 but the fun pages will only be linked to from other pages,
@@ -140,7 +140,7 @@ I think so!
 I'm toying with the idea of having the most recent post appear above the fold
 on the homepage, so that you can see instantly see if there is a new post or not.
 
-I'm also toying with the idea of splitting the [about](/about) page
+I'm also toying with the idea of splitting the [about]({{ site.url }}/about) page
 into /about and /timeline. 
 The timeline section is much more dynamic than the about section,
 and will eventually grow much larger than the about section.

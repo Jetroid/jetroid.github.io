@@ -26,7 +26,7 @@ It would be very simple to program, and would not require a complicated circuit,
 meaning that designing the PCB should be quick, and the component cost would be low.
 There was no real reason *not* to make it!
 
-![Deep Thought Prototype](/assets/images/deep-thought-prototype.jpg)
+![Deep Thought Prototype]({{ site.url }}/assets/images/deep-thought-prototype.jpg)
 *Deep Thought Development Prototype*
 
 I had two ideas for how it would work.

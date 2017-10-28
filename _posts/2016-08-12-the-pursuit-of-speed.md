@@ -9,7 +9,7 @@ categories:
  - "Tutorials"
  - "Jekyll"
 ---
-Following my [previous post](/meeting-dr-jekyll/),
+Following my [previous post]({{ site.url }}/meeting-dr-jekyll/),
 I wanted to realistically look at how quick my site is,
 and what specifically was slowing it down.
 Google's [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/)
@@ -17,7 +17,7 @@ is a tool that highlights issues on your pages.
 
 My initial result was not great:
 
-![The initial analysis of my site](/assets/images/speed-old.png)
+![The initial analysis of my site]({{ site.url }}/assets/images/speed-old.png)
 *The initial analysis of my site*
 
 To summarise: 
@@ -71,7 +71,7 @@ My process for the CSS minify was as such:
 This process should leave values and strings intact. 
 I wasn't sure if it would work, and the only way to see would be to try.
 
-![Correctly detecting Strings with Liquid](/assets/images/speed-strings.png)
+![Correctly detecting Strings with Liquid]({{ site.url }}/assets/images/speed-strings.png)
 *Correctly detecting Strings with Liquid*
 
 I got pretty far with this, and was able to do steps 1 through 4. 
@@ -85,7 +85,7 @@ Whoops! I guess I developed this for nothing!
 I was able to use SASS to quite happily compress my CSS.
 I still haven't found a solution for Javascripts,
 but as I am using them minimally on my base site 
-(ignoring my more [gimmicky pages](/hacking/)),
+(ignoring my more [gimmicky pages]({{ site.url }}/hacking/)),
 it isn't much of a problem. 
 I may one day adapt my CSS minification liquid code to minify Javascript,
 but I find the idea of the task daunting as to do so properly would require
@@ -115,7 +115,7 @@ To fix this, I had to use liquid, like this:
 
 Finally, I added line spacing to the text on my homepage to make my links easier to click on mobile.
 
-![The final analysis of my site](/assets/images/speed-new.png)
+![The final analysis of my site]({{ site.url }}/assets/images/speed-new.png)
 *The final analysis of my site*
 
 My use of GitHub Pages to host my site prevents me from leveraging browser caching,

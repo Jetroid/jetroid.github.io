@@ -24,17 +24,17 @@ For the last months of last year, and the first half of this one, I was sufferin
 
 My weight skyrocketed...
 
-![Weight Tracking in lbs, across 578 days (source: myfitnesspal.com)](/assets/images/depression-weight.png)
+![Weight Tracking in lbs, across 578 days (source: myfitnesspal.com)]({{ site.url }}/assets/images/depression-weight.png)
 *Weight Tracking in lbs, across 578 days <span class="nobr">(source: myfitnesspal.com)</span>*
 
 My work on projects ceased... (and hasn't yet picked back up! - I'm still trying to get my head back in the game!)
 
-![My GitHub Commit Log, across 365 days (source: github.com)](/assets/images/depression-github-contributions.png)
+![My GitHub Commit Log, across 365 days (source: github.com)]({{ site.url }}/assets/images/depression-github-contributions.png)
 *My GitHub Commit Log, across 365 days <span class="nobr">(source: github.com)</span>*
 
 ...and my grades dropped.
 
-![My University Scores, 2016/17](/assets/images/depression-test-scores.png)
+![My University Scores, 2016/17]({{ site.url }}/assets/images/depression-test-scores.png)
 *My University Scores, 2016/17*
 
 My Experience
@@ -101,7 +101,7 @@ but my family knew me well enough to give me time on my own when I needed it.
 My grandfather, John Holt, unexpectedly died on the 27th of December, 2016.
 I was lucky. I got to see him one last time on the 25th.
 
-![John, Amber (Sister), Me](/assets/images/depression-john.jpg)
+![John, Amber (Sister), Me]({{ site.url }}/assets/images/depression-john.jpg)
 *John, Amber (Sister), Me*
 
 My grandmother, Barbara Holt was in the later stages of Alzheimer's disease.
@@ -203,7 +203,7 @@ Having people to interact with at all times was really great,
 and knowing that they wouldn't let me slip back into my previous routine ensured
 that I kept making progress.
 
-![Viewing the last sunset of spring with my best friend](/assets/images/depression-sunset.png)
+![Viewing the last sunset of spring with my best friend]({{ site.url }}/assets/images/depression-sunset.png)
 *Viewing the last sunset of spring with my [best friend](https://daniellockyer.com/)*
 
 Now
