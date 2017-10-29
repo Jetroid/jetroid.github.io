@@ -40,8 +40,10 @@ others with his final act.
 
 It's moving. It evokes emotion. 
 
-It left me wanting more.
-------------------------
+**It left me wanting more.**
+
+Wanderers
+=========
 
 *Others Will Follow* reminded me of *Wanderers*, another short film I've seen
 previously. 
