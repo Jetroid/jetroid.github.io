@@ -7,10 +7,10 @@ background: "background-blog.jpg"
 background-color: "#848485"
 ---
 <header id="page-header">
-	<a href="{{ page.url | prepend: site.baseurl }}"><h1 id="page-title">{{ page.title }}</h1></a>
-	<p id="page-subtitle">{{ page.summary }}</p>
+	<a href="{{ page.url | prepend: site.baseurl }}"><h1 id="page-title" class="borders">{{ page.title }}</h1></a>
+	<p id="page-subtitle" class="borders">{{ page.summary }}</p>
 </header>
-<article class="post-container">
+<article class="post-container background borders">
 	<header>
 		<h2 class="post-title"><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></h2>
 		<time class="post-date">{{ page.date | date: "%Y/%m/%d" }}</time>
@@ -21,7 +21,7 @@ background-color: "#848485"
 	</div>
 	<div class="divider"></div>
 </article>
-<footer id="navigation">
+<footer id="navigation" class="background borders">
 	{% if page.previous.url %}
 		<a id="prev-post" href="{{page.previous.url}}">&lsaquo;{{page.previous.title}}</a>
 	{% else %} <p id="prev-post">&nbsp;&nbsp;---</p>

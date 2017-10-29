@@ -29,7 +29,8 @@ body{
 .divider{
 	width: 100%;
 	height: 0.3vh;
-	background: {{ site.style.text}}
+	background: {{ site.style.text}};
+	display: block;
 }
 #post-content > h1:first-child,
 #post-content > h2:first-child{
@@ -51,14 +52,13 @@ h1{
 #post-content h1, h2, h3, h4, h5, h6{
 	margin-top: 0;
 	margin-bottom: 0;
-	font-size: 4vh !important;
+	font-size: 4vh;
 }
 .post-date {
 	margin-top: 0;
 	margin-bottom: 0;
 }
 .post-container, #navigation{
-	background: rgba({{ site.style.background-rgb }} 0.7);
 	padding-top: 5px;
 	padding-bottom: 20px;
 }
@@ -121,13 +121,12 @@ pre {
 /* Next Post and Previous Post buttons */
 #navigation {
 	margin: 0;
-	padding: 5px;
 	font-size: 3vh;
 	display: block;
 	width: auto;
 	overflow: hidden;
 }
-#navigation * {
+#navigation a, #navigation p {
 	margin: 0;
 	display: block;
 	width: 100%;
@@ -138,7 +137,7 @@ pre {
 }
 @media (min-width: 500px){
 	/* Break the navigation out on to one line on larger screens */
-	#navigation * {
+	#navigation a, #navigation p {
 		width: 50%;
 		float: left;
 		margin: 0;
@@ -160,25 +159,25 @@ pre {
 	border: none;
 }
 /* Size the borders responsively */
-.post-container, #navigation, #page-subtitle{
+.borders{
 	padding-left: 5vh;
 	padding-right: 5vh;
 }
 @media (min-width: 500px){
-	.post-container, #page-title, #page-subtitle{
+	.borders{
 		padding-left: 10vh;
 		padding-right: 10vh;
 	}
 }
 @media (min-width: 800px){
-	.post-container, #page-title, #page-subtitle{
-		padding-left: 15vh;
-		padding-right: 15vh;
+	.borders{
+		padding-left: 20vh;
+		padding-right: 20vh;
 	}
 }
-@media (min-width: 1400px){
-	.post-container, #page-title, #page-subtitle{
-		padding-left: 25vh;
-		padding-right: 25vh;
+@media (min-width: 1000px){
+	.borders{
+		padding-left: 30vh;
+		padding-right: 30vh;
 	}
 }
