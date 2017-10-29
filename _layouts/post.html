@@ -16,15 +16,15 @@ background-color: "#848485"
 		<h2 class="post-title"><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></h2>
 		<time class="post-date">{{ page.date | date: "%Y/%m/%d" }}</time>
 	</header>
-	<div class="divider"></div>
+	<hr class="divider"/>
 	<div id="post-content">
 		{{ content }}
 	</div>
-	<div class="divider"></div>
+	<hr class="divider"/>
 </article>
 {% include mailchimp.html %}
 <footer id="navigation" class="background borders">
-    <div class="divider"></div>
+    <hr class="divider"/>
 	{% if page.previous.url %}
 		<a id="prev-post" href="{{page.previous.url}}">&lsaquo;{{page.previous.title}}</a>
 	{% else %} <p id="prev-post">&nbsp;&nbsp;---</p>
