@@ -49,7 +49,7 @@ previously.
 *Pale Blue Dot: A Vision of the Human Future in Space*.
 *Wanderers* is very well known, so I'm sure you've seen it before, too.
 
-<div class="youtube">
+<div class="youtube" style="padding-bottom: 42.6199262%">
     <iframe src="https://player.vimeo.com/video/108650530" allowfullscreen></iframe>
 </div>
 
