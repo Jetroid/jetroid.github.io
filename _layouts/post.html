@@ -3,6 +3,7 @@ layout: default
 custom_style_includes:
 - blog
 - background
+- mailchimp
 background: "background-blog.jpg"
 background-color: "#848485"
 ---
@@ -21,7 +22,9 @@ background-color: "#848485"
 	</div>
 	<div class="divider"></div>
 </article>
+{% include mailchimp.html %}
 <footer id="navigation" class="background borders">
+    <div class="divider"></div>
 	{% if page.previous.url %}
 		<a id="prev-post" href="{{page.previous.url}}">&lsaquo;{{page.previous.title}}</a>
 	{% else %} <p id="prev-post">&nbsp;&nbsp;---</p>

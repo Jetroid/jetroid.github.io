@@ -1,0 +1,60 @@
+
+@media (min-width: 500px){
+    #mailchimp-text{
+        font-size: 2.5vh;
+    }
+    .mailchimp-entry{
+        width: 185px;
+    }
+    #mailchimp-submit{
+        width: 170px;
+    }
+}
+@media (min-width: 800px){
+    .mailchimp-entry{
+        width: 160px;
+    }
+    #mailchimp-submit{
+        width: 140px;
+    }
+}
+@media (min-width: 1000px){
+    .mailchimp-entry{
+        width: 250px;
+    }
+    #mailchimp-submit{
+        width: 180px;
+    }
+}
+#mailchimp-submit {
+    background: {{ site.style.highlight }};
+    /*color: {{ site.style.text }} */
+    -webkit-box-shadow: inset 0 5px rgba(255, 255, 255, 0.2);
+    -moz-box-shadow: inset 0 5px rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 5px rgba(255, 255, 255, 0.2);
+}
+#mailchimp-signup form input{
+    font-size: 1.5em;
+    padding: 10px 15px;
+    border: none;
+}
+@media (max-width: 500px){
+    #mailchimp-signup form input{
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0 auto;
+        padding: 15px 15px;
+    }
+}
+#mailchimp-signup {
+    padding-bottom: 25px;
+    text-align: center;
+}
+
+#mailchimp-signup form {
+    margin: 0 auto;
+    width: 100%;
+    padding-top: 20px;
+}
