@@ -9,6 +9,7 @@
   background-size: cover;
   /*background-repeat: no-repeat;*/
   background-attachment: fixed;
+  height: 100%;
 }
 .post-shadow {
 	padding: 30px 15vw 60px 15vw;
@@ -24,15 +25,15 @@
 	right: 0;
 	text-shadow: 2px 2px {{ site.style.background-hex }};
 }
-.post * {
-	text-decoration: none;
-	color: {{ site.style.text }};
-}
-.post h2{
+.post-title{
 	color: {{ site.style.highlight }};
 	margin-top: 0;
 	margin-bottom: 0;
 	font-size: 4vh;
+}
+.post-date, .post-summary {
+	text-decoration: none;
+	color: {{ site.style.text }};
 }
 .post p{
 	font-size: 2.5vh;

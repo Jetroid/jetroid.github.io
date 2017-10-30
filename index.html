@@ -5,6 +5,7 @@ custom_style_includes:
 - splashpage
 - background
 - postlist
+- mailchimp
 background: "background-homepage.png"
 background-color: "#160B04"
 image: me.jpg
@@ -31,8 +32,10 @@ image: me.jpg
 	</div>
 </div>
 <div id="posts">
+
+    {% assign count = 0 %}
 	{% for post in site.posts %}
-	{% if post.unlisted != true or hasposted != true %}
+	{% if post.unlisted != true or count == 0 %}
 	<div class="post">
 		<a href="{{ post.url | prepend: site.baseurl }}">
 			<div class="post-background" style="background-image: url(/assets/images/{{ post.background }});{% if post.background-color %}background-color:{{ post.background-color }}{% endif %}">
@@ -46,6 +49,16 @@ image: me.jpg
 		</a>
 	</div>
 	{% endif %}
-	{% assign hasposted = true %}
+	<!-- Mailchimp email signup for 3rd item !-->
+	{% if count == 2 %}
+        <div class="post">
+            <div class="post-background" style="background-image: url(/assets/images/mailchimp-beauty.jpg); background-color: #010103">
+			    <div class="post-shadow">
+                    {% include mailchimp.html %}
+                </div>
+		    </div>
+        </div>
+	{% endif %}
+	{% assign count = count | plus: 1 %}
 	{% endfor %}
 </div>
