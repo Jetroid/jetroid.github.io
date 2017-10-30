@@ -11,27 +11,28 @@ background-color: "#848485"
 	<a href="{{ page.url | prepend: site.baseurl }}"><h1 id="page-title" class="borders">{{ page.title }}</h1></a>
 	<p id="page-subtitle" class="borders">{{ page.summary }}</p>
 </header>
-<article class="post-container background borders">
-	<header>
-		<h2 class="post-title"><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></h2>
-		<time class="post-date">{{ page.date | date: "%Y/%m/%d" }}</time>
-	</header>
-	<hr class="divider"/>
-	<div id="post-content">
-		{{ content }}
-	</div>
-	<hr class="divider"/>
-</article>
-{% include mailchimp.html %}
-<footer id="navigation" class="background borders">
-    <hr class="divider"/>
-	{% if page.previous.url %}
-		<a id="prev-post" href="{{page.previous.url}}">&lsaquo;{{page.previous.title}}</a>
-	{% else %} <p id="prev-post">&nbsp;&nbsp;---</p>
-	{% endif %}
-	{% if page.next.url %}
-		<a id="next-post" href="{{page.next.url}}">{{page.next.title}}&rsaquo;</a>
-	{% else %} <p id="next-post">---&nbsp;&nbsp;</p>
-	{% endif %}
-</footer>
-
+<div class="background  borders">
+    <article class="post-container">
+	    <header>
+		    <h2 class="post-title"><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></h2>
+		    <time class="post-date">{{ page.date | date: "%Y/%m/%d" }}</time>
+	    </header>
+	    <hr class="divider"/>
+	    <div id="post-content">
+		    {{ content }}
+	    </div>
+	    <hr class="divider"/>
+    </article>
+    {% include mailchimp.html %}
+    <footer id="navigation">
+        <hr class="divider"/>
+	    {% if page.previous.url %}
+		    <a id="prev-post" href="{{page.previous.url}}">&lsaquo;{{page.previous.title}}</a>
+	    {% else %} <p id="prev-post">&nbsp;&nbsp;---</p>
+	    {% endif %}
+	    {% if page.next.url %}
+		    <a id="next-post" href="{{page.next.url}}">{{page.next.title}}&rsaquo;</a>
+	    {% else %} <p id="next-post">---&nbsp;&nbsp;</p>
+	    {% endif %}
+    </footer>
+</div>
