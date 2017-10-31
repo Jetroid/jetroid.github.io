@@ -15,7 +15,7 @@
 	font-weight: bold;
 	text-shadow: 2px 2px {{ site.style.background-hex }};
 }
-.post-shadow:hover{
+.shadow {
 	background: rgba({{ site.style.background-rgb }} 0.8);
 }
 /* Override sitewide 'a' tag default hover action */
