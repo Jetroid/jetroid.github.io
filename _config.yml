@@ -40,3 +40,4 @@ style:
 #Do not index oldstuff
 exclude:
   - oldstuff
+  - about.md
