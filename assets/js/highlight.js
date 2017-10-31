@@ -20,5 +20,6 @@ function getElementsInArea(e){
     }
 }
 
+window.addEventListener('touchmove', getElementsInArea);
 window.addEventListener('scroll', getElementsInArea);
 window.addEventListener('resize', getElementsInArea);
