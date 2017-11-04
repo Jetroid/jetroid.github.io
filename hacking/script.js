@@ -381,27 +381,27 @@ login = function() {
 	document.getElementById("login").play();
 }
 
+//Generate the pointers
+var value = Math.floor(Math.random() * 65128);
+document.getElementById("leftpointers").innerHTML = generatePointerColumn(value);
+document.getElementById("rightpointers").innerHTML = generatePointerColumn(value+204);
+
+//Generate the symbols
+//We should have the array 'five' loaded in, which contains every 5 lettered english word.
+//TODO: Replace 'five' with heroku node
+document.getElementById("leftsymbols").innerHTML = generateSymbolColumn();
+document.getElementById("rightsymbols").innerHTML = generateSymbolColumn();
+
+//Select the goal word
+var selectedWord = generateRandomInt(0, words.length);
+goalWord = words[selectedWord];
+words.splice(selectedWord, 1);
+
+//Play login sound
+document.getElementById("login").play();
+
 window.onload = function(){
-	//Generate the pointers
-	var value = Math.floor(Math.random() * 65128);
-	document.getElementById("leftpointers").innerHTML = generatePointerColumn(value);
-	document.getElementById("rightpointers").innerHTML = generatePointerColumn(value+204);
-
-	//Generate the symbols
-	//We should have the array 'five' loaded in, which contains every 5 lettered english word.
-	//TODO: Replace 'five' with heroku node
-	document.getElementById("leftsymbols").innerHTML = generateSymbolColumn();
-	document.getElementById("rightsymbols").innerHTML = generateSymbolColumn();
-
-	//Select the goal word
-	var selectedWord = generateRandomInt(0, words.length);
-	goalWord = words[selectedWord];
-	words.splice(selectedWord, 1);
-
-	//Play login sound
-	document.getElementById("login").play();
-	resizeLoggedIn();
-
+    resizeLoggedIn();
 	fixImages();
-
 }
+
