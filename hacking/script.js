@@ -6,30 +6,42 @@ var attempts = 4;
 var hadRefresh = false;
 var clickedBrackets = new Set();
 var terminalLocked = false;
-var currentPost = null;
 
 var tickNoise = function(){
 	document.getElementById("tick").currentTime = 0;
 	document.getElementById("tick").play();
 }
-var viewPost = function(postID){
-	document.getElementById("post-titles-container").style.display="none";
-	document.getElementById(postID).style.display="block";
-	//simple-scrollbar creates two nested elements inside our container.
-	//The second nested child is the one which scrolls - reset it to the top
-	var scrollingElement = document.getElementById(postID).firstChild.firstChild;
-	scrollingElement.scrollTop = 0;
+var viewPost = function(postURL){
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", postURL, true);
+    xhr.onreadystatechange = function() {
+        if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+            var response = xhr.responseText;
+            var junkElement = document.createElement("div");
+            junkElement.innerHTML = response;
+            postContainer = junkElement.querySelectorAll(".post-container")[0];
+            console.log(junkElement + " " + junkElement.querySelectorAll(".post-container") + " " + junkElement.querySelectorAll(".post-container")[0]);
+            var child = postContainer.firstChild;
+            while((child = child.nextSibling) != null ){
+                if(child.id == "post-content") break;
+            }
+            var postContent = child;
 
-	document.getElementById("enter").play();
-	currentPost = postID;
+            document.getElementById("post-titles-container").style.display="none";
+	        var container = document.getElementById("post-container");
+	        container.style.display="block";
+	        container.innerHTML = postContent.innerHTML;
+
+	        document.getElementById("enter").play();
+            fixImages();
+        }
+    }
+    xhr.send(null);
 }
 var exitPost = function(){
-	if(currentPost){
-		document.getElementById(currentPost).style.display="none";
-		document.getElementById("post-titles-container").style.display="block";
-		document.getElementById("enter").play();
-		currentPost = null;
-	}
+	document.getElementById("post-container").style.display="none";
+	document.getElementById("post-titles-container").style.display="block";
+	document.getElementById("enter").play();
 }
 var resizeLoggedIn = function(){
 	var osheader = document.getElementById("os-header");
@@ -58,7 +70,13 @@ var setEntry = function(span){
 		setTimeout(function() {
 			var key = "key" + generateRandomInt(1,12);
 			if(document.getElementById(key) != null){
-				document.getElementById(key).play();
+				var playPromise = document.getElementById(key).play();
+
+                if (playPromise !== undefined) {
+                  playPromise.then(function() {
+                  }).catch(function(error) {
+                  });
+                }
 			}
 		}, i * 50);
 	}
@@ -347,7 +365,8 @@ var generateSymbolColumn = function() {
 }
 
 var fixImages = function(){
-	var images = document.querySelectorAll("img");
+    var container = document.getElementById("post-container");
+	var images = container.querySelectorAll("img");
 	for (i = 0; i < images.length; i++){
 		var image = images[i];
 		var parent = image.parentNode;
@@ -436,6 +455,5 @@ document.getElementById("login").play();
 
 window.onload = function(){
     resizeLoggedIn();
-	fixImages();
 }
 
