@@ -44,7 +44,7 @@ prose:
           label: "Date"
       - name: "background"
         field:
-          element: "text"
+          element: "image"
           placeholder: "your-posts-title-beauty.jpg"
           label: "Background Image"
           help: "Make sure you upload the image first!"
