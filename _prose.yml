@@ -6,7 +6,7 @@ prose:
   siteurl: 'https://jetholt.com'
 # This one may be useful?
 #  relativeLinks: 'http://jetholt.com/links.jsonp'
-  media: 'assets/images/'
+  media: 'assets/images'
   ignore:
     - /_includes
     - /_layouts
