@@ -36,23 +36,22 @@ body{
 #post-content > h2:first-child{
     padding-top: 20px;
 }
-#post-content *, p {
+#post-content *, p{
 	font-size: 3vh;
+}
+#post-content h1, h2, h3, h4, h5, h6{
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 4vh;
+}
+#post-content h1{
+	font-size: 5vh;
 }
 /* Make font size less gaudy on large screens */
 @media (min-width: 500px){
 	#post-content *, p {
 		font-size: 2.5vh;
 	}
-}
-
-h1{
-	font-size: 8vh !important;
-}
-#post-content h1, h2, h3, h4, h5, h6{
-	margin-top: 0;
-	margin-bottom: 0;
-	font-size: 4vh;
 }
 .post-date {
 	margin-top: 0;
@@ -75,8 +74,10 @@ h1{
 	max-width: 100%;
 	min-width: 50%;
 	min-height: 50%;
+	max-height: 600px;
 	height: auto;
 	margin: 0 auto;
+	border-radius: 5px;
 }
 #post-content > p:first-child {
 	margin-top: 1vh;
@@ -102,9 +103,8 @@ blockquote {
 blockquote p {
 	margin: 0 0 0 1em;
 }
-/* Source for quotes */
-blockquote + em {
-	color: red;
+#post-content blockquote * {
+  font-size: 3vh;
 }
 
 /* Code blocks should wrap and be even more background-ier!*/
