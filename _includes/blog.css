@@ -72,8 +72,6 @@ body{
 .post-container img {
 	display: block;
 	max-width: 100%;
-	min-width: 50%;
-	min-height: 50%;
 	max-height: 600px;
 	height: auto;
 	margin: 0 auto;
