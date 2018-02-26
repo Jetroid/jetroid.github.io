@@ -7,6 +7,7 @@ background-color: "#604f38"
 summary: "An attempt to identify the important things in the modern era."
 categories:
  - "Society"
+ - "Reflections"
 ---
 
 # Examining life
