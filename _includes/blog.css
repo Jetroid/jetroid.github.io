@@ -20,6 +20,7 @@ body{
 	margin-bottom: 5px;
 	font-weight: bold;
 	text-shadow: 2px 2px {{ site.style.background-hex }};
+	font-size: 8vh;
 }
 #page-subtitle{
 	margin: 0;
@@ -58,7 +59,7 @@ body{
 	margin-bottom: 0;
 }
 .post-container, #navigation{
-	padding-top: 5px;
+	padding-top: 20px;
 	padding-bottom: 20px;
 }
 .post-container a {
@@ -123,6 +124,9 @@ pre {
 	display: block;
 	width: auto;
 	overflow: hidden;
+}
+#navigation .divider {
+    margin-bottom: 20px;
 }
 #navigation a, #navigation p {
 	margin: 0;
