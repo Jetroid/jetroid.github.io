@@ -1,0 +1,84 @@
+#This file determines how the site https://prose.io interacts with this repo.
+#Specifically, it enables easy setting of YAML front matter.
+#Prose is a content authoring system
+#https://github.com/prose/prose
+prose:
+  siteurl: 'https://jetholt.com'
+# This one may be useful?
+#  relativeLinks: 'http://jetholt.com/links.jsonp'
+  media: 'assets/images'
+  ignore:
+    - /_includes
+    - /_layouts
+    - /_timeline
+    - /hacking
+    - /index
+    - /oldstuff
+    - .gitignore
+    - 404.html
+    - CNAME
+    - Rakefile
+    - _config.yml
+    - about.md
+    - feed.xml
+    - index.html
+    - optimimage.py
+  metadata:
+    _posts:
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "post"
+      - name: "title"
+        field:
+          element: "text"
+          label: "Title"
+      - name: "summary"
+        field:
+          element: "text"
+          label: "Summary"
+      - name: "date"
+        field:
+          element: "text"
+          placeholder: "CURRENT_DATETIME"
+          label: "Date"
+      - name: "background"
+        field:
+          element: "image"
+          placeholder: "your-posts-title-beauty.jpg"
+          label: "Background Image"
+          help: "Make sure you upload the image first!"
+      - name: "background-color"
+        field:
+          element: "text"
+          placeholder: "#5e655d"
+          label: "Background Image Primary Colour"
+          help: "Use this: http://matkl.github.io/average-color/"
+      - name: "unlisted"
+        field:
+          element: "checkbox"
+          label: "Show on Homepage?"
+          help: "Unlisted posts only show on the homepage if they are the most recent, otherwise, in the /index/ page."
+          value: false
+      - name: "categories"
+        field:
+          element: "multiselect"
+          label: "Categories"
+          placeholder: "Choose Categories"
+          help: "If you add extra categories, make sure to add them in the _category/ folder and _prose.yml file too!"
+          alterable: true
+          options:
+            - name: "Experiences"
+              value: "\"Experiences\""
+            - name: "Frequency Central"
+              value: "\"Frequency Central\""
+            - name: "Jekyll"
+              value: "\"Jekyll\""
+            - name: "Projects"
+              value: "\"Projects\""
+            - name: "Society"
+              value: "\"Society\""
+            - name: "Things I Like"
+              value: "\"Things I Like\""
+            - name: "Tutorials"
+              value: "\"Tutorials\""

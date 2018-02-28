@@ -1,33 +1,47 @@
+var allWords = [];
 var words = [];
 var goalWord = "";
+var wordlength = 0;
 var attempts = 4;
 var hadRefresh = false;
 var clickedBrackets = new Set();
 var terminalLocked = false;
-var currentPost = null;
 
 var tickNoise = function(){
 	document.getElementById("tick").currentTime = 0;
 	document.getElementById("tick").play();
 }
-var viewPost = function(postID){
-	document.getElementById("post-titles-container").style.display="none";
-	document.getElementById(postID).style.display="block";
-	//simple-scrollbar creates two nested elements inside our container.
-	//The second nested child is the one which scrolls - reset it to the top
-	var scrollingElement = document.getElementById(postID).firstChild.firstChild;
-	scrollingElement.scrollTop = 0;
+var viewPost = function(postURL){
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", postURL, true);
+    xhr.onreadystatechange = function() {
+        if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+            var response = xhr.responseText;
+            var junkElement = document.createElement("div");
+            junkElement.innerHTML = response;
+            postContainer = junkElement.querySelectorAll(".post-container")[0];
+            console.log(junkElement + " " + junkElement.querySelectorAll(".post-container") + " " + junkElement.querySelectorAll(".post-container")[0]);
+            var child = postContainer.firstChild;
+            while((child = child.nextSibling) != null ){
+                if(child.id == "post-content") break;
+            }
+            var postContent = child;
 
-	document.getElementById("enter").play();
-	currentPost = postID;
+            document.getElementById("post-titles-container").style.display="none";
+	        var container = document.getElementById("post-container");
+	        container.style.display="block";
+	        container.innerHTML = postContent.innerHTML;
+
+	        document.getElementById("enter").play();
+            fixImages();
+        }
+    }
+    xhr.send(null);
 }
 var exitPost = function(){
-	if(currentPost){
-		document.getElementById(currentPost).style.display="none";
-		document.getElementById("post-titles-container").style.display="block";
-		document.getElementById("enter").play();
-		currentPost = null;
-	}
+	document.getElementById("post-container").style.display="none";
+	document.getElementById("post-titles-container").style.display="block";
+	document.getElementById("enter").play();
 }
 var resizeLoggedIn = function(){
 	var osheader = document.getElementById("os-header");
@@ -56,7 +70,13 @@ var setEntry = function(span){
 		setTimeout(function() {
 			var key = "key" + generateRandomInt(1,12);
 			if(document.getElementById(key) != null){
-				document.getElementById(key).play();
+				var playPromise = document.getElementById(key).play();
+
+                if (playPromise !== undefined) {
+                  playPromise.then(function() {
+                  }).catch(function(error) {
+                  });
+                }
 			}
 		}, i * 50);
 	}
@@ -100,11 +120,11 @@ var clicked = function(span){
 		}else if (word != goalWord){
 			document.getElementById("incorrect").play();
 			var correct = 0;
-			for(i = 0; i < 5; i++){
+			for(i = 0; i < wordlength; i++){
 				if(goalWord.charAt(i) == word.charAt(i)) correct++;
 			}
 			addFeedback(">Entry Denied");
-			addFeedback(">"+ correct + "/5 correct.");
+			addFeedback(">"+ correct + "/" + wordlength + " correct.");
 			attempts--;
 			setAttempts();
 		}else{
@@ -310,8 +330,6 @@ var generateSymbolColumn = function() {
 			"@","\'","~","#","<",">",",","?","/",
 			"|","\\"]
 	var string = "";
-	var wordslength = 5;
-	var array = five; //Copy the array
 	var count = 0;
 	var numsymbols = 0;
 	while (count < 17*12) {
@@ -321,16 +339,16 @@ var generateSymbolColumn = function() {
 		numsymbols++;
 
 		//Choose to add a word
-		if((count + wordslength < 17*12)
+		if((count + wordlength < 17*12)
 			&& (numsymbols > 4)
 			&& (numsymbols == 45 || (generateRandomInt(0,17) > 15))){
 
 			//Select a random word
-			var wordpos = generateRandomInt(0,array.length);
-			var word = array[wordpos];
+			var wordpos = generateRandomInt(0,allWords.length);
+			var word = allWords[wordpos];
 
 			//Remove the element from the array
-			array.splice(wordpos, 1);
+			allWords.splice(wordpos, 1);
 
 			//Store the word with the other words in a list.
 			words.push(word);
@@ -347,7 +365,8 @@ var generateSymbolColumn = function() {
 }
 
 var fixImages = function(){
-	var images = document.querySelectorAll("img");
+    var container = document.getElementById("post-container");
+	var images = container.querySelectorAll("img");
 	for (i = 0; i < images.length; i++){
 		var image = images[i];
 		var parent = image.parentNode;
@@ -381,27 +400,60 @@ login = function() {
 	document.getElementById("login").play();
 }
 
-window.onload = function(){
-	//Generate the pointers
-	var value = Math.floor(Math.random() * 65128);
-	document.getElementById("leftpointers").innerHTML = generatePointerColumn(value);
-	document.getElementById("rightpointers").innerHTML = generatePointerColumn(value+204);
+//Generate the pointers
+var value = Math.floor(Math.random() * 65128);
+document.getElementById("leftpointers").innerHTML = generatePointerColumn(value);
+document.getElementById("rightpointers").innerHTML = generatePointerColumn(value+204);
 
-	//Generate the symbols
-	//We should have the array 'five' loaded in, which contains every 5 lettered english word.
-	//TODO: Replace 'five' with heroku node
-	document.getElementById("leftsymbols").innerHTML = generateSymbolColumn();
-	document.getElementById("rightsymbols").innerHTML = generateSymbolColumn();
-
-	//Select the goal word
-	var selectedWord = generateRandomInt(0, words.length);
-	goalWord = words[selectedWord];
-	words.splice(selectedWord, 1);
-
-	//Play login sound
-	document.getElementById("login").play();
-	resizeLoggedIn();
-
-	fixImages();
-
+//Generate the symbols
+var xhr = new XMLHttpRequest();
+xhr.open("GET", 'https://jetroid-hacking.herokuapp.com/', true);
+xhr.onreadystatechange = function() {
+    if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+        var response = JSON.parse(xhr.responseText);
+        goalWord = response["goal"];
+        allWords = response["words"];
+        wordlength = response["length"];
+        document.getElementById("leftsymbols").innerHTML = generateSymbolColumn();
+        document.getElementById("rightsymbols").innerHTML = generateSymbolColumn();
+        insertGoal();
+        document.getElementById("hacking").style.display = "block";
+    }
 }
+xhr.send(null);
+
+function insertGoal(){
+    //Get all the words in the document
+    var wordElems = document.querySelectorAll(".word");
+    //Select one to replace with the goal
+    var goalElem = wordElems[generateRandomInt(0,wordElems.length)];
+
+    //Constuct the replacement content
+    var elemContent = goalElem.innerHTML;
+    var prevWord = goalElem.id;
+    var wordLen = elemContent.length;
+    var charIndex = 0;
+    for(var i = 0; i < wordLen; i++){
+        if (elemContent.charAt(i) === prevWord.charAt(charIndex)){
+            elemContent = newStrWithCharAt(elemContent, i, goalWord.charAt(charIndex));
+            charIndex++;
+        }
+    }
+
+    //Replace the content with our goal content
+    goalElem.id = goalWord;
+    goalElem.innerHTML = elemContent;
+}
+
+function newStrWithCharAt(str,index,chr) {
+    if(index > str.length-1) return str;
+    return str.substr(0,index) + chr + str.substr(index+1);
+}
+
+//Play login sound
+document.getElementById("login").play();
+
+window.onload = function(){
+    resizeLoggedIn();
+}
+

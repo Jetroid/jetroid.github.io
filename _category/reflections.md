@@ -1,0 +1,4 @@
+---
+category: "Reflections"
+permalink: "/reflections/"
+---
