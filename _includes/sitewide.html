@@ -3,7 +3,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="{{ site.url }}/assets/images/favicon.ico">
 {% capture background-image %}{% if page.background %}{{ page.background }}{% else if layout.background %}{{ layout.background }}{% else %}default-background.jpg{% endif %}{% endcapture %}
 {% unless background-image == "none" or background-image == "" or background-image == nil %}
-<meta property="og:image" content="{{ site.url }}/assets/images/{{ background-image }}";
+<meta property="og:image" content="{{ site.url }}/assets/images/{{ background-image }}" />
 {% endunless %}
 <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}Jetroid's Blog{% endif %}" />
 <meta property="og:locale" content="en_GB" />
