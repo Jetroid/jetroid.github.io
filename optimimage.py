@@ -27,7 +27,7 @@ for folder in FOLDERS:
     if os.path.exists(yamlfile):
         stream = open(yamlfile, 'r')
         data = yaml.load_all(stream)
-        knownimages = data.next()['images'] or []
+        knownimages = next(data)['images'] or []
         stream.close()
 
     #Generate a list of images that are there right now
