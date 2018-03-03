@@ -36,7 +36,7 @@ layout: compress
 			{% endif %}
 		{% endfor %}
 	{% endif %}
-	<!-- Custom JS - use custom_js in YAML front matter !-->
+	<!-- Custom JS (as seperate file) - use custom_js in YAML front matter !-->
 	{% assign had_elements = "" %}
 	{% if page.custom_js %}
 		{% for js_file in page.custom_js %}
@@ -60,6 +60,23 @@ layout: compress
 		<nav id="linkback"><a href="/">Jetroid</a></nav>
 		{% endif %}
 		{{ content }}
-		{% include analytics.html %}
+		<script>
+		{% include analytics.min.js %}
+		{% assign had_elements = "" %}
+		{% if page.custom_js_includes %}
+			{% for script in page.custom_js_includes %}
+				{% capture had_elements %}{{ had_elements | join: delim }}{{ delim }}{{ script }}{% endcapture %}
+				{% assign had_elements = had_elements | split: delim %}
+				{% include {{ script }}.min.js %}
+			{% endfor %}
+		{% endif %}
+		{% if layout.custom_js_includes %}
+			{% for script in layout.custom_js_includes %}
+				{% if had_elements contains script %}{% else %}
+					{% include {{ script }}.min.js %}
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+		</script>
 	</body>
 </html>
