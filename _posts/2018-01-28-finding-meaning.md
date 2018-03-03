@@ -61,7 +61,7 @@ We both totally reject the idea of salaried employment.
 Sometimes, when I'm having a bad day, I think back to my achievements;
 to the projects I worked on, the things I did.
 [Bartos Flur](/bartos-flur/). [Polygraf](/polygraf/).
-[StreASM](https://daniellockyer.com/streasm).
+[StreASM](/streasm/).
 My video game levels from my younger years.
 Thinking about these things just gives me a huge sense of pride and
 helps to reassure me of my worth.
@@ -212,10 +212,10 @@ Like completing long forms. Or cleaning bathrooms. Or processing emails.
 > And that’s your life. That’s your real fucking life. <br />
 > All that other stuff is not your life anymore. All that other stuff is work. <br />
 > And most of us have committed to that. <br />
-> <cite>Joe Rogan</cite>, in <cite>[JRE #389](http://podcasts.joerogan.net/podcasts/brian-redban-2)</cite>, 
+> -- <cite>Joe Rogan</cite>, in <cite>[JRE #389](http://podcasts.joerogan.net/podcasts/brian-redban-2)</cite>,
 > *"[The Society Trap](https://www.youtube.com/watch?v=zvfy5Enz6-c)"*
 
-Having to work extraordinarily hard to be able to purcashe lots of things
+Having to work extraordinarily hard to be able to purchase lots of things
 that only give fleeting happiness doesn't seem like meaning to me.
 It's a painful cycle, and it's not very sustainable.
 
