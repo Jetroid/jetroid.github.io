@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "FC Chronograf"
+title:  "Chronograf"
 date:   2016-04-02 20:00:00 +0100
 background: "chronograf-beauty.jpg"
 summary: "The story of the timer-based Chronograf module."

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "FC Deep Thought"
+title:  "Deep Thought"
 date:   2016-04-03 20:00:00 +0100
 background: "deep-thought-beauty.jpg"
 summary: "A look at how to get the most out of a simple concept."
