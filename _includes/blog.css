@@ -78,6 +78,11 @@ body{
 	margin: 0 auto;
 	border-radius: 5px;
 }
+img.emoji {
+	display: inline;
+	height: 1em;
+	width: 1em;
+}
 #post-content > p:first-child {
 	margin-top: 1vh;
 }
