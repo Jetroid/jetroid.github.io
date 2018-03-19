@@ -1,7 +1,10 @@
-#linkback {
-	font-size: 5vh;
+#linkback, #linkback img {
 	position: fixed;
-	font-weight: bold;
-	text-shadow: 2px 0px {{ site.style.background-hex }};
-	z-index: 2;
+	width: 300px;
+	z-index: 50000;
+}
+@media (max-width: 500px){
+	#linkback img {
+		width: 50%;
+	}
 }
