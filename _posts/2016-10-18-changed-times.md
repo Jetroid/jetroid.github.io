@@ -15,9 +15,9 @@ and which looked rapidly different half a century ago to today.
 The same is true for a decade ago.
 
 We live in a world where software controls everything,
-but most of the population thinks that Computer Scientists just _fix_ computers.
+but much of the population thinks that people in the tech sphere just _fix_ computers.
 (Which they think involves uninstalling software...)
-It's a whole new world that most don't really understand.
+It's a whole new world that many don't really understand.
 
 This new world brings new opportunities.
 In the past, unless you were fortunate enough to be born to wealth,
@@ -52,8 +52,8 @@ lead to a very interesting possible lifestyle choice. **The Digital Nomad**.
 What is a Digital Nomad?
 ========================
 
-A Digital Nomad is someone who produces software whilst moving from place to place.
-(They don't have to just produce software - any remote digital business is applicable)
+A Digital Nomad is someone who works remotely using the internet whilst moving from place to place.
+Any remote worker is applicable - they could own their own business, do consultancy online, write books, or publish online as a lifestyle blogger on platforms like YouTube.
 They work from coffee shops, beaches, hotels, wherever. 
 They aren't tied down to a specific city and can move on as they please.
 They may rent their own office space, or work at a co-working area.
@@ -75,13 +75,13 @@ You're either creating something so insignificant that your contribution doesn't
 or you're creating something that you could have had a share in yourself.
 Some companies even go so far as to claim ownership of anything an employee creates in their spare time.
 
-I think a core tenent of the appeal of Digital Nomadism is that you're creating *your* dream,
+I think a core tenet of the appeal of Digital Nomadism is that you're creating *your* dream,
 not somebody else's.
 You're creating for yourself; what you create will reflect you. 
 
 Another appeal to Digital Nomadism is that you can chose to live abroad
 whilst still doing the same work.
-So many people from the UK tend to leave when they retire to be expats. 
+So many people from the UK tend to leave when they retire to become expats. 
 As a Nomad you can do it as part of your daily life.
 In fact, it can actually be very beneficial to do it.
 It's cheaper to live in some foreign countries (eg: Thailand),
@@ -139,7 +139,7 @@ thrill seeking and as a way to take drugs, which is really uncool.
 They do a lot of illegal stuff like [train-hopping](http://imgur.com/a/5lic3) too,
 which makes me uncomfortable.
  
-These lifestyles are quite far from the 'cool' Digital Nomads I've been talking about.
+These lifestyles are quite apart from the 'cool' Digital Nomads I've been talking about.
 They aren't at all about creating a business whilst travelling,
 but they did give me the idea of the 'Digital Vagabond' - 
 somebody who stays in their native country and camps out,
