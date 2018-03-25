@@ -1,0 +1,4 @@
+---
+category: "Tech"
+permalink: "/tech/"
+---
