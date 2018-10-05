@@ -41,7 +41,7 @@ trepidation and hope.
 
 I feel that The Space Race was one of the best portions of human history.
 Both the USSR and the USA were able to harness their war to
-produce marvels, many of which have not since been rivaled.
+produce marvels, many of which have not since been rivalled.
 
 >HERE MEN FROM THE PLANET EARTH<br>
 FIRST SET FOOT UPON THE MOON<br>
@@ -51,7 +51,7 @@ WE CAME IN PEACE FOR ALL MANKIND<br>
 
 In particular, the song [*Go!*](https://www.youtube.com/watch?v=BHIo6qwJarI) inspires me.
 The engineering work behind NASA is simply astounding.
-The precision, the training, the knowedge.
+The precision, the training, the knowledge.
 What they achieved with now-primitive computation technology boggles the mind.
 
 *Go!* retells the story of Apollo 11's landing,
@@ -72,8 +72,8 @@ vital functionality built in by [Margaret Hamilton](https://en.wikipedia.org/wik
 
 He had to make this decision to ignore the alarms and go ahead quickly -
 they only had 60 seconds of fuel left.
-He and his team's knowledge of the routine of this computer prevented a possibly catastophic abort attempt.
-It's for this reason that the "Go!" from Guidance is noticably chirpier.
+He and his team's knowledge of the routine of this computer prevented a possibly catastrophic abort attempt.
+It's for this reason that the "Go!" from Guidance is noticeably chirpier.
 
 It gives me chills every time I hear Armstrong report:
 "Houston, uh, *Tranquility Base* here. The *Eagle* has landed."
@@ -93,7 +93,7 @@ I just see discord and strife.
 My home country wants to end co-operation with the European Union.
 USA seems very isolationist. 
 
-The Space Race occured during (and because of) the Cold War.
+The Space Race occurred during (and because of) the Cold War.
 Both sides used their conflict to produce amazing results,
 some of the brightest moments of humanity.
 

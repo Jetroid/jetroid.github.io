@@ -38,7 +38,7 @@ I had been feeling trapped in England and by my University course - again, I sti
 
 "Let It Happen" symbolised how I was feeling perfectly, even if my interpretation isn't exactly aligned with the intention of the musicians. It became somewhat of a mantra for the time. Things may suck now, but let it happen. It'll all be worth it. :+1: Let it happen, endure the bad, and you can leave and try the life you're dreaming about. One day you'll hear that alarm, and will awaken, quite alone, in a strange new town. :sunglasses:
 
-The second chrous almost seemed to be about explaining away the failure of a startup I had tried, and starting a new "story". It felt perfect. The song just 'fit'.
+The second chorus almost seemed to be about explaining away the failure of a startup I had tried, and starting a new "story". It felt perfect. The song just 'fit'.
 
 I didn't know then that I was about to go through one of the [toughest periods of my life](/the-grip-of-depression/) within just a short few months of that summer. I honestly believe now that part of my difficulty came around because it was crushing to lose my freedom to make, and that I couldn't handle having to settle back into the soul-crushing University routine again... During my dark times, some of the verses of "Let It Happen" took a much darker meaning, and what previously was about financial struggle or freedom came to mean mental struggles and 'dark escapism'.
 

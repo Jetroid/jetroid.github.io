@@ -108,7 +108,7 @@ know how to navigate the site.
 
 Unfortunately, Navbars generally come with some standard links; Home, About, Contact, etc.
 I feel that the ubiquity of these pages made me psychologically feel that I needed them too.
-This lead to me putting content on seperate pages when it would be better on the homepage.
+This lead to me putting content on separate pages when it would be better on the homepage.
 
 Why is the new design better than the original?
 -----------------------------------------------

@@ -24,7 +24,7 @@ We examine our lives and the lives of others and we try to experiment
 and change things to try to become happier or to find meaning or just to see what would happen.
 I think something that a lot of people don't really stop to think about is that
 the standard way of doing things might not be the best way for you;
-and what works for your neighbor may not work for you.
+and what works for your neighbour may not work for you.
 The termite would not feel comfortable living in an eagle's nest.
 
 Lockyer and I frequently challenge our own and each other's beliefs and opinions.

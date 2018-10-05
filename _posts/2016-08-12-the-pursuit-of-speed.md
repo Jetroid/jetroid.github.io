@@ -22,7 +22,7 @@ My initial result was not great:
 
 To summarise: 
 My images were not losslessly compressed,
-and my CSS and Javascripts were in pages which required seperate download requests.
+and my CSS and Javascripts were in pages which required separate download requests.
 The tool also identified that the links on my homepage may be difficult to use on mobile.
 My CSS and JS were also not compressed, which PageSpeed Insights didn't seem to pick up on.
 
@@ -99,7 +99,7 @@ the multiple stylesheets and javascripts.
 I moved my [custom css includes script](https://gist.github.com/Jetroid/bd71e5bbc2de763d0973e706efc91d7c)
 into it's own file, called main.scss, itself an include file. 
 Able to include this from my 'default' layout, I completely inlined my CSS.
-This stops the browser having to download it seperately. 
+This stops the browser having to download it separately. 
 As my CSS is all relatively small (As will be almost all CSS I include on my site),
 this doesn't cause any problems.
 

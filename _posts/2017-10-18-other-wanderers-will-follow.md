@@ -13,7 +13,7 @@ Others Will Follow
 ==================
 
 I saw this short film shared on reddit today.
-It's about a hypothetical manned mission to Mars that ends in catastophe,
+It's about a hypothetical manned mission to Mars that ends in catastrophe,
 and is based on [this speech](http://watergate.info/1969/07/20/an-undelivered-nixon-speech.html) 
 that was written in case the Apollo 11 mission (the moon landing) was a failure.
 
@@ -47,7 +47,7 @@ Wanderers
 
 *Others Will Follow* reminded me of *Wanderers*, another short film I've seen
 previously. 
-*Wanderers* features readings from *Carl Sagan*'s audio naration of
+*Wanderers* features readings from *Carl Sagan*'s audio narration of
 *Pale Blue Dot: A Vision of the Human Future in Space*.
 *Wanderers* is very well known, so I'm sure you've seen it before, too.
 

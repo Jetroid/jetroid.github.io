@@ -43,7 +43,7 @@ I recently saw [this blog post](https://blog.github.com/2018-03-14-eu-proposal-u
 
 Aside from the huge issues for all programmers that GitHub's post highlighted, the proposed legislation would also cause issues for content publishers. My site is hosted [via GitHub](https://github.com/Jetroid/jetroid.github.io), so this new EU legislation would have some interesting implications for me.
 
-I try to follow the requirements of licensed work, adding attribution where necessary, avoiding restrictively licensed content, etc. But even if I follow it perfectly, automated filters have no way of knowing that. The automated filters would most look at the images I am uploading in isolation, seemingly unassociated with the markup. If I rehost an image that has an attribution requirement, and I satisify that on the page that I link to it from, these automated filters have no way of knowing that it was properly attributed. So these filters would just see the 'violating' file and filter it. Not great.
+I try to follow the requirements of licensed work, adding attribution where necessary, avoiding restrictively licensed content, etc. But even if I follow it perfectly, automated filters have no way of knowing that. The automated filters would most look at the images I am uploading in isolation, seemingly unassociated with the markup. If I rehost an image that has an attribution requirement, and I satisfy that on the page that I link to it from, these automated filters have no way of knowing that it was properly attributed. So these filters would just see the 'violating' file and filter it. Not great.
 
 Worse, if these filters function similarly to how YouTube's ContentID system, then there are a whole host of problems. ContentID is [too dumb to correctly detect fair use and parody](https://www.eff.org/deeplinks/2010/03/youtubes-content-id-c-ensorship-problem), which I experienced once when I edited a video game footage that my friend and I had recorded. I included a [two-second clip of audio](https://www.youtube.com/embed/32XIuKbM-r0?start=48&end=50) from a popular song, continuing a [parody](https://www.youtube.com/watch?v=vmd1qMN5Yo0) (or maybe meme) of a [comically bad song choice](https://youtu.be/mTnHx8488Cc?t=2m31s), and the whole video that I had edited got flagged - really very silly for a 2 second gag.
 
@@ -100,7 +100,7 @@ Date: Sun, 25 Mar 2018 19:32:38 GMT
 Connection: Keep-Alive</code>
 </pre>
 
-Now, obviously, you need to store this extra metadata seperately to the actual image or content - but websites like Imgur already store metadata about their images. They store the creator, the title, the description, the comments, etc. Why not the source, copyright, and license information?
+Now, obviously, you need to store this extra metadata separately to the actual image or content - but websites like Imgur already store metadata about their images. They store the creator, the title, the description, the comments, etc. Why not the source, copyright, and license information?
 
 [Karl Dubost at Otsukare.com](http://www.otsukare.info/2011/07/12/using-http-link-header-for-cc-licenses) had a similar idea, leveraging a [proposed standard for the HTTP 'Link' tag](https://tools.ietf.org/html/rfc8288). That solution is equally good and solves exactly the same problem, just in a slightly different proposed execution.
 

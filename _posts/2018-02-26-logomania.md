@@ -39,7 +39,7 @@ I purchased T-shirts from the internet featuring graphics from game series like 
 ![Two instances are these Portal 2 Tees, which I bought in July 2012.]({{ site.url }}/assets/images/logomania-portal.jpg)
 *Two instances are these Portal 2 Tees, which I bought in July 2012.<br />Images taken from Amazon* 
 
-It seemed natural to me to buy these things. I was mirroring the behaviors of the people I came into contact with. At high school, my friends and I were obsessed with video games and some of them had video game t-shirts. When I moved on to my sixth form, my new friends were more interested in music, and liked buying, owning and wearing 'band merch' t-shirts. At university, a lot of computer science students wear 'geeky t-shirts', so my video game shirts didn't feel too out of place and I didn't really question it or think about it. 
+It seemed natural to me to buy these things. I was mirroring the behaviours of the people I came into contact with. At high school, my friends and I were obsessed with video games and some of them had video game t-shirts. When I moved on to my sixth form, my new friends were more interested in music, and liked buying, owning and wearing 'band merch' t-shirts. At university, a lot of computer science students wear 'geeky t-shirts', so my video game shirts didn't feel too out of place and I didn't really question it or think about it. 
 
 ## Is this in my interest or someone else's?
 
@@ -54,7 +54,7 @@ I found it kind of disturbing.
 
 But then I reasoned with my self: 
 
-"You know, it *obviously* isn't *that* bad. I'm showing support for the *people* who make *things I like*. I'm wearing the team colours! And most of the clothing I bought doesn't even have the *name* of the product it's associated with! - so it couldn't be veiled advertising... right? And anyway, even if it is advertising, I *indentify* with these things, don't I? And who cares if it **is** advertising!?"
+"You know, it *obviously* isn't *that* bad. I'm showing support for the *people* who make *things I like*. I'm wearing the team colours! And most of the clothing I bought doesn't even have the *name* of the product it's associated with! - so it couldn't be veiled advertising... right? And anyway, even if it is advertising, I *identify* with these things, don't I? And who cares if it **is** advertising!?"
 
 Like someone who has had their [Doublethink](https://en.wikipedia.org/wiki/Doublethink) revealed, I tried to calm the problem and pretend it didn't exist. I tried to explain away the cognitive dissonance I was feeling. In short, I was in denial. 
 
@@ -88,19 +88,19 @@ If you accept those terms, that's a valid line of reasoning. However, all too of
 
 I don't want the reader of this essay to make any assumptions about my intent or meaning. I'm trying to analyse the things that we take as given and ask myself how I feel about them. This issue is one that I'm particularly confused and lost about. I don't know how I feel. I'm not trying to dissuade anyone from buying this sort of item. If it makes you happy, great! Go ahead and wear it! I'm probably going to keep wearing similar, and don't intend to get rid of what I currently have, though mostly because of monetary concerns. I already feel that I don't particularly identify with anything that I wear other than my [Frequency Central](frequencycentral.co.uk) t-shirt.
 
-I think it's important to think about how these items make you feel and if you feel comfortable with what they actually represent. Today, I saw a [Descendents](https://en.wikipedia.org/wiki/Descendents) tee in the window of the [Beatnik Emporium](http://www.beatnikemporium.co.uk/) and thought it was cool, but quickly realised that the sale of that item was no longer connected to the band. I think it's important for people to remember that they also aren't "less of" a fan of something because they haven't bought merchandice for it. 
+I think it's important to think about how these items make you feel and if you feel comfortable with what they actually represent. Today, I saw a [Descendents](https://en.wikipedia.org/wiki/Descendents) tee in the window of the [Beatnik Emporium](http://www.beatnikemporium.co.uk/) and thought it was cool, but quickly realised that the sale of that item was no longer connected to the band. I think it's important for people to remember that they also aren't "less of" a fan of something because they haven't bought merchandise for it. 
 
 I do think that it's important to define yourself as more than just what you like or what you wear, though. Whilst I was [dealing with depression](/the-grip-of-depression), I struggled with the idea that I didn't really have any hobbies that weren't related to video games or programming, and I felt like I didn't have my own identity.
 
 ![Comic from Calvin and Hobbes]({{ site.url }}/assets/images/logomania-calvin-hobbes.jpg)
 *From [Calvin and Hobbes](http://www.gocomics.com/calvinandhobbes/2012/08/30)* 
 
-I think it's important that we cultivate our own identity. I also think that it's important not to limit or simplify your identity to conform to the expectations of other people. I have a whole host of character traits, things I like, and things I find interesting that aren't possible to distill into t-shirt format. My thoughts about life and society, my fascination with brutalist architecture and urban decay, and my captivation for the mysterious (for example, [UVB-76](https://en.wikipedia.org/wiki/UVB-76), or the case of [Elisa Lamb](https://en.wikipedia.org/wiki/Death_of_Elisa_Lam)) are all very real parts of my identity that would be impossible to know from a cursory inspection.
+I think it's important that we cultivate our own identity. I also think that it's important not to limit or simplify your identity to conform to the expectations of other people. I have a whole host of character traits, things I like, and things I find interesting that aren't possible to distil into t-shirt format. My thoughts about life and society, my fascination with brutalist architecture and urban decay, and my captivation for the mysterious (for example, [UVB-76](https://en.wikipedia.org/wiki/UVB-76), or the case of [Elisa Lamb](https://en.wikipedia.org/wiki/Death_of_Elisa_Lam)) are all very real parts of my identity that would be impossible to know from a cursory inspection.
 
 I think the most important takeaways are these: 
 
 * Don't assume anything about someone just because of what they are wearing. Your assumptions are likely incorrect and it reduces your perception of the person down to a stereotype.
 * Think about how you feel about the idea of wearing corporate branding. If it bothers you, consider changing things. If you're fine with the idea of it, carry on as you were.
 * The world needs your original expression now more than anything. **B**ecome **Y**our **O**wn **B**rand. Make your own style.
-* Your identity is seperate from your interests and the traits you display. 
+* Your identity is separate from your interests and the traits you display. 
 * Remember that people will implicitly be making assumptions on you based on everything you do. It's okay to ignore that though. Contravening someone's expectations is probably a good thing as it might encourage them not to give in to stereotypes - plus, it keeps you interesting. 

@@ -13,7 +13,7 @@ My Father runs a small business called [Frequency Central](http://frequencycentr
 designs, builds and sells synthesiser modules.
 The Chronograf is one such module.
 
-Whilst I was finishing the Polygraf during the winter break,
+Whilst I was finishing the [Polygraf](/polygraf/) during the winter break,
 my Father proposed to me a second module to act like the 'brother' of the Polygraf.
 It would be designed to provide a stoppable clock source for the Polygraf,
 running between 300 and 1200 BPM. 
@@ -31,15 +31,14 @@ A 'Multiplier Control' would be built in, which would 'multiply'
 the number of clocks needed to go through 360°.
 
 When proposed to me, I almost dismissed the idea.
-My brief experience with timers hadn't been a good one,
+My brief experience with timers hadn't been a good one - I was intimidated by them -
 and this module would be completely based around timers.
 I resolved to complete the Polygraf and think about it.
 
 ![Chronograf Calculations]({{ site.url }}/assets/images/chronograf-spreadsheet.png)
 *Chronograf Calculations*
 
-I finished the Polygraf on 2015/12/29,
-and I felt like I could achieve anything!
+When I finished the code for the Polygraf on 2015/12/29, I felt like I could achieve anything! I decided to go ahead with the Chronograf.
 
 I was to go back to Southampton in very early January,
 meaning that any attempt to work on the Chronograf would have to complete
@@ -65,7 +64,7 @@ I didn't have a hardware prototype to test my software on,
 so I was coding blind.
 
 I completed the initial software in the first few hours of 2016.
-This felt like a big achievemenet for me for me - 
+This felt like a big achievement for me - 
 even if the code didn't work first time, I had still thought of the plan for the module,
 as well as calculating and then coding it - all within two days.
 
@@ -77,6 +76,9 @@ I quickly realised that this was because I had accidentally used
 code for the 16F88 (that I had been using for the Polygraf)
 rather than the 16F684 (that the Chronograf is using).
 I couldn't tell if the LFO Waveform output was working correctly.
+
+![]({{ site.url }}/assets/images/chronograf-iat-original.png)
+*Chronograf's 8 waveforms*
 
 It wasn't until three weeks later
 (After I had sat my university exams)

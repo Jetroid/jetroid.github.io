@@ -10,7 +10,7 @@ categories:
  - "Jekyll"
 ---
 Six weeks ago, in an effort to learn the skills of Web Development,
-I decided to immitate Fallout 3's terminal hacking.
+I decided to imitate Fallout 3's terminal hacking.
 I'm really new to HTML/CSS/JavaScript.
 Having a specific goal rather than an abstract concept helps me learn new skills.
 

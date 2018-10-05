@@ -102,7 +102,7 @@ The liquid logic given in Matt Gemmell's post worked well if I wanted
 to include custom css or js in just the post,
 but if I wanted to include custom css or js in templates,
 I found that they did not appear.
-This is because layouts fall under a seperate variable,
+This is because layouts fall under a separate variable,
 <span class="nobr">{% raw %}{% layout %}{% endraw %}</span> rather than
 <span class="nobr">{% raw %}{% post %}{% endraw %}</span>.
 It seems that this was once not the case, 
@@ -120,7 +120,7 @@ custom_css:
 The naïve approach here would be two for-loops, 
 one for page and once layout, but what if both post and layout include the same thing?
 It would mean that that asset would be fetched twice,
-and in the case of javascript, would be run twice!
+and in the case of JavaScript, would be run twice!
 Obviously, we only want to loop through the set of items in page union layout;
 without duplicates.
 
@@ -141,7 +141,7 @@ you can not use a custom Jekyll plugin when compiling on Github Pages,
 as they are disabled for security reasons.
 However, you can push your _site folder 
 (which contains Jekyll's processed output)
-to Github as if it were a non-Jekyll (read: regular ol' boring static) site.
+to GitHub as if it were a non-Jekyll (read: regular ol' boring static) site.
 For me, this isn't a good solution as I really like Github Pages compiling for me.
 
 ![Custom CSS in my 'default' layout when using plugin]({{ site.url }}/assets/images/jekyll-custom-css.png)
@@ -160,7 +160,7 @@ The solution I wrote is available
 [here](https://gist.github.com/Jetroid/bd71e5bbc2de763d0973e706efc91d7c).
 It's a really ugly solution, but it is better than the alternatives.
 I'm using a slightly-modified version to include Javascripts, too,
-which makes my 'default' template long and unweildy.
+which makes my 'default' template long and unwieldy.
 I can't wait for Jekyll to update the Liquid version so I can use concat!
 
 Page-unique style and Templates
@@ -185,8 +185,8 @@ This script checks for the variable 'custom_style_includes' in the yaml front ma
 and if present adds the specified css from the _includes/ directory,
 using <span class="nobr">{% raw %}{% include {{ style_include }}.css %}{% endraw %}</span>.
 
-![Custom syle include to set the background on my blog]({{ site.url }}/assets/images/jekyll-custom-style-include.png)
-*Custom syle include to set the background on my blog*
+![Custom style include to set the background on my blog]({{ site.url }}/assets/images/jekyll-custom-style-include.png)
+*Custom style include to set the background on my blog*
 
 I can then use variables in the yaml front matter to specify 
 the actual picture to be used in the included snippet.

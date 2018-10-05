@@ -50,7 +50,7 @@ and essentially rolled my own very simple one whilst designing it.
 
 I started by working through the data I needed to store.
 
-For each step, 8 outputs could be on independantly of each other.
+For each step, 8 outputs could be on independently of each other.
 Okay, I can store the configuration of that really easily in a byte,
 with each bit representing if a specific output is on or off.
 Each sequence can have 16 steps, so let's allocate 16 bytes to each sequence.
