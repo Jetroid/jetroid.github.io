@@ -24,6 +24,7 @@
 	height: 20vh;
 	border-radius: 30vh;
 	background-image: url("/assets/images/{{ page.image }}");
+	margin: 0 auto;
 }
 #text{
 	display: inline-block;
@@ -32,6 +33,9 @@
 	font-size: 2.4vh;
 	color: {{ site.style.text }};
 	line-height: 2;
+}
+#text p {
+	text-align: justify;
 }
 #text > a {
 	color: {{ site.style.highlight }};

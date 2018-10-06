@@ -4,7 +4,7 @@ title: "Chronograf: It's About Time"
 date: 2018-10-03 13:55:38 +0100
 background: "chronograf-beauty.jpeg"
 background-color: "#BDB1AF"
-summary: "The story of how I substantially reworked the Chronograf"
+summary: "The story of how I substantially reworked the Chronograf."
 categories:
  - "Frequency Central"
  - "Projects"
