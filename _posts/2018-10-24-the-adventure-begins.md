@@ -4,7 +4,7 @@ title: "The Adventure Begins"
 date: 2018-10-24 22:56:31 +0200
 background: "tab-sunrise.jpg"
 background-color: "#5B6879"
-summary: "I fly to Zagreb to begin a new lifestyle"
+summary: "I fly to Zagreb to begin a new lifestyle."
 categories:
  - "Experiences"
 ---
@@ -104,7 +104,7 @@ I had only a little trouble finding it, which was because I couldn't locate the 
 
 ![]({{ site.url }}/assets/images/tab-graffiti.jpg)
 
-When I arrived at Youth Hostel Zagreb, the receptionist told me I still had 56 kuna (€7.52, £6.69, $8.59) to pay; A little for the 'city tax', but mostly because I wasn't a Hostelling International member. He gave me a stamp card - collect 6 stamps, and you become a Hostelling International member for free. Each night translates to one stamp, so you will quickly go back to a price similar to what I had been expecting. In total, this meant I was paying £40.79 for my 4 nights; at £10/night, this was now more expensive than some of the other options I had seen, but I guess that's what I get for not reading the whole page comprehensively. The receptionist also told me about the key situation, which I find very strange: At Youth Hostel Zagreb, there is only one key per room. This means that the last person out of the room has to lock it and give the key to reception. In theory it makes sense as the room is locked when nobody is there, but it's putting a lot of trust into strangers. 
+When I arrived at Youth Hostel Zagreb, the receptionist told me I still had 56 kuna (€7.52, £6.69, $8.59) to pay; A little for the 'city tax', but mostly because I wasn't a Hostelling International member. He gave me a stamp card - collect 6 stamps, and you become a member for free. Each night translates to one stamp, so you will quickly go back to a price similar to what I had been expecting. In total, this meant I was paying £40.79 for my 4 nights; at £10/night, this was now more expensive than some of the other options I had seen, but I guess that's what I get for not reading the whole page comprehensively. The receptionist also told me about the key situation, which I find very strange: At Youth Hostel Zagreb, there is only one key per room. This means that the last person out of the room has to lock it and give the key to reception. In theory it makes sense as the room is locked when nobody is there, but it's putting a lot of trust into strangers. 
 
 Before I went to my room, I decided to go and see the city a little. It was here that I discovered that Zagrebians (Or perhaps just Croatians in general) love breads, pasties, and pastries. There are three Bakery chains here called Mlinar, Pan Pek, and Dubravica that I have already seen far too many of; I've seen many independent bakeries too! And I haven't explored much more than the city center! 
 
