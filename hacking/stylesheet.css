@@ -18,16 +18,12 @@ p, a, .post *{
 	font-weight: bold;
 	font-size: 1.7vw;
 }
-#loading {
-	padding-top: 50px;
-}
-
 #hacking span:hover, .bracketpair{
 	color: #062414;
 	text-shadow: 0em 0em 1em #23824C;
 	background: #15763E;
 }
-#hacking {
+#hacking, #loading{
 	padding: 3vw 0em 0em 3vw;
 }
 .content {
@@ -51,16 +47,25 @@ p, a, .post *{
 	bottom: 0;
 }
 @keyframes flash {	
-	0% { opacity: 1.0; }
-	50% { opacity: 0.0; }
-	100% { opacity: 1.0; }
+	0% { opacity: 0.0; }
+	50% { opacity: 1.0; }
+	100% { opacity: 0.0; }
 }
 @-webkit-keyframes flash {
-	0% { opacity: 1.0; }
-	50% { opacity: 0.0; }
-	100% { opacity: 1.0; }
+	0% { opacity: 0.0; }
+	50% { opacity: 1.0; }
+	100% { opacity: 0.0; }
 }
-#flasher {
+#command-prompt, #cp-cursor{
+	display: inline;
+}
+.cursor-on{
+
+}
+.cursor-off{
+	display: none !important;
+}
+.cursor-flash{
 	animation: flash 0.5s step-start 0s infinite;
 	-webkit-animation: flash 0.5s step-start 0s infinite;
 }

@@ -1,11 +1,50 @@
+//Words the user has not tried clicking on
 var allWords = [];
+//Words the user has tried clicking on
 var words = [];
+//Goal word for the minigame
 var goalWord = "";
+//Length of words for the minigame
 var wordlength = 0;
+//How many attempts we have remaining in the minigame
 var attempts = 4;
+//Have we had the 'replenish incorrect attempts' reward?
 var hadRefresh = false;
+//Set of brackets we have clicked, so we don't allow them to be clicked again
 var clickedBrackets = new Set();
+//Has the user been locked out?
 var terminalLocked = false;
+//Used as a 'loading' distraction. 
+var commandPromptText = [
+	{"text":"WELCOME TO ROBCO INDUSTRIES (TM) TERMLINK<br>", "isMachine":true, "delay":50},
+	{"text":"<br>\>", "isMachine":true, "delay":400},
+	{"text":"SET TERMINAL/INQUIRE", "isMachine":false, "delay":50},
+	{"text":"<br><br>RX-9000", "isMachine":true, "delay":300},
+	{"text":"<br><br>\>", "isMachine":true, "delay":200},
+	{"text":"SET FILE/PROTECTION=OWNER:RWED ACCOUNTS.F", "isMachine":false, "delay":55},
+	{"text":"<br><br>\>", "isMachine":true, "delay":800},
+	{"text":"SET HALT RESTART/MAINT", "isMachine":false, "delay":50},
+	{"text":"<br><br>Initializing RobCo Industries(TM) MF Boot Agent v2.3.0", "isMachine":true, "delay":200},
+	{"text":"<br>RETROS BIOS", "isMachine":true, "delay":100},
+	{"text":"<br>RBIOS-4.02.08.00 52EE5.E7.E8", "isMachine":true, "delay":150},
+	{"text":"<br>Copyright 2075-2077 RobCo Ind.", "isMachine":true, "delay":200},
+	{"text":"<br>Uppermem: 1024 KB", "isMachine":true, "delay":1000},
+	{"text":"<br>Root (5A8)", "isMachine":true, "delay":150},
+	{"text":"<br>Maintenance Mode", "isMachine":true, "delay":150},
+	{"text":"<br><br>\>", "isMachine":true, "delay":150},
+	{"text":"RUN DEBUG/ACCOUNTS.F", "isMachine":false, "delay":45}
+];
+//Prerendered left and right pointers and symbols columns 
+var ptrleft = "";
+var ptrright = "";
+var symbolsleft = "";
+var symbolsright = "";
+//Boolean of if we have finished loading the words list yet
+var finishedLoading = false;
+var finishedPrinting = false;
+var minigameBegun = false;
+var targetText = "";
+var currentText = "";
 
 var tickNoise = function(){
 	document.getElementById("tick").currentTime = 0;
@@ -56,42 +95,42 @@ var generateDataCorruption = function(){
 };
 
 var viewPost = function(postURL){
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", postURL, true);
-    xhr.onreadystatechange = function() {
-        //Everything okay
-        if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
-            var response = xhr.responseText;
-            var junkElement = document.createElement("div");
-            junkElement.innerHTML = response;
-            postContainer = junkElement.querySelectorAll(".post-container")[0];
-            console.log(junkElement + " " + junkElement.querySelectorAll(".post-container") + " " + junkElement.querySelectorAll(".post-container")[0]);
-            var child = postContainer.firstChild;
-            while((child = child.nextSibling) != null ){
-                if(child.id == "post-content") break;
-            }
-            var postContent = child;
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", postURL, true);
+	xhr.onreadystatechange = function() {
+		//Everything okay
+		if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+			var response = xhr.responseText;
+			var junkElement = document.createElement("div");
+			junkElement.innerHTML = response;
+			postContainer = junkElement.querySelectorAll(".post-container")[0];
+			console.log(junkElement + " " + junkElement.querySelectorAll(".post-container") + " " + junkElement.querySelectorAll(".post-container")[0]);
+			var child = postContainer.firstChild;
+			while((child = child.nextSibling) != null ){
+				if(child.id == "post-content") break;
+			}
+			var postContent = child;
 
-            document.getElementById("post-titles-container").style.display="none";
-	        var container = document.getElementById("post-container");
-	        container.style.display="block";
-	        container.innerHTML = postContent.innerHTML;
-            fixImages();
-        }
-        //Network Error of some kind, display a data corruption message
-        else {
-        	document.getElementById("post-titles-container").style.display="none";
-	        var container = document.getElementById("post-container");
-	        container.style.display="block";
-	        var corruptionContainer = document.createElement("p");
-	        corruptionContainer.innerHTML = generateDataCorruption();
-	        container.innerHTML = "";
-	        container.appendChild(corruptionContainer); 
-        }
-        document.getElementById("enter").play();
-        resizeLoggedIn();
-    }
-    xhr.send(null);
+			document.getElementById("post-titles-container").style.display="none";
+			var container = document.getElementById("post-container");
+			container.style.display="block";
+			container.innerHTML = postContent.innerHTML;
+			fixImages();
+		}
+		//Network Error of some kind, display a data corruption message
+		else {
+			document.getElementById("post-titles-container").style.display="none";
+			var container = document.getElementById("post-container");
+			container.style.display="block";
+			var corruptionContainer = document.createElement("p");
+			corruptionContainer.innerHTML = generateDataCorruption();
+			container.innerHTML = "";
+			container.appendChild(corruptionContainer); 
+		}
+		document.getElementById("enter").play();
+		resizeLoggedIn();
+	}
+	xhr.send(null);
 }
 var exitPost = function(){
 	e = window.event || e;
@@ -109,8 +148,8 @@ var resizeLoggedIn = function(){
 	height += parseInt(window.getComputedStyle(osheader).getPropertyValue('margin-top'));
 	height += parseInt(window.getComputedStyle(osheader).getPropertyValue('margin-bottom'));
 	var content = document.getElementById("blog-content");
-  var height = document.body.offsetHeight - height;
-  content.style.height = height + 'px';
+	var height = document.body.offsetHeight - height;
+	content.style.height = height + 'px';
 }
 
 var addFeedback = function(feedback){
@@ -120,29 +159,34 @@ var addFeedback = function(feedback){
 	document.getElementById("feedback").innerHTML = feedbackContent;
 }
 var clearEntry = function() {
-	document.getElementById("entry").innerHTML = "<br>> <span id=\"flasher\">█<span>";
+	targetText = "";
+	currentText = "";
+	document.getElementById("entry").innerHTML = "";
 	document.getElementById("key2").play();
+	document.getElementById("hack-cursor").className = "cursor-flash"
+}
+var addEntryCharacter = function() {
+	if(currentText === targetText){
+		document.getElementById("hack-cursor").className = "cursor-flash"
+		return;
+	}
+	console.log("Called with character " + targetText[currentText.length]);
+	var newText = currentText + targetText[currentText.length];
+	currentText = newText;
+	document.getElementById("entry").innerHTML = newText;
+	var randomDelay = generateRandomInt(0,40);
+	setTimeout(addEntryCharacter,30+randomDelay);
 }
 var setEntry = function(span){
 	var content = span.innerHTML.replace(/<br>/g,"");
 	var content = content.replace(/<s.*?>|<\/s.*?>/g,"");
-	for(i = 0; i < content.length; i++){
-		setTimeout(function() {
-			var key = "key" + generateRandomInt(1,12);
-			if(document.getElementById(key) != null){
-				var playPromise = document.getElementById(key).play();
-
-                if (playPromise !== undefined) {
-                  playPromise.then(function() {
-                  }).catch(function(error) {
-                  });
-                }
-			}
-		}, i * 50);
-	}
-	document.getElementById("entry").innerHTML = "<br>>" + content
-	+ "<span id=\"flasher\">█<span>";
+	targetText = content;
+	document.getElementById("entry").innerHTML = "";
+	currentText = "";
+	document.getElementById("hack-cursor").className = "cursor-on"
+	addEntryCharacter();
 }
+
 var setAttempts = function(){
 	var content = attempts + " Attempt(s) Left:";
 	for (i = 0; i < attempts; i++){
@@ -284,19 +328,19 @@ var detectClosingBracket = function(span){
 	//Get the appropriate closing bracket
 	var closing_bracket = null;
 	switch(opening_bracket) {
-	    case "&lt; ":
+		case "&lt; ":
 		closing_bracket = "&gt; ";
 		break;
-	    case "{ ":
+		case "{ ":
 		closing_bracket = "} ";
 		break;
-	    case "[ ":
+		case "[ ":
 		closing_bracket = "] ";
 		break;
-	    case "( ":
+		case "( ":
 		closing_bracket = ") ";
 		break;
-	    default:
+		default:
 		closing_bracket = null;
 	}
 	//Recursively look at next elements hoping for a closing bracket
@@ -305,16 +349,16 @@ var detectClosingBracket = function(span){
 	//An array to hold the elements we looked at
 	var arr = [span];
 	do {
-	    object = object.nextElementSibling;
-	    arr.push(object);
-	    if(object.innerHTML == closing_bracket){
-	    	//Found pair of matched brackets
-	    	//Return array containing the nodes we visited
-	    	return arr;
-	    }else if(object.className == "word"
-	    		|| object.innerHTML == ""){
-	    	return false;
-	    }
+		object = object.nextElementSibling;
+		arr.push(object);
+		if(object.innerHTML == closing_bracket){
+			//Found pair of matched brackets
+			//Return array containing the nodes we visited
+			return arr;
+		}else if(object.className == "word"
+				|| object.innerHTML == ""){
+			return false;
+		}
 	}
 	while (true);
 }
@@ -425,7 +469,7 @@ var generateSymbolColumn = function() {
 }
 
 var fixImages = function(){
-    var container = document.getElementById("post-container");
+	var container = document.getElementById("post-container");
 	var images = container.querySelectorAll("img");
 	for (i = 0; i < images.length; i++){
 		var image = images[i];
@@ -450,7 +494,7 @@ var fixImages = function(){
 	}
 }
 
-login = function() {
+var login = function() {
 	document.getElementById("hacking").style.display="none";
 	document.getElementById("loggedin").style.display="block";
 	window.addEventListener("load", resizeLoggedIn, false);
@@ -458,70 +502,165 @@ login = function() {
 	resizeLoggedIn();
 	//Play login sound
 	document.getElementById("login").play();
+};
+
+var turnOnCursor = function(doNext) {
+	return function() {
+		document.getElementById("cp-cursor").className = "cursor-on";
+		doNext();
+	}
 }
 
-//Generate the pointers
-var value = Math.floor(Math.random() * 65128);
-document.getElementById("leftpointers").innerHTML = generatePointerColumn(value);
-document.getElementById("rightpointers").innerHTML = generatePointerColumn(value+204);
-
-//Generate the symbols
-var xhr = new XMLHttpRequest();
-xhr.open("GET", 'https://jetroid-hacking.herokuapp.com/', true);
-xhr.onreadystatechange = function() {
-    if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
-		//Everything successful and OK
-        var response = JSON.parse(xhr.responseText);
-        goalWord = response["goal"];
-        allWords = response["words"];
-        wordlength = response["length"];
-    } else {
-    	//Some kind of network error
-    	//Fall back to predefined set of words
-    	goalWord = "BONFIRE";
-    	allWords = ["FALLACY","REPATCH","SWELTER","PROMOTE","SOURCES","PREWORN","DUALITY",
-    		"VOIDING","BOBBIES","COPPICE","BANDITO","BOILERS","BOXLIKE","CONFORM","CONFIRM",
-    		"CONFIDE","GUNFIRE","FOXFIRE","CONFINE"];
-    	wordlength = 7;
-    }
-    document.getElementById("leftsymbols").innerHTML = generateSymbolColumn();
-    document.getElementById("rightsymbols").innerHTML = generateSymbolColumn();
-    insertGoal();
-    document.getElementById("hacking").style.display = "block";
+var turnOffCursor = function(doNext) {
+	return function() {
+		document.getElementById("cp-cursor").className = "cursor-off";
+		doNext();
+	}
 }
-xhr.send(null);
+
+var flashCursor = function (doNext) {
+	return function() {
+		document.getElementById("cp-cursor").className = "cursor-flash";
+		doNext();
+	}
+}
+
+var getNextPrint = function(text, delay, nextFunction) {
+	var randomDelay = generateRandomInt(0,40);
+	return function(){
+		setTimeout(function() {
+			document.getElementById("command-prompt").innerHTML+=text;
+			nextFunction();
+		},delay + randomDelay);
+	};
+};
+
+var printCommandPrompt = function(){
+	//We want to do this backwards, because it's the only thing I can think of without wifi...
+	//Ie, we're going to nest our timeouts inside each other, which means we need to look at the last one first.
+
+	//The last thing we want to chain is this last guy
+	var nextFunction = function(){
+		finishedPrinting = true;
+		if(finishedLoading){
+			setTimeout(beginMinigame,2000);
+		}
+	}
+
+	//Cue up and next text, last-first
+	for (i = commandPromptText.length-1; i >= 0; i--) {
+		textBlock = commandPromptText[i];
+		if(textBlock.isMachine){
+			//If it's a machine text, we print all at once, and turn off the cursor
+			nextFunction = getNextPrint(textBlock.text, textBlock.delay, nextFunction);
+		} else {
+			//If it's a human text, we print character by character (cued up last first)
+			//We want to flash the cursor before typing, make it solid during typing, and turn it off after
+
+			//This is executed after finished typing, so turn off cursor
+			nextFunction = turnOffCursor(nextFunction);
+
+			//Simulate the typing
+			var mytext = textBlock.text;
+			for (j = mytext.length-1; j >= 0; j--) {
+				mycharacter = mytext[j];
+				nextFunction = getNextPrint(mycharacter, textBlock.delay, nextFunction);
+			}
+
+			//Before we start typing, we want to make the cursor solid
+			nextFunction = turnOnCursor(nextFunction);
+			//Delay to simulate user thinking
+			nextFunction = getNextPrint("",1500,nextFunction);
+			//Flashing whilst the delay (above) happens
+			nextFunction = flashCursor(nextFunction);
+		}
+	}
+
+	//We've done every bit of text - let's play!
+	nextFunction();
+}
+
+var beginMinigame = function() {
+	if(minigameBegun == true){
+		return false;
+	}
+	document.getElementById("leftpointers").innerHTML = ptrleft;
+	document.getElementById("rightpointers").innerHTML = ptrright;
+	document.getElementById("leftsymbols").innerHTML = symbolsleft;
+	document.getElementById("rightsymbols").innerHTML = symbolsright;
+	insertGoal();
+	document.getElementById("loading").style.display="none";
+	document.getElementById("hacking").style.display = "block";
+	var minigameBegun = true;
+}
+
+var preloadHacking = function() {
+	//Generate the pointers
+	var value = Math.floor(Math.random() * 65128);
+	ptrleft = generatePointerColumn(value);
+	ptrright = generatePointerColumn(value+204);
+
+	//Load the wordslist and generate the symbols
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", 'https://jetroid-hacking.herokuapp.com/', true);
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+			//Everything successful and OK
+			var response = JSON.parse(xhr.responseText);
+			goalWord = response["goal"];
+			allWords = response["words"];
+			wordlength = response["length"];
+		} else {
+			//Some kind of network error
+			//Fall back to predefined set of words
+			goalWord = "BONFIRE";
+			allWords = ["FALLACY","REPATCH","SWELTER","PROMOTE","SOURCES","PREWORN","DUALITY",
+				"VOIDING","BOBBIES","COPPICE","BANDITO","BOILERS","BOXLIKE","CONFORM","CONFIRM",
+				"CONFIDE","GUNFIRE","FOXFIRE","CONFINE"];
+			wordlength = 7;
+		}
+		symbolsleft = generateSymbolColumn();
+		symbolsright = generateSymbolColumn();
+		finishedLoading = true;
+		if(finishedPrinting){
+			beginMinigame();
+		}
+	}
+	xhr.send(null);
+}
 
 function insertGoal(){
-    //Get all the words in the document
-    var wordElems = document.querySelectorAll(".word");
-    //Select one to replace with the goal
-    var goalElem = wordElems[generateRandomInt(0,wordElems.length)];
+	//Get all the words in the document
+	var wordElems = document.querySelectorAll(".word");
+	//Select one to replace with the goal
+	var goalElem = wordElems[generateRandomInt(0,wordElems.length)];
 
-    //Constuct the replacement content
-    var elemContent = goalElem.innerHTML;
-    var prevWord = goalElem.id;
-    var wordLen = elemContent.length;
-    var charIndex = 0;
-    for(var i = 0; i < wordLen; i++){
-        if (elemContent.charAt(i) === prevWord.charAt(charIndex)){
-            elemContent = newStrWithCharAt(elemContent, i, goalWord.charAt(charIndex));
-            charIndex++;
-        }
-    }
+	//Constuct the replacement content
+	var elemContent = goalElem.innerHTML;
+	var prevWord = goalElem.id;
+	var wordLen = elemContent.length;
+	var charIndex = 0;
+	for(var i = 0; i < wordLen; i++){
+		if (elemContent.charAt(i) === prevWord.charAt(charIndex)){
+			elemContent = newStrWithCharAt(elemContent, i, goalWord.charAt(charIndex));
+			charIndex++;
+		}
+	}
 
-    //Replace the content with our goal content
-    goalElem.id = goalWord;
-    goalElem.innerHTML = elemContent;
+	//Replace the content with our goal content
+	goalElem.id = goalWord;
+	goalElem.innerHTML = elemContent;
 }
 
 function newStrWithCharAt(str,index,chr) {
-    if(index > str.length-1) return str;
-    return str.substr(0,index) + chr + str.substr(index+1);
+	if(index > str.length-1) return str;
+	return str.substr(0,index) + chr + str.substr(index+1);
 }
 
 //Play login sound
 document.getElementById("login").play();
 
 window.onload = function(){
-    resizeLoggedIn();
+	preloadHacking();
+	printCommandPrompt();
 }

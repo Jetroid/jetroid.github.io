@@ -12,10 +12,13 @@
 		<script src="simple-scrollbar.min.js"></script>
 	</head>
 	<body onselectstart="return false;">
+		<div id="loading" class="post">
+			<p id="command-prompt"></p><span id="cp-cursor" class="cursor-off">█<span>
+		</div>
 		<div id="hacking" style="display:none">
 			<div id="header">
-				<p>Welcome to RobCo Industries (TM) TermLink</p>
-				<p id="message">Enter Password</p>
+				<p>ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL</p>
+				<p id="message">ENTER PASSWORD NOW</p>
 				<p><br></p>
 				<p id="attemptsleft">4 Attempt(s) Left: ██ ██ ██ ██</p>
 			</div>
@@ -26,7 +29,7 @@
 				<div class="symbols content"><p id="rightsymbols" onmouseout="clearEntry()"></p></div>
 				<div class="results content">
 					<p id="feedback"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
-					<p id="entry"><br>> <span id="flasher">█<span></p>
+					<p><br>><span id="entry"></span><span id="hack-cursor" class="cursor-flash">█<span></p>
 				</div>
 			</div>
 		</div>
