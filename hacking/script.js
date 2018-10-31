@@ -10,11 +10,56 @@ var terminalLocked = false;
 var tickNoise = function(){
 	document.getElementById("tick").currentTime = 0;
 	document.getElementById("tick").play();
-}
+};
+
+var generateDataCorruption = function(){
+	var string = "";
+	var alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890";
+	var symbols = "~#!\"$%^&*()_-+=[]{}?/,.";
+	var words = ["if","it","is","can","we","space","V4ult Teg","Pos0idon Enerxy","J3tRo1d","data","0x0000","FrxquenFy C00tral","yes","no","maybe","believe","God","food","Dog","THr33","LFser RiMle","D3thclRAW","HeliDX Hne","Help Me","MissiX9ippi QuantuXo.z P3!"];
+	var numsymbols = generateRandomInt(100,150);
+	var count = 0;
+
+	while(count < numsymbols) {
+		count++;
+		//Do we do a character or a word?
+		if(generateRandomInt(0,100)<80){
+			//Character
+			//Do we generate a letter or a symbol?
+			if (generateRandomInt(0,100)<80){
+				//Character
+				string += alphabet[Math.floor(Math.random() * alphabet.length)];
+			} else {
+				//Symbol
+				string += symbols[Math.floor(Math.random() * symbols.length)];
+			}
+			//Bonus: Do we add a space?
+			if(generateRandomInt(0,10)==1){
+				string += " ";
+			}
+		}else{
+			if(words.length > 0){
+				//Which word do we add?
+				wordindex = Math.floor(Math.random() * words.length);
+				string += " " + words[wordindex] + " "; 
+				words.splice(wordindex,1)
+			}
+		}
+		//Bonus: Do we add a new line?
+		if(generateRandomInt(0,60)==15){
+			string += "<br>";
+		}
+	}
+	string += "<br><br>FATAL ERROR: DATA CORRUPTION DETECTED. <br>PLEASE CHECK ALL CONNECTIONS.";
+	console.log(string);
+	return string;
+};
+
 var viewPost = function(postURL){
     var xhr = new XMLHttpRequest();
     xhr.open("GET", postURL, true);
     xhr.onreadystatechange = function() {
+        //Everything okay
         if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
             var response = xhr.responseText;
             var junkElement = document.createElement("div");
@@ -31,14 +76,29 @@ var viewPost = function(postURL){
 	        var container = document.getElementById("post-container");
 	        container.style.display="block";
 	        container.innerHTML = postContent.innerHTML;
-
-	        document.getElementById("enter").play();
             fixImages();
         }
+        //Network Error of some kind, display a data corruption message
+        else {
+        	document.getElementById("post-titles-container").style.display="none";
+	        var container = document.getElementById("post-container");
+	        container.style.display="block";
+	        var corruptionContainer = document.createElement("p");
+	        corruptionContainer.innerHTML = generateDataCorruption();
+	        container.innerHTML = "";
+	        container.appendChild(corruptionContainer); 
+        }
+        document.getElementById("enter").play();
+        resizeLoggedIn();
     }
     xhr.send(null);
 }
 var exitPost = function(){
+	e = window.event || e;
+	var element = e.target || e.srcElement;
+	if(element.tagName == 'A' || element.tagName == 'a') {
+		return;
+	}
 	document.getElementById("post-container").style.display="none";
 	document.getElementById("post-titles-container").style.display="block";
 	document.getElementById("enter").play();
@@ -409,16 +469,25 @@ document.getElementById("rightpointers").innerHTML = generatePointerColumn(value
 var xhr = new XMLHttpRequest();
 xhr.open("GET", 'https://jetroid-hacking.herokuapp.com/', true);
 xhr.onreadystatechange = function() {
-    if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+    if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+		//Everything successful and OK
         var response = JSON.parse(xhr.responseText);
         goalWord = response["goal"];
         allWords = response["words"];
         wordlength = response["length"];
-        document.getElementById("leftsymbols").innerHTML = generateSymbolColumn();
-        document.getElementById("rightsymbols").innerHTML = generateSymbolColumn();
-        insertGoal();
-        document.getElementById("hacking").style.display = "block";
+    } else {
+    	//Some kind of network error
+    	//Fall back to predefined set of words
+    	goalWord = "BONFIRE";
+    	allWords = ["FALLACY","REPATCH","SWELTER","PROMOTE","SOURCES","PREWORN","DUALITY",
+    		"VOIDING","BOBBIES","COPPICE","BANDITO","BOILERS","BOXLIKE","CONFORM","CONFIRM",
+    		"CONFIDE","GUNFIRE","FOXFIRE","CONFINE"];
+    	wordlength = 7;
     }
+    document.getElementById("leftsymbols").innerHTML = generateSymbolColumn();
+    document.getElementById("rightsymbols").innerHTML = generateSymbolColumn();
+    insertGoal();
+    document.getElementById("hacking").style.display = "block";
 }
 xhr.send(null);
 
@@ -456,4 +525,3 @@ document.getElementById("login").play();
 window.onload = function(){
     resizeLoggedIn();
 }
-

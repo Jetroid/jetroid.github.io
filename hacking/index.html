@@ -62,11 +62,11 @@
 				<div id="post-titles-container">
 				{% for post in site.posts %}
 					<div class="post-title"><p onclick="viewPost('{{post.url}}')" onmouseover="tickNoise();">
-						>&nbsp;&nbsp;{{post.date | date: "%Y/%m/%d" }} - {{ post.title }}
+						>&nbsp;&nbsp;{{post.date | date: "%Y" | plus: 60 }}{{post.date | date: "/%m/%d" }} - {{ post.title }}
 					</p></div>
 				{% endfor %}
 				</div>
-				<div id="post-container" class="post" onclick="exitPost()" ss-container><!-- Content inserted by JS !--></div>
+				<div id="post-container" class="post" onclick="exitPost()" style="display:none;" ss-container><!-- Content inserted by JS !--></div>
 			</div>
 		</div>
 

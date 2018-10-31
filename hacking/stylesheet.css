@@ -18,6 +18,10 @@ p, a, .post *{
 	font-weight: bold;
 	font-size: 1.7vw;
 }
+#loading {
+	padding-top: 50px;
+}
+
 #hacking span:hover, .bracketpair{
 	color: #062414;
 	text-shadow: 0em 0em 1em #23824C;
@@ -104,7 +108,12 @@ p, a, .post *{
 	padding: 1% 0 1% 0;
 	clear: both;
 }
-.post-container {
+#post-titles-container {
+	padding-top: 15px;
+	padding-bottom: 45px;
+}
+
+#post-container {
 	height: 100%;
 }
 img {
