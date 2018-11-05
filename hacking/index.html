@@ -11,67 +11,76 @@
 		<!--[if IE 9]><script src="https://cdn.jsdelivr.net/classlist/2014.01.31/classList.min.js"></script><![endif]-->
 		<script src="simple-scrollbar.min.js"></script>
 	</head>
-	<body onselectstart="return false;">
-		<div id="loading" class="post">
-			<p id="command-prompt"></p><span id="cp-cursor" class="cursor-off">█<span>
-		</div>
-		<div id="hacking" style="display:none">
-			<div id="header">
-				<p>ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL</p>
-				<p id="message">ENTER PASSWORD NOW</p>
-				<p><br></p>
-				<p id="attemptsleft">4 Attempt(s) Left: ██ ██ ██ ██</p>
-			</div>
-			<div id="rest">
-				<div class="pointers content"><p id="leftpointers"></p></div>
-				<div class="symbols content"><p id="leftsymbols" onmouseout="clearEntry()"></p></div>
-				<div class="pointers content"><p id="rightpointers"></p></div>
-				<div class="symbols content"><p id="rightsymbols" onmouseout="clearEntry()"></p></div>
-				<div class="results content">
-					<p id="feedback"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
-					<p><br>><span id="entry"></span><span id="hack-cursor" class="cursor-flash">█<span></p>
+	<body onselectstart="return false;" class="terminal-off">
+		<div id="effects1">
+			<div id="effects2">
+				<div id="please-rotate" class="portrait" style="display:none">
+					<p>Please Rotate Your Device!<br/>This application only works in landscape.</p>
+				</div>
+				<div id="click-to-start" class="landscape" onclick="turnOn();">
+					<p>Begin</p>
+				</div>
+				<div id="loading" class="post landscape" style="display:none">
+					<p id="command-prompt"></p><span id="cp-cursor" class="cursor-off">█<span>
+				</div>
+				<div id="hacking" class="landscape" style="display:none">
+					<div id="header">
+						<p>ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL</p>
+						<p id="message">ENTER PASSWORD NOW</p>
+						<p><br></p>
+						<p id="attemptsleft">4 Attempt(s) Left: ██ ██ ██ ██</p>
+					</div>
+					<div id="rest">
+						<div class="pointers content"><p id="leftpointers"></p></div>
+						<div class="symbols content"><p id="leftsymbols" onmouseout="clearEntry()"></p></div>
+						<div class="pointers content"><p id="rightpointers"></p></div>
+						<div class="symbols content"><p id="rightsymbols" onmouseout="clearEntry()"></p></div>
+						<div class="results content">
+							<p id="feedback"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+							<p><br>><span id="entry"></span><span id="hack-cursor" class="cursor-flash">█<span></p>
+						</div>
+					</div>
+				</div>
+				<div>
+					<audio id="login" src="sounds/login.ogg"></audio>
+					<audio id="incorrect" src="sounds/incorrect.ogg"></audio>
+					<audio id="correct" src="sounds/correct.ogg"></audio>
+					<audio id="enter" src="sounds/enter.ogg"></audio>
+					<audio id="locked" src="sounds/locked.ogg"></audio>
+					<audio id="key1" src="sounds/key1.ogg"></audio>
+					<audio id="key2" src="sounds/key2.ogg"></audio>
+					<audio id="key3" src="sounds/key3.ogg"></audio>
+					<audio id="key4" src="sounds/key4.ogg"></audio>
+					<audio id="key5" src="sounds/key5.ogg"></audio>
+					<audio id="key6" src="sounds/key6.ogg"></audio>
+					<audio id="key7" src="sounds/key7.ogg"></audio>
+					<audio id="key8" src="sounds/key8.ogg"></audio>
+					<audio id="key9" src="sounds/key9.ogg"></audio>
+					<audio id="key10" src="sounds/key10.ogg"></audio>
+					<audio id="key11" src="sounds/key11.ogg"></audio>
+					<audio id="tick" src="sounds/click.wav"></audio>
+				</div>
+				<script src="script.js"></script>
+				<div id="loggedin"  class="landscape" style="display:none;">
+					<div id="os-header">
+						<p>ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM</p>
+						<p>COPYRIGHT 2075-2077 ROBCO INDUSTRIES</p>
+						<p>-Server 4-</p>
+						<p id="welcome"><br>Overseer Holt's Private Terminal - *STRICTLY CONFIDENTIAL*</p>
+						<div id="divider"></div>
+					</div>
+					<div id="blog-content" ss-container>
+						<div id="post-titles-container">
+						{% for post in site.posts %}
+							<div class="post-title"><p onclick="viewPost('{{post.url}}')" onmouseover="tickNoise();">
+								>&nbsp;&nbsp;{{post.date | date: "%Y" | plus: 60 }}{{post.date | date: "/%m/%d" }} - {{ post.title }}
+							</p></div>
+						{% endfor %}
+						</div>
+						<div id="post-container" class="post" onclick="exitPost()" style="display:none;" ss-container><!-- Content inserted by JS !--></div>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div>
-			<audio id="login" src="sounds/login.ogg"></audio>
-			<audio id="incorrect" src="sounds/incorrect.ogg"></audio>
-			<audio id="correct" src="sounds/correct.ogg"></audio>
-			<audio id="enter" src="sounds/enter.ogg"></audio>
-			<audio id="locked" src="sounds/locked.ogg"></audio>
-			<audio id="key1" src="sounds/key1.ogg"></audio>
-			<audio id="key2" src="sounds/key2.ogg"></audio>
-			<audio id="key3" src="sounds/key3.ogg"></audio>
-			<audio id="key4" src="sounds/key4.ogg"></audio>
-			<audio id="key5" src="sounds/key5.ogg"></audio>
-			<audio id="key6" src="sounds/key6.ogg"></audio>
-			<audio id="key7" src="sounds/key7.ogg"></audio>
-			<audio id="key8" src="sounds/key8.ogg"></audio>
-			<audio id="key9" src="sounds/key9.ogg"></audio>
-			<audio id="key10" src="sounds/key10.ogg"></audio>
-			<audio id="key11" src="sounds/key11.ogg"></audio>
-			<audio id="tick" src="sounds/click.wav"></audio>
-		</div>
-		<script src="script.js"></script>
-		<div id="loggedin"  style="display:none;">
-			<div id="os-header">
-				<p>ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM</p>
-				<p>COPYRIGHT 2075-2077 ROBCO INDUSTRIES</p>
-				<p>-Server 4-</p>
-				<p id="welcome"><br>Overseer Holt's Private Terminal - *STRICTLY CONFIDENTIAL*</p>
-				<div id="divider"></div>
-			</div>
-			<div id="blog-content" ss-container>
-				<div id="post-titles-container">
-				{% for post in site.posts %}
-					<div class="post-title"><p onclick="viewPost('{{post.url}}')" onmouseover="tickNoise();">
-						>&nbsp;&nbsp;{{post.date | date: "%Y" | plus: 60 }}{{post.date | date: "/%m/%d" }} - {{ post.title }}
-					</p></div>
-				{% endfor %}
-				</div>
-				<div id="post-container" class="post" onclick="exitPost()" style="display:none;" ss-container><!-- Content inserted by JS !--></div>
-			</div>
-		</div>
-
 	</body>
 </html>

@@ -90,7 +90,6 @@ var generateDataCorruption = function(){
 		}
 	}
 	string += "<br><br>FATAL ERROR: DATA CORRUPTION DETECTED. <br>PLEASE CHECK ALL CONNECTIONS.";
-	console.log(string);
 	return string;
 };
 
@@ -104,7 +103,6 @@ var viewPost = function(postURL){
 			var junkElement = document.createElement("div");
 			junkElement.innerHTML = response;
 			postContainer = junkElement.querySelectorAll(".post-container")[0];
-			console.log(junkElement + " " + junkElement.querySelectorAll(".post-container") + " " + junkElement.querySelectorAll(".post-container")[0]);
 			var child = postContainer.firstChild;
 			while((child = child.nextSibling) != null ){
 				if(child.id == "post-content") break;
@@ -165,23 +163,29 @@ var clearEntry = function() {
 	document.getElementById("key2").play();
 	document.getElementById("hack-cursor").className = "cursor-flash"
 }
+var textClean = function(text){
+	//Replace linebreaks with nothing
+	text = text.replace(/<br>/g,"");
+	//Replace some tags with nothing
+	text = text.replace(/<s.*?>|<\/s.*?>/g,"");
+	return text;
+}
 var addEntryCharacter = function() {
-	if(currentText === targetText){
+	if(currentText === targetText || currentText.length >= targetText){
 		document.getElementById("hack-cursor").className = "cursor-flash"
 		return;
 	}
-	console.log("Called with character " + targetText[currentText.length]);
-	var newText = currentText + targetText[currentText.length];
+	playKeyboardSound();
+	var newText = textClean(currentText + targetText[currentText.length] + targetText[currentText.length + 1]);
 	currentText = newText;
-	document.getElementById("entry").innerHTML = newText;
+	document.getElementById("entry").textContent = newText;
 	var randomDelay = generateRandomInt(0,40);
 	setTimeout(addEntryCharacter,30+randomDelay);
 }
 var setEntry = function(span){
-	var content = span.innerHTML.replace(/<br>/g,"");
-	var content = content.replace(/<s.*?>|<\/s.*?>/g,"");
-	targetText = content;
-	document.getElementById("entry").innerHTML = "";
+	var content = span.textContent;
+	targetText = textClean(content);
+	document.getElementById("entry").textContent = "";
 	currentText = "";
 	document.getElementById("hack-cursor").className = "cursor-on"
 	addEntryCharacter();
@@ -319,7 +323,14 @@ var addWord = function(string, word, count){
 
 //Generate an Int between lower (inclusive) and upper (exclusive)
 var generateRandomInt = function(lower, upper){
-	return Math.floor(Math.random() * (upper+lower))+lower;
+	return Math.floor(Math.random()*((upper-1)-lower+1)+lower);
+}
+
+var playKeyboardSound = function() {
+	var soundID = generateRandomInt(1,11);
+	var sound = document.getElementById("key" + soundID);
+	sound.currentTime = 0;
+	sound.play();
 }
 
 var detectClosingBracket = function(span){
@@ -518,6 +529,13 @@ var turnOffCursor = function(doNext) {
 	}
 }
 
+var typingEnter = function (doNext) {
+	return function() {
+		document.getElementById("enter").play();
+		doNext();
+	}
+}
+
 var flashCursor = function (doNext) {
 	return function() {
 		document.getElementById("cp-cursor").className = "cursor-flash";
@@ -525,11 +543,16 @@ var flashCursor = function (doNext) {
 	}
 }
 
-var getNextPrint = function(text, delay, nextFunction) {
+var getNextPrint = function(text, delay, nextFunction,isMachine) {
 	var randomDelay = generateRandomInt(0,40);
 	return function(){
 		setTimeout(function() {
 			document.getElementById("command-prompt").innerHTML+=text;
+			if(isMachine){
+				tickNoise();
+			}else{
+				playKeyboardSound();
+			}
 			nextFunction();
 		},delay + randomDelay);
 	};
@@ -552,25 +575,27 @@ var printCommandPrompt = function(){
 		textBlock = commandPromptText[i];
 		if(textBlock.isMachine){
 			//If it's a machine text, we print all at once, and turn off the cursor
-			nextFunction = getNextPrint(textBlock.text, textBlock.delay, nextFunction);
+			nextFunction = getNextPrint(textBlock.text, textBlock.delay, nextFunction,true);
+
 		} else {
 			//If it's a human text, we print character by character (cued up last first)
 			//We want to flash the cursor before typing, make it solid during typing, and turn it off after
 
-			//This is executed after finished typing, so turn off cursor
-			nextFunction = turnOffCursor(nextFunction);
+			//This is executed after finished typing, so turn off cursor and play enter sound
+			nextFunction = typingEnter(turnOffCursor(nextFunction));
 
 			//Simulate the typing
 			var mytext = textBlock.text;
 			for (j = mytext.length-1; j >= 0; j--) {
 				mycharacter = mytext[j];
-				nextFunction = getNextPrint(mycharacter, textBlock.delay, nextFunction);
+				nextFunction = getNextPrint(mycharacter, textBlock.delay, nextFunction,false);
 			}
 
 			//Before we start typing, we want to make the cursor solid
 			nextFunction = turnOnCursor(nextFunction);
 			//Delay to simulate user thinking
-			nextFunction = getNextPrint("",1500,nextFunction);
+			var randomDelay = generateRandomInt(0,800)
+			nextFunction = getNextPrint("",500+randomDelay,nextFunction);
 			//Flashing whilst the delay (above) happens
 			nextFunction = flashCursor(nextFunction);
 		}
@@ -657,10 +682,20 @@ function newStrWithCharAt(str,index,chr) {
 	return str.substr(0,index) + chr + str.substr(index+1);
 }
 
-//Play login sound
-document.getElementById("login").play();
+var turnOn = function() {
+	//Disable the 'turned off' greyness
+	document.body.className = "";
+	//Play login sound
+	document.getElementById("login").play();
+	//Hide the 'begin' stuff
+	document.getElementById("click-to-start").style.display="none";
+	//Show the command prompt thing
+	document.getElementById("loading").style.display="block";
+	printCommandPrompt();
+}
 
 window.onload = function(){
 	preloadHacking();
-	printCommandPrompt();
+	//Try to force user to landscape
+	screen.orientation.lock('landscape');
 }

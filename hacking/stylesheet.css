@@ -6,22 +6,61 @@ html, body {
 	cursor: default;
 }
 body {
-	background: #062414;
-	box-shadow: inset 0 0 23em 1em #000;
+	background: #242;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+#click-to-start, #please-rotate {
+	width: 100%;
+	height: 100%;
+}
+#click-to-start p, #please-rotate p {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+.terminal-off {
+	background: #111;
+}
+.terminal-off #effects1:before { 
+	animation: initial;
+	opacity: 0.14;
+}
+#effects1:before { 
+    content: '';
+    width : 100%;
+    height : 100%;
+    position : absolute;
+    top : 0px;
+    left : 0px;
+    background: linear-gradient(#375 50%, #111 50%);
+    background-size: 100% 6px;
+    animation: pulse 5s linear infinite;
+    mix-blend-mode: darken;
+    pointer-events: none;
+}
+#effects2,#effects1{
+	box-shadow: inset 0 0 16em 6em #000;
+	height: 100%;
+	width: 100%;
+	top: 0px;
+	left: 0px;
 }
 p, a, .post *{
 	margin: 0;
-	color: #15763E;
+	color: #4F5;
 	background: transparent;
 	text-shadow: 0em 0em 0.5em #23824C;
 	font-family: monospace;
 	font-weight: bold;
 	font-size: 1.7vw;
 }
-#hacking span:hover, .bracketpair{
+#hacking span:hover, .bracketpair, #click-to-start p, #please-rotate p {
 	color: #062414;
 	text-shadow: 0em 0em 1em #23824C;
-	background: #15763E;
+	background: #4F5;
 }
 #hacking, #loading{
 	padding: 3vw 0em 0em 3vw;
@@ -55,6 +94,20 @@ p, a, .post *{
 	0% { opacity: 0.0; }
 	50% { opacity: 1.0; }
 	100% { opacity: 0.0; }
+}
+@keyframes pulse {
+  0%   {transform: scale(1.001);  opacity: .14; }
+  8%   {transform: scale(1.000);  opacity: .13; }
+  15%  {transform: scale(1.004);  opacity: .14; }
+  30%  {transform: scale(1.002);  opacity: .11; }
+  100% {transform: scale(1.000);  opacity: .14; }
+}
+@-webkit-keyframes pulse {
+  0%   {transform: scale(1.001);  opacity: .14; }
+  8%   {transform: scale(1.000);  opacity: .13; }
+  15%  {transform: scale(1.004);  opacity: .14; }
+  30%  {transform: scale(1.002);  opacity: .11; }
+  100% {transform: scale(1.000);  opacity: .14; }
 }
 #command-prompt, #cp-cursor{
 	display: inline;
@@ -91,7 +144,7 @@ p, a, .post *{
 }
 #divider {
 	height: 0.5vh;
-	background: #15763E;
+	background: #4F5;
 	width: 80%;
 	box-shadow: 0em 0em 0.5em #23824C;
 	margin: 0 0 0 10%;
@@ -104,7 +157,7 @@ p, a, .post *{
 .post-title p:hover{
 	color: #062414;
 	text-shadow: 0em 0em 1em #23824C;
-	background: #15763E;
+	background: #4F5;
 }
 .post {
 	text-align: justify;
@@ -117,19 +170,19 @@ p, a, .post *{
 	padding-top: 15px;
 	padding-bottom: 45px;
 }
-
 #post-container {
 	height: 100%;
 }
 img {
 	max-width: 100%;
 	display: block;
-  mix-blend-mode: screen;
+	filter: contrast(1000%);
+ 	mix-blend-mode: luminosity;
 }
 .image-color {
 	float: left;
-	box-shadow: 0em 0em 2em #23824C;
-  background-color: #15763E;
+	box-shadow: 0em 0em 2em #4F5;
+ 	background-color: #4F5;
 }
 .image-container{
 	margin: 0 auto;
@@ -139,6 +192,13 @@ img {
 	font-size: 1.7vw !important;
 	display: block;
 	text-align: center;
+}
+/* Encourage user to use in landscape */
+@media (orientation: portrait) {
+      .portrait{display: block !important;}
+      .portrait p {font-size: 32px !important;}
+      .landscape{display:none;}
+      body{background: #111;}
 }
 /* YouTube stuff */
 .youtube {
@@ -156,7 +216,7 @@ img {
 	width: 100%;
 	height: 100%;
 	border: none;
-	mix-blend-mode: screen;
+	mix-blend-mode: luminosity;
 }
 @-moz-document url-prefix() {
     img {
