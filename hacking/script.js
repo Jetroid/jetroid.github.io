@@ -687,6 +687,21 @@ var turnOn = function() {
 	document.body.className = "";
 	//Play login sound
 	document.getElementById("login").play();
+
+	//get the hum sound
+	var hum_sound = document.getElementById("hum");
+	//make it quieter
+	hum_sound.volume = 0.2;
+	//Make it play
+	hum_sound.play()
+	//Make it seemless loop
+	document.getElementById("hum").addEventListener('timeupdate', function(){
+    var buffer = .44
+    if(this.currentTime > this.duration - buffer){
+        this.currentTime = 0
+        this.play()
+    }}, false);
+
 	//Hide the 'begin' stuff
 	document.getElementById("click-to-start").style.display="none";
 	//Show the command prompt thing
