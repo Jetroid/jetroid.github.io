@@ -170,7 +170,7 @@ p, a, .post *{
 	padding-top: 15px;
 	padding-bottom: 45px;
 }
-#post-container {
+#post-container, #loading, #command-prompt {
 	height: 100%;
 }
 img {

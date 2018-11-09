@@ -547,13 +547,15 @@ var getNextPrint = function(text, delay, nextFunction,isMachine) {
 	var randomDelay = generateRandomInt(0,40);
 	return function(){
 		setTimeout(function() {
-			document.getElementById("command-prompt").innerHTML+=text;
-			if(isMachine){
-				tickNoise();
-			}else{
-				playKeyboardSound();
+			if(!finishedPrinting){
+				document.getElementById("command-prompt").innerHTML+=text;
+				if(isMachine){
+					tickNoise();
+				}else{
+					playKeyboardSound();
+				}
+				nextFunction();
 			}
-			nextFunction();
 		},delay + randomDelay);
 	};
 };
@@ -649,6 +651,11 @@ var preloadHacking = function() {
 		finishedLoading = true;
 		if(finishedPrinting){
 			beginMinigame();
+		}else{
+			document.getElementById("loading").onclick = function(){
+				finishedPrinting = true;
+				beginMinigame()
+			};
 		}
 	}
 	xhr.send(null);
