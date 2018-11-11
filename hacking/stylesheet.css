@@ -1,3 +1,5 @@
+---
+---
 html, body {
 	width:100%;
 	height:100%;
@@ -6,9 +8,13 @@ html, body {
 	cursor: default;
 }
 body {
-	background: #242;
+	background-image: url("/hacking/greenscreen.png");
+	background-size: 100% 100%;
 	overflow-x: hidden;
 	overflow-y: hidden;
+}
+.terminal-off {
+	background-image: url("/hacking/grayscreen.png");
 }
 #click-to-start, #please-rotate {
 	width: 100%;
@@ -20,9 +26,6 @@ body {
 	top: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-}
-.terminal-off {
-	background: #111;
 }
 .terminal-off #effects1:before { 
 	animation: initial;
@@ -40,9 +43,9 @@ body {
     animation: pulse 5s linear infinite;
     mix-blend-mode: darken;
     pointer-events: none;
+    z-index: 10000;
 }
 #effects2,#effects1{
-	box-shadow: inset 0 0 16em 6em #000;
 	height: 100%;
 	width: 100%;
 	top: 0px;
@@ -57,7 +60,7 @@ p, a, .post *{
 	font-weight: bold;
 	font-size: 1.7vw;
 }
-#hacking span:hover, .bracketpair, #click-to-start p, #please-rotate p {
+.highlight, .bracketpair, #click-to-start p, #please-rotate p, .post-title-p:hover{
 	color: #062414;
 	text-shadow: 0em 0em 1em #23824C;
 	background: #4F5;
@@ -69,6 +72,8 @@ p, a, .post *{
 	margin: 2em 0 0 0;
 	vertical-align:top;
 	display: inline-block;
+	position: absolute;
+	white-space:nowrap;
 }
 .pointers {
 	width: 7%;	
@@ -81,6 +86,18 @@ p, a, .post *{
 	width: 26%;
 	position: relative;
 	height: 100%;
+	left: 75%;
+}
+#leftptr {
+}
+#rightptr {
+	left: 40%;
+}
+#leftsymb {
+	left: 10%;
+}
+#rightsymb {
+	left: 47%
 }
 #entry {
 	bottom: 0;
@@ -154,11 +171,6 @@ p, a, .post *{
 	text-align: left;
 	width: 80%;
 }
-.post-title p:hover{
-	color: #062414;
-	text-shadow: 0em 0em 1em #23824C;
-	background: #4F5;
-}
 .post {
 	text-align: justify;
 }
@@ -188,6 +200,9 @@ img {
 	margin: 0 auto;
 	display: table;
 }
+.emoji-container{
+	display: none !important;
+}
 .image-container + em {
 	font-size: 1.7vw !important;
 	display: block;
@@ -206,8 +221,8 @@ img {
 	padding-bottom: 56.25%; /* 16:9 */
 	padding-top: 25px;
 	height: 0;
-	box-shadow: 0em 0em 2em #23824C;
-    background-color: #15763E;
+	box-shadow: 0em 0em 2em #4F5;
+    background-color: #4F5;
 }
 .youtube iframe {
 	position: absolute;
@@ -222,4 +237,195 @@ img {
     img {
         width: 100%;
     }
+}
+/* Everything to do with the bottom right corner 'information' box goes below */
+#information {
+	display: none;
+	position: absolute;
+	z-index: 1000000000;
+	bottom: 0;
+	right: 0;
+	padding: 5px;
+	padding-bottom: 0px;
+	border-radius: 7px 0 0 0;
+	border: 1px solid #000;
+	border-bottom-width: 0px;
+	border-right-width: 0px;
+	opacity: 1;
+	transition: opacity 0.5s ease-in-out;
+	background-color: {{ site.style.background-hex }};
+}
+#information.hide {
+	opacity: 0;
+}
+#information.hide:hover {
+	opacity: 0.5;
+}
+/* Display information only on non-mobiles */
+@media only screen and (min-width: 1000px) {
+    #information {
+    	display: block;
+    }
+}
+#information-by {
+	font-size: 15px;
+}
+#information-em {
+	font-size: 17px;
+}
+#information-anchor {
+	display: inline-flex;
+	align-items: center;
+	text-decoration: none;
+}
+#information-anchor.open{
+	position: relative;
+	left:40px;
+}
+#information-image-container {
+	padding-right: 5px;
+}
+#information-image-color {
+	border-radius: 100%;
+	box-shadow: 0em 0em 5px #4F5;
+}
+#information-image {
+	width: 30px;
+	height: 30px;
+	border-radius: 100%;
+}
+#information-text p {
+	font-size: 12px;
+	width: 300px;
+	padding-bottom: 2px;
+}
+#information-text {
+	display: none;
+}
+#information-text.open{
+	display: block;
+}
+#information-text p a {
+	font-size: 12px;
+}
+.close {
+	width: 20px;
+	height: 30px;
+	margin-left: 2px;
+	position: relative;
+	display: inline-block;
+}
+.close.open {
+	left: 75px;
+}
+.close:hover {
+	background: #4F5;
+}
+.close:hover:before, .close:hover:after {
+	background: #062414;
+}
+.close:before, .close:after {
+	position: absolute;
+	right: 9px;
+	content: ' ';
+	height: 15px;
+	width: 3px;
+	top: 9px;
+	background: #4F5;
+}
+.close:before {
+	transform: rotate(45deg);
+}
+.close:after {
+	transform: rotate(-45deg);
+}
+
+/* Chevron thanks to https://codepen.io/jonneal/ */
+.chevron {
+	padding: 6px;
+	padding-bottom: 7px;
+	bottom: 11px;
+	position: relative;
+}
+.chevron:hover {
+	background: #4F5;
+}
+.chevron:hover:before, .chevron:hover:after {
+	border-color: #062414;
+}
+.chevron:before {
+	border-color: #4F5;
+	border-style: solid;
+	border-width: 0.25em 0.25em 0 0;
+	content: '';
+	display: inline-block;
+	height: 0.45em;
+	position: relative;
+	top: 24px;
+	transform: rotate(-45deg);
+	vertical-align: top;
+	width: 0.45em;
+}
+.chevron.open:before {
+	top: 19px;
+	transform: rotate(135deg);
+}
+/* End Chevron */
+
+/* Mute thanks to https://codepen.io/MarvinVK/ */
+.speaker-container {
+	height: 30px;
+	width: 30px;
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+}
+.speaker {
+	display: block;
+	width: 8px;
+	height: 8px;
+	background: #4F5;
+	margin: 11px 0 0 2px;
+}
+.speaker-container:hover {
+	background: #4F5;
+}
+.speaker-container:hover .speaker {
+	background: #062414;
+}
+.speaker-container:hover .speaker:after {
+	border-color: transparent #062414 transparent transparent;
+}
+
+.speaker-container:hover .speaker:before {
+	border-color: #062414;
+}
+.speaker:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent #4F5 transparent transparent;
+  border-width: 10px 14px 10px 15px;
+  left: -13px;
+  top: 5px;
+}
+.speaker:before {
+  transform: rotate(45deg);
+  border-radius: 0 50px 0 0;
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-style: double;
+  border-color: #4F5;
+  border-width: 7px 7px 0 0;
+  left: 18px;
+  top: 9px;
+  transition: all 0.2s ease-out;
+}
+.speaker-container.mute .speaker:before {
+  transform: scale(0.5) translate(-15px, 0) rotate(36deg);
+  opacity: 0;
 }

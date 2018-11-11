@@ -5,6 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-16"> <!-- Allows us to have special characters !-->
+		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link type="text/css" rel="stylesheet" href="stylesheet.css" />
 		<title>RobCo Terminal</title>
 		<link type="text/css" rel="stylesheet" href="simple-scrollbar.css"/>
@@ -14,8 +15,39 @@
 	<body onselectstart="return false;" class="terminal-off">
 		<div id="effects1">
 			<div id="effects2">
+				<div id="information">
+					<div id="information-header">
+						<span id="information-expand-shrink" class="chevron" onclick="maximiseInfo();"></span>
+						<span id="information-mute-unmute" class="speaker-container" onclick="mute();">
+							<span class="speaker"></span>
+						</span>
+						<a id="information-anchor" href="https://jetholt.com">
+							<div id="information-image-container" class="image-container">
+								<div id="information-image-color" class="image-color">
+									<img id="information-image" src="/assets/images/me.png">
+								</div>
+							</div>
+							<p id="information-by">by <em id="information-em">Jetroid</em></p>
+						</a>
+						<span id="information-hide" class="close" onclick="hideInfo();"></span>
+					</div>
+					<div id="information-text">
+						<p>
+						Successfully completeting the minigame reveals the posts from my <a href="https://jetholt.com/">website</a>. I originally made this as a way to learn HTML, CSS, and JavaScript in the <a href="/blog-hacking/">summer of 2016</a>. I significantly improved it in the <a href="/robco-revisited/">autumn of 2018</a>.  <br>
+						I can be contacted 
+						<script type="text/javascript" language="javascript">
+							ML="hl/j< air\"@ocemf:=>.t";
+							MI="46508=?A9>671D;@0=11;:3=D0;1DC<;>9B0=8=426B";
+							OT="";
+							for(j=0;j<MI.length;j++){
+							OT+=ML.charAt(MI.charCodeAt(j)-48);
+							}document.write(OT);
+						</script>.
+						</p>
+					</div>
+				</div>
 				<div id="please-rotate" class="portrait" style="display:none">
-					<p>Please Rotate Your Device!<br/>This application only works in landscape.</p>
+					<p>Please rotate your device or resize your browser!<br/>This application only works in landscape.</p>
 				</div>
 				<div id="click-to-start" class="landscape" onclick="turnOn();">
 					<p>Begin</p>
@@ -24,42 +56,42 @@
 					<p id="command-prompt"></p><span id="cp-cursor" class="cursor-off">█<span>
 				</div>
 				<div id="hacking" class="landscape" style="display:none">
-					<div id="header">
-						<p>ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL</p>
-						<p id="message">ENTER PASSWORD NOW</p>
+					<div>
+						<p id="termlink">​</p>	<!-- There are zero-width spaces here !-->
+						<p id="message">​</p>	<!-- So that they remain one line high !-->
 						<p><br></p>
-						<p id="attemptsleft">4 Attempt(s) Left: ██ ██ ██ ██</p>
+						<p id="attemptsleft">​​</p>
 					</div>
 					<div id="rest">
-						<div class="pointers content"><p id="leftpointers"></p></div>
-						<div class="symbols content"><p id="leftsymbols" onmouseout="clearEntry()"></p></div>
-						<div class="pointers content"><p id="rightpointers"></p></div>
-						<div class="symbols content"><p id="rightsymbols" onmouseout="clearEntry()"></p></div>
+						<div id="leftptr" class="pointers content"><p id="leftpointers"></p></div>
+						<div id="leftsymb" class="symbols content"><p id="leftsymbols" onmouseout="clearEntry()"></p></div>
+						<div id="rightptr" class="pointers content"><p id="rightpointers"></p></div>
+						<div id="rightsymb" class="symbols content"><p id="rightsymbols" onmouseout="clearEntry()"></p></div>
 						<div class="results content">
 							<p id="feedback"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
-							<p><br>><span id="entry"></span><span id="hack-cursor" class="cursor-flash">█<span></p>
+							<p><br></p>
+							<p id="minigame-prompt" style="display:none;">><span id="entry"></span><span id="hack-cursor" class="cursor-flash">█<span></p>
 						</div>
 					</div>
 				</div>
-				<div>
-					<audio id="login" src="sounds/login.ogg"></audio>
-					<audio id="incorrect" src="sounds/incorrect.ogg"></audio>
-					<audio id="correct" src="sounds/correct.ogg"></audio>
-					<audio id="enter" src="sounds/enter.ogg"></audio>
-					<audio id="locked" src="sounds/locked.ogg"></audio>
-					<audio id="key1" src="sounds/key1.ogg"></audio>
-					<audio id="key2" src="sounds/key2.ogg"></audio>
-					<audio id="key3" src="sounds/key3.ogg"></audio>
-					<audio id="key4" src="sounds/key4.ogg"></audio>
-					<audio id="key5" src="sounds/key5.ogg"></audio>
-					<audio id="key6" src="sounds/key6.ogg"></audio>
-					<audio id="key7" src="sounds/key7.ogg"></audio>
-					<audio id="key8" src="sounds/key8.ogg"></audio>
-					<audio id="key9" src="sounds/key9.ogg"></audio>
-					<audio id="key10" src="sounds/key10.ogg"></audio>
-					<audio id="key11" src="sounds/key11.ogg"></audio>
+				<div id="terminal-sounds">
+					<audio id="login" src="sounds/login.wav"></audio>
+					<audio id="incorrect" src="sounds/incorrect.wav"></audio>
+					<audio id="correct" src="sounds/correct.wav"></audio>
+					<audio id="enter" src="sounds/enter1.wav"></audio>
+					<audio id="locked" src="sounds/locked.wav"></audio>
+					<audio id="key1" src="sounds/key1.wav"></audio>
+					<audio id="key2" src="sounds/key2.wav"></audio>
+					<audio id="key3" src="sounds/key3.wav"></audio>
+					<audio id="key4" src="sounds/key4.wav"></audio>
+					<audio id="key5" src="sounds/key5.wav"></audio>
+					<audio id="key6" src="sounds/key6.wav"></audio>
+					<audio id="key7" src="sounds/key7.wav"></audio>
+					<audio id="key8" src="sounds/key8.wav"></audio>
 					<audio id="tick" src="sounds/click.wav"></audio>
-					<audio id="hum" src="sounds/hum1.wav"></audio>
+					<audio id="hum1" src="sounds/hum1.wav"></audio>
+					<audio id="hum2" src="sounds/hum2.wav"></audio>
+					<audio id="print" src="sounds/print.wav"></audio>
 				</div>
 				<script src="script.js"></script>
 				<div id="loggedin"  class="landscape" style="display:none;">
@@ -73,12 +105,12 @@
 					<div id="blog-content" ss-container>
 						<div id="post-titles-container">
 						{% for post in site.posts %}
-							<div class="post-title"><p onclick="viewPost('{{post.url}}')" onmouseover="tickNoise();">
+							<div class="post-title"><p class="post-title-p" onclick="viewPost('{{post.url}}')" onmouseover="tickNoise();">
 								>&nbsp;&nbsp;{{post.date | date: "%Y" | plus: 60 }}{{post.date | date: "/%m/%d" }} - {{ post.title }}
 							</p></div>
 						{% endfor %}
 						</div>
-						<div id="post-container" class="post" onclick="exitPost()" style="display:none;" ss-container><!-- Content inserted by JS !--></div>
+						<div id="post-container" class="post" onclick="exitPost(event)" style="display:none;" ss-container><!-- Content inserted by JS !--></div>
 					</div>
 				</div>
 			</div>
