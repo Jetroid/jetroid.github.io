@@ -155,6 +155,8 @@ and improve my quality of life.
 ![Gauntlets did not give me long-term happiness]({{ site.url }}/assets/images/finding-meaning-gauntlets.jpg)
 *Gauntlets did not give me long-term happiness*
 
+## A Realization
+
 As it turns out, buying stuff does not make me happy, though it felt like it at the time.
 It definitely did not improve my quality of life.
 A week or more after buying something, I'd be thinking about whatever else I wanted to buy.
