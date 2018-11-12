@@ -20,31 +20,29 @@ var clickedBrackets = new Set();
 var terminalLocked = false;
 //Used as a 'loading' distraction. 
 var commandPromptText = [
-	{"text":"WELCOME TO ROBCO INDUSTRIES (TM) TERMLINK", "isMachine":true, "delay":10},
-	{"text":"<br><br>\>", "isBreak":true, "delay":400},
-	{"text":"SET TERMINAL/INQUIRE", "delay":50},
-	{"text":"<br><br>", "isBreak":true, "isSilent":true, "delay":200},
-	{"text":"RX-9000", "isMachine":true, "delay":10},
-	{"text":"<br><br>\>", "isBreak":true, "delay":200},
-	{"text":"SET FILE/PROTECTION=OWNER:RWED ACCOUNTS.F", "delay":55},
-	{"text":"<br><br>\>", "isBreak":true, "delay":800},
-	{"text":"SET HALT RESTART/MAINT", "delay":50},
-	{"text":"<br><br>", "isBreak":true, "isSilent":true, "delay":200},
-	{"text":"Initializing RobCo Industries(TM) MF Boot Agent v2.3.0", "isMachine":true, "delay":10},
-	{"text":"<br>", "isBreak":true, "isSilent":true, "delay":100},
-	{"text":"RETROS BIOS", "isMachine":true, "delay":10},
-	{"text":"<br>", "isBreak":true, "isSilent":true, "delay":150},
-	{"text":"RBIOS-4.02.08.00 52EE5.E7.E8", "isMachine":true, "delay":10},
-	{"text":"<br>", "isBreak":true, "isSilent":true, "delay":200},
-	{"text":"Copyright 2075-2077 RobCo Ind.", "isMachine":true, "delay":10},
-	{"text":"<br>", "isBreak":true, "isSilent":true, "delay":600},
-	{"text":"Uppermem: 1024 KB", "isMachine":true, "delay":10},
-	{"text":"<br>", "isBreak":true, "isSilent":true, "delay":150},
-	{"text":"Root (5A8)", "isMachine":true, "delay":10},
-	{"text":"<br>", "isBreak":true, "isSilent":true, "delay":150},
-	{"text":"Maintenance Mode", "isMachine":true, "delay":10},
-	{"text":"<br><br>\>", "isBreak":true, "delay":150},
-	{"text":"RUN DEBUG/ACCOUNTS.F", "delay":45}
+	{"text":"WELCOME TO ROBCO INDUSTRIES (TM) TERMLINK", "isMachine":true, "delay":10, "targetId":"loading-welcome"},
+	{"text":"\>", "isMachine":true, "delay":400, "targetId":"loading-firsttype"},
+	{"text":"SET TERMINAL/INQUIRE", "delay":50, "targetId":"loading-firsttype"},
+	{"text":"RX-9000", "isMachine":true, "delay":10, "targetId":"loading-terminalmodel"},
+	{"text":"\>", "isBreak":true, "delay":200, "targetId":"loading-secondtype"},
+	{"text":"SET FILE/PROTECTION=OWNER:RWED ACCOUNTS.F", "delay":55, "targetId":"loading-secondtype"},
+	{"text":"\>", "isBreak":true, "delay":800, "targetId":"loading-thirdtype"},
+	{"text":"SET HALT RESTART/MAINT", "delay":50, "targetId":"loading-thirdtype"},
+	{"text":"Initializing RobCo Industries(TM) MF Boot Agent v2.3.0", "isMachine":true, "delay":10, "targetId":"loading-information"},
+	{"text":"<br>", "isBreak":true, "isSilent":true, "delay":100, "targetId":"loading-information"},
+	{"text":"RETROS BIOS", "isMachine":true, "delay":10, "targetId":"loading-information"},
+	{"text":"<br>", "isBreak":true, "isSilent":true, "delay":150, "targetId":"loading-information"},
+	{"text":"RBIOS-4.02.08.00 52EE5.E7.E8", "isMachine":true, "delay":10, "targetId":"loading-information"},
+	{"text":"<br>", "isBreak":true, "isSilent":true, "delay":200, "targetId":"loading-information"},
+	{"text":"Copyright 2075-2077 RobCo Ind.", "isMachine":true, "delay":10, "targetId":"loading-information"},
+	{"text":"<br>", "isBreak":true, "isSilent":true, "delay":600, "targetId":"loading-information"},
+	{"text":"Uppermem: 1024 KB", "isMachine":true, "delay":10, "targetId":"loading-information"},
+	{"text":"<br>", "isBreak":true, "isSilent":true, "delay":150, "targetId":"loading-information"},
+	{"text":"Root (5A8)", "isMachine":true, "delay":10, "targetId":"loading-information"},
+	{"text":"<br>", "isBreak":true, "isSilent":true, "delay":150, "targetId":"loading-information"},
+	{"text":"Maintenance Mode", "isMachine":true, "delay":10, "targetId":"loading-information"},
+	{"text":"\>", "isBreak":true, "delay":150, "targetId":"loading-fourthtype"},
+	{"text":"RUN DEBUG/ACCOUNTS.F", "delay":45, "targetId":"loading-fourthtype"}
 ];
 var minigameText = [
 	{"text":"ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL", "isMachine":true, "delay":10},
@@ -642,6 +640,8 @@ var getNextPrint = function(printElem, text, delay, nextFunction, isMachine, isS
 	return function(){
 		setTimeout(function() {
 			if(!finishedPrinting){
+				printElem.previousElementSibling.classList.remove("activeCommandPrompt");
+				printElem.classList.add("activeCommandPrompt");
 				printElem.innerHTML+=text;
 				if(isSilent) {
 					//Play no sound!
@@ -668,7 +668,6 @@ var playPrintBeep = function(){
 };
 
 var printCommandPrompt = function(){
-	var printElem = document.getElementById("command-prompt");
 	//We want to do this backwards, because it's the only thing I can think of without wifi...
 	//Ie, we're going to nest our timeouts inside each other, which means we need to look at the last one first.
 
@@ -683,9 +682,10 @@ var printCommandPrompt = function(){
 	//Cue up and next text, last-first
 	for (i = commandPromptText.length-1; i >= 0; i--) {
 		textBlock = commandPromptText[i];
+		var targetElem = document.getElementById(textBlock.targetId);
 		if(textBlock.isBreak){
 			//If it's something with a linebreak, we print it all in one go.
-			nextFunction = getNextPrint(printElem, textBlock.text, textBlock.delay, nextFunction,true,textBlock.isSilent);
+			nextFunction = getNextPrint(targetElem, textBlock.text, textBlock.delay, nextFunction,true,textBlock.isSilent);
 
 		} else if (textBlock.isMachine) {
 			//If it's a machine text, we print character by character (cued up last first)
@@ -700,7 +700,7 @@ var printCommandPrompt = function(){
 			var mytext = textBlock.text;
 			for (j = mytext.length-1; j >= 0; j--) {
 				mycharacter = mytext[j];
-				nextFunction = getNextPrint(printElem, mycharacter, textBlock.delay, nextFunction,true,textBlock.isSilent);
+				nextFunction = getNextPrint(targetElem, mycharacter, textBlock.delay, nextFunction,true,textBlock.isSilent);
 			}
 
 			//Before we start printing, we want to make the cursor solid
@@ -718,14 +718,14 @@ var printCommandPrompt = function(){
 			var mytext = textBlock.text;
 			for (j = mytext.length-1; j >= 0; j--) {
 				mycharacter = mytext[j];
-				nextFunction = getNextPrint(printElem, mycharacter, textBlock.delay, nextFunction,false,textBlock.isSilent);
+				nextFunction = getNextPrint(targetElem, mycharacter, textBlock.delay, nextFunction,false,textBlock.isSilent);
 			}
 
 			//Before we start typing, we want to make the cursor solid
 			nextFunction = turnOnCursor(nextFunction);
 			//Delay to simulate user thinking
 			var randomDelay = generateRandomInt(0,800)
-			nextFunction = getNextPrint(printElem, "",500+randomDelay,nextFunction);
+			nextFunction = getNextPrint(targetElem, "",500+randomDelay,nextFunction);
 			//Flashing whilst the delay (above) happens
 			nextFunction = flashCursor(nextFunction);
 		}
@@ -969,7 +969,22 @@ var mute = function() {
 	}
 }
 
+function toggleFullScreen() {
+  var doc = window.document;
+  var docEl = doc.documentElement;
+
+  var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+  var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+
+  if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+    requestFullScreen.call(docEl);
+  }
+  else {
+    cancelFullScreen.call(doc);
+  }
+}
+
 window.onload = function(){
-	window.scrollTo(0,1);
+	toggleFullScreen();
 	preloadHacking();
 }

@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-16"> <!-- Allows us to have special characters !-->
-		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1;height=device-height" />
 		<link type="text/css" rel="stylesheet" href="stylesheet.css" />
 		<title>RobCo Terminal</title>
 		<link type="text/css" rel="stylesheet" href="simple-scrollbar.css"/>
@@ -53,7 +53,16 @@
 					<p>Begin</p>
 				</div>
 				<div id="loading" class="post landscape" style="display:none">
-					<p id="command-prompt"></p><span id="cp-cursor" class="cursor-off">█<span>
+					<p class="activeCommandPrompt"></p><!-- Dummy p element - each p below needs to refer to a previousSibling :) !-->
+					<p id="loading-welcome" class="cp"></p>
+					<p id="loading-firsttype" class="cp"></p>
+					<p id="loading-terminalmodel" class="cp"></p>
+					<p id="loading-secondtype" class="cp"></p>
+					<p id="loading-thirdtype" class="cp"></p>
+					<p id="loading-information" class="cp"></p>
+					<p id="loading-fourthtype" class="cp"></p>
+
+					<span id="cp-cursor" class="cursor-off">█<span>
 				</div>
 				<div id="hacking" class="landscape" style="display:none">
 					<div>

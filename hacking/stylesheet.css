@@ -51,6 +51,19 @@ body {
 	top: 0px;
 	left: 0px;
 }
+.activeCommandPrompt {
+	display: inline;
+}
+#loading {
+	line-height: 0px;	/* Why the fuck is this necessary? CSS is so shit! */
+}
+.cp {
+	line-height: normal;
+	padding: 0 0 2% 0 !important;
+}
+.cp:empty {
+	display: none !important;
+}
 p, a, .post *{
 	margin: 0;
 	color: #4F5;
