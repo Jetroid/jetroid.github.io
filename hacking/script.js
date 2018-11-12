@@ -900,6 +900,7 @@ var insertGoal = function() {
 };
 
 var turnOn = function() {
+	toggleFullScreen();
 	//Disable the 'turned off' greyness
 	document.body.className = "";
 	//Play login sound
@@ -985,6 +986,5 @@ function toggleFullScreen() {
 }
 
 window.onload = function(){
-	toggleFullScreen();
 	preloadHacking();
 }

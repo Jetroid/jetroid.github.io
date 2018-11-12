@@ -2,12 +2,38 @@
 
 ---
 <!DOCTYPE html>
-<html>
+<html Itemscope=”Blog”>
 	<head>
 		<meta charset="UTF-16"> <!-- Allows us to have special characters !-->
-		<meta name="viewport" content="width=device-width,initial-scale=1;height=device-height" />
+		<title itemprop=”name”>RobCo Terminal</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,height=device-height" />
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+		<!-- Awful meta tags follow :/ !-->
+		<meta property="og:image" content="sample.png" />
+		<meta property="og:title" content="RobCo Terminal" />
+		<meta property="og:locale" content="en_GB" />
+		<meta name="description" content="{% if page.summary %}{{ page.summary }}{% else %}{{ site.description}}{% endif %}" />
+		<meta property="og:description" content="Fallout Hacking Minigame by Jetroid" />
+		<link rel="canonical" href="{{ site.url }}/hacking" />
+		<meta property="og:url" content="{{ site.url }}/hacking" />
+		<meta property="og:site_name" content="RobCo Terminal" />
+		<meta property="og:type" content="website" />
+		<meta name="twitter:card" content="summary" />
+		<meta name=”twitter:url” content=”{{ site.url }}/hacking”>
+		<meta name="twitter:title" content="RobCo Terminal" />
+		<meta name="twitter:description" content="Fallout Hacking Minigame by Jetroid" />
+		<meta name="twitter:image" content="sample.png" />
+		<script type="application/ld+json">
+		{
+		  "@context": "http://schema.org",
+		  "@type": "Blog",
+		  "url": "{{ site.url }}/hacking",
+		  "name": "RobCo Terminal",
+		  "author": "Jet 'Jetroid' Holt",
+		}
+		</script>
+		<!-- The actual good stuff !-->
 		<link type="text/css" rel="stylesheet" href="stylesheet.css" />
-		<title>RobCo Terminal</title>
 		<link type="text/css" rel="stylesheet" href="simple-scrollbar.css"/>
 		<!--[if IE 9]><script src="https://cdn.jsdelivr.net/classlist/2014.01.31/classList.min.js"></script><![endif]-->
 		<script src="simple-scrollbar.min.js"></script>
@@ -33,7 +59,8 @@
 					</div>
 					<div id="information-text">
 						<p>
-						Successfully completeting the minigame reveals the posts from my <a href="https://jetholt.com/">website</a>. I originally made this as a way to learn HTML, CSS, and JavaScript in the <a href="/blog-hacking/">summer of 2016</a>. I significantly improved it in the <a href="/robco-revisited/">autumn of 2018</a>.  <br>
+						<span itemprop=”description”>Fallout Hacking Minigame by Jetroid.</span>
+						Successfully completing the minigame reveals the posts from my <a href="https://jetholt.com/">website</a>. I originally made this as a way to learn HTML, CSS, and JavaScript in the <a href="/blog-hacking/">summer of 2016</a>. I significantly improved it in the <a href="/robco-revisited/">autumn of 2018</a>.  <br>
 						I can be contacted 
 						<script type="text/javascript" language="javascript">
 							ML="hl/j< air\"@ocemf:=>.t";
@@ -62,7 +89,7 @@
 					<p id="loading-information" class="cp"></p>
 					<p id="loading-fourthtype" class="cp"></p>
 
-					<span id="cp-cursor" class="cursor-off">█<span>
+					<span id="cp-cursor" class="cursor-off">█</span>
 				</div>
 				<div id="hacking" class="landscape" style="display:none">
 					<div>
@@ -79,7 +106,7 @@
 						<div class="results content">
 							<p id="feedback"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 							<p><br></p>
-							<p id="minigame-prompt" style="display:none;">><span id="entry"></span><span id="hack-cursor" class="cursor-flash">█<span></p>
+							<p id="minigame-prompt" style="display:none;">><span id="entry"></span><span id="hack-cursor" class="cursor-flash">█</span></p>
 						</div>
 					</div>
 				</div>
