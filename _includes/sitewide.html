@@ -12,3 +12,18 @@
 <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
 <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
 <meta property="og:site_name" content="Jetroid" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name=”twitter:url” content=”{{ site.url }}{{ page.url }}”>
+<meta name="twitter:title" content="{% if page.title %}{{ page.title }} - {% endif %}Jetroid" />
+<meta name="twitter:description" content="{% if page.summary %}{{ page.summary }}{% else %}{{ site.description}}{% endif %}" />
+<meta name="twitter:image" content="{{ site.url }}/assets/images/{{ background-image }}" />
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Blog",
+  "url": "{{ site.url }}/assets/images/{{ background-image }}",
+  "name": "{% if page.title %}{{ page.title }} - {% endif %}Jetroid",
+  "author": "Jet 'Jetroid' Holt",
+}
+</script>
