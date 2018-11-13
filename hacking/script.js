@@ -572,6 +572,10 @@ var fixImages = function(){
 		var image = images[i];
 		var parent = image.parentNode;
 
+		//Make background-image of `var image` equal to the src of the image
+		//as this way we can use background-blend-mode
+		image.style.backgroundImage = 'url(' + image.src +')'; 
+
 		var parentdiv = document.createElement("DIV");
 		parentdiv.className = "image-container";
 
