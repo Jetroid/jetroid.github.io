@@ -203,11 +203,13 @@ img {
 	display: block;
 	filter: contrast(1000%);
  	mix-blend-mode: luminosity;
+ 	border-radius: 25px;
 }
 .image-color {
 	float: left;
 	box-shadow: 0em 0em 2em #4F5;
  	background-color: #4F5;
+ 	border-radius: 25px;
 }
 .image-container{
 	margin: 0 auto;
