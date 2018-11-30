@@ -1,19 +1,22 @@
 ---
 layout: post
-title: "Chiang Mai and the Loi Krathong festival"
+title: "The Loi Krathong Festival"
 date: 2018-11-27 13:30:35 +0700
-background: ""
-background-color: ""
-summary: ""
+background: "loikrathong-beauty.jpg"
+background-color: "#535E64"
+summary: "I travel to Chiang Mai and celebrate the Loi Krathong festival"
 categories:
- - ""
+ - "Travel"
+ - "Experiences"
 ---
 
 **After having [a mixed two days in Bangkok](/exploring-bangkok), I was making my way to [Chiang Mai](https://en.wikipedia.org/wiki/Chiang_Mai), the [Mecca of Digital Nomadism](https://nomadlist.com/chiang-mai), both to stay a little while and to see the [Loi Krathong](https://en.wikipedia.org/wiki/Loi_Krathong) festival. The festival was incredibly popular, so the only option I had was to take a cheap third-class sitting carriage on the train.**
 
 # Overnight Train to Chiang Mai
 
-I made my way (alone) to the train station at 9PM, bought a handful of drinks from a 7-Eleven. The carriage I was in felt really utilitarian; little provision had been made for comfort and it was far warmer than the outside. The seats are very tight, meaning you really brush up close to whomever is next to you. 
+I made my way to the train station at 9PM, buying a handful of drinks from a 7-Eleven as I went. The train station was packed with locals, police, and tourists. I was relieved to find the train I would be taking was already sitting at the platform a half hour before departure.
+
+The carriage I was in felt really utilitarian; little provision had been made for comfort and it was far warmer than the outside. The seats are very tight, meaning you really brush up close to whomever is next to you. 
 
 ![]({{ site.url }}/assets/images/loikrathong-train.jpg)
 

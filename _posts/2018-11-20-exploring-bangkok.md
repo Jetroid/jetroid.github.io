@@ -7,6 +7,7 @@ background-color: "#44323D"
 summary: "I explored Bangkok for two days, these were my experiences."
 categories:
  - "Travel"
+ - "Experiences"
 ---
 
 **[After spending a whole day travelling](/from-croatia-to-asia/), I was finally loose in Thailand, something I have been anticipating for a long time. My goal was to stay a night in Bangkok and then make my way to Chiang Mai for the [Loi Krathong](https://en.wikipedia.org/wiki/Loi_Krathong) festival, as it is meant to be particularly special there. My best friend [Daniel](https://daniellockyer.com/) would be coming to Bangkok from [Phuket](https://daniellockyer.com/laguna-phuket-triathlon/) in the evening of the day I arrived, and I hoped to meet him.**
