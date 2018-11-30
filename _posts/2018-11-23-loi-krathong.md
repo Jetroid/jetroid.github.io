@@ -45,7 +45,7 @@ It wasn't until the sun rose that it became apparently exactly how beautiful the
 ![]({{ site.url }}/assets/images/loikrathong-scenery4.jpg)
 ![]({{ site.url }}/assets/images/loikrathong-scenery5.jpg)
 
-I played some of the (mostly ambient) music I had been listening to on the train to 'It', and he really liked it. I played him music like [Rust], [Dust], [], [TODO TODO TODO]. He said he preferred the songs without lyrics, which I can understand.
+I played some of the (mostly ambient) music I had been listening to on the train to 'It', and he really liked it. I played him music like [Rust](https://www.youtube.com/watch?v=wiUYFZXy_zc), [Dust](https://www.youtube.com/watch?v=phL6fDiYNJk), [Sentient](https://www.youtube.com/watch?v=oTN6cGmH2yM), and [Miami Disco](https://www.youtube.com/watch?v=JaD7rwBDMuk). He said he preferred the songs without lyrics, which I can understand.
 
 Eventually, we pulled into the Chiang Mai station, and I said goodbye to 'It' and Andy, wishing them the best of luck for their travels.
 
