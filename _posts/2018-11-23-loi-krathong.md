@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Loi Krathong Festival"
-date: 2018-11-27 13:30:35 +0700
+date: 2018-11-23 13:30:35 +0700
 background: "loikrathong-beauty.jpg"
 background-color: "#535E64"
 summary: "I travel to Chiang Mai and celebrate the Loi Krathong festival"
