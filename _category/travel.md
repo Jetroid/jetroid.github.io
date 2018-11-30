@@ -1,0 +1,4 @@
+---
+category: "Travel"
+permalink: "/travel/"
+---

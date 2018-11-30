@@ -143,6 +143,8 @@ watching all the lights stream past the window. I had never lived in a city befo
 Starting University - or, getting away from home - helped me to learn a lot about myself,
 as I'm sure leaving for Asia did for Levels.
 
+## Stupid Spending
+
 When I first started at University, I had more cash than I'd ever had before
 and I went a little crazy for it.
 

@@ -6,6 +6,7 @@ background: "tab-sunrise.jpg"
 background-color: "#5B6879"
 summary: "I fly to Zagreb to begin a new lifestyle."
 categories:
+ - "Travel"
  - "Experiences"
 ---
 
@@ -16,6 +17,8 @@ Since before I even became an adult, I have known that I didn't particularly wan
 As I grew older, I knew that I wanted to be free to travel our world, rather than settle down. I have decided that I want to travel with minimal possessions, and find ways to express my creativity and try to make money whilst doing it. I don't want to be stuck working a job I hate, I want freedom. I'm lucky that in the age I was born in, it's easier than ever to make money whilst travelling [because of the internet](/changed-times/). So that's what I'm going to do.
 
 This flight is the start of that freedom. The adventure begins.
+
+# The Last Day
 
 I spent my last full day in the United Kingdom (yesterday) picking and carving Pumpkins with my sister and my niece. 
 
@@ -34,6 +37,8 @@ It was important to me that I spend this day seeing my family; one of the few he
 
 I had already made most of my preparations for my trip, so I was left to just pack my bag, check in to my flight, and print off a few documents. This went smoothly, but packing my bag was a little awkward because I to make everything I might want during my flight accessible. Whilst I packed, I remembered about a box I have full of foreign change I was given by a Chinese student girl who moved back to China. In there, I found 5 Euros. Croatia doesn't officially use Euros, they use the Kuna; I had forgotten to get any Kuna in advance, but I was hopeful I'd be able to use my five Euros for something, even if just at my layover in Brussels.
 
+# Birmingham International
+
 My parents had agreed to drive me to Birmingham airport. Given that I hadn't flown for a decade, I was anxious about some aspects of the process, so I asked them to explain some of the steps before they left. 
 
 The thing I was most anxious about was the security check-in, as it wasn't really something I was familiar with and it seemed like it would be easy to screw up and get into trouble. The fact that I was so anxious about brought me closer to trouble than anything else, as I forgot to empty my pockets; otherwise it was far easier and less painful than I was expecting. It was still surprising to see armed guards, even though I was expecting it. 
@@ -41,6 +46,8 @@ The thing I was most anxious about was the security check-in, as it wasn't reall
 I only had a short wait of 25 minutes or so before flying, which left enough time to comfortably find my gate. As I was only taking carry-on luggage and I had already checked in online, my time at the airport seemed a lot easier than what I could see of other people, and of what I remembered from holidaying as a kid. 
 
 As I made my way through the airport, boarded the plane, and taxi'd across the runway, I listened to [Tame Impala](https://en.wikipedia.org/wiki/Tame_Impala)'s [Let It Happen](https://en.wikipedia.org/wiki/Let_It_Happen_(song)). It seemed appropriate; [it's been anthem of my expectations of the freedom of travel](/let-it-happen/), and the [music video](https://www.youtube.com/watch?v=pFptt7Cargc) is set in an airport and on an aeroplane.
+
+# Birmingham to Brussels
 
 ![]({{ site.url }}/assets/images/tab-boarding.jpg)
 
@@ -75,11 +82,15 @@ I couldn't help but let out a tear. I was literally and figuratively leaving the
 
 From up here, the ripples of the clouds looked like the ripples of sand on an untouched beach.
 
+# Brussels Airport
+
 Before I knew it, we were being told to put away our laptops and other things as we were landing in Brussels Airport.
 
 When I booked my flight, I didn't realise that you can't realistically leave the airport during a layover, so I booked a flight with a 5 hour layover at Brussels Airport, as I was hoping I'd be able to tour Brussels as a bonus 'for free'. Sadly, it wasn't until after I had booked my ticket (ignoring other tickets at similar prices that didn't have Layovers) that I found out this wasn't the case. Oops. Lesson learned.
 
 I was really quite thirsty in Brussels airport. I hadn't had much to drink the day before, and all the walking I had done, combined with my sleep deprivation gave me a headache. I spent the 5 Euros I had brought with me on 2 500ml bottles of water, which didn't really help things. Eventually I found a water fountain hidden at the entrance to the bathrooms, which felt like salvation.
+
+# Zagreb
 
 The 5 hour layover passed uneventfully, as did the flight from Brussels to Zagreb. The customs officer barely gave me a second look as I passed through. 
 
