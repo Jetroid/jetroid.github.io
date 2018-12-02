@@ -12,6 +12,7 @@ background: "background-homepage.png"
 background-color: "#160B04"
 image: me.png
 ---
+{% if paginator.page == 1 %}
 <div id="splash-container">
 	<div id="splash">
 		<div id="image"></div>
@@ -30,10 +31,14 @@ image: me.png
 		</p></div>
 	</div>
 </div>
+{% else %}
+<div id="page-header">
+	<h1 id="page-title">Page {{ paginator.page }}</h1>
+</div>
+{% endif %}
 <div id="posts">
-
     {% assign count = 0 %}
-	{% for post in site.posts %}
+	{% for post in paginator.posts %}
 	{% if post.unlisted != true or count == 0 %}
 	<div class="post">
 		<a href="{{ post.url | prepend: site.baseurl }}">
@@ -48,8 +53,8 @@ image: me.png
 		</a>
 	</div>
 	{% endif %}
-	<!-- Mailchimp email signup for 3rd item !-->
-	{% if count == 2 %}
+	<!-- Mailchimp email signup for 3rd item on first page !-->
+	{% if paginator.page == 1 and count == 2 %}
         <div class="post">
             <div class="post-background" style="background-image: url(/assets/images/mailchimp-beauty.jpg); background-color: #010103">
 			    <div class="post-shadow">
@@ -60,4 +65,14 @@ image: me.png
 	{% endif %}
 	{% assign count = count | plus: 1 %}
 	{% endfor %}
+</div>
+<div id="navigation">
+	{% if paginator.previous_page %}
+		<a id="prev-post" href="{{paginator.previous_page_path}}">&lsaquo;Page {{ paginator.previous_page }}</a>
+	{% else %} <p id="prev-post">&nbsp;&nbsp;---</p>
+	{% endif %}
+	{% if paginator.next_page %}
+		<a id="next-post" href="{{paginator.next_page_path}}">Page {{paginator.next_page}}&rsaquo;</a>
+	{% else %} <p id="next-post">---&nbsp;&nbsp;</p>
+	{% endif %}
 </div>
