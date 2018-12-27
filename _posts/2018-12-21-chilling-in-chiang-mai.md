@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Settling In To Chiang Mai"
+title: "Chilling In Chiang Mai"
 date: 2018-12-21 15:18:32 +0700
 background: "chiangmai-first-beauty.jpg"
 background-color: "#555D5E"
-summary: "My experiences after a month in Chiang Mai."
+summary: "Chiang Mai is the quintessential destination for Digital Nomads. But is it really all it was made out to be?"
 categories:
  - "Travel"
  - "Experiences"

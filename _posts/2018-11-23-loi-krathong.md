@@ -4,7 +4,7 @@ title: "The Loi Krathong Festival"
 date: 2018-11-23 13:30:35 +0700
 background: "loikrathong-beauty.jpg"
 background-color: "#535E64"
-summary: "I travel to Chiang Mai and celebrate the Loi Krathong festival"
+summary: "Nobody quite celebrates like the Thai do during this festival in Chiang Mai."
 categories:
  - "Travel"
  - "Experiences"

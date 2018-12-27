@@ -4,7 +4,7 @@ title: "Exploring Bangkok"
 date: 2018-11-20 15:07:33 +0700
 background: "bangkok-road.jpg"
 background-color: "#44323D"
-summary: "I explored Bangkok for two days, these were my experiences."
+summary: "I explored Bangkok for two days. Why did I hate this city?"
 categories:
  - "Travel"
  - "Experiences"

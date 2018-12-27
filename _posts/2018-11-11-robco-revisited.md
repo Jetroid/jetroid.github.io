@@ -4,7 +4,7 @@ title: "RobCo Revisited"
 date: 2018-11-11 13:34:34 +0100
 background: "robco-revisited-beauty.png"
 background-color: "#17381C"
-summary: "In anticipation of Fallout 76, I reworked the issues with my take on the Hacking Minigame."
+summary: "In anticipation of Fallout 76, I reworked the issues with my take on the Hacking Minigame. Was it worth the effort?"
 categories:
  - "Projects"
 ---

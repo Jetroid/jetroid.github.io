@@ -4,7 +4,7 @@ title: "From Croatia To Asia"
 date: 2018-11-19 17:09:06 +0700
 background: "thaitravel-beauty.jpg"
 background-color: "#7A7A7B"
-summary: "The Long-Haul flight from Croatia to Asia."
+summary: "Because a long-haul flight doesn't have to be boring."
 categories:
  - "Travel"
  - "Experiences"
