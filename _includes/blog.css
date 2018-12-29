@@ -4,13 +4,13 @@ body{
 }
 #page-header{
 	width: 100%;
-	padding: 2em 0;
+	padding: 7vh 0;
 	text-align: center;
 }
 /* Bigger header on larger screens */
 @media (min-width: 1081px){
 	#page-header{
-		padding: 10vh 0;
+		padding: 5.7vw 0;
 	}
 }
 #page-title{
@@ -20,7 +20,7 @@ body{
 	margin-bottom: 5px;
 	font-weight: bold;
 	text-shadow: 2px 2px {{ site.style.background-hex }};
-	font-size: 8vh;
+	font-size: 14vw;
 }
 #page-subtitle{
 	margin: 0;
@@ -38,25 +38,40 @@ body{
     padding-top: 20px;
 }
 #post-content *, p{
-	font-size: 3vh;
+	font-size: 6vw;
 }
 #post-content h1, h2, h3, h4, h5, h6{
 	margin-top: 0;
 	margin-bottom: 0;
-	font-size: 4vh;
+	font-size: 7vw;
 }
 #post-content h1{
-	font-size: 5vh;
-}
-/* Make font size less gaudy on large screens */
-@media (min-width: 500px){
-	#post-content *, p {
-		font-size: 2.5vh;
-	}
+	font-size: 7.5vw;
 }
 .post-date {
 	margin-top: 0;
 	margin-bottom: 0;
+	font-size: 5vw;
+}
+/* Make font size less gaudy on large screens */
+@media (min-width: 500px){
+	#page-title{
+		font-size: 5vw;
+	}
+	#post-content *, p {
+		font-size: 2vw;
+	}
+	#post-content h1, h2, h3, h4, h5, h6{
+		margin-top: 0;
+		margin-bottom: 0;
+		font-size: 3vw;
+	}
+	#post-content h1{
+		font-size: 3.5vw;
+	}
+	.post-date {
+		font-size: 1.5vw;
+	}
 }
 .post-container, #navigation{
 	padding-top: 20px;
@@ -108,7 +123,7 @@ blockquote p {
 	margin: 0 0 0 1em;
 }
 #post-content blockquote * {
-  font-size: 3vh;
+  font-size: 2.2vw;
 }
 
 /* Code blocks should wrap and be even more background-ier!*/
@@ -125,7 +140,7 @@ pre {
 /* Next Post and Previous Post buttons */
 #navigation {
 	margin: 0;
-	font-size: 3vh;
+	font-size: 2.2vw;
 	display: block;
 	width: auto;
 	overflow: hidden;
@@ -168,24 +183,24 @@ pre {
 }
 /* Size the borders responsively */
 .borders{
-	padding-left: 5vh;
-	padding-right: 5vh;
+	padding-left: 9vw;
+	padding-right: 9vw;
 }
 @media (min-width: 500px){
 	.borders{
-		padding-left: 10vh;
-		padding-right: 10vh;
+		padding-left: 6vw;
+		padding-right: 6vw;
 	}
 }
 @media (min-width: 800px){
 	.borders{
-		padding-left: 20vh;
-		padding-right: 20vh;
+		padding-left: 12vw;
+		padding-right: 12vw;
 	}
 }
 @media (min-width: 1000px){
 	.borders{
-		padding-left: 30vh;
-		padding-right: 30vh;
+		padding-left: 18vw;
+		padding-right: 18vw;
 	}
 }
