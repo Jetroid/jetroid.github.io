@@ -38,7 +38,7 @@ body{
     padding-top: 20px;
 }
 #post-content *, p{
-	font-size: 6vw;
+	font-size: 5vw;
 }
 #post-content h1, h2, h3, h4, h5, h6{
 	margin-top: 0;
@@ -59,7 +59,7 @@ body{
 		font-size: 5vw;
 	}
 	#post-content *, p {
-		font-size: 2vw;
+		font-size: 1.4vw;
 	}
 	#post-content h1, h2, h3, h4, h5, h6{
 		margin-top: 0;
