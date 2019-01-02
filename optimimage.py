@@ -16,6 +16,15 @@ repo = git.Repo()
 diffs = repo.index.diff('HEAD')
 staged_files = [x.a_blob.path for x in diffs if hasattr(x, 'a_blob') and x.a_blob != None ]
 
+#If not images in staged files, let's quit
+has_some_image = False
+for file in staged_files:
+    if file.endswith(".jpg") or file.endswith(".jpeg") or file.endswith(".png"):
+        has_some_image = True
+        break
+if not has_some_image:
+    quit()
+
 #Directory of this file
 dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -45,7 +54,7 @@ for folder in FOLDERS.keys():
 
     #Some images may have been removed since the yaml was last updated
     #Let's remove those entries
-    images = []
+    images = [img for img in knownimages if img in realimages]
 
     #Now get the images that need compressing and adding to the yaml
     newimages = [img for img in realimages if img not in knownimages]
@@ -68,32 +77,32 @@ for folder in FOLDERS.keys():
                     #obviously we're upsizing which is bad for storage space.
                     #If DONOTUPSIZE is set, we don't do that, simply using the original image
                     #Otherwise we upsize.
-                    if DONOTUPSIZE and size > width:
+                    if size > width:
                         #Just save the new file as an optimisation of the original
-                        os.system("convert " + imagepath + " -sampling-factor 4:2:0 -strip -quality 85 -interlace JPEG -colorspace RGB " + imagepathnoext + "-" + size + ".jpg")
+                        os.system("convert " + imagepath + " -sampling-factor 4:2:0 -strip -quality 85 -interlace JPEG -colorspace RGB " + imagepathnoext + "-" + str(size) + ".jpg")
                     else:
-                        os.system("convert " + imagepath + " -sampling-factor 4:2:0 -strip -resize " + size + "x -quality 85 -interlace JPEG -colorspace RGB " + imagepathnoext + "-" + size + ".jpg")
+                        os.system("convert " + imagepath + " -sampling-factor 4:2:0 -strip -resize " + str(size) + "x -quality 85 -interlace JPEG -colorspace RGB " + imagepathnoext + "-" + str(size) + ".jpg")
                     #Add the resized image
-                    repo.git.add(imagepathnoext + "-" + size + ".jpg")
+                    repo.git.add(imagepathnoext + "-" + str(size) + ".jpg")
                 #Optimise the original
-                #os.system("convert " + imagepath + " -sampling-factor 4:2:0 -strip -quality 85 -interlace JPEG -colorspace RGB " + imagepath)
+                os.system("convert " + imagepath + " -sampling-factor 4:2:0 -strip -quality 85 -interlace JPEG -colorspace RGB " + imagepath)
             elif image.endswith(".png"):
                 #Optimise the original
-                #os.system("optipng -quiet -o1 -strip all " + imagepath);
+                os.system("optipng -quiet -o1 -strip all " + imagepath);
 
                 #Generate all of the resized versions
                 for size in FOLDERS[folder]:
                     #Convert the image
                     if size > width:
                         #Just save the new file as an copy of the original
-                        os.system("cp " + imagepath + " " + imagepathnoext + "-" + size + ".png");
+                        os.system("cp " + imagepath + " " + imagepathnoext + "-" + str(size) + ".png")
                     else:
                         #Make it smaller
-                        os.system("convert " + imagepath + " -strip -resize " + size + "x " + imagepathnoext + "-" + size + ".png")
+                        os.system("convert " + imagepath + " -strip -resize " + str(size) + "x " + imagepathnoext + "-" + str(size) + ".png")
                         #Also optimise it
-                        os.system("optipng -quiet -o1 -strip all " + imagepathnoext + "-" + size + ".png");
+                        os.system("optipng -quiet -o1 -strip all " + imagepathnoext + "-" + str(size) + ".png")
                     #Add the resized image
-                    repo.git.add(imagepathnoext + "-" + size + ".png")
+                    repo.git.add(imagepathnoext + "-" + str(size) + ".png")
             #Add the optimised original image
             repo.git.add(imagepath)
             #Remember the images
@@ -104,3 +113,4 @@ for folder in FOLDERS.keys():
         outfile.write("---\n")
         yaml.dump({'images':images}, outfile, default_flow_style=False)
         outfile.write("---")
+

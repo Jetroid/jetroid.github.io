@@ -30,6 +30,10 @@ background-color: "#848485"
 						{%- assign rest = piece | split: '" alt="' | shift | join: '" alt="' | split: '"' | shift | join: '"' -%}
 						{%- assign url-filename = url | split: '.' | first -%}
 						{%- assign url-extension = url | split: '.' | last -%}
+                        {%- if url-extension == "gif" -%}
+                            <noscript><img src="{{ url }}" alt={{alt}} /></noscript>
+                            <img class="lazy" data-src="{{ url }}" alt={{alt}}{{ rest }}
+                        {%- else -%}
 						<noscript><img 
 							srcset="{{ url-filename }}-560.{{ url-extension }} 560w,
              						{{ url-filename }}-655.{{ url-extension }} 655w,
@@ -53,11 +57,16 @@ background-color: "#848485"
              						(min-width:800px) 76vw,
              						(min-width:1000px) 64vw"
              			alt="{{ alt }}"{{ rest }}
+                        {%- endif -%}
 					{%- else -%}
 						{%- assign url = piece | split: '"' | first -%}
 						{%- assign rest = piece | split: '"' | shift | join: '"' -%}
 						{%- assign url-filename = url | split: '.' | first -%}
 						{%- assign url-extension = url | split: '.' | last -%}
+                        {%- if url-extension == "gif" -%}
+                            <noscript><img src="{{ url }}" /></noscript>
+                            <img class="lazy" data-src="{{ url }}"{{ rest }}
+                        {%- else -%}
 						<noscript><img 
 							srcset="{{ url-filename }}-560.{{ url-extension }} 560w,
              						{{ url-filename }}-655.{{ url-extension }} 655w,
@@ -80,6 +89,7 @@ background-color: "#848485"
              						(min-width:500px) 88vw,
              						(min-width:800px) 76vw,
              						(min-width:1000px) 64vw"{{ rest }}
+                        {%- endif -%}
 					{%- endif -%}
 				{%- endif -%}
 			{%- endfor -%}
