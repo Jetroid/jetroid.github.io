@@ -21,7 +21,7 @@ It seemed like a good project to undertake -
 I am very passionate about the Fallout series, 
 and I only had to take the project as far as I wanted.
 
-![Image of the hacking minigame in Fallout 3]({{ site.url }}/assets/images/hacking-minigame-reference.jpg)
+![Image of the hacking minigame in Fallout 3]({{ site.url }}/assets/images/content/hacking-minigame-reference.jpg)
 *Image of the hacking minigame in Fallout 3*
 
 I finished the layout of the hacking portion several weeks ago,
@@ -53,7 +53,7 @@ You can play it [here!]({{ site.url }}/hacking)
 I'm sure that my source code would make a more experienced web developer weep,
 but I'm a beginner! Cut me some slack!
 
-[![Image of the hacking minigame]({{ site.url }}/assets/images/hacking-minigame-game.png)
+[![Image of the hacking minigame]({{ site.url }}/assets/images/content/hacking-minigame-game.png)
 *Image of the hacking minigame*]({{ site.url }}/hacking)
 
 
@@ -61,7 +61,7 @@ It was only when I had completed it that I realised I had no 'win condition'.
 Making a lose condition was trivial - 
 I could simply implement the 'Lockout' screen that the series has.
 
-![Image of the hacking minigame's lockout screen]({{ site.url }}/assets/images/hacking-minigame-lockout.png)
+![Image of the hacking minigame's lockout screen]({{ site.url }}/assets/images/content/hacking-minigame-lockout.png)
 *Image of the hacking minigame's lockout screen*
 
 Winning was a little harder.
@@ -76,7 +76,7 @@ Having an unusual interface for a blog is not a new idea for me.
 My first attempt at a website last year was a really bad
 (read: barely functional) knock off of a linux terminal.
 
-![Image of the old website]({{ site.url }}/assets/images/hacking-minigame-old-site.png)
+![Image of the old website]({{ site.url }}/assets/images/content/hacking-minigame-old-site.png)
 *Image of the old website*
 
 This older website was really clunky - it was my literally first foray into HTML - 
@@ -95,5 +95,5 @@ The same blog posts are re-usable -
 I write them once into a file in my _posts/ directory, and I can use
 them across the site.
 
-![Image of this blog post]({{ site.url }}/assets/images/hacking-minigame-blog-post.png)
+![Image of this blog post]({{ site.url }}/assets/images/content/hacking-minigame-blog-post.png)
 *Image of this blog post*

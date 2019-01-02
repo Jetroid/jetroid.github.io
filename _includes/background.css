@@ -1,20 +1,57 @@
+{% capture background-color-partial %}{% if page.background-color %}{{ page.background-color }}{% else if layout.background-color %}{{ layout.background-color }}{% endif %}{% endcapture %}
+{% capture background-image-partial %}{% if page.background %}{{ page.background }}{% else if layout.background %}{{ layout.background }}{% else %}default-background.jpg{% endif %}{% endcapture %}
+{% capture background-position-partial %}{% if page.background-position %}{{ page.background-position }}{% else if layout.background-position %}{{ layout.background-position }}{% endif %}{% endcapture %}
+
+{% capture background-color %}{% unless background-color-partial == "" or background-color-partial == nil %}{{ background-color-partial }}{% else %}{{ site.style.background-hex }}{% endunless %}{% endcapture %}
+{% capture background-image %}{% unless background-image-partial == "none" or background-image-partial == "" or background-image-partial == nil %}{{ background-image-partial }}{% else %}default-background.jpg{% endunless %}{% endcapture %}
+{% capture background-position %}{% unless background-position-partial == "" or background-image-partial == nil %}{{ background-position-partial }}{% else %}center center{% endunless %}{% endcapture %}
+
+/* The liquid code I'm using relies on the background-image only using dots for the file extension */
+{% assign image-extension = background-image | split: '.' | last %}
+{% assign image-name = background-image | split: '.' | first %}
+
+
 body {
-
-{% capture background-color %}{% if page.background-color %}{{ page.background-color }}{% else if layout.background-color %}{{ layout.background-color }}{% endif %}{% endcapture %}
-
-  background-color: {% unless background-color == "" or background-color == nil %}{{ background-color }}{% else %}{{ site.style.background-hex }}{% endunless %};
-
-{% capture background-image %}{% if page.background %}{{ page.background }}{% else if layout.background %}{{ layout.background }}{% else %}default-background.jpg{% endif %}{% endcapture %}
-
-{% unless background-image == "none" or background-image == "" or background-image == nil %}
-
-  background-image: url("/assets/images/{{ background-image }}");
-
-  {% capture background-position %}{% if page.background-position %}{{ page.background-position }}{% else if layout.background-position %}{{ layout.background-position }}{% endif %}{% endcapture %}
-
-  background-position: {% unless background-position == "" or background-image == nil %}{{ background-position }}{% else %}center center{% endunless %};
+  background-color: {{ background-color }};
+  background-position: {{ background-position }};
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-{% endunless %}
+}
+/* Our cutoffs for backgrounds are at 1920,1600,1366,1024,768,640 */
+/* Default size will be 640 (mobile first) */
+body {
+	background-image: url("/assets/images/backgrounds/{{ image-name }}-640.{{ image-extension }}");
+}
+/* Now what if we're bigger than 640? We want next size up, etc */
+@media (min-width: 641px){
+	body {
+		background-image: url("/assets/images/backgrounds/{{ image-name }}-768.{{ image-extension }}");
+	}
+}
+@media (min-width: 769px){
+	body {
+		background-image: url("/assets/images/backgrounds/{{ image-name }}-1024.{{ image-extension }}");
+	}
+}
+@media (min-width: 1025px){
+	body {
+		background-image: url("/assets/images/backgrounds/{{ image-name }}-1366.{{ image-extension }}");
+	}
+}
+@media (min-width: 1367px){
+	body {
+		background-image: url("/assets/images/backgrounds/{{ image-name }}-1600.{{ image-extension }}");
+	}
+}
+@media (min-width: 1601px){
+	body {
+		background-image: url("/assets/images/backgrounds/{{ image-name }}-1920.{{ image-extension }}");
+	}
+}
+/* Gone past all our breakpoints... show the original image now instead */
+@media (min-width: 1921px){
+	body {
+		background-image: url("/assets/images/backgrounds/{{ background-image }}");
+	}
 }

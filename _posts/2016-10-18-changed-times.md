@@ -58,7 +58,7 @@ They work from coffee shops, beaches, hotels, wherever.
 They aren't tied down to a specific city and can move on as they please.
 They may rent their own office space, or work at a co-working area.
 
-![A Coworking Space in Chiang Mai, a popular Digital Nomad destination. (source: coworksquare.com)]({{ site.url }}/assets/images/changed-times-coworking.jpg)
+![A Coworking Space in Chiang Mai, a popular Digital Nomad destination. (source: coworksquare.com)]({{ site.url }}/assets/images/content/changed-times-coworking.jpg)
 *A coworking space in Chiang Mai, a popular Digital Nomad destination. <span class="nobr">(source: coworksquare.com)</span>*
 
 Why is this appealing?
@@ -128,7 +128,7 @@ The article was about how all these people live without a home,
 but that they stay connected by charging up at fast-food joints or using solar panels,
 and have a whole network where they share tips and experiences.
 
-![A trainhopping vagabond. (source: mikebrodie.net)]({{ site.url }}/assets/images/changed-times-vagabond.jpg)
+![A trainhopping vagabond. (source: mikebrodie.net)]({{ site.url }}/assets/images/content/changed-times-vagabond.jpg)
 *A trainhopping vagabond. <span class="nobr">(source: mikebrodie.net)</span>*
 
 The article contained a link to the [reddit community](https://www.reddit.com/r/vagabond),

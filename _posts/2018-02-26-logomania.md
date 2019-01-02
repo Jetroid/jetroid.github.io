@@ -20,7 +20,7 @@ The idea of wearing 'named brands' like Levi's, Obey, or Calvin Klein is alien t
 It's not something I've ever understood or have had a desire to do.
 A clothing brand isn't something that I think you can have a connection with - I can understand liking a specific unique-ish item, but wearing and wanting an otherwise plain top that just says "OBEY" or whatever? Nope, I don't understand that.
 
-![Obey Brand Clothing by Mike Mozart is licensed under CC BY 2.0]({{ site.url }}/assets/images/logomania-obey.jpg)
+![Obey Brand Clothing by Mike Mozart is licensed under CC BY 2.0]({{ site.url }}/assets/images/content/logomania-obey.jpg)
 *"[Obey Brand Clothing](https://www.flickr.com/photos/jeepersmedia/15730241754)" by [Mike Mozart](https://www.flickr.com/photos/jeepersmedia/) is licensed under CC BY 2.0*
 
 It's a chicken and egg problem, I think. You might associate with the brand because you've been wearing it so long. But then what made you start wearing it in the first place? Seeing it on your peers? Why did they start wearing it?
@@ -36,7 +36,7 @@ Historically, most of the clothes I purchased for myself fit neatly into this ca
 I purchased T-shirts from the internet featuring graphics from game series like [Portal](https://en.wikipedia.org/wiki/Portal_(video_game)), [Half Life](https://en.wikipedia.org/wiki/Half-Life_(video_game)), [Star Citizen](https://en.wikipedia.org/wiki/Star_Citizen), and later,
 [The Culling](https://en.wikipedia.org/wiki/The_Culling_(video_game)). I even bought a [medic-themed messenger bag](https://www.thisiswhyimbroke.com/uk/vintage-medic-messenger-bag/), because it reminded me of [Team Fortress 2](https://wiki.teamfortress.com/wiki/Medic). People noticed that I wore things like this, and bought me similar clothes as gifts, featuring content from [Serious Sam](https://en.wikipedia.org/wiki/Serious_Sam_(video_game)), [Breaking Bad](https://en.wikipedia.org/wiki/Breaking_Bad), [Halloween](https://en.wikipedia.org/wiki/Halloween_(1978_film)), and [Batman](https://en.wikipedia.org/wiki/The_Batman_Chronicles_(trade_paperback)).
 
-![Two instances are these Portal 2 Tees, which I bought in July 2012.]({{ site.url }}/assets/images/logomania-portal.jpg)
+![Two instances are these Portal 2 Tees, which I bought in July 2012.]({{ site.url }}/assets/images/content/logomania-portal.jpg)
 *Two instances are these Portal 2 Tees, which I bought in July 2012.<br />Images taken from Amazon* 
 
 It seemed natural to me to buy these things. I was mirroring the behaviours of the people I came into contact with. At high school, my friends and I were obsessed with video games and some of them had video game t-shirts. When I moved on to my sixth form, my new friends were more interested in music, and liked buying, owning and wearing 'band merch' t-shirts. At university, a lot of computer science students wear 'geeky t-shirts', so my video game shirts didn't feel too out of place and I didn't really question it or think about it. 
@@ -45,7 +45,7 @@ It seemed natural to me to buy these things. I was mirroring the behaviours of t
 
 The first time I questioned wearing this type of garment was when I saw the '_sick loot_' from a University careers fair. I didn't go myself, but I saw the sort of things that my friends took back. Pens, t-shirts, stickers, even socks, all featuring the branding and logos of companies that I'm sure my friends didn't identify with or care about. These companies paid big money to give students things with branding on it. I reflected on my experience running the university [hackathon](https://en.wikipedia.org/wiki/Hackathon) society; Companies had paid sponsorship just to have a brief mention at a society event. 
 
-![Branded items from a University Careers Fair]({{ site.url }}/assets/images/logomania-careers-fair.jpg)
+![Branded items from a University Careers Fair]({{ site.url }}/assets/images/content/logomania-careers-fair.jpg)
 *Branded items from a University Careers Fair.<br />Image sourced by [Matt](https://matt.consto.uk)* 
 
 With my clothing choices, I was *paying* companies to put *their __branding__* on me. I realised that I had __*paid*__ to become a walking __*sandwich board*__.
@@ -60,7 +60,7 @@ Like someone who has had their [Doublethink](https://en.wikipedia.org/wiki/Doubl
 
 I have always disliked clothes that had the *name* of the series or media that they are associated with. I'd usually only choose a product if it was subtle, as if it could be an in-universe thing. Even if I really liked something, if I could only find items that had a name or a logo, I tended to avoid it. I was, in a sense, snobbish about it. 
 
-![This 'Breaking Bad' themed T-shirt doesn't include any branding.]({{ site.url }}/assets/images/logomania-barrel-with-a-bee-on-it.jpg)
+![This 'Breaking Bad' themed T-shirt doesn't include any branding.]({{ site.url }}/assets/images/content/logomania-barrel-with-a-bee-on-it.jpg)
 *This 'Breaking Bad' themed T-shirt doesn't include any branding.<br />Image sourced from Something Geeky*
 
 ## Tribal Identification
@@ -92,7 +92,7 @@ I think it's important to think about how these items make you feel and if you f
 
 I do think that it's important to define yourself as more than just what you like or what you wear, though. Whilst I was [dealing with depression](/the-grip-of-depression), I struggled with the idea that I didn't really have any hobbies that weren't related to video games or programming, and I felt like I didn't have my own identity.
 
-![Comic from Calvin and Hobbes]({{ site.url }}/assets/images/logomania-calvin-hobbes.jpg)
+![Comic from Calvin and Hobbes]({{ site.url }}/assets/images/content/logomania-calvin-hobbes.jpg)
 *From [Calvin and Hobbes](http://www.gocomics.com/calvinandhobbes/2012/08/30)* 
 
 I think it's important that we cultivate our own identity. I also think that it's important not to limit or simplify your identity to conform to the expectations of other people. I have a whole host of character traits, things I like, and things I find interesting that aren't possible to distil into t-shirt format. My thoughts about life and society, my fascination with brutalist architecture and urban decay, and my captivation for the mysterious (for example, [UVB-76](https://en.wikipedia.org/wiki/UVB-76), or the case of [Elisa Lamb](https://en.wikipedia.org/wiki/Death_of_Elisa_Lam)) are all very real parts of my identity that would be impossible to know from a cursory inspection.

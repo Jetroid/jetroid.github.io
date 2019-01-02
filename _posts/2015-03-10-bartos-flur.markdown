@@ -29,7 +29,7 @@ to the extent that it was no longer feasible as a product.
 
 A new solution was needed.
 
-![Frequency Central's initial prototype]({{ site.url }}/assets/images/bartos-flur-original-prototype.jpg)
+![Frequency Central's initial prototype]({{ site.url }}/assets/images/content/bartos-flur-original-prototype.jpg)
 *Frequency Central's initial prototype*
 
 At the same time,
@@ -48,7 +48,7 @@ designed to quantise the voltage of the bands to semitones set by the variable r
 This PIC eventually became known as the QuaSH,
 and may one day be used in future Frequency Central modules.
 
-![Electronics Project Bartos Flur]({{ site.url }}/assets/images/bartos-flur-electronics-project.jpg)
+![Electronics Project Bartos Flur]({{ site.url }}/assets/images/content/bartos-flur-electronics-project.jpg)
 *Electronics Project Bartos Flur*
 
 Programming the Bartos Flur was a great challenge, and it really let me get my feet wet with PICs.
@@ -66,7 +66,7 @@ On top of figuring out how programming in
 [assembly](https://en.wikipedia.org/wiki/Assembly_language) works (conditional branching!?),
 I had to learn how to interface with the PICs hardware.
 
-![Frequency Central's prototype using my PIC]({{ site.url }}/assets/images/bartos-flur-copper-prototype.jpg)
+![Frequency Central's prototype using my PIC]({{ site.url }}/assets/images/content/bartos-flur-copper-prototype.jpg)
 *Frequency Central's prototype using my PIC*
 
 My initial attempt at analogue input was funny.
@@ -91,7 +91,7 @@ and devised a very similar solution in the code for the digital version.
 The new system requires multiple samples of the same band before being accepted
 and outputting on that band.
 
-![Bartos Flur Commercial PCB]({{ site.url }}/assets/images/bartos-flur-finished-pcb.jpg)
+![Bartos Flur Commercial PCB]({{ site.url }}/assets/images/content/bartos-flur-finished-pcb.jpg)
 *Bartos Flur Commercial PCB*
 
 Next I had to develop a solution for the Clock problem.
@@ -107,7 +107,7 @@ To read the clock I now use an analogue input to determine state rather
 than a binary input.
 
 
-![Bartos Flur Commercial Panel]({{ site.url }}/assets/images/bartos-flur-finished-panel.jpg)
+![Bartos Flur Commercial Panel]({{ site.url }}/assets/images/content/bartos-flur-finished-panel.jpg)
 *Bartos Flur Commercial Panel*
 
 Now that I was using two separate Analogue channels in my PIC,
@@ -129,7 +129,7 @@ Frequency Central was very pleased with the outcome.
 I rewrote some of the logic code in Spring 2015 in preparation for the
 commercial release, and the Bartos Flur was subsequently [released for sale](http://www.frequencycentral.co.uk/?page_id=1589) on 9th March 2015.
 
-![Bartos Flur Cake Edition]({{ site.url }}/assets/images/bartos-flur-cake.jpg)
+![Bartos Flur Cake Edition]({{ site.url }}/assets/images/content/bartos-flur-cake.jpg)
 *Bartos Flur Cake Edition*
 
 A demo of the Bartos Flur is presented below:

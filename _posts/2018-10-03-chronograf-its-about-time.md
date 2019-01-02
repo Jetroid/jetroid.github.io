@@ -2,7 +2,7 @@
 layout: post
 title: "Chronograf: It's About Time"
 date: 2018-10-03 13:55:38 +0100
-background: "chronograf-beauty.jpeg"
+background: "chronograf-new-beauty.jpg"
 background-color: "#BDB1AF"
 summary: "The story of how I substantially reworked the Chronograf."
 categories:
@@ -16,7 +16,7 @@ For one reason or another, that never happened.
 
 This summer, I was back living with my Father to work on a project or two before moving on. He mentioned that he was thinking on getting the Chronograf PCBs developed finally - we never drew up a schematic at the time as it was a rolling development, so it'd be easier to do if I was here, as I could look up the pinout for the PIC, the prototype board we had made, as well as check the order of things like the [LFO](http://electronicmusic.wikia.com/wiki/Low_frequency_oscillator) waveforms.
 
-![]({{ site.url }}/assets/images/chronograf-prototype-changes.jpeg)
+![]({{ site.url }}/assets/images/content/chronograf-prototype-changes.jpg)
 *Chronograf's perf board prototype*
 
 I believe that we had never particularly even listened to the LFO output of the Chronograf, merely confirmed the waveforms looked correct on the Oscilloscope, as when we listened to the audio on the studio monitors, a distinct high frequency bleeping was audible. We believed that this may be down to the filter used to convert the PIC's PWM output to an analogue voltage, though after about a week I realised I had a single instruction in my code causing it. 
@@ -27,7 +27,7 @@ Testing like this also revealed a few more issues relating to the exact shape of
 
 When I had designed the Sine wave, I had done it in the true Mathematics sense, ie starting at the midpoint, then rising, then falling, then rising again. However, the fact that (in the version of the Chronograf at the time) the LFO idled at -5V, this meant there was a audible 'boom' as the speaker instantaneously moved from the lower position to the center position. It would be more musical to shift the sine wave 90 degrees forward, so that it started at the lowest point.
 
-![]({{ site.url }}/assets/images/chronograf-iat-sinechange.png)
+![]({{ site.url }}/assets/images/content/chronograf-iat-sinechange.png)
 *Graphical representation of the Sine change*
 
 The Tempo only changed at the end of an LFO cycle. Considering that the Chronograf's slowest tempo has a period of around 8 seconds, and that an LFO can have a Multiplier of up to 256, this meant that in the worst case, you'd have to wait >2000 seconds (30 minutes!) to respond to a change, which really wouldn't be good!
@@ -38,7 +38,7 @@ I then changed my approach, and created an algorithm that would figure out what 
 
 The cool thing about this was that you could create 'kinks' in the LFO, and kinda sculpt even a boring sawtooth into interesting sounds (and shapes). This would be especially interesting if the LFO was voltage controlled!
 
-![]({{ site.url }}/assets/images/chronograf-iat-kink.jpeg)
+![]({{ site.url }}/assets/images/content/chronograf-iat-kink.jpg)
 *Kinks in a Sawtooth wave*
 
 (We also briefly experimented with adding a switch to allow the user to select this new mode or the original mode, but we always ended up feeling like we'd prefer to be in the new mode, so we dropped it.)
@@ -47,14 +47,14 @@ The cool thing about this was that you could create 'kinks' in the LFO, and kind
 
 I demonstrated my changes to my Father using pictures and video clips whilst he returned from his Holiday, and he was very happy. He had been thinking about the Chronograf, and expressed that it'd be great if the Chronograf had a few more waveforms. 
 
-![]({{ site.url }}/assets/images/chronograf-iat-original.png)
+![]({{ site.url }}/assets/images/content/chronograf-iat-original.png)
 *Chronograf's original 8 waveforms*
 
 The LFO and it's waveforms has always been less of a focus - Chronograf was intended to be a simple startable/stoppable clock source to control modules like [Polygraf](/polygraf/). Adding more exotic sounds would give it more widespread appeal.
 
 He expressed frustration that he couldn't draw using Telegram (the messenger program we use), and I joked that he could draw on his arm and take a photo. He downloaded an app that allowed him to draw and sent me pictures of some crudely drawn shapes. He then also described a toggle-able 'One Shot' mode that 'would just allow one cycle then stop. Which in conjunction with these new waveforms would make it a simple but versatile envelope generator.'
 
-![]({{ site.url }}/assets/images/chronograf-iat-schiphol.jpeg)
+![]({{ site.url }}/assets/images/content/chronograf-iat-schiphol.jpg)
 *Crude waveform sketch*
 
 The left column represented waves we already had, and the others represented new waves.
@@ -71,7 +71,7 @@ I found that with the 6 additional waveforms, it was hard to get the correct pre
 
 After several days of discussing potential waveforms, we realised that most 'shapes' fundamentally were combinations of 'ups', 'downs', 'flats', or 'stables', where the 'ups' and 'downs' can have curves. Triangle is 'up-down', Squarewave is 'stable-flat-stable-flat', Ramps are 'up-flat' Even the Sine wave has curved 'up' and 'down' components. We could introduce shapes that are combinations of those components, and then augment the 'ups' and 'downs' to follow a different function for the slope. 
 
-![]({{ site.url }}/assets/images/chronograf-iat-sketch.jpeg)
+![]({{ site.url }}/assets/images/content/chronograf-iat-sketch.jpg)
 *Sine is formed from up and down segments*
 
 At this time, we had 4 different functions (linear, exponential, sine, and logarithmic) and 4 wave shapes (up, down, up-down, and down-up). 
@@ -80,7 +80,7 @@ We wanted to add back in the Squarewaves, as they are relatively inexpensive as 
 
 Having the function parameter allowed us to add four more divisions than our Squarewaves originally had. We also decided that we would add a Pulses mode, which produced pulses in a continuous spectrum from 1-step-on-out-of-256 for 0V on the Function input, to always-on at 5V. This meant that voltage control of the Function would allow for [pulse width modulation](http://electronicmusic.wikia.com/wiki/Pulse_width_modulation).
 
-![]({{ site.url }}/assets/images/chronograf-iat-waves.jpeg)
+![]({{ site.url }}/assets/images/content/chronograf-iat-waves.jpg)
 *Two rejected wave shapes - Chainsawtooth and Staggered Triangles* 
 
 We experimented with different combinations of ups, downs, and flats to produce interesting wave shapes. We settled on an ADSR-type shape, which has 'up-down-stable-down', and an MW-shaped shape, which has 'up-down-up-down-down-up-down-up'.
@@ -105,11 +105,11 @@ If you're not technical, that may not make much sense, so here's an analogy. If 
 
 To solve the problem, I went through my entire code and created a graph of every goto and call. It took a while to do, but it helped me identify places with call-returns that could be replaced with simple jumps. 
 
-![]({{ site.url }}/assets/images/chronograf-iat-call-graph.jpg)
+![]({{ site.url }}/assets/images/content/chronograf-iat-call-graph.jpg)
 
 Call stack overflow is a pretty insidious problem, as it may seem that you have solved it by making some change and seeing if everything works. In reality, in 'just the right circumstances', everything can and will break again. In my case, I found a point in my code where I had tried to be smart about the fact that a call-return takes 4 instruction cycles to create a very space-efficient 20-instruction-cycles delay routine. If my code had an interrupt occur during this tiny space of time (2.5 microseconds), then the whole program would have stopped working until it was reset.
 
-![]({{ site.url }}/assets/images/chronograf-iat-new.png)
+![]({{ site.url }}/assets/images/content/chronograf-iat-new.png)
 *Chronograf's new set of waveforms*
 
 After solving my technical problems, I had a version of the Chronograf with a huge number of distinct one shot sounds! We went from 8 sounds to 56, (or many more or slightly less, depending on what you count), which in my opinion is a huge amount of versatility. This versatility is increased further when you add the fact that you can get the inverted output of any wave through a simple inverting amplifier, producing even more potential sounds!

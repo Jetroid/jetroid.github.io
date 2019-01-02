@@ -65,7 +65,7 @@ This file allows you to set site-wide variables which you can reference in
 any jekyll-processed page using the 'site' variable - 
 <span class="nobr">{% raw %}{{ site.variablename }}{% endraw %}</span>.
 
-![Jekyll Font Variables]({{ site.url }}/assets/images/jekyll-font-variables.png)
+![Jekyll Font Variables]({{ site.url }}/assets/images/content/jekyll-font-variables.png)
 *Jekyll Font Variables*
 
 For my initial usage, I'm just using this to store the colours of my fonts - 
@@ -75,7 +75,7 @@ At the time of writing, they were "#cfcfc9" and "#d05d5d" respectively -
 if these two values are different to the previous two,
 then I decided to change my colours and the variables helped me do that easily!
 
-![Jekyll Font Variables in use]({{ site.url }}/assets/images/jekyll-font-variables-used.png)
+![Jekyll Font Variables in use]({{ site.url }}/assets/images/content/jekyll-font-variables-used.png)
 *Jekyll Font Variables in use*
 
 Page and Layout specific CSS and JS
@@ -144,7 +144,7 @@ However, you can push your _site folder
 to GitHub as if it were a non-Jekyll (read: regular ol' boring static) site.
 For me, this isn't a good solution as I really like Github Pages compiling for me.
 
-![Custom CSS in my 'default' layout when using plugin]({{ site.url }}/assets/images/jekyll-custom-css.png)
+![Custom CSS in my 'default' layout when using plugin]({{ site.url }}/assets/images/content/jekyll-custom-css.png)
 *Custom CSS in my 'default' layout when using plugin*
 
 Neither the naïve solution of two for-loops,
@@ -185,7 +185,7 @@ This script checks for the variable 'custom_style_includes' in the yaml front ma
 and if present adds the specified css from the _includes/ directory,
 using <span class="nobr">{% raw %}{% include {{ style_include }}.css %}{% endraw %}</span>.
 
-![Custom style include to set the background on my blog]({{ site.url }}/assets/images/jekyll-custom-style-include.png)
+![Custom style include to set the background on my blog]({{ site.url }}/assets/images/content/jekyll-custom-style-include.png)
 *Custom style include to set the background on my blog*
 
 I can then use variables in the yaml front matter to specify 

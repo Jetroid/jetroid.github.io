@@ -2,7 +2,7 @@
 layout: post
 title: "Other Wanderers Will Follow"
 date: 2017-10-18 20:01:39 +0100
-background: "others-will-come-beauty.png"
+background: "others-will-come-beauty.jpg"
 background-color: "#262D33"
 summary: "A look at two inspiring but constrasting sci-fi videos."
 categories:

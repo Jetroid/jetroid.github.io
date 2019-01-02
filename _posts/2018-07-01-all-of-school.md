@@ -27,8 +27,8 @@ The actual results day crept up on me; I had been focussing on packing or dispos
 
 In anticipation of results day, to celebrate having completed our degree, and as a final Hurrah before we left Southampton, Daniel and I chose to go to the Thaikhun Thai Street Food restaurant in Southampton the day before. Daniel intends to [start his nomad adventure in Thailand](https://daniellockyer.com/the-next-two-months/), so it was encouraging for both of us how tasty the food was.
 
-![]({{ site.url }}/assets/images/aos-thaikuhn1.jpeg)
-![]({{ site.url }}/assets/images/aos-thaikuhn2.jpeg)
+![]({{ site.url }}/assets/images/content/aos-thaikuhn1.jpg)
+![]({{ site.url }}/assets/images/content/aos-thaikuhn2.jpg)
 *Images provides by [Daniel](https://daniellockyer.com)*
 
 On the eve of results, I dreamed two different dreams whilst I slept. I dreamed that I completely failed to get any grade at all (essentially an impossibility), but that I took the failure in my stride and become a successful musician - a weird thing to dream considering I can't currently play any instruments! My second dream was that I passed with flying colours, and then not much happened - I just bought Indian food as I would to celebrate many other events.
@@ -37,21 +37,21 @@ For all intents and purposes, the outcome didn't truly matter to me or my future
 
 2PM passed without receiving an email. A month ago, we had also been expecting the feedback from a coursework assignment which never came. Daniel and I joked that the results email was delayed because of the assignment, which helped relieve some of the painful tension. We also continued our running joke of `/stress 10`, mimicking the Mindful Makers bot format.
 
-![]({{ site.url }}/assets/images/aos-stress.png)
+![]({{ site.url }}/assets/images/content/aos-stress.png)
 
 After much refreshing of my email client, at 2:29PM, Dan received his email and started getting excited about his module marks - for him, the First Class Honours degree classification was an almost foregone conclusion, so I can understand why he'd be particularly excited about a high module mark. Still, it didn't help my anxiety!
 
-![]({{ site.url }}/assets/images/aos-anticipation.png)
+![]({{ site.url }}/assets/images/content/aos-anticipation.png)
 
 Two minutes later, I received my email, and my hands were shaking so much I struggled to click the email.
 
 The email starts off with your module marks - wow, everything looks goooooooood!
 
-![]({{ site.url }}/assets/images/aos-marks.png)
+![]({{ site.url }}/assets/images/content/aos-marks.png)
 
 ...and then has this beautiful piece of text:
 
-![]({{ site.url }}/assets/images/aos-thebigone.png)
+![]({{ site.url }}/assets/images/content/aos-thebigone.png)
 
 Wow! OMG! I did it!
 
@@ -59,15 +59,15 @@ And not only that, but I did it legit without using the 69.5% rounding loophole.
 
 Dan was incredibly excited for me! Perhaps more than I was - I was still in shock, I think.
 
-![]({{ site.url }}/assets/images/aos-excitement.png)
+![]({{ site.url }}/assets/images/content/aos-excitement.png)
 
 I also naturally told my family. My Mom and I had a very sweet phone call. My sister cried because my achievement made her really happy; she also posted emotional messages about it to her Facebook followers.
 
-![]({{ site.url }}/assets/images/aos-sister.png)
+![]({{ site.url }}/assets/images/content/aos-sister.png)
 
 My Father had some choice words:
 
-![]({{ site.url }}/assets/images/aos-father.png)
+![]({{ site.url }}/assets/images/content/aos-father.png)
 
 Dan and I also posted to [M2](https://mindfulmakers.club/), and we received lots of love from that great, supportive community.
 

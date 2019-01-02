@@ -16,12 +16,12 @@ Despite it's small size, many Croatians seem to have heard of Nova Gradiška. Pa
 
 I looked for accommodation a few days before I was due to arrive, as I didn't want to be caught out in such a small place. I couldn't see an hostels online located in Nova Gradiška at the time of my booking (though Matej's mother later told me that there are some), so I was forced to booked to stay at the Hotel [Kralj Tomislav](https://www.hotel-kralj-tomislav.hr/en/). This cost more than 5 times what I was paying per night in Zagreb, so it felt like a very expensive trip. 
 
-![A historic train is now a monument located at Glavni Kolodvor Train Station. The cabin seemed to be used as shelter by local homeless people.]({{ site.url }}/assets/images/matej-old-train.jpg)
+![A historic train is now a monument located at Glavni Kolodvor Train Station. The cabin seemed to be used as shelter by local homeless people.]({{ site.url }}/assets/images/content/matej-old-train.jpg)
 *A historic train is now a monument located at Glavni Kolodvor Train Station. The cabin seemed to be used as shelter by local homeless people.*
 
 The Zagreb Glavni Kolodvor train station is very central (I went under it on my second or third day in Zagreb, and I've been able to see it from the window of one of the Hostels I stayed in), so I had no trouble getting there. It's kind of a weird place. The outer facade of the building is [very posh and imposing](https://en.wikipedia.org/wiki/Zagreb_Glavni_kolodvor#/media/File:Estaci%C3%B3n_Principal_de_FF.CC.,_Zagreb,_Croacia,_2014-04-20,_DD_03.JPG), but inside it is dark and grimy, and the tunnels that connect the platforms are covered in Graffiti. Even some of the trains are covered in Graffiti. There's also a Christian shrine to Jesus just randomly through an archway on the platform, which is kind of odd to run into.
 
-![A shrine to Jesus, located inside the train station.]({{ site.url }}/assets/images/matej-glavni.jpg)
+![A shrine to Jesus, located inside the train station.]({{ site.url }}/assets/images/content/matej-glavni.jpg)
 *A shrine to Jesus, located inside the train station at Glavni Kolodvor.*
 
 I arrived plenty early as I didn't want to miss my train and because I wanted to make sure I knew where to go. I ended up needing the toilet as I had been bored and drinking water, but when entering there I was shouted at by a lady who yelled "4 Kuna 4 Kuna 4 Kuna" at me repeatedly. This was a [pay toilet](https://en.wikipedia.org/wiki/Pay_toilet), but I didn't know because either there was no signage or I couldn't read the signage. I was surprised because I'm used to pay toilets being automatic machine things, but obviously that isn't the case in Eastern Europe. I object to pay toilets in [the same way Richard Stallman does](https://stallman.org/pay-toilets.html), so I just left.
@@ -42,40 +42,40 @@ My planning for this trip had been less than ideal. I had forgotten to take a sc
 
 I looked up everything I needed to, and messaged Matej telling him I was in Gradiška. By chance, it just so happened that one of those three young men had been Matej, and that he had thought he recognised me but didn't say anything at the time! I had been in this place for less than five minutes and we had already passed each other. Wow, it really is a small city!
 
-![What a crazy coincidence!]({{ site.url }}/assets/images/matej-saw-me.jpg)
+![What a crazy coincidence!]({{ site.url }}/assets/images/content/matej-saw-me.jpg)
 *What a crazy coincidence!*
 
 The Hotel Kralj Tomislav is an okay place to stay, and they serve free breakfast every morning. The lady at reception kept trying to tell me about different things they serve for breakfast - tea, coffee, eggs, sausages - but every time I told her I didn't eat/drink that thing, and eventually she gave up and just said it would be easier if I asked questions when I had them. They have a large selection of food for breakfast but most of it wasn't vegan so I kept to fruit, juice, and jam sandwiches.
 
-![Dining Room at Hotel Kralj Tomislav. Supposedly the murals on the wall are images of some part of Croatia's history.]({{ site.url }}/assets/images/matej-dining-room.jpg)
+![Dining Room at Hotel Kralj Tomislav. Supposedly the murals on the wall are images of some part of Croatia's history.]({{ site.url }}/assets/images/content/matej-dining-room.jpg)
 *Dining Room at Hotel Kralj Tomislav. Supposedly the murals on the wall are images of some part of Croatia's history.*
 
 My room was quite shabby. A socket was hanging out of the wall, the wooden furniture all had damage of some kind, and the floor was cold stone slabs. They provided a few disposable sewing kit, which I used to repair my wallet and shoes (at least, until the needle shattered). The WiFi was terrible and the power sockets were positioned in inconvenient positions, so I shunted my bed to different positions in the room to try to make things work. 
 
-![My Room at Hotel Kralj Tomislav.]({{ site.url }}/assets/images/matej-my-room.jpg)
+![My Room at Hotel Kralj Tomislav.]({{ site.url }}/assets/images/content/matej-my-room.jpg)
 *My Room at Hotel Kralj Tomislav.*
 
 I had started to feel a little ill over the past day, so that night I just went straight to sleep in my hotel room. I felt even worse the next day so didn't leave then either - the most expensive place I am staying so far and I waste 1/2 of my time there being ill, great! Despite my complaints about the hotel, I had to admit that after sharing 6/8-bed hostel rooms for the previous two weeks, it was a welcome change to have a little bit of privacy (especially as I felt so ill!).
 
 Eventually I agreed to meet up with Matej when I felt a little better. Meeting an internet friend in real life for the first time is an interesting thing. Matej - for whatever reason - chooses not to put many pictures of himself online. This meant that the last time I had seen a picture of him was a summer or two before this - a long time in the life of a young man! He looked completely different to how I remembered him. He was now a stocky, tough looking guy who wouldn't look out of place with a biker gang. Conversation was a little stilted at first - but we quickly managed to adjust and get comfortable.
 
-![Matej and I. A great moment! A huge shame that my front-facing camera is damaged!]({{ site.url }}/assets/images/matej-and-me.jpg)
+![Matej and I. A great moment! A huge shame that my front-facing camera is damaged!]({{ site.url }}/assets/images/content/matej-and-me.jpg)
 *Matej and I. A great moment! A huge shame that my front-facing camera is damaged!*
 
 Matej showed me around Gradiška, showing me (the outside of) his house, his elementary school, his high school, and places of interest like the Yugoslav War Memorial, the Croatian Military Reservists building (Which has a Yugoslav War era machine gun out front), and the main street (a handful of cafés and shops). There really isn't a lot here, honestly! When I was in Zagreb, I had noticed that there weren't many people with laptops in cafés.  Here, they have dedicated internet cafés! - something I honestly thought had died out by now as I had only heard of it from 90s stories. Matej told me that most people here didn't get an internet connection in their home until 2010-2012, which says a lot.
 
-![Yugoslav War Memorial.]({{ site.url }}/assets/images/matej-war-memorial.jpg)
+![Yugoslav War Memorial.]({{ site.url }}/assets/images/content/matej-war-memorial.jpg)
 *Yugoslav War Memorial.*
 
-![Croatian Military Reservists building.]({{ site.url }}/assets/images/matej-war-gun.jpg)
+![Croatian Military Reservists building.]({{ site.url }}/assets/images/content/matej-war-gun.jpg)
 *Croatian Military Reservists building.*
 
 At some point, Matej pointed out big piles of wood to me, and a well or two. Most people in Nova Gradiška don't have gas connected to their house, so they heat the house and cook by burning wood instead. Some don't have running water, so they use wells, but I got the impression the wells may just be a legacy thing and that most houses did have water now. I also saw a lot of homes had crops growing in their gardens, or livestock milling around. During my remaining time in Gradiška, I definitely noticed all the lumber - many houses had visible stocks somewhere!
 
-![Wood and a well at a house I passed by.]({{ site.url }}/assets/images/matej-wood-and-well.jpg)
+![Wood and a well at a house I passed by.]({{ site.url }}/assets/images/content/matej-wood-and-well.jpg)
 *Firewood next to a well at a house I passed by.*
 
-![More wood, plus chickens grazing in an enclosure.]({{ site.url }}/assets/images/matej-wood-and-livestock.jpg)
+![More wood, plus chickens grazing in an enclosure.]({{ site.url }}/assets/images/content/matej-wood-and-livestock.jpg)
 *More wood, plus chickens grazing in an enclosure.*
 
 The wood burning leads to a kind of haze across the city - it's hard to notice in pictures, but it is very noticeable in real life. The horizon is kind of a colour gradient rather than a clear line, and colours seem to "bend" a little more. This effect increases during the evening, as does the smell. I really like this aspect of the town. It almost feels kind of 'romantic'.
@@ -86,24 +86,24 @@ The next day, Matej wasn't available to meet me in the morning, so I decided to 
 
 After walking for an hour in specific direction, I reached a small bridge over a stream. Even way out here in [the middle of nowhere](https://www.google.com/maps?q=45.25717093056676,17.420599055580514), I saw a small religious shrine. It felt really surreal to me; who is coming here to see this? Croatians are very serious about their religion.
 
-![A shine by the side of the road, 4km from the nearest town. Who is coming here to see this?]({{ site.url }}/assets/images/matej-shrine.jpg)
+![A shine by the side of the road, 4km from the nearest town. Who is coming here to see this?]({{ site.url }}/assets/images/content/matej-shrine.jpg)
 *A shine by the side of the road, 4km from the nearest town. Who is coming here to see this?*
 
 Eventually I started heading back to try to take a good picture of the countryside. I climbed somewhere into [the hills in the north](https://www.google.com/maps/place/45%C2%B015'33.1%22N+17%C2%B024'42.2%22E/@45.2601427,17.404468,14.99z/data=!4m5!3m4!1s0x0:0x0!8m2!3d45.2591805!4d17.41172). 
 
-![Beautiful Croatian countryside.]({{ site.url }}/assets/images/matej-countryside.jpg)
+![Beautiful Croatian countryside.]({{ site.url }}/assets/images/content/matej-countryside.jpg)
 *Beautiful Croatian countryside.*
 
 When I went to leave, the path quickly devolved into walking through undergrowth and spiky trees. There was a big dog snarling, barking, and growling at me from the other side of a very poorly constructed fence. I actually started feeling a really unsafe. 
 
 The foliage was getting more and more dense, but I didn't want to go back to where the dog had been as it was very possible it could find it's way through the fence. I ended up having to push my way through some trees and crawl under a branch or two. Little spiky balls got stuck in my laces and shredded them so that they looked like a horse's tail. When I got back to the road I was scratched and uncomfortable and had leaves and sticks in my hair and stuck to my clothes. 
 
-![Nova Gradiška from the east.]({{ site.url }}/assets/images/matej-east.jpg)
+![Nova Gradiška from the east.]({{ site.url }}/assets/images/content/matej-east.jpg)
 *Nova Gradiška from the east.*
 
 I got back to town at around 1:30PM and reconnected to the public WiFi to check on the status of Matej, but sadly he still wasn't available to meet up again yet, and wouldn't be for a few hours. This made me a little worried as I'd need to leave fairly early at around 5PM so that I could book a hostel in Zagreb, which left only a small  I decided to walk up the hills to the north west of Gradiška and take a picture of the city itself. 
 
-![Nova Gradiška from the hills.]({{ site.url }}/assets/images/matej-hills.jpg)
+![Nova Gradiška from the hills.]({{ site.url }}/assets/images/content/matej-hills.jpg)
 *Nova Gradiška from the hills.*
 
 Sadly, when I got back to town, Matej told me that I was probably better off just getting on to the train as he was busy and in the middle of something. I was worried that somehow I had upset him or made him uncomfortable, but hoped that wasn't it. A train was leaving soon, so I sadly just made my way there. I felt a little dejected that I only got to meet Matej once, as meeting him was one of my big reasons to make Croatia my first destination. 

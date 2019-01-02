@@ -32,7 +32,7 @@ We reason about our beliefs and discuss exactly why we believe something to be t
 It leaves you feeling lost and confused for a while,
 but I think it's better than a life unexamined.
 
-![Lockyer and I in 2013 (We don't take many pictures)]({{ site.url }}/assets/images/finding-meaning-daniel.jpg)
+![Lockyer and I in 2013 (We don't take many pictures)]({{ site.url }}/assets/images/content/finding-meaning-daniel.jpg)
 *Lockyer and I in 2013<br />(We don't take many pictures)*
 
 We've discussed and experienced so much together now
@@ -137,7 +137,7 @@ Everything was new. I never knew what to expect around the next corner.
 I still remember sitting on the bus on my first night in this new place,
 watching all the lights stream past the window. I had never lived in a city before.
 
-!["Night Rain" by Vladimir Agafonkin is licensed under CC BY 2.0]({{ site.url }}/assets/images/finding-meaning-bus.jpg)
+!["Night Rain" by Vladimir Agafonkin is licensed under CC BY 2.0]({{ site.url }}/assets/images/content/finding-meaning-bus.jpg)
 *"[Night Rain](https://www.flickr.com/photos/mourner/3355207350)" by [Vladimir Agafonkin](https://www.flickr.com/photos/mourner) is licensed under CC BY 2.0*
 
 Starting University - or, getting away from home - helped me to learn a lot about myself,
@@ -154,7 +154,7 @@ I bought [expensive](https://www.etsy.com/uk/transaction/250472724) [shit](https
 that I didn't need; I felt like buying all these things would make me happy
 and improve my quality of life.
 
-![Gauntlets did not give me long-term happiness]({{ site.url }}/assets/images/finding-meaning-gauntlets.jpg)
+![Gauntlets did not give me long-term happiness]({{ site.url }}/assets/images/content/finding-meaning-gauntlets.jpg)
 *Gauntlets did not give me long-term happiness*
 
 ## A Realization
@@ -164,7 +164,7 @@ It definitely did not improve my quality of life.
 A week or more after buying something, I'd be thinking about whatever else I wanted to buy.
 And then the next thing.
 
-![Fancy jackets did not give me long-term happiness]({{ site.url }}/assets/images/finding-meaning-jacket.jpg)
+![Fancy jackets did not give me long-term happiness]({{ site.url }}/assets/images/content/finding-meaning-jacket.jpg)
 *Fancy jackets did not give me long-term happiness*
 
 A year later, and you've accumulated all this shit that you once thought you'd care about,
@@ -200,7 +200,7 @@ And to support all this, those same people work until their body **literally giv
 and it's rising. Given that the average life expectancy is 80 years old,
 this is most of their life!
 
-![Many people are working for most of their life]({{ site.url }}/assets/images/finding-meaning-old-man.jpg)
+![Many people are working for most of their life]({{ site.url }}/assets/images/content/finding-meaning-old-man.jpg)
 *Many people are working for most of their life*
 
 People are spending *most of their life* doing work they hate,
@@ -277,7 +277,7 @@ Perhaps trying to examine life in a more structured way (as with Meditation)
 could be beneficial.
 Meditation might help to put to rest old worries and fears.
 
-![Monks are typically at peace]({{ site.url }}/assets/images/finding-meaning-monk.jpg)
+![Monks are typically at peace]({{ site.url }}/assets/images/content/finding-meaning-monk.jpg)
 *Monks are typically at peace*
 
 I think the real benefit of Meditation is that it brings you back to the moment.

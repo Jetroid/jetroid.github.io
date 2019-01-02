@@ -21,7 +21,7 @@ I had been spending around £6-8/night (~£220/month) in the hostels in Chiang M
 
 The best information is usually current information, and I had heard from [Lowen](https://flowen.me/) (indirectly via [Ronald](https://www.ronaldlangeveld.com)) that one of the cheapest places was called 'The Siri', as he stayed there a few weeks ago for €75/month. 
 
-![]({{ site.url }}/assets/images/chiangmai-first-lowen.jpg)
+![]({{ site.url }}/assets/images/content/chiangmai-first-lowen.jpg)
 
 Strangely, I found that the prices for 'The Siri' were [much more expensive than this](https://nomadrental.com/cities/chiang-mai-th/hotels/the-siri-condominium), at 22,220 baht per month for the most basic room (£536/m, $680/m, €594/m). I thought at first this was just the prices being inflated on the website, but I saw similar prices when I went there in person. Well, The Siri seems like a dud.
 
@@ -29,20 +29,20 @@ I checked online to get a feel for some of the places and even checked them out 
 
 I actually ran into the Hillside Plaza 4 complex whilst looking at apartments. The place is infamous to me because of [Pieter's experience there](https://levels.io/chiang-mai-apartment/), and I recognised it pretty much instantly. I had never looked it up on a map so I was surprised to see it's on the main road; it always looked like it might be quite rural to me from his pictures. It's cool to compare his pictures to my own experiences and see what has changed in the last five years.  
 
-![Hillside 4 in 2018 taken from the same angle as Pieter's picture from 2013.]({{ site.url }}/assets/images/chiangmai-first-hillside4.jpg)
+![Hillside 4 in 2018 taken from the same angle as Pieter's picture from 2013.]({{ site.url }}/assets/images/content/chiangmai-first-hillside4.jpg)
 *Hillside 4 in 2018 taken from the same angle as [Pieter's picture](https://levels.io/wp-content/uploads/2013/09/IMG_3012.jpg) from 2013.*
 
 He's absolutely right about the ground floor. The lighting was so incredibly dim that I thought I was wearing sunglasses as I walked inside (though my pictures don't really represent that for some reason). 
 
-![]({{ site.url }}/assets/images/chiangmai-first-hillsideinside3.jpg)
+![]({{ site.url }}/assets/images/content/chiangmai-first-hillsideinside3.jpg)
 
 Despite it being an apartment block, the ground floor is a 'mall' that anybody can go to. But it's really weird because it's really *not* obvious that it's a mall from the street, which obviously leads to the shops inside are not trafficked much. 
 
-![]({{ site.url }}/assets/images/chiangmai-first-hillsideinside1.jpg)
+![]({{ site.url }}/assets/images/content/chiangmai-first-hillsideinside1.jpg)
 
 Most of the 'lots' are vacant, and those that are there are very niche (there are two antique furniture shops, an estate agents, and a travel agents). I found myself wondering how these places stay open, but judging by the empty store windows, they don't. The only place that seemed to be doing okay was the gym. 
 
-![]({{ site.url }}/assets/images/chiangmai-first-hillsideinside2.jpg)
+![]({{ site.url }}/assets/images/content/chiangmai-first-hillsideinside2.jpg)
 
 They seem to be doing some renovation there now, but I'm not sure how much it will help. It isn't a good location.
 
@@ -50,23 +50,23 @@ They seem to be doing some renovation there now, but I'm not sure how much it wi
 
 After a few hours of looking around, I settled on the [Huay Kaew Residence](http://www.huaykaewresidence.com/); it's a huge apartment complex with I'd guess around a thousand rooms. It's located between both the 'hipster' Nimman area and the 'cultural' old city. I hadn't properly explored Nimman by this point myself, but I'd heard "it's where you want to be", so I was happy to be close to it.
 
-![To get to the residence, you have to pass by a picture of the King.]({{ site.url }}/assets/images/chiangmai-first-huaykaewroad.jpg)
+![To get to the residence, you have to pass by a picture of the King.]({{ site.url }}/assets/images/content/chiangmai-first-huaykaewroad.jpg)
 *To get to the residence, you have to pass by a picture of the [King](https://en.wikipedia.org/wiki/Vajiralongkorn).*
 
 Huay Kaew is 5500 baht for the room, an optional 400 baht for their barebones gym, an optional 300 baht for WiFi, a mandatory 200 baht cleaning bill when you check out, and some cost for utilities which are calculated based on your usage (but which should come to around 500 baht). You also pay 200 baht for your key, which I hope is just a deposit but I suspect is actually "scam" to get more money through hidden costs. To be able to rent for one month, you also pay a second month as a deposit. All told, not including the deposit, you pay around 7100 baht per month (£173, $215, €190). I paid and was able to move in just two hours later.
 
-![]({{ site.url }}/assets/images/chiangmai-first-myroom.jpg)
+![]({{ site.url }}/assets/images/content/chiangmai-first-myroom.jpg)
 
 The room I picked (the most basic one) has a double bed, a desk with an ancient CRT television on top, a refrigerator, a phone, and a shower. I unplugged all of those appliances, because I just have no need for them. There's a mirror and a wardrobe built in to the wall, and I have a balcony which overlooks the rest of the residence. I also have an air conditioning unit built in. There are more expensive options with LED televisions or kitchens, but I wouldn't be needing any of that. My laptop is a good enough screen, and it's probably just as cheap to eat out here as it would be to cook every day, and eating out is obviously waaay more convenient and sometimes tastier too.
 
-![View from my room to the rest of Huay Kaew Residence.]({{ site.url }}/assets/images/chiangmai-first-myroomview.jpg)
+![View from my room to the rest of Huay Kaew Residence.]({{ site.url }}/assets/images/content/chiangmai-first-myroomview.jpg)
 *View from my room to the rest of Huay Kaew Residence.*
 
 I think the best thing about the apartment is the pool. From what I can tell, not a lot of the apartments in Chiang Mai have pools, and certainly not the cheapest ones. The pool is not heavily trafficked; when I go there, there is only ever one or two other people swimming, and a few people sunbathing. 
 
 I'm writing this after having lived here for near enough a month, and I have been swimming in the pool every second day. I'm getting a lot better at swimming. I feel like I have more definition in my shoulders and I just generally feel fitter. Plus it's a lot of fun.
 
-![]({{ site.url }}/assets/images/chiangmai-first-swimming.jpg)
+![]({{ site.url }}/assets/images/content/chiangmai-first-swimming.jpg)
 
 The one complaint I have about Huay Kaew Residence is that the WiFi is somewhat intermittent and they only let you connect one device at a time. The WiFi could be a lot worse - it's 8Mbps or so at peak times and has good signal strength - but it could also be a lot better if they just had different policies. 
 
@@ -74,7 +74,7 @@ I find myself constantly having to go into my settings and disconnect and reconn
 
 I actually just decided to buy a 550 baht 4G package with TRUE mobile for this next month; it gives me unlimited data at 6Mbps. Whilst it's more expensive than the apartment WiFi, I can use it when I am out and about, and can tether to my laptop when needed. I'm realistically going to need a data package anyway, so it's no real loss. I won't be buying the apartment WiFi next month because the TRUE data plan just makes the WiFi less convenient. Consequently they are missing out on easy money because of their restrictive policies.
 
-![Huay Kaew also has a very basic gym. You have to pay for entry.]({{ site.url }}/assets/images/chiangmai-first-huaykaewgym.jpg)
+![Huay Kaew also has a very basic gym. You have to pay for entry.]({{ site.url }}/assets/images/content/chiangmai-first-huaykaewgym.jpg)
 *Huay Kaew also has a very basic gym. You have to pay for entry.*
 
 Additionally, if I were to stay here again, I would ask specifically for a north facing room. My room faces south and so has the sun streaming in through the window all day. It gets so much hotter than the north facing rooms. Plus, the view from a north facing room is so much more interesting as your view isn't obstructed.
@@ -89,7 +89,7 @@ For what it's worth, I met a vegan cyclist guy a few days later who told me he l
 
 After wandering around for the hottest hours of the day, we were tired and he decided that it wasn't going to get any better than Huay Kaew Residence for now, so he decided to stay here too. It's funny, Daniel and I lived together from July 2017 to June 2018, and I got quite emotional when he moved out. It's funny that we ended up living in the same building just five months later. In fact, the first time I'm renting somewhere that isn't a hostel, we end up living together. Wow! They even put him in the room opposite mine. I step out of my door and I can knock on his. It's really funny and cool.
 
-![View from Daniel's room, facing north.]({{ site.url }}/assets/images/chiangmai-first-danielroom.jpg)
+![View from Daniel's room, facing north.]({{ site.url }}/assets/images/content/chiangmai-first-danielroom.jpg)
 *View from Daniel's room, facing north.*
 
 # Places to Eat
@@ -98,29 +98,29 @@ I tend to be quite habitual when it comes to food. I'll find some where or some 
 
 My first discovery was this place called [Shan Tou Hao Chi](https://restaurantguru.com/Shan-Tou-Hao-Chi-Vegetarian-and-Vegan-San-Phi-Suea), which is in the basement of the Maya building. The main thing they do is a deal where you get a bed of rice, and then pick three dishes to put with it, all for the low low price of 50 baht. 
 
-![Shan Tou Hao Chi, my favourite place to eat in Chiang Mai.]({{ site.url }}/assets/images/chiangmai-first-shantou.jpg)
+![Shan Tou Hao Chi, my favourite place to eat in Chiang Mai.]({{ site.url }}/assets/images/content/chiangmai-first-shantou.jpg)
 *Shan Tou Hao Chi, my favourite place to eat in Chiang Mai.*
 
 There is lots of variety and it's all really healthy - it's basically just vegetables. It's all cooked and ready to go so you can eat within a minute of going inside - some people might not like this as it might remind them of a school cafeteria, but to me it's just so damned convenient and tasty too. They also serve other things like vegetarian burgers, big blocks of sweet potato, and Chinese sticky rice with beans and mushrooms. The first time I ate here, I basically decided that I was going to eat here every day whilst I was in Chiang Mai.
 
-![A typical plate of food from Shan Tou Hao Chi. Mussaman Curry, 'Brussel Sprouts', Chinese Stew, Rice, and chunks of purple Japanese Sweet Potato. It's tastier than it looks.]({{ site.url }}/assets/images/chiangmai-first-shantoufood.jpg)
+![A typical plate of food from Shan Tou Hao Chi. Mussaman Curry, 'Brussel Sprouts', Chinese Stew, Rice, and chunks of purple Japanese Sweet Potato. It's tastier than it looks.]({{ site.url }}/assets/images/content/chiangmai-first-shantoufood.jpg)
 *A typical plate of food from Shan Tou Hao Chi. Mussaman Curry, 'Brussel Sprouts', Chinese Stew, Rice, and chunks of purple Japanese Sweet Potato. It's tastier than it looks.*
 
 Their sign says 'Vegetarian Food', but the majority of it is vegan too. I really like it here. It's run by the same three people, and they are there every day. There is Smile - a name that could not be more appropriate - and her brother Ming, and a girl called Noon or Nun (I'm not sure which). Smile and Ming are so happy to see you every day; honestly their positivity is so refreshing. For example, when I ask Smile how she is doing today, she always comes out with the best responses, like "I'm outstanding!", "I'm ecstatic!", or gesturing to the room saying "It's paradise!". I feel like she swallowed a dictionary. Smile and Ming are always interested to talk about what has been going on (as long as there isn't a huge queue!) and often suggest other things to do. Noon is a little more reserved and doesn't talk so much, but she's still really friendly!
 
-![]({{ site.url }}/assets/images/chiangmai-first-saladconceptexterior.jpg)
+![]({{ site.url }}/assets/images/content/chiangmai-first-saladconceptexterior.jpg)
 
 My second discovery was The Salad Concept. You basically make your own salad wrap, by selecting from a list of base vegetables and other ingredients. It feels like a hipster subway place, but healthier. It's a little more expensive than Shan Tou Hao Chi, but it's good for some variety.
 
-![Salad Concept Build-Your-Own Menu.]({{ site.url }}/assets/images/chiangmai-first-saladconceptmenu.jpg)
+![Salad Concept Build-Your-Own Menu.]({{ site.url }}/assets/images/content/chiangmai-first-saladconceptmenu.jpg)
 *Salad Concept Build-Your-Own Menu.*
 
-![Some of the selection at The Salad Concept.]({{ site.url }}/assets/images/chiangmai-first-saladconcept.jpg)
+![Some of the selection at The Salad Concept.]({{ site.url }}/assets/images/content/chiangmai-first-saladconcept.jpg)
 *Some of the selection at The Salad Concept.*
 
 I always get my salad as a wrap, even though there are other options and presentations. I typically go for things that I know contain lots of protein and other nutrients that I might be lacking. I pick things like Tofu, Red Kidney Beans, Spinach, Olives, etc.
 
-![Salad Concept Wraps.]({{ site.url }}/assets/images/chiangmai-first-saladconceptwrap.jpg)
+![Salad Concept Wraps.]({{ site.url }}/assets/images/content/chiangmai-first-saladconceptwrap.jpg)
 *Salad Concept Wraps.*
 
 There are a few other places that I go, but Shan Tou Hao Chi and The Salad Concept are my staples.
@@ -131,7 +131,7 @@ We formed a small Telegram group of people that we knew were in Chiang Mai, or w
 
 Within two days of moving into Huay Kaew, I met up with these online friends. Some I had spoken with in the past, others I had only heard of, and yet more people I was meeting for the first time. 
 
-![From left to right: Cam, Ronald, Jesse, Daniel, Me, and Stas. Eric and Nibulon were at the top left but they left before we took this picture.]({{ site.url }}/assets/images/chiangmai-first-firstmeetup.jpg)
+![From left to right: Cam, Ronald, Jesse, Daniel, Me, and Stas. Eric and Nibulon were at the top left but they left before we took this picture.]({{ site.url }}/assets/images/content/chiangmai-first-firstmeetup.jpg)
 *From left to right: [Cam](https://camerondare.com/), [Ronald](https://ronaldlangeveld.com), [Jesse](https://twitter.com/jessems), [Daniel](https://daniellockyer.com), Me, and [Stas](https://wip.chat/@Skatkov). [Eric](https://twitter.com/ericnmurphy) and [Nilubon](https://twitter.com/Nilubon_aoi) were here too, but they left before we took this picture.*
 
 It was kind of inspiring meeting these people. They're my new 'peers', I guess. I felt like one of the 'least successful' people at the meet up, which is a weird feeling and isn't something I am accustomed to. At school, college, and university, I was frequently top of my class. I remember telling someone about the [Bartos Flur](/bartos-flur/) during my first year of university and realising I was selling an actual product at 19 years old; how many people can say that? But here that doesn't mean much. These people are making thousands a month just from projects they have started and grown on their own. 
@@ -146,12 +146,12 @@ Later, [Pat Walls](http://patwalls.co/) arrived, stayed in a hostel or two, trie
 
 A few days later, a new friend, [Guilherme](https://twitter.com/gvrizzo) came to Chiang Mai and decided to stay in Huay Kaew too. Guilherme is a crazy and funny guy, I really like him. Apparently he only has only a modest amount in his bank account right now, forcing him to be very productive to survive. I like the ethic. He also has a tiny mac thing that doesn't come with a screen, meaning he has to rent a room with a LED TV to use, and find a wireless keyboard from somewhere, leading to this kinda-awful setup, pictured below. It's really rough but I think it's really cool too. 
 
-![Guilherme's setup.]({{ site.url }}/assets/images/chiangmai-first-gsetup.jpg)
+![Guilherme's setup.]({{ site.url }}/assets/images/content/chiangmai-first-gsetup.jpg)
 *Guilherme's setup.*
 
 I think it's actually really cool that the five of us have come together and are living in the same apartment complex. It feels like a real little community. We also meet up whenever somebody new arrives, for a special occasion, or for when somebody departs.
 
-![Celebrating Daniel's Birthday.]({{ site.url }}/assets/images/chiangmai-first-danbirthday.jpg)
+![Celebrating Daniel's Birthday.]({{ site.url }}/assets/images/content/chiangmai-first-danbirthday.jpg)
 *Celebrating Daniel's Birthday.*
 
 # Getting Around
@@ -160,32 +160,32 @@ After being in Huay Kaew for a few days, I wanted to go to the fruit market to g
 
 [Mobike](https://mobike.com/global/) are a bike sharing company that operate in Chiang Mai since January, among other places. You see the bikes all over the city. If you follow the main road for even a little while you're sure to run into one, and there's often several inside Huay Kaew Residence. They're also amazingly cheap to use; I paid 200 baht (£5) to be able to use it unlimited for 90 days. Incredible. In the UK there were bike share companies that charged £1 per ride!   
 
-![Riding a bike for the first time in a decade.]({{ site.url }}/assets/images/chiangmai-first-mobike.jpg)
+![Riding a bike for the first time in a decade.]({{ site.url }}/assets/images/content/chiangmai-first-mobike.jpg)
 *Riding a bike for the first time in a decade.*
 
 I haven't ridden a bike size I suffered paralysis (unrelated) at age 11; so that's half of my life passed since I last road. So I was really nervous at first and didn't have the confidence to do what I wanted to do. My first time riding I didn't even have the confidence to look behind me. I just held on firmly to the handlebars and just kept peddling. By the time we got to the fruit market my hands hurt because I was holding on too tight out of fear. 
 
-![]({{ site.url }}/assets/images/chiangmai-first-fruitmarket1.jpg)
-![]({{ site.url }}/assets/images/chiangmai-first-fruitmarket2.jpg)
+![]({{ site.url }}/assets/images/content/chiangmai-first-fruitmarket1.jpg)
+![]({{ site.url }}/assets/images/content/chiangmai-first-fruitmarket2.jpg)
 
 My riding really bad at first and I actually crashed (gently) once. But the more I used the Mobike to get around, the better I became. I realised it's just about having the confidence. When I felt like I wasn't skilled enough to lift one arm to do signalling, then whenever I tried I lost control. But when I had the confidence I could do it, it was easy. This was the same for doing U-Turns (ie believing you can go at a certain angle without coming off) and even just riding at a slow speed.
 
 There are some places I didn't enjoy cycling to. For example, I wanted to buy a few pairs of sports Tshirts from the [Decathlon](https://goo.gl/maps/3EPxgsREQw22), which is a few kilometres south of the old town down the dual carriageway. A dual carriageway is too scary for a newbie cyclist. Generally though, I find Chiang Mai very easy to cycle through. There are so many mopeds here that the drivers of the cars sort of "expect" bikes to be all over, so it's perfectly okay to just be on edge of the left lane going slowly; you aren't blocking anything as this lane is typically used by the bikes. It's quite cool to weave your way through stationary traffic. 
 
-![There are so many mopeds here that they have special parking spaces for them.]({{ site.url }}/assets/images/chiangmai-first-mopedparking.jpg)
+![There are so many mopeds here that they have special parking spaces for them.]({{ site.url }}/assets/images/content/chiangmai-first-mopedparking.jpg)
 *There are so many mopeds here that they have special parking spaces for them.*
 
 After being in Huay Kaew for nearly a month, myself, Daniel, Aiden, Guilherme, and another guy I didn't mention yet,  [Darcey](https://twitter.com/DarceyDingsdag), all biked up to the Huay Kaew Waterfall, which is a very short way up the mountain to the west. I had one of the heavy bikes that the seat doesn't adjust to the proper height on, so I had some trouble getting up the hill, but we made it in the end. It was a cool view and it was cool to hang out. It was also a blast going downhill on the bike. So speedy!
 
-![]({{ site.url }}/assets/images/chiangmai-first-waterfall2.jpg)
-![From back to front, Darcey, Aiden, Guilherme, Daniel, and I.]({{ site.url }}/assets/images/chiangmai-first-waterfall3.jpg)
+![]({{ site.url }}/assets/images/content/chiangmai-first-waterfall2.jpg)
+![From back to front, Darcey, Aiden, Guilherme, Daniel, and I.]({{ site.url }}/assets/images/content/chiangmai-first-waterfall3.jpg)
 *From back to front, Darcey, Aiden, Guilherme, Daniel, and I.*
 
 # Health And Wellbeing
 
 A lot of things came together so far whilst I was in Chiang Mai. I alternated between running and swimming on alternate days, was cycling to get around, sometimes lifting weights, and generally I was eating very healthy food. I entered the healthy weight category (~88kg and below for my height) for my body, and reached new furthest ran distances - I ran 15km, when my previous best before Chiang Mai was 8.5km.
 
-![New weight record! 86kg.]({{ site.url }}/assets/images/chiangmai-first-weight.jpg)
+![New weight record! 86kg.]({{ site.url }}/assets/images/content/chiangmai-first-weight.jpg)
 *New weight record! 86kg.*
 
 I also humoured Daniel by practising [Static Apnea](https://en.wikipedia.org/wiki/Static_apnea) [with him](https://daniellockyer.com/apnea/), and increased my time from 45s or so to 1m 40s. Nowhere near as good as his times. I still have a long way to go with my fitness!  

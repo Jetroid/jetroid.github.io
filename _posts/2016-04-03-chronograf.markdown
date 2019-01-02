@@ -35,7 +35,7 @@ My brief experience with timers hadn't been a good one - I was intimidated by th
 and this module would be completely based around timers.
 I resolved to complete the Polygraf and think about it.
 
-![Chronograf Calculations]({{ site.url }}/assets/images/chronograf-spreadsheet.png)
+![Chronograf Calculations]({{ site.url }}/assets/images/content/chronograf-spreadsheet.png)
 *Chronograf Calculations*
 
 When I finished the code for the Polygraf on 2015/12/29, I felt like I could achieve anything! I decided to go ahead with the Chronograf.
@@ -56,7 +56,7 @@ Once calculated, I needed some way to pull these out of LibreOffice Calc and int
 I saved the values I needed as a CSV file and then wrote a quick python script
 to convert it to the desired format. This proved useful and effective.
 
-![Chronograf Data Script]({{ site.url }}/assets/images/chronograf-python-script.png)
+![Chronograf Data Script]({{ site.url }}/assets/images/content/chronograf-python-script.png)
 *Chronograf Data Script*
 
 On New Years Eve 2015, I worked solidly into the new year.
@@ -77,7 +77,7 @@ code for the 16F88 (that I had been using for the Polygraf)
 rather than the 16F684 (that the Chronograf is using).
 I couldn't tell if the LFO Waveform output was working correctly.
 
-![]({{ site.url }}/assets/images/chronograf-iat-original.png)
+![]({{ site.url }}/assets/images/content/chronograf-iat-original.png)
 *Chronograf's 8 waveforms*
 
 It wasn't until three weeks later
@@ -86,7 +86,7 @@ that I was able to confirm that it actually did not work correctly.
 This problem resulted simply from having bits in the wrong memory locations.
 I completed the Chronograf on 2016/01/19.
 
-![Chronograf Prototype]({{ site.url }}/assets/images/chronograf-prototype.jpg)
+![Chronograf Prototype]({{ site.url }}/assets/images/content/chronograf-prototype.jpg)
 *Chronograf Prototype*
 
 Later, in a lecture about embedded hardware, our lecturer set us the challenge

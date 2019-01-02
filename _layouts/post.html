@@ -19,7 +19,70 @@ background-color: "#848485"
 	    </header>
 	    <hr class="divider"/>
 	    <div id="post-content">
-		    {{ content }}
+		    {%- assign pieces = content | split: '<img src="' -%}
+			{%- for piece in pieces -%}
+				{%- if forloop.first == true -%}
+					{{ piece }}
+				{%- else -%}
+					{%- if piece contains '" alt="' -%}
+						{%- assign url = piece | split: '" alt="' | first -%}
+						{%- assign alt = piece | split: '" alt="' | shift | join: '" alt="' | split: '"' | first -%}
+						{%- assign rest = piece | split: '" alt="' | shift | join: '" alt="' | split: '"' | shift | join: '"' -%}
+						{%- assign url-filename = url | split: '.' | first -%}
+						{%- assign url-extension = url | split: '.' | last -%}
+						<noscript><img 
+							srcset="{{ url-filename }}-560.{{ url-extension }} 560w,
+             						{{ url-filename }}-655.{{ url-extension }} 655w,
+             						{{ url-filename }}-874.{{ url-extension }} 874w,
+             						{{ url-filename }}-1024.{{ url-extension }} 1024w,
+             						{{ url-filename }}-1230.{{ url-extension }} 1230w"
+             				sizes="(max-width:499px) 82vw,
+             						(max-width:799px) 88vw,
+             						(max-width:999px) 76vw,
+             						64vw"  
+             				src="{{ url }}" alt="{{ alt }}" /></noscript>
+             						<img class="lazy" 
+             				data-src="{{ url }}"
+    					data-srcset="{{ url-filename }}-560.{{ url-extension }} 560w,
+             						{{ url-filename }}-655.{{ url-extension }} 655w,
+             						{{ url-filename }}-874.{{ url-extension }} 874w,
+             						{{ url-filename }}-1024.{{ url-extension }} 1024w,
+             						{{ url-filename }}-1230.{{ url-extension }} 1230w"
+    					data-sizes="82vw,
+             						(min-width:500px) 88vw,
+             						(min-width:800px) 76vw,
+             						(min-width:1000px) 64vw"
+             			alt="{{ alt }}"{{ rest }}
+					{%- else -%}
+						{%- assign url = piece | split: '"' | first -%}
+						{%- assign rest = piece | split: '"' | shift | join: '"' -%}
+						{%- assign url-filename = url | split: '.' | first -%}
+						{%- assign url-extension = url | split: '.' | last -%}
+						<noscript><img 
+							srcset="{{ url-filename }}-560.{{ url-extension }} 560w,
+             						{{ url-filename }}-655.{{ url-extension }} 655w,
+             						{{ url-filename }}-874.{{ url-extension }} 874w,
+             						{{ url-filename }}-1024.{{ url-extension }} 1024w,
+             						{{ url-filename }}-1230.{{ url-extension }} 1230w"
+             				sizes="(max-width:499px) 82vw,
+             						(max-width:799px) 88vw,
+             						(max-width:999px) 76vw,
+             						64vw"  
+             				src="{{ url }}" alt="{{ alt }}" /></noscript>
+             						<img class="lazy" 
+             				data-src="{{ url }}"
+    					data-srcset="{{ url-filename }}-560.{{ url-extension }} 560w,
+             						{{ url-filename }}-655.{{ url-extension }} 655w,
+             						{{ url-filename }}-874.{{ url-extension }} 874w,
+             						{{ url-filename }}-1024.{{ url-extension }} 1024w,
+             						{{ url-filename }}-1230.{{ url-extension }} 1230w"
+    					data-sizes="82vw,
+             						(min-width:500px) 88vw,
+             						(min-width:800px) 76vw,
+             						(min-width:1000px) 64vw"{{ rest }}
+					{%- endif -%}
+				{%- endif -%}
+			{%- endfor -%}
 	    </div>
 	    <hr class="divider"/>
     </article>
@@ -36,3 +99,12 @@ background-color: "#848485"
 	    {% endif %}
     </footer>
 </div>
+<script>(function(w, d){
+    var b = d.getElementsByTagName('body')[0];
+    var s = d.createElement("script"); 
+    var v = !("IntersectionObserver" in w) ? "8.17.0" : "10.19.0";
+    s.async = true; 
+    s.src = "https://cdn.jsdelivr.net/npm/vanilla-lazyload@" + v + "/dist/lazyload.min.js";
+    w.lazyLoadOptions = {threshold: 0};
+    b.appendChild(s);
+}(window, document));</script>

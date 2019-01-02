@@ -30,7 +30,7 @@ The 16F1764 had twice as much memory as the 16F684 that we had used for the Damp
 
 Previously I had to use hundreds of instructions in a row (eg `retlw .255`), and you would jump to a specific index of those instructions, and it would return with the value specified by the instruction. This meant that the 14 bit word was used to provide an 8-bit value, the remaining 6 bits were used to identify that it was a `retlw` instruction. Being able to use program memory control meant that I essentially had an additional 75% extra storage for every word I dedicated to storing data in. 
 
-![]({{ site.url }}/assets/images/seismo-data.png)
+![]({{ site.url }}/assets/images/content/seismo-data.png)
 *Image example of storing numbers using the old and new methods*
 
 A side effect of this was that it meant I could use 10-bit resolution (the limit of my analogue peripherals) for my output, which effectively quadruples the number of positions the sound can be in, improving quality. 
@@ -41,7 +41,7 @@ Feeding this more advanced chip with Damped Sine waves wasn't going to make it t
 
 I downloaded samples in WAV format, then used a simple Python script I found from StackOverflow to view them.
 
-![]({{ site.url }}/assets/images/seismo-dr55.png)
+![]({{ site.url }}/assets/images/content/seismo-dr55.png)
 *Waveforms sampled from the DR55*
 
 I'd never really looked at sound waveforms before, so it was very interesting to see these. The Bass Drum and RimShot were familiar, but the HiHat and Snare sounds were pretty wild, like nothing I knew how to realistically emulate using formula (Obviously Fourier proved that you can recreate any sound by mixing the correct sine waves together, but I wouldn't know where to start with that.)
@@ -70,7 +70,7 @@ If we have six 'normal' sounds, we can have two 'compressed' sounds in the upper
 
 I've tried to visualise how I stored the memory on the 16F1764, below.
 
-![]({{ site.url }}/assets/images/seismo-16f1764.png)
+![]({{ site.url }}/assets/images/content/seismo-16f1764.png)
 *Shaded regions represent program memory. Rows represent bits. Blocks are 512 words wide.*
 
 Now, obviously this complicates matters. Before I could just convert my wave file into a set of data and paste things in, but now I need to recombine them. I wrote a quick python script that recombines these nicely, meaning I just have to list the filenames of the WAV eight files I want to use, and it spits out the correct data to paste into my application.
@@ -83,12 +83,12 @@ It'd be really nice if we could add some distortion (ie variable gain, with clip
 
 Bitcrush was really obvious how to implement as it's just a matter of bitmasking away the data we don't want. 
 
-![]({{ site.url }}/assets/images/seismo-bitcrush.png)
+![]({{ site.url }}/assets/images/content/seismo-bitcrush.png)
 *Graphical representation of Bitcrush.*
 
 Distortion is trickier; I couldn't think of a cheap way to do gain without using some kind of floating point multiplication. I mulled it over for a few days, and the solution came to me in the shower (isn't that so often the case?). If we divide through to get a 1/32th (for example) of the amplitude, then we can add that value back to the original to have a 1.03x gain. Add it again, and we have a 1.06x gain. If ever we overflow (ie reach a value higher than the maximum value we can represent), then we want to clip, so we just return the maximum value.
 
-![]({{ site.url }}/assets/images/seismo-distortion.png)
+![]({{ site.url }}/assets/images/content/seismo-distortion.png)
 *Graphical representation of Distortion.*
 
 We decided to add an extra function control that enabled these features. To save space on the front panel of the module, we would be putting both functions on the same control. Turn it one way, and the bitcrush effect is applied. Turn it the other, and distortion is applied.  
@@ -123,7 +123,7 @@ I decided to store these 2bit values in 147 words of memory directly before the 
 
 I've tried to visualise how I stored the memory on the 16F1765, below. Note the small pink block to the left of the sounds, and the dark red and orange blocks which are larger than the rest. These correspond to the 2bit values and the HD sounds, respectively.
 
-![]({{ site.url }}/assets/images/seismo-16f1765.png)
+![]({{ site.url }}/assets/images/content/seismo-16f1765.png)
 *Shaded regions represent program memory.*
 
 # Fun Experiments
@@ -134,12 +134,12 @@ For fun, we tried a whole bunch of different sounds with the Seismograf PIC code
 
 For this project, I am using a DAC output rather than a filtered PWM signal. This is the first time I have used one, so I'm relatively new to their capabilities and limitations.
 
-![]({{ site.url }}/assets/images/seismo-graf.jpg)
+![]({{ site.url }}/assets/images/content/seismo-graf.jpg)
 *Seismograf sitting next to Polygraf.*
 
 The datasheet for the 16F1764/5 points out that the DAC output needs buffering. I did this with a single TL071 in unity gain configuration for the my perf-board prototype. For the final product, we actually need an Op-Amp with some gain and biasing, so that we can convert a 0-5V signal to a -5V to 5V signal (so that the centreline of the drum is at 0V). However, we found that this Op-Amp caused issues - it wasn't buffering the output properly and the output voltages were not correct. The 16F1764/5 features on Op-Amp module internally to the PIC, which can accept the DAC output as an input. We used this in place of an external buffer (which would be too expensive).
 
-![]({{ site.url }}/assets/images/seismo-kludge.jpg)
+![]({{ site.url }}/assets/images/content/seismo-kludge.jpg)
 *Modifying hardware is never pretty.*
 
 This project was designed to respond to 0-5V inputs. However, when receiving voltages higher than that, we noticed that there was a horrible high-pitched beeping present. We weren't expecting this; other PIC projects of ours (seem to) ignore these signals which are higher/lower than the desired input. We believe this project is different becuse it is using a DAC which therefore has an internal voltage reference. We believe that as the PIC applies some kind of protection to the input, it causes some increased current draw or something, which changes the voltage reference and therefore causes the noise we are hearing. We tried standard voltage clamps on the input, but obviously voltages higher than the PIC can handle are still getting through as we could still hear the noise. By using diodes connected to ground and 5V as voltage references, we were able to cause the Diode Clamping to be much more effective. Some noise can still be heard when going above the designed voltage range, but it is much less troublesome now to the point that we don't really care. It's outside of our designed-for range, so it's the user's fault if they misuse the device and receive undesirable results.

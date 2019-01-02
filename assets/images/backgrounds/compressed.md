@@ -1,0 +1,43 @@
+---
+images:
+- image-compression-beauty.jpg
+- jekyll-beauty.jpg
+- others-will-come-beauty.jpg
+- background-homepage.jpg
+- chiangmai-first-beauty.jpg
+- aos-beauty.jpg
+- chronograf-new-beauty.jpg
+- background-about.jpg
+- caption-beauty.jpg
+- maker-beauty.jpg
+- space-race-beauty.jpg
+- old-shoe-new.jpg
+- deep-thought-beauty.jpg
+- towards-what-beauty.jpg
+- background-404.jpg
+- hacking-minigame-game.png
+- logomania-beauty.jpg
+- bangkok-road.jpg
+- speed-beauty.jpg
+- seismo-kludge.jpg
+- polygraf-in-development.jpg
+- backpack-home-main.jpg
+- depression-sunset.png
+- background-blog.jpg
+- bartos-flur-electronics-project.jpg
+- zagreb-beauty.jpg
+- finding-meaning-zen.jpg
+- robco-revisited-beauty.png
+- tab-sunrise.jpg
+- streasm-beauty.jpg
+- thaitravel-beauty.jpg
+- background-contact.jpg
+- depression-beauty.jpg
+- chronograf-beauty.jpg
+- matej-hills.jpg
+- changed-times-beauty.jpg
+- mailchimp-beauty.jpg
+- designed-beauty.jpg
+- loikrathong-beauty.jpg
+- licenses-beauty.jpg
+---

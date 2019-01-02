@@ -38,7 +38,7 @@ and can play back at any time.
 The Grid Machine was able to support 15 user defined sequences 
 plus one hard-coded-by-Frequency-Central sequence (for technical reasons).
 
-![Grid Machine Prototype]({{ site.url }}/assets/images/polygraf-grid-machine.jpg)
+![Grid Machine Prototype]({{ site.url }}/assets/images/content/polygraf-grid-machine.jpg)
 *Grid Machine Prototype*
 
 Programming this was actually really fun to do.
@@ -82,7 +82,7 @@ I thought these comments were unfair,
 but accepted that the interface could use improvement.
 The project was discarded, despite being fully functional.
 
-![Polygraf Prototype Board]({{ site.url }}/assets/images/polygraf-prototype.jpg)
+![Polygraf Prototype Board]({{ site.url }}/assets/images/content/polygraf-prototype.jpg)
 *Polygraf Prototype Board*
 
 Spring 2015 brought many changes.
@@ -97,7 +97,7 @@ The interface would be much more usable,
 whilst having only 4 outputs meant that now we
 could store 32 sequences, 30 of which were user-programmable.
 
-![Polygraf in development]({{ site.url }}/assets/images/polygraf-in-development.jpg)
+![Polygraf in development]({{ site.url }}/assets/images/content/polygraf-in-development.jpg)
 *Polygraf in development*
 
 The plan for the module also changed. 
@@ -122,7 +122,7 @@ I had a certain level of fondness for the original idea as a drum-machine
 but Frequency Central thought strongly that the extra circuit
 made a much more desirable product.
 
-![Polygraf Mockup]({{ site.url }}/assets/images/polygraf-panel-mockup.jpg)
+![Polygraf Mockup]({{ site.url }}/assets/images/content/polygraf-panel-mockup.jpg)
 *Polygraf Mockup*
 
 I worked on and off on the Polygraf (then known as the Event Horizon)
@@ -133,7 +133,7 @@ I decided during my winter break
 (when I should probably have been revising for my exams!)
 that I would complete the project before I went back to University.
 
-![Polygraf Panel]({{ site.url }}/assets/images/polygraf-panel.jpg)
+![Polygraf Panel]({{ site.url }}/assets/images/content/polygraf-panel.jpg)
 *Polygraf Panel*
 
 My Father was amazed with the completed project. 

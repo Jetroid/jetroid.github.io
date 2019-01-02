@@ -8,10 +8,15 @@ custom_style_includes:
 - mailchimp
 custom_js_includes:
 - highlight
-background: "background-homepage.png"
+background: "background-homepage.jpg"
 background-color: "#160B04"
 image: me.png
 ---
+<!-- First thing we're doing is a pass through our posts to generate the correct media queries for them !-->
+<style>
+</style>
+
+
 {% if paginator.page == 1 %}
 <div id="splash-container">
 	<div id="splash">
@@ -42,7 +47,7 @@ image: me.png
 	{% if post.unlisted != true or count == 0 %}
 	<div class="post">
 		<a href="{{ post.url | prepend: site.baseurl }}">
-			<div class="post-background" style="background-image: url(/assets/images/{{ post.background }});{% if post.background-color %}background-color:{{ post.background-color }}{% endif %}">
+			<div id="post{{count}}" class="post-background" {% if post.background-color %}style="background-color:{{ post.background-color }}"{% endif %}>
 				<div class="post-shadow">
 					<h2 class="post-title">{{ post.title }}</h2>
 					<p class="post-date">{{ post.date | date: "%Y/%m/%d" }}</p>
@@ -56,7 +61,7 @@ image: me.png
 	<!-- Mailchimp email signup for 3rd item on first page !-->
 	{% if paginator.page == 1 and count == 2 %}
         <div class="post">
-            <div class="post-background" style="background-image: url(/assets/images/mailchimp-beauty.jpg); background-color: #010103">
+            <div id="postmc" class="post-background" style="background-color: #010103">
 			    <div class="post-shadow">
                     {% include mailchimp.html %}
                 </div>

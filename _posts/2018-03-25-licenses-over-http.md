@@ -11,9 +11,9 @@ categories:
 
 I'm always quite cautious about content created by others when I develop software or publish things online. The legal world is too messy for me, I hate that I could be sued for using something incorrectly or misunderstanding something, and the licensing documents don't make things any easier by being so impenetrable. The world of photographs and graphics is a great microcosm of using content created by others, so it serves as a good topic to discuss.
 
-If I'm writing a blog post and I want to illustrate something but don't have a suitable picture that I have taken myself, then I need to source one, and I either look on [Pixabay](https://pixabay.com/), or [search](https://support.google.com/websearch/answer/29508) using [Google's usage rights](/assets/images/licenses-google-selection.jpg) selection.
+If I'm writing a blog post and I want to illustrate something but don't have a suitable picture that I have taken myself, then I need to source one, and I either look on [Pixabay](https://pixabay.com/), or [search](https://support.google.com/websearch/answer/29508) using [Google's usage rights]({{ site.url }}/assets/images/content/licenses-google-selection.jpg) selection.
 
-![Google's "usage rights" advanced search feature is very useful for finding permissively licensed content.](/assets/images/licenses-google-selection.jpg)
+![Google's "usage rights" advanced search feature is very useful for finding permissively licensed content.]({{ site.url }}/assets/images/content/licenses-google-selection.jpg)
 *Google's "usage rights" advanced search feature is very useful for finding permissively licensed content.*
 
 Pixabay is great because not only does it always list exactly what license the image has, but usually the images there can be used with no attribution required, which is great. A lot of the time I also find images from [Flickr](https://www.flickr.com) too (via Google, but it's possible to search with filtered licenses on Flickr directly). Flickr images also have their license information visible - the ones I find via Google are often permissive but with an attribution requirement. I try quite hard to follow these requirements - I might make some errors, misunderstand, or forget something sometimes - but overall I think I follow them.
@@ -22,7 +22,7 @@ Pixabay is great because not only does it always list exactly what license the i
 
 A big problem I have with licenses is that I find it quite hard to incorporate proper attribution into my webpages. It's easy if I want to use the image inline - I can just put the attribution as both the alt-text and caption for the image. But what if I use an image that requires attribution as a background? I don't have a mechanism to display that attribution, so I avoid those images. It'd be great if I had a way of displaying this license without impacting my page layout. 
 
-![Websites doing licensing well.](/assets/images/licenses-doing-it-right.jpg)
+![Websites doing licensing well.]({{ site.url }}/assets/images/content/licenses-doing-it-right.jpg)
 *Websites doing licensing well.*
 
 Sites like Flickr and Pixabay are great because they tag the image in a consistent way, indicating exactly what the usage rights are. But what about the (arguably) most popular image host, like [Imgur](https://imgur.com/)? There's no license tagging there. If I want to use one of those images, I don't know if I can do anything with it. How about the images from much smaller pages - perhaps similar to my website? Sometimes, I'll find an image online that I'd love to use, but it has no associated license that I can see. Or maybe I can't find the proper source to ask their permission. This shuts down my attempt to use the content, which is unfortunate, as I'd love to share it and even link back to the creator. 
@@ -108,7 +108,7 @@ Benefits:
 
  * A bot can simply view the HTTP header to determine license, and doesn't have to sift through HTML data to find the license. This massively simplifies things for the bot. It's faster, too, as you can simply request the HEAD for the file during the HTTP request.
  * I can provide license information without having to clutter up my website design and layout.
- * If given a direct link to an image (eg: [https://jetholt.com/assets/images/bartos-flur-electronics-project.jpg](https://jetholt.com/assets/images/bartos-flur-electronics-project.jpg)), then you can determine the copyright and your usage rights without having to find the source of the image or any pages that link to it.
+ * If given a direct link to an image (eg: [https://jetholt.com/assets/images/content/bartos-flur-electronics-project.jpg](https://jetholt.com/assets/images/content/bartos-flur-electronics-project.jpg)), then you can determine the copyright and your usage rights without having to find the source of the image or any pages that link to it.
  * You can track down the original source (if known by the hosting site), so that you can ask them some more things, see similar works, etc.
 
 Drawbacks:

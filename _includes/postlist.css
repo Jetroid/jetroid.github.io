@@ -84,3 +84,91 @@
 #navigation #next-post {
 	text-align: right;
 }
+
+/*Yes this is crazy, but these are the post backgrounds! */
+{% assign count = 0 %}
+{% for post in paginator.posts %}
+{% if post.unlisted != true or count == 0 %}
+
+{% assign image-extension = post.background | split: '.' | last %}
+{% assign image-name = post.background | split: '.' | first %}
+
+/* Our cutoffs for backgrounds are at 1920,1600,1366,1024,768,640 */
+/* Default size will be 640 (mobile first) */
+#post{{ count }} {
+	background-image: url("/assets/images/backgrounds/{{ image-name }}-640.{{ image-extension }}");
+}
+/* Now what if we're bigger than 640? We want next size up, etc */
+@media (min-width: 641px){
+	#post{{ count }} {
+		background-image: url("/assets/images/backgrounds/{{ image-name }}-768.{{ image-extension }}");
+	}
+}
+@media (min-width: 769px){
+	#post{{ count }} {
+		background-image: url("/assets/images/backgrounds/{{ image-name }}-1024.{{ image-extension }}");
+	}
+}
+@media (min-width: 1025px){
+	#post{{ count }} {
+		background-image: url("/assets/images/backgrounds/{{ image-name }}-1366.{{ image-extension }}");
+	}
+}
+@media (min-width: 1367px){
+	#post{{ count }} {
+		background-image: url("/assets/images/backgrounds/{{ image-name }}-1600.{{ image-extension }}");
+	}
+}
+@media (min-width: 1601px){
+	#post{{ count }} {
+		background-image: url("/assets/images/backgrounds/{{ image-name }}-1920.{{ image-extension }}");
+	}
+}
+/* Gone past all our breakpoints... show the original image now instead */
+@media (min-width: 1921px){
+	#post{{ count }} {
+		background-image: url("/assets/images/backgrounds/{{ post.background }}");
+	}
+}
+
+{% endif %}
+/* Mailchimp email signup for 3rd item on first page */
+{% if paginator.page == 1 and count == 2 %}
+#postmc {
+	background-image: url("/assets/images/backgrounds/mailchimp-beauty-640.jpg");
+}
+/* Now what if we're bigger than 640? We want next size up, etc */
+@media (min-width: 641px){
+	#postmc {
+		background-image: url("/assets/images/backgrounds/mailchimp-beauty-768.jpg");
+	}
+}
+@media (min-width: 769px){
+	#postmc {
+		background-image: url("/assets/images/backgrounds/mailchimp-beauty-1024.jpg");
+	}
+}
+@media (min-width: 1025px){
+	#postmc {
+		background-image: url("/assets/images/backgrounds/mailchimp-beauty-1366.jpg");
+	}
+}
+@media (min-width: 1367px){
+	#postmc {
+		background-image: url("/assets/images/backgrounds/mailchimp-beauty-1600.jpg");
+	}
+}
+@media (min-width: 1601px){
+	#postmc {
+		background-image: url("/assets/images/backgrounds/mailchimp-beauty-1920.jpg");
+	}
+}
+/* Gone past all our breakpoints... show the original image now instead */
+@media (min-width: 1921px){
+	#postmc {
+		background-image: url("/assets/images/backgrounds/mailchimp-beauty.jpg");
+	}
+}
+{% endif %}
+{% assign count = count | plus: 1 %}
+{% endfor %}

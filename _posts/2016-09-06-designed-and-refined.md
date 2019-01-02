@@ -21,7 +21,7 @@ I decided to reflect on what I had built and how it contributed to my identity.
 
 Here's how my homepage looked, in its entirety: 
 
-![The entirety of my old homepage]({{ site.url }}/assets/images/designed-old.jpg)
+![The entirety of my old homepage]({{ site.url }}/assets/images/content/designed-old.jpg)
 *The entirety of my old homepage*
 
 Visually, it's nice.
@@ -53,11 +53,11 @@ The rest of the aims are met on other pages.
 I realised that the homepage is where you should come for all the latest updates.
 To get those, you would have to click through to the blog:
 
-![The blog page - complete with self deprecation in true british style!]({{ site.url }}/assets/images/designed-blog.png)
+![The blog page - complete with self deprecation in true british style!]({{ site.url }}/assets/images/content/designed-blog.png)
 *The blog page - complete with self deprecation in true british style!*
 
 To get in touch with me, you had to visit the contact page.
-[(A page dedicated to *just* my email link!)]({{ site.url }}/assets/images/designed-contact.png)
+[(A page dedicated to *just* my email link!)]({{ site.url }}/assets/images/content/designed-contact.png)
 
 The fact that the pages people actually wanted to visit were spread across the site was a problem.
 
@@ -81,7 +81,7 @@ to make it a little more visually interesting.
 As the page scrolls, 
 the link blocks are like little windows on to the pictures. I think it looks cool!
 
-![My new homepage design. Links appear below the blurb as slide-y images]({{ site.url }}/assets/images/designed-new.png)
+![My new homepage design. Links appear below the blurb as slide-y images]({{ site.url }}/assets/images/content/designed-new.png)
 *My new homepage design. Links appear below the blurb as slide-y images!*
 
 My refinements left me with a problem:
