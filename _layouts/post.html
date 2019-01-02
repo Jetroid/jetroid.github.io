@@ -28,7 +28,7 @@ background-color: "#848485"
 						{%- assign url = piece | split: '" alt="' | first -%}
 						{%- assign alt = piece | split: '" alt="' | shift | join: '" alt="' | split: '"' | first -%}
 						{%- assign rest = piece | split: '" alt="' | shift | join: '" alt="' | split: '"' | shift | join: '"' -%}
-						{%- assign url-filename = url | split: '.' | first -%}
+						{%- assign url-filename = url | split: '.' | pop | join: '.' -%}
 						{%- assign url-extension = url | split: '.' | last -%}
                         {%- if url-extension == "gif" -%}
                             <noscript><img src="{{ url }}" alt={{alt}} /></noscript>
@@ -61,7 +61,7 @@ background-color: "#848485"
 					{%- else -%}
 						{%- assign url = piece | split: '"' | first -%}
 						{%- assign rest = piece | split: '"' | shift | join: '"' -%}
-						{%- assign url-filename = url | split: '.' | first -%}
+						{%- assign url-filename = url | split: '.' |  pop | join: '.' -%}
 						{%- assign url-extension = url | split: '.' | last -%}
                         {%- if url-extension == "gif" -%}
                             <noscript><img src="{{ url }}" /></noscript>
