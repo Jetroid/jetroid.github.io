@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Automatic Image Optimisation using Git Hooks"
+title: "Automatic Image Optimisation on Jekyll without Plugins"
 date: 2017-10-24 16:42:11 +0100
 background: "image-compression-beauty.jpg"
 background-color: "#1e1005"
-summary: "AKA: Continuing the pursuit of 100/100 in Google PageSpeed Insights."
+summary: "Optimise images on Jekyll using git hooks and clever scripts, not plugins. AKA: Continuing the pursuit of 100/100 in Google PageSpeed Insights."
 categories:
  - "Tutorials"
  - "Jekyll"
@@ -124,7 +124,7 @@ I didn't want my sister to have to maintain this list herself -
 I want her to be able to put in minimal effort to maintain her site.
 
 I decided to write a script in Python that would be executed by a
-[Git Hook](https://git-scm.com/book/gr/v2/Customizing-Git-Git-Hooks)
+[Git Hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
 that executes just before the commit is processed. 
 This script would process the image files in the gallery folders
 that are in the commit, add them to the gallery's image list,
@@ -136,10 +136,9 @@ time I wanted to push images, it would speed up the compression process
 (optipng is very slow, and my Rake script ran it on every file),
 and would allow me to 85% compress my JPEG images without ruining them.
 
-You can find the adapted version that I'm using for my site [here](https://raw.githubusercontent.com/Jetroid/jetroid.github.io/master/optimimage.py).
+You can find the adapted version that I'm using for my site [here](https://gist.github.com/Jetroid/54d76f6b62a498d67775c79a4408d527).
 I'm not certain that it will work on Windows or MacOs.
 Replace the calls to `convert` and `optipng` with an equivalent if it doesn't.
-You will probably want to add `compressed.md` to your `.gitignore` file.
 Create the file `.git/hooks/pre-commit` and add the following content for it
 to automatically compress images when you commit:
 
@@ -149,9 +148,11 @@ python optimimage.py
 ```
 
 The version written for my Sister is much the same, and in the interest of
-completeness, you can find that [here](https://raw.githubusercontent.com/amberroseholt/amberroseholt.github.io/master/optimimage.py).
+completeness, you can find that [here](https://gist.github.com/Jetroid/b664cc94bc95e757689b7e761abc00ce).
 
 After running my script, my PageSpeed went right back up!
 
 ![PageSpeed Analysis after optimising images]({{ site.url }}/assets/images/content/image-compression-final.png)
 *PageSpeed Analysis after optimising images*
+
+***[I later altered this process to also generate responsive images and lazily load them too! »](/jekyll-responsive-images/)*** 

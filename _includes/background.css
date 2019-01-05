@@ -6,9 +6,8 @@
 {% capture background-image %}{% unless background-image-partial == "none" or background-image-partial == "" or background-image-partial == nil %}{{ background-image-partial }}{% else %}default-background.jpg{% endunless %}{% endcapture %}
 {% capture background-position %}{% unless background-position-partial == "" or background-image-partial == nil %}{{ background-position-partial }}{% else %}center center{% endunless %}{% endcapture %}
 
-/* The liquid code I'm using relies on the background-image only using dots for the file extension */
 {% assign image-extension = background-image | split: '.' | last %}
-{% assign image-name = background-image | split: '.' | first %}
+{% assign image-name = background-image | split: '.' | pop | join: '.' %}
 
 
 body {
@@ -52,6 +51,6 @@ body {
 /* Gone past all our breakpoints... show the original image now instead */
 @media (min-width: 1921px){
 	body {
-		background-image: url("/assets/images/backgrounds/{{ background-image }}");
+		background-image: url("/assets/images/backgrounds/{{ image-name }}.{{ image-extension }}");
 	}
 }

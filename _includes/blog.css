@@ -127,9 +127,17 @@ blockquote p {
 }
 
 /* Code blocks should wrap and be even more background-ier!*/
+pre, code {
+	border: 1px solid #d05d5d;
+}
 pre {
-	white-space: pre-wrap;
-	background: {{ site.style.background-hex }};
+	white-space: pre;
+	overflow: auto;
+	background-color: #474741;
+	padding: 15px;
+}
+pre code {
+	border: none;
 }
 /* Justify text on non-mobiles */
 @media (min-width: 500px){

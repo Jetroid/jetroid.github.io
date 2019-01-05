@@ -12,11 +12,6 @@ background: "background-homepage.jpg"
 background-color: "#160B04"
 image: me.png
 ---
-<!-- First thing we're doing is a pass through our posts to generate the correct media queries for them !-->
-<style>
-</style>
-
-
 {% if paginator.page == 1 %}
 <div id="splash-container">
 	<div id="splash">
@@ -47,7 +42,7 @@ image: me.png
 	{% if post.unlisted != true or count == 0 %}
 	<div class="post">
 		<a href="{{ post.url | prepend: site.baseurl }}">
-			<div id="post{{count}}" class="post-background" {% if post.background-color %}style="background-color:{{ post.background-color }}"{% endif %}>
+			<div id="p{{count}}" class="post-background" {% if post.background-color %}style="background-color:{{ post.background-color }}"{% endif %}>
 				<div class="post-shadow">
 					<h2 class="post-title">{{ post.title }}</h2>
 					<p class="post-date">{{ post.date | date: "%Y/%m/%d" }}</p>
@@ -60,8 +55,9 @@ image: me.png
 	{% endif %}
 	<!-- Mailchimp email signup for 3rd item on first page !-->
 	{% if paginator.page == 1 and count == 2 %}
+		{% assign count = count | plus: 1 %}
         <div class="post">
-            <div id="postmc" class="post-background" style="background-color: #010103">
+            <div id="p{{count}}" class="post-background" style="background-color: #010103">
 			    <div class="post-shadow">
                     {% include mailchimp.html %}
                 </div>

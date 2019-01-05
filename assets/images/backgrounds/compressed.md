@@ -40,4 +40,11 @@ images:
 - designed-beauty.jpg
 - loikrathong-beauty.jpg
 - licenses-beauty.jpg
+- responsive-1920.jpg
+- responsive-1600.jpg
+- responsive-1366.jpg
+- responsive-1024.jpg
+- responsive-768.jpg
+- responsive-640.jpg
+- responsive.jpg
 ---
