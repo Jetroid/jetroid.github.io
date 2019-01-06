@@ -19,6 +19,7 @@ body {
 }
 /* Our cutoffs for backgrounds are at 1920,1600,1366,1024,768,640 */
 /* Default size will be 640 (mobile first) */
+{%- if jekyll.environment == "production" -%}
 body {
 	background-image: url("/assets/images/backgrounds/{{ image-name }}-640.{{ image-extension }}");
 }
@@ -54,3 +55,8 @@ body {
 		background-image: url("/assets/images/backgrounds/{{ image-name }}.{{ image-extension }}");
 	}
 }
+{%- else -%}
+body {
+	background-image: url("/assets/images/backgrounds/{{ image-name }}.{{ image-extension }}");
+}
+{%- endif -%}

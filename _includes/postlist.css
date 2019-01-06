@@ -104,7 +104,7 @@
 	{% assign count = count | plus: 1 %}
 {% endfor %}
 
-
+{%- if jekyll.environment == "production" -%}
 {% for image-extension in extensions-array %}
 	{% assign count = forloop.index0 %}
 	{% assign image-name = image-name-array[count] %}
@@ -168,3 +168,12 @@
 	} 
 {% endfor %}
 }
+{%- else -%}
+{% for image-extension in extensions-array %}
+	{% assign count = forloop.index0 %}
+	{% assign image-name = image-name-array[count] %}
+#p{{ count }} {
+	background-image: url("/assets/images/backgrounds/{{ image-name }}.{{ image-extension }}");
+} 
+{% endfor %}
+{%- endif -%}

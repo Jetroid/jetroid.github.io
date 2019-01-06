@@ -13,12 +13,10 @@ background-color: "#848485"
 </header>
 <div class="background  borders">
 	<article class="post-container">
-		<header>
-			<h2 class="post-title"><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></h2>
-			<time class="post-date">{{ page.date | date: "%Y/%m/%d" }}</time>
-		</header>
+		<time class="post-date">{{ page.date | date: "%Y/%m/%d" }}</time>
 		<hr class="divider"/>
 		<div id="post-content">
+			{%- if jekyll.environment == "production" -%}
 			{%- assign pieces = content | split: '<img src="' -%}
 			{%- for piece in pieces -%}
 				{%- if forloop.first == true -%}
@@ -93,6 +91,9 @@ background-color: "#848485"
 					{%- endif -%}
 				{%- endif -%}
 			{%- endfor -%}
+			{%- else -%}
+			{{ content }}
+			{%- endif -%}
 		</div>
 		<hr class="divider"/>
 	</article>
