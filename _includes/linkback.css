@@ -1,5 +1,4 @@
 #linkback, #linkback img {
-	position: absolute;
 	width: 300px;
 	z-index: 50000;
 }

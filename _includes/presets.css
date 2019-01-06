@@ -21,7 +21,7 @@ a:hover{
 }
 code.highlighter-rouge {
     background: {{ site.style.background-hex }};
-    white-space: pre;
+    white-space: pre-wrap;
 }
 .background {
     background: rgba({{ site.style.background-rgb }} 0.9);

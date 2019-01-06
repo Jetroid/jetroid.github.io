@@ -20,7 +20,7 @@ body{
 	margin-bottom: 5px;
 	font-weight: bold;
 	text-shadow: 2px 2px {{ site.style.background-hex }};
-	font-size: 14vw;
+	font-size: 10vw;
 }
 #page-subtitle{
 	margin: 0;
