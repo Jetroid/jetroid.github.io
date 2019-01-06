@@ -1,3 +1,4 @@
+{% unless page.suppress-bg == "true" %}
 {% capture background-color-partial %}{% if page.background-color %}{{ page.background-color }}{% else if layout.background-color %}{{ layout.background-color }}{% endif %}{% endcapture %}
 {% capture background-image-partial %}{% if page.background %}{{ page.background }}{% else if layout.background %}{{ layout.background }}{% else %}default-background.jpg{% endif %}{% endcapture %}
 {% capture background-position-partial %}{% if page.background-position %}{{ page.background-position }}{% else if layout.background-position %}{{ layout.background-position }}{% endif %}{% endcapture %}
@@ -60,3 +61,4 @@ body {
 	background-image: url("/assets/images/backgrounds/{{ image-name }}.{{ image-extension }}");
 }
 {%- endif -%}
+{% endunless %}
