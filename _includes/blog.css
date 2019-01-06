@@ -25,7 +25,7 @@ body{
 #page-subtitle{
 	margin: 0;
 	font-weight: bold;
-	text-shadow: 2px 2px {{ site.style.background-hex }};
+	text-shadow: 0px 1px {{ site.style.background-hex }}, 0px -1px {{ site.style.background-hex }}, 1px 0px {{ site.style.background-hex }}, -1px 0px {{ site.style.background-hex }}, 2px 2px {{ site.style.background-hex }};
 }
 .divider{
 	width: 100%;

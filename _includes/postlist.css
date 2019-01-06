@@ -11,7 +11,7 @@
 .post-shadow {
 	padding: 30px 15vw 60px 15vw;
 	font-weight: bold;
-	text-shadow: 2px 2px {{ site.style.background-hex }};
+	text-shadow: 0px 1px {{ site.style.background-hex }}, 0px -1px {{ site.style.background-hex }}, 1px 0px {{ site.style.background-hex }}, -1px 0px {{ site.style.background-hex }}, 2px 2px {{ site.style.background-hex }};
 }
 .shadow {
 	background: rgba({{ site.style.background-rgb }} 0.8);
@@ -20,7 +20,7 @@
 .post a:hover {
 	top: 0;
 	right: 0;
-	text-shadow: 2px 2px {{ site.style.background-hex }};
+	text-shadow: 0px 1px {{ site.style.background-hex }}, 0px -1px {{ site.style.background-hex }}, 1px 0px {{ site.style.background-hex }}, -1px 0px {{ site.style.background-hex }}, 2px 2px {{ site.style.background-hex }};
 }
 .post-title{
 	color: {{ site.style.highlight }};
