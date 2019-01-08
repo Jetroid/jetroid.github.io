@@ -47,4 +47,11 @@ images:
 - responsive-768.jpg
 - responsive-640.jpg
 - responsive.jpg
+- hiking-new-year-beauty-1920.jpg
+- hiking-new-year-beauty-1600.jpg
+- hiking-new-year-beauty-1366.jpg
+- hiking-new-year-beauty-1024.jpg
+- hiking-new-year-beauty-768.jpg
+- hiking-new-year-beauty-640.jpg
+- hiking-new-year-beauty.jpg
 ---
