@@ -396,10 +396,10 @@ Site Homepage:
 
 A Blog Post:
 
-![]({{ site.url }}/assets/images/content/responsive-post-old.jpg)
+![Terrible! A post before responsive images and lazy loading. The images are **really** heavy here.]({{ site.url }}/assets/images/content/responsive-post-old.jpg)
 *Terrible! A post before responsive images and lazy loading. The images are **really** heavy here.*
 
-![]({{ site.url }}/assets/images/content/responsive-post-new.jpg)
+![A post after responsive images and lazy loading. 11x faster and 120x less data. Lazy Loading really helped here.]({{ site.url }}/assets/images/content/responsive-post-new.jpg)
 *A post after responsive images and lazy loading. 11x faster and 120x less data. Lazy Loading really helped here.*
 
 I find it interesting that PageSpeed and YSlow can be so high on some of these, despite them having (relatively) much slower speeds than the more responsive and optimised ones.
