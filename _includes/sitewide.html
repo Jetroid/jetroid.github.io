@@ -3,7 +3,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcIiUAQjo1AAMGBAAFCAYABwoINwYJB5cEBwXXGBcP+A0QC/giIhzXKSEXlzImFzclGxEAPy4dADAlFwAMCwcASUtLABEWFwAGCwoADBENlx8bF/8GCwf/BAcF/xcXD/8WFxD/TEs+/zQuH/80KBb/MCUXlxgUDAAsIhUAGBQNAHFtagB8e3kADhcXtwoPGf81KCD/GxgR/wQHBf8VEQn/Py0f/zUxL/83KiX/KyAT/z4vH/8QEAy3NjInADEpHQBBT2MAwretlwcNC/8aGEX/LyNi/yoiNf8LDwz/FBIN/1hAKv9MOSb/HBkO/yUaEf85Lh3/IhwS/y4jGJcvIRQANFd/N6CUkP8uMCz/ExVO/0Auhf9SNZT/Vj+L/y8lRf9LNyf/bU03/0MwH/87LRv/Qi4d/zopGv8yJBb/LiETN0RQYJfIv77/bmln/yslWf8rJnD/GRdE/yEXRf9FK3L/XkB+/1o+K/9cRC//MSUY/x0WDP8tIBT/Ix0R/zUyKJdVUlTXKi0z/09MR/9mZGD/FxlM/yAiZ/8bHFn/JR9a/zEjVP9RO07/WkEq/2FIMv8tJBj/NCMW/1M6Jf9ZQS7Xq5iF+EM7NP8QExL/X11g/xohH/8VH2X/CBE//x8bWP87KHX/Pitp/zYlRP9JNCT/TDkn/zgpHP9SPiz/OCsd+LynlfiRiHz/e3h8/6+ko/8lJSX/FR03/xYcLP86MET/Qy5z/04zhP9ONoj/Py1T/x4ZEP84KRr/WUw6/zAqHviTnK3Xuba1/7u0uf+biYP/QzUl/ztOY/8zOlb/Z2Js/01HWP9cSmz/bV1x/wwPE/8OEAr/IhwS/xwcGP8REhDXx8jDl8bIzf+UnbH/zMS9/7auof93jJn/Fhwq/yQrO/8qMD//Kik+/0pFTP9JPz//LCMa/zwtH/8lHxj/EBEOl6uqnjfBva//v7y0/7q9r/+ytqz/Z4Sd/xkqQv8VHTD/GyM0/zc0RP9LR0v/MCko/2JQSv8jGRL/RDQl/xARDTdNU0wAUFlVl1RgXv9eaWD/T1dO/1R5mv8tP1//HCAn/xkfLf8pJi7/LCUi/ykjGP8gGQz/Myce/zYsIJcQEQ4AITQyACk6NwAxPDa3RkxI/ztCOv81Tmz/LTZK/zIwNf8UGR7/ERQR/xIRDf84Jxf/UTsn/2NFMLcxKRsAQUM8ABorKQAZIyEAGyIeACUrKJcpLiv/FCAl/yc6V/8QFBT/DBQT/xYVEf8nHhT/TTgj/085Ipc8KhkAQzwuAGZpXwATJSIAFR4dABQbGAAUGxgAFBkXNyo0NpcqPVTXJyko+BYYDfgXFw7XKiESlz4vHTcnHA8AEQ8JAE5PSAAjKiQA+B8AAOAHAADAAwAAgAEAAIABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQAAgAEAAMADAADgBwAA+B8AAA==" />
 {% capture background-image %}{% if page.background %}{{ page.background }}{% else if layout.background %}{{ layout.background }}{% else %}default-background.jpg{% endif %}{% endcapture %}
 {% unless background-image == "none" or background-image == "" or background-image == nil %}
-<meta property="og:image" content="{{ site.url }}/assets/images/{{ background-image }}" />
+<meta property="og:image" content="{{ site.url }}/assets/images/backgrounds/{{ background-image }}" />
 {% endunless %}
 <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}Jetroid's Blog{% endif %}" />
 <meta property="og:locale" content="en_GB" />
@@ -17,12 +17,12 @@
 <meta name=”twitter:url” content=”{{ site.url }}{{ page.url }}”>
 <meta name="twitter:title" content="{% if page.title %}{{ page.title }} - {% endif %}Jetroid" />
 <meta name="twitter:description" content="{% if page.summary %}{{ page.summary }}{% else %}{{ site.description}}{% endif %}" />
-<meta name="twitter:image" content="{{ site.url }}/assets/images/{{ background-image }}" />
+<meta name="twitter:image" content="{{ site.url }}/assets/images/backgrounds/{{ background-image }}" />
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "Blog",
-  "url": "{{ site.url }}/assets/images/{{ background-image }}",
+  "url": "{{ site.url }}/assets/images/backgrounds/{{ background-image }}",
   "name": "{% if page.title %}{{ page.title }} - {% endif %}Jetroid",
   "author": "Jet 'Jetroid' Holt",
 }
