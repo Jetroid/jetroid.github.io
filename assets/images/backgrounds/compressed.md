@@ -61,4 +61,11 @@ images:
 - tradition-broken-beauty-768.jpg
 - tradition-broken-beauty-640.jpg
 - tradition-broken-beauty.jpg
+- kl-beauty-1920.jpg
+- kl-beauty-1600.jpg
+- kl-beauty-1366.jpg
+- kl-beauty-1024.jpg
+- kl-beauty-768.jpg
+- kl-beauty-640.jpg
+- kl-beauty.jpg
 ---
