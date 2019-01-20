@@ -94,7 +94,7 @@ Aiden recorded this video, where you can juuuust make it out:
 
 If you have a strong constitution, watch [this video](https://www.youtube.com/watch?v=Rhe12vcVRtA) to get an idea of the size of one of these things. Incredible.
 
-The waterfall at Wat Pha Lat actually goes into a very specific channel, so you can hope around on the rocks in front. 
+The waterfall at Wat Pha Lat actually goes into a very specific channel, so you can hop around on the rocks in front. 
 
 ![]({{ site.url }}/assets/images/content/hiking-new-year-wat-waterfall2.jpg)
 
@@ -180,7 +180,12 @@ When I got home I actually just unintentionally fell asleep whilst I was drying 
 
 When I woke, I was so so hungry, but many, many places were closed. The Mexican place I like to eat sometimes was even accidentally closed because their running water had stopped working! I ended up getting two lots of The Salad Concept that night - one to eat in, and one to eat out.
 
-During the period when everything was closed, Guilherme took me to meet Al, who has her shop set up in the bottom of [Central Kad Suan Kaew](https://www.google.com/maps/place/Central+Kad+Suan+Kaew/@18.7963489,98.9737924,17z/), which is right next to Huay Kaew Residence where I am staying. I actually checked out Central Kad Suan Kaew's food court (and the rest of the mall too) when I first arrived, but I hated it. The food was poor quality, overpriced, and the vibe of the building just depressed me. Turns out, there's a second smaller food court away from the more modern food court, and I didn't know about it. This food court actually looks worse and is even dingier, which is really strange, but in many ways it feels more authentic. It's feels like to me a bunch of street food stalls were brought into the parking lot.
+During the period when everything was closed, Guilherme took me to meet Al, who has her shop set up in the bottom of [Central Kad Suan Kaew](https://www.google.com/maps/place/Central+Kad+Suan+Kaew/@18.7963489,98.9737924,17z/), which is right next to Huay Kaew Residence where I am staying. I actually checked out Central Kad Suan Kaew's food court (and the rest of the mall too) when I first arrived, but I hated it. The food was poor quality, overpriced, and the vibe of the building just depressed me. 
+
+![The food court I didn't like in Central Kad Suan Kaew.]({{ site.url }}/assets/images/content/hiking-new-year-foodcourt.jpg)
+*The food court I didn't like in Central Kad Suan Kaew.*
+
+Turns out, there's a second smaller food court away from the more modern food court, and I didn't know about it. This food court actually looks worse and is even dingier, which is really strange, but in many ways it feels more authentic. It's feels like to me a bunch of street food stalls were brought into the parking lot.
 
 Guilherme and I went together, and he introduced me to Al. Al immediately gave me a cup of what she calls [Chlorophyll](https://www.healthline.com/health/liquid-chlorophyll-benefits-risks) - grasses and leaves that have been blended with water, and then strained. It tastes quite odd, but is apparently very healthy, and I'll eat or drink anything green.
 

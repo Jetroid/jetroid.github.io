@@ -524,4 +524,10 @@ images:
 - tradition-broken-christmas-meal-655.jpg
 - tradition-broken-christmas-meal-560.jpg
 - tradition-broken-christmas-meal.jpg
+- hiking-new-year-foodcourt-1230.jpg
+- hiking-new-year-foodcourt-1024.jpg
+- hiking-new-year-foodcourt-874.jpg
+- hiking-new-year-foodcourt-655.jpg
+- hiking-new-year-foodcourt-560.jpg
+- hiking-new-year-foodcourt.jpg
 ---
