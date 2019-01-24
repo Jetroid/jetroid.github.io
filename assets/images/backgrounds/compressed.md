@@ -68,4 +68,11 @@ images:
 - kl-beauty-768.jpg
 - kl-beauty-640.jpg
 - kl-beauty.jpg
+- camp-beauty-1920.jpg
+- camp-beauty-1600.jpg
+- camp-beauty-1366.jpg
+- camp-beauty-1024.jpg
+- camp-beauty-768.jpg
+- camp-beauty-640.jpg
+- camp-beauty.jpg
 ---

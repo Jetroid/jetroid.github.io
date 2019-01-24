@@ -7,6 +7,7 @@ background-color: "#896844"
 summary: "A look at alternative lifestyles in the digital age."
 categories:
  - "Society"
+ - "Remote Work"
 ---
 Recently, I've been thinking about how different things are; how things have changed compared to the past.
 
