@@ -30,9 +30,8 @@ sass:
   style: compressed
 #Jekyll Sitemap must come after any gems which generate content
 #gems which come after sitemap will not be included in the sitemap
-gems:
-  - jekyll-paginate
 plugins:
+  - jekyll-paginate
   - jemoji
   - jekyll-sitemap
 
