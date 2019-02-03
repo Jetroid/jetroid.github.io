@@ -692,4 +692,10 @@ images:
 - camp-maya-655.jpg
 - camp-maya-560.jpg
 - camp-maya.jpg
+- caption-beauty-1230.jpg
+- caption-beauty-1024.jpg
+- caption-beauty-874.jpg
+- caption-beauty-655.jpg
+- caption-beauty-560.jpg
+- caption-beauty.jpg
 ---
