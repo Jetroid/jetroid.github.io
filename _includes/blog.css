@@ -89,9 +89,12 @@ body{
 	display: block;
 	max-width: 100%;
 	max-height: 600px;
-	height: auto;
+	height: 1px;
 	margin: 0 auto;
 	border-radius: 5px;
+}
+.post-container img.loaded {
+	height: auto !important;
 }
 img.emoji {
 	display: inline;
