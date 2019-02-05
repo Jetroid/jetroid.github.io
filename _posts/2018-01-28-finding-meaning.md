@@ -294,7 +294,7 @@ Thinking about this post made me realise some things that I hadn't previously co
 
 Meditation helped me delve deeper into what is bringing me happiness in the now.
 
-I spent [the last six months](the-grip-of-depression/#recovery) trying to maintain
+I spent [the last six months](/the-grip-of-depression/#recovery) trying to maintain
 a positive mental state after my period of depression, and I'd say I have achieved it.
 
 Most days, I don't feel unhappy. Other days, I have a great time and really enjoy myself.
