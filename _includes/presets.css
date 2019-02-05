@@ -18,6 +18,7 @@ a:hover, .clickable:hover {
 	right: 0.08em;
 	position: relative;
 	text-shadow: 0.08em -0.08em {{ site.style.background-hex }};
+	cursor:pointer;
 }
 code.highlighter-rouge {
     background: {{ site.style.background-hex }};
