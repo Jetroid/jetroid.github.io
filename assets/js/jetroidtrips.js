@@ -97,6 +97,7 @@ var scene = viewer.scene;
 scene.skyAtmosphere.show = false;
 scene.fog.enabled = false;
 scene.globe.showGroundAtmosphere = false;
+scene.globe.maximumScreenSpaceError = 1;
 
 var layer = viewer.imageryLayers.addImageryProvider(
     new Cesium.IonImageryProvider({ assetId: 3812 })
