@@ -91,9 +91,13 @@ var viewer = new Cesium.Viewer('cesiumContainer', {
   baseLayerPicker : false,
   geocoder : false,
   infoBox : false,
- /* skyAtmosphere: false, */
   requestRenderMode : true
 });
+var scene = viewer.scene; 
+scene.skyAtmosphere.show = false;
+scene.fog.enabled = false;
+scene.globe.showGroundAtmosphere = false;
+
 var layer = viewer.imageryLayers.addImageryProvider(
     new Cesium.IonImageryProvider({ assetId: 3812 })
 );
