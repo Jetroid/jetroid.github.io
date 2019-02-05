@@ -91,7 +91,7 @@ var viewer = new Cesium.Viewer('cesiumContainer', {
   baseLayerPicker : false,
   geocoder : false,
   infoBox : false,
-  skyAtmosphere: false,
+ /* skyAtmosphere: false, */
   requestRenderMode : true
 });
 var layer = viewer.imageryLayers.addImageryProvider(
@@ -189,6 +189,7 @@ var globeFocus = function(lat, long, distance) {
   viewer.camera.flyTo({
     destination : Cesium.Cartesian3.fromDegrees(long, lat, distance)
   });
+  window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
 }
 
 globeFocus(trips[trips.length-1].location[0],trips[trips.length-1].location[1], 10000000.0);
