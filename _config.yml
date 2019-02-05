@@ -13,6 +13,8 @@ collections:
     output: false
   category:
     output: true
+  trips:
+    output: false
 
 defaults:
   -

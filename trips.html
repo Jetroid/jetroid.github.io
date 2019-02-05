@@ -1,0 +1,52 @@
+---
+layout: default
+title: Jet's Trips
+summary: An interactive look at Jet's trips around the world.
+donotlinkback: true
+custom_style_includes:
+- trips
+custom_js:
+- Cesium/Cesium
+---
+<div id="trips">
+  <div id="cesiumContainer"></div>
+  <div id="locationsList">
+    <nav id="linkback"><a href="/"><img src="/assets/images/jetroid-logo-miami.png" /></a></nav>
+  {% assign sorted = site.trips | sort: 'arrival-date' | reverse %}
+  {% for trip in sorted %}
+    {% capture date %}{% if trip.details-accurate %}{{ trip.date | date: "%Y/%m/%d" }}{% else %}{{ trip.date | date: "%B %Y" }}{% endif %}{% endcapture %}
+    {% capture emoji %}{% if trip.arrival-transport == 'boat' %}:ship:{% elsif trip.arrival-transport == 'air' %}:airplane:{% elsif trip.arrival-transport == 'car' %}:car:{% elsif trip.arrival-transport == 'train' %}:train2:{% elsif trip.arrival-transport == 'cycle' %}:bicyclist:{% elsif trip.arrival-transport == 'walk' %}:walking:{% elsif trip.arrival-transport == 'run' %}:runner:{% elsif trip.arrival-transport == 'birth' %}:baby:{% endif %}{% endcapture %}
+    {% if previousArrival %}
+      <p class="transport">{{ trip.departed }} - {{ previousArrival }}</p><hr />
+    </div>
+    {% endif %}
+    <div class="location">
+      <h1>{{ emoji }} <span class="clickable" onclick="globeFocus({{ trip.location }}, 50000.0)">{{ trip.name }}</span>, {{ trip.country }}</h1>
+      <p>{{ date }} - {% if previousDate %}{{ previousDate }}{% else %}Present{% endif %}</p>
+      <hr />
+      {% if trip.content.size > 3 %}{{ trip.content }}<hr />{% endif %}
+      {% assign previousArrival = trip.arrival %}
+      {% assign previousDate = date %}
+  {% endfor %}
+      <p class="transport">The Void - {{ previousArrival }}</p><hr />
+    </div>
+  </div>
+</div>
+<script>
+{% assign sorted2 = sorted | reverse %}
+var trips = [
+{% for trip in sorted2 %}
+  {
+    name: "{{ trip.name }}",
+    location: [{{ trip.location }}],
+    arrival: "{{ trip.arrival }}",
+    arrivalLocation: [{{ trip.arrival-location }}],
+    arrivalDate: "{{ trip.arrival-date }}",
+    arrivalTransport: "{{ trip.arrival-transport }}",
+    departed: "{{ trip.departed }}",
+    departedLocation: [{{ trip.departed-location }}]
+  },
+{% endfor %}
+];
+</script>
+<script src="../assets/js/jetroidtrips.js"></script>

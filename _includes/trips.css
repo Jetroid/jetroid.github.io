@@ -1,0 +1,70 @@
+@import url(../assets/js/Cesium/Widgets/widgets.css);
+html, body {
+  overflow: none; font-family: monospace; color: {{ site.style.text }};
+}
+p {
+  margin: 0;
+}
+h1 {
+  margin: 0;
+  font-size: 1.8em;
+}
+hr {
+  width: 100%;
+  height: 1px;
+  background: {{ site.style.text }};
+  display: block;
+}
+.cesium-credit-logoContainer,
+.cesium-credit-textContainer {
+  display: none !important;
+}
+#locationsList {
+  background-color: {{ site.style.background-hex }};
+  padding: 10px;
+  box-sizing: border-box;
+}
+.location {
+  padding-top: 5px;
+}
+#linkback > a > img {
+  width: 50%;
+  display: block;
+  margin: auto;
+}
+
+@media (orientation: portrait) {
+  #cesiumContainer {
+    width: 100%;
+    height: 60vh;
+    overflow: none;
+  } 
+}
+
+@media (orientation: landscape) {
+  @media (max-width: 700px){
+    h1 {
+      font-size: 1.0em;
+    }
+  }
+  #trips {
+    content: "";
+    display: table;
+    clear: both;
+    height: 100vh;
+    width: 100vw;
+    overflow: none;
+  }
+  #cesiumContainer {
+    float: right;
+    width: 70%;
+    height: 100vh;
+    overflow: none;
+  }
+  #locationsList {
+    float: left;
+    width: 30%;
+    height: 100vh;
+    overflow-y: scroll;
+  }
+}

@@ -9,11 +9,11 @@ body{
 	color: {{ site.style.text }};
 	overflow: none;
 }
-a {
+a, .clickable {
 	text-decoration: none;
 	color: {{ site.style.highlight }}
 }
-a:hover{
+a:hover, .clickable:hover {
 	top: 0.08em;
 	right: 0.08em;
 	position: relative;
