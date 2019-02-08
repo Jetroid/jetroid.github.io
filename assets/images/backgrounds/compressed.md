@@ -76,4 +76,11 @@ images:
 - camp-beauty-640.jpg
 - camp-beauty.jpg
 - trips.png
+- 23-beauty-1920.jpg
+- 23-beauty-1600.jpg
+- 23-beauty-1366.jpg
+- 23-beauty-1024.jpg
+- 23-beauty-768.jpg
+- 23-beauty-640.jpg
+- 23-beauty.jpg
 ---
