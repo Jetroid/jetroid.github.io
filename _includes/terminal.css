@@ -1,6 +1,9 @@
 body{
 	font-family: monospace;
 }
+p {
+	margin: 0;
+}
 .nowrap {
 	white-space: nowrap;
 }

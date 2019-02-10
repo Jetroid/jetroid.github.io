@@ -51,7 +51,7 @@ var enterPressed = function() {
 	print(oldTime + " jetroid@netricsa:" + oldError + oldPath + "$ " + userTyped);
 
 	// determine the command the user typed and execute it
-	var splitTyped = userTyped.split(" ");
+	var splitTyped = userTyped.trim().split(" ");
 	var commandPart = splitTyped.shift();
 	var command = determineCommand(commandPart);
 
@@ -177,15 +177,80 @@ commands.cd = function(input) {
 	}
 }
 
-var setTime = function() {
-	var time = new Date();
+commands.wget = function(input) {
+	for (var i = 0; i < input.length; i++) {
+		var string = input[i];
+		if (!(string.startsWith("http://") 
+			|| string.startsWith("https://") 
+			|| string.startsWith("ftp://"))) {
+			string = "http://" + string;
+		}
+		urlregex = /((http|ftp|https):\/\/)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}$/g;
+		if (urlregex.test(string)) {
+			string = string + "/"
+		}
+		print("--"+getDateStamp()+" "+getTimeStamp()+"  "+string);
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", 'https://jetroidcors.herokuapp.com/' + string, true);
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+				//Everything successful and OK
+				var filename = string.split("/").pop();
+				filename = filename.length === 0 ? "index.html" : filename;
+				if (pathToObject(filename) !== 1) {
+					filename = filename + ".1";
+					var int = 1;
+					while(pathToObject(filename) === 1) {
+						filename = filename.slice(0,-(int.toString().length)) + int++;
+					}
+				}
+				var file = new FilesystemObject("filename","file","755","jetroid","users");
+				file.content = xhr.responseText;
+				workingDirectory.content[filename] = file;
+			} else if(xhr.readyState == XMLHttpRequest.DONE) {
+				//Some kind of network error
+			}
+		}
+		xhr.send(null);
+	}
+}
+
+commands.cat = function(input) {
+	for (var i = 0; i < input.length; i++) {
+		var file = pathToObject(input[i]);
+		print(file.content);
+	}
+}
+
+var getDateStamp = function(time, delim, yearLast) {
+	time = time || new Date();
+	delim = delim || "-";
+	var day = time.getDate();
+	day = day < 10 ? "0" + day : day; 
+	var month = time.getMonth()+1;
+	month = month < 10 ? "0" + month : month;
+	var year = time.getFullYear();
+	if (yearLast) {
+		return day + delim + month + delim + year;
+	} else {
+		return year + delim + month + delim + day;
+	}
+}
+
+var getTimeStamp = function(time, delim) {
+	time = time || new Date();
+	delim = delim || ":";
 	var hour = time.getHours();
 	hour = hour < 10 ? "0" + hour : hour; 
 	var minute = time.getMinutes();
 	minute = minute < 10 ? "0" + minute : minute;
 	var second = time.getSeconds(); 
 	second = second < 10 ? "0" + second : second;
-	var str = hour + ":" + minute + ":" + second;
+	return hour + delim + minute + delim + second;
+}
+
+var setTime = function() {
+	var str = getTimeStamp();
 	document.getElementById("time").textContent = str;
 	window.setTimeout(setTime,500);
 }
