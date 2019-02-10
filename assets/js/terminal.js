@@ -55,3 +55,20 @@ commands.echo = function(input) {
 	print(input);
 	return 0;
 }
+
+var setTime = function() {
+	var time = new Date();
+	var hour = time.getHours();
+	hour = hour < 10 ? "0" + hour : hour; 
+	var minute = time.getMinutes();
+	minute = minute < 10 ? "0" + minute : minute;
+	var second = time.getSeconds(); 
+	second = second < 10 ? "0" + second : second;
+	var str = hour + ":" + minute + ":" + second;
+	document.getElementById("time").textContent = str;
+	window.setTimeout(setTime,500);
+}
+
+window.onload = function () {
+	setTime();
+}
