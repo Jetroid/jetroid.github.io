@@ -10,34 +10,30 @@ custom_js:
 - terminal
 ---
 <script>
-var blogposts = {
-	name: "blog/",
-	type: "directory",
-	protections: "755",
-	owner: "jetroid",
-	group: "users",
-	date: Date.parse("{{ site.posts[0].date }}"),
-	content: [
-	{%- for post in site.posts -%}
-		{
-			name: "{{ post.date | date: '%Y-%m-%d-' }}{{ post.title | replace: ' ', '-' | downcase }}.html",
-			type: "file",
-			protections: "755",
-			owner: "jetroid",
-			group: "users",
-			date: Date.parse("{{ post.date }}"),
-			content: "url({{ post.url | prepend: site.baseurl }})"
-		},
-	{%- endfor -%}
-	]
+var FilesystemObject = function(name,type,protections,owner,group,date,parent) {
+	this.name = name ;
+	this.type = type;
+	this.protections = protections;
+	this.owner = owner;
+	this.group = group;
+	this.date = date || new Date();
+	this.content = {};
+	this.content[".."] = parent || this;
+	this.content["."] = this;
 };
+var blogposts = new FilesystemObject("blog","directory","755","jetroid","users", 
+	Date.parse("{{ site.posts[0].date }}"));
+{%- for post in site.posts -%}
+{%- capture posttitle -%}{{ post.date | date: '%Y-%m-%d-' }}{{ post.url | replace: '/', '' | downcase }}.html{%- endcapture -%}
+blogposts.content["{{ posttitle }}"] = new FilesystemObject("{{ posttitle }}","file","755","jetroid","users", Date.parse("{{ post.date }}"), blogposts);
+{%- endfor -%}
 </script>
 <div id="terminal-container">
 	<div id="history">
 	</div>
 	<div id="prompt">
 		<p>
-			<span id="time">17:39:32</span> jetroid@netricsa:<span id="error-code">0</span><span id="path">~/</span> $ 
+			<span id="time">17:39:32</span> jetroid@netricsa:<span id="error-code">0</span><span id="path">~</span>$ 
 			<input type="text" name="prompt" id="data"/>
 			<input type="button" value="enter" onclick="enterPressed()"/>
 		</p>

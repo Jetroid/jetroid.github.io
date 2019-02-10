@@ -1,3 +1,10 @@
 body{
 	font-family: monospace;
 }
+.nowrap {
+	white-space: nowrap;
+}
+.lsdir {
+	color: #3f3fff;
+	font-weight: bold;
+}

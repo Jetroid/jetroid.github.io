@@ -1,32 +1,15 @@
 var commands = {};
-var filesystem = {
-	name: "/",
-	type: "directory",
-	protections: "755",
-	owner: "root",
-	group: "root",
-	date: Date.parse('04 Feb 2018 22:22:22 GMT'),
-	content: []
-};
-filesystem.content.push({
-		name: "home/",
-		type: "directory",
-		protections: "755",
-		owner: "root",
-		group: "root",
-		date: Date.parse('04 Feb 2018 22:23:01 GMT'),
-		content: []
-});
-filesystem.content[0].content.push({
-		name: "jetroid/",
-		type: "directory",
-		protections: "755",
-		owner: "jetroid",
-		group: "users",
-		date: new Date(),
-		content: []
-});
-filesystem.content[0].content[0].content.push(blogposts);
+var filesystem = root = new FilesystemObject("/","directory","755","root","root", 
+	Date.parse('04 Feb 2018 22:22:22 GMT'));
+filesystem.content["home"] = 
+	new FilesystemObject("home","directory","755","root","root", 
+	Date.parse('04 Feb 2018 22:23:01 GMT'),filesystem);
+var workingDirectory = homeDirectory = 
+	filesystem.content["home"].content["jetroid"] =
+	new FilesystemObject("jetroid","directory","755","jetroid","users",
+	new Date(),filesystem.content["home"]);
+blogposts.content[".."] = homeDirectory;
+homeDirectory.content["blog"] = blogposts;
 
 var enablePrompt = function(errorCode) {
 	var prompt = document.getElementById("prompt");
@@ -39,6 +22,14 @@ var enablePrompt = function(errorCode) {
 var print = function(text) {
 	var container = document.createElement("p");
 	container.textContent = text;
+	var history = document.getElementById("history");
+	history.appendChild(container);
+}
+
+
+var printUnsafe = function(text) {
+	var container = document.createElement("p");
+	container.innerHTML = text;
 	var history = document.getElementById("history");
 	history.appendChild(container);
 }
@@ -75,6 +66,64 @@ var enterPressed = function() {
 	}
 }
 
+var pathToObject = function(pathStr) {
+	// remove a trailing slash because that breaks things
+	if (pathStr.endsWith("/")) {
+		pathStr = pathStr.slice(0,-1);
+	}  
+	// navigate the path left to right to find the object
+	var pathSegments = pathStr.split("/");
+	var path;
+
+	// determine where to start looking from
+	var firstSegment = pathSegments.shift();
+	if (firstSegment === "") {
+		// path like /home/jetroid/blog
+		path = filesystem;
+	} else if (firstSegment === "~") {
+		// path like ~/blog
+		path = homeDirectory;
+	} else {
+		// path like ./blog or ../blog or blog 
+		if (firstSegment in workingDirectory.content) {
+			path = workingDirectory.content[firstSegment];
+		} else {
+			// Couldn't find path
+			return 1;
+		}
+	}
+
+	for (var i = 0; i < pathSegments.length; i++) {
+		var segment = pathSegments[i];
+		if (path["type"] === "directory" && segment in path.content) {
+			path = path.content[segment];
+		} else {
+			return 1;
+		}
+	}
+
+	return path;
+}
+
+var objectToPath = function(object) {
+	var string = "";
+	while (object !== filesystem && object !== homeDirectory) {
+		string = "/" + object.name + string;
+		object = object.content[".."];
+		console.log(object);
+	}
+	if (object === homeDirectory) {
+		return "~" + string;
+	} else {
+		return string || "/";
+	}
+}
+
+var setWorkingDirectory = function(pathObject) {
+	document.getElementById("path").textContent = objectToPath(pathObject);
+	workingDirectory = pathObject;
+}
+
 var determineCommand = function(command) {
 	return commands[command];
 }
@@ -82,6 +131,50 @@ var determineCommand = function(command) {
 commands.echo = function(input) {
 	print(input);
 	return 0;
+}
+
+commands.ls = function(input) {
+	if (input.length === 0) {
+		var directoryContents = Object.keys(workingDirectory.content);
+		var lsStr = "";
+		for (var i = 0; i < directoryContents.length; i++) {
+			var name = directoryContents[i];
+			var meta = workingDirectory.content[name];
+			if (meta["type"] === "directory") {
+				lsStr += "<span class='nowrap lsdir'>" + name + "</span> ";
+			} else {
+				lsStr += "<span class='nowrap lsblue'>" + name + "</span> ";
+			}
+		}
+		printUnsafe(lsStr);
+		return 0;
+	} else {
+		//TODO: Other cases and parameters
+	}
+}
+
+commands.cd = function(input) {
+	if (input.length === 0) {
+		// if no path give, we go home
+		setWorkingDirectory(homeDirectory);
+	} else if (input.length === 1) {
+		// if no parameters given,
+		var path = pathToObject(input[0]);
+		if (path === 1) {
+			print("cd: no such file or directory: " + input[0]);
+			return 1;
+		} else if (path.type === "file") {
+			print("cd: not a directory: " + input[0]);
+			return 1;
+		} else {
+			setWorkingDirectory(path);
+			return 0;
+		}
+	} else {
+		//TODO: Other cases and parameters
+		print("cd: too many arguments");
+		return 1;
+	}
 }
 
 var setTime = function() {
