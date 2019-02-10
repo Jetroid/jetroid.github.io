@@ -48,7 +48,7 @@ Flanger<p>
     &nbsp;The Flanger is, at the time of writing (25/10/14), an incomplete project I am still working on.<p>
   &nbsp;Flanging is a musical effect where a delayed signal is mixed with the real signal. The amount of delay on the delayed signal oscillates.<p>
   &nbsp;This project has been one of the most challenging programming projects I have ever worked on. I have estimated that the frequency that the Flanger will need to work at to be around 45kHz. This is so that it can correctly sample and playback the original signal. (Nyquists theorem.) To achieve this 45kHz speed, I have calculated that I can only execute 111 instructions on the PIC I am using at the frequency it is running at. To put this in perspective, an analogue-to-digital read takes my PIC 72 instructions, and communicating with the memory chip I am using takes 40 instructions, both ways. Luckily, I can execute some other instructions whilst the ADC module reads, or whilst the SPI port sends data. As such, one of the only things I have to do for this project before I can test it is to figure out the best order to run the instructions.<p>
-	-jetroid@eleanor:~$ <a href="http://www.jetroid.me/" style="text-decoration:none;"><span class="blink_text">cd ..</span></a><br>
+	-jetroid@eleanor:~$ <a href="/old-terminal/" style="text-decoration:none;"><span class="blink_text">cd ..</span></a><br>
 </body>
 
 </html>

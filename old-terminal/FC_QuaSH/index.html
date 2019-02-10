@@ -51,7 +51,7 @@ QuaSH - Quantised Sample and Hold.<p>
   &nbsp;I knew right from the start that the 16F684 I was using for the project did not feature DAC (Digital to Analogue Converter) capability, but that it did feature PWM (Pulse Width Modulation) capability. PWM can be filtered to obtain (an approximation of) the real waveform again.<p>
   &nbsp;I had a few stumbles when attempting to output a PWM for the first time. My multimeter showed the output to just be a constant 5V for whatever I tried to output, and that indicated that something clearly wasn't working properly. It turned out that I was writing to the wrong part of the byte of the PWM module; I had configured it to output only 6 bits of the 10 bit maximum, but was writing  to the upper 6 bits, not the lower 6 bits. As such, 'obviously' it was outputting a full duty cycle for my input. After changing the write locations it worked.<p>
   &nbsp;The QuaSH needs changes before it can be utilised in an actual Frequency Central project. I need to remove the 8 channel reading and simply change it to read one input, and then I need to add an analogue input connected to a attenuator or socket so that various 'modes' can be selected.<p>
-	-jetroid@eleanor:~$ <a href="http://www.jetroid.me/" style="text-decoration:none;"><span class="blink_text">cd ..</span></a><br>
+	-jetroid@eleanor:~$ <a href="/old-terminal/" style="text-decoration:none;"><span class="blink_text">cd ..</span></a><br>
 </body>
 
 </html>

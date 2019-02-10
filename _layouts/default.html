@@ -1,5 +1,4 @@
 ---
-layout: compress
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -12,15 +11,17 @@ layout: compress
 	as liquid 3.0.6 does not support concat !-->
 	{% assign delim = "|" %}
 	<!-- Custom Includes - use custom_style_includes in YAML front matter !-->
+	{%- capture include_to_scssify -%}
+		{%- unless page.nopresets -%}
+			{%- include presets.css -%}
+		{%- endunless -%}
+		{%- unless page.donotlinkback -%}
+			{%- include linkback.css -%}
+		{%- endunless -%}
+		{%- include master.scss -%}
+	{%- endcapture -%}
 	<style>
-	{% capture include_to_scssify %}
-		{% include presets.css %}
-		{% if page.donotlinkback %}{% else %}
-			{% include linkback.css %}
-		{% endif %}
-		{% include master.scss %}
-	{% endcapture %}
-  {{ include_to_scssify | scssify }}
+		{{ include_to_scssify | scssify }}
 	</style>
 	<!-- Custom Stylesheets - use custom_css in YAML front matter !-->
 	{% assign had_elements = "" %}
@@ -38,30 +39,28 @@ layout: compress
 			{% endif %}
 		{% endfor %}
 	{% endif %}
-	<!-- Custom JS (as seperate file) - use custom_js in YAML front matter !-->
-	{% assign had_elements = "" %}
-	{% if page.custom_js %}
-		{% for js_file in page.custom_js %}
-			{% capture had_elements %}{{ had_elements | join: delim }}{{ delim }}{{ js_file }}{% endcapture %}
-			{% assign had_elements = had_elements | split: delim %}
-			<script src='/assets/js/{{ js_file }}.js' type="text/javascript"></script>
-		{% endfor %}
-	{% endif %}
-	{% if layout.custom_js %}
-		{% for js_file in layout.custom_js %}
-			{% if had_elements contains js_file %}{% else %}
-				<script src='/assets/js/{{ js_file }}.js' type="text/javascript"></script>
-			{% endif %}
-		{% endfor %}
-	{% endif %}
-	
-	
 	</head>
 	<body>
 		{% if page.donotlinkback %}{% else %}
 		<nav id="linkback"><a href="/"><img src="/assets/images/jetroid-logo-miami.png" /></a></nav>
 		{% endif %}
 		{{ content }}
+		<!-- Custom JS (as seperate file) - use custom_js in YAML front matter !-->
+		{% assign had_elements = "" %}
+		{% if page.custom_js %}
+			{% for js_file in page.custom_js %}
+				{% capture had_elements %}{{ had_elements | join: delim }}{{ delim }}{{ js_file }}{% endcapture %}
+				{% assign had_elements = had_elements | split: delim %}
+				<script src='/assets/js/{{ js_file }}.js' type="text/javascript"></script>
+			{% endfor %}
+		{% endif %}
+		{% if layout.custom_js %}
+			{% for js_file in layout.custom_js %}
+				{% if had_elements contains js_file %}{% else %}
+					<script src='/assets/js/{{ js_file }}.js' type="text/javascript"></script>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
 		<script>
 		{% include analytics.min.js %}
 		{% assign had_elements = "" %}

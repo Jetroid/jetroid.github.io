@@ -23,6 +23,11 @@ defaults:
       type: category
     values:
       layout: category
+  -
+    scope:
+      path: "old-terminal/*"
+    values:
+      sitemap: false
 
 # Build settings
 markdown: kramdown
@@ -34,9 +39,9 @@ sass:
 #Jekyll Sitemap must come after any gems which generate content
 #gems which come after sitemap will not be included in the sitemap
 plugins:
-  - jekyll-paginate
   - jemoji
   - jekyll-sitemap
+  - jekyll-paginate
 
 # Style settings - will be used in css
 style:
@@ -49,3 +54,6 @@ style:
 exclude:
   - oldstuff
   - about.md
+  - assets/images/content/compressed.md
+  - assets/images/backgrounds/compressed.md
+  - assets/images/compressed.md
