@@ -1,3 +1,20 @@
+var commands = {};
+
+var enablePrompt = function(errorCode) {
+	var prompt = document.getElementById("prompt");
+	prompt.style.display = "block";
+	document.getElementById("error-code").textContent = errorCode;
+	//TODO: REPLACE THIS ONCE PROMPT INPUT HAS CHANGED
+	document.getElementById("data").value = "";
+}
+
+var print = function(text) {
+	var container = document.createElement("p");
+	container.textContent = text;
+	var history = document.getElementById("history");
+	history.appendChild(container);
+}
+
 var enterPressed = function() {
 	// hide the prompt (needs to be hidden whilst  commands are executing)
 	var prompt = document.getElementById("prompt");
@@ -12,18 +29,29 @@ var enterPressed = function() {
 	var userTyped = document.getElementById("data").value;
 
 	// add the prompt to the 'output history'
-	print(oldTime + " jetroid@netricsa:" + oldError + oldPath + " " + userTyped);
+	print(oldTime + " jetroid@netricsa:" + oldError + oldPath + "$ " + userTyped);
+
+	// determine the command the user typed and execute it
+	var splitTyped = userTyped.split(" ");
+	var commandPart = splitTyped.shift();
+	var command = determineCommand(commandPart);
+
+	if (command === undefined) {
+		//User didn't type a valid command
+		print("zsh: command not found: " + userTyped);
+		enablePrompt(127);
+	} else {
+		//execute command on input
+		var errorCode = command(splitTyped);
+		enablePrompt(errorCode);
+	}
 }
 
-var enablePrompt = function(errorCode) {
-	var prompt = document.getElementById("prompt");
-	prompt.style.display = "block";
-	document.getElementById("error-code").textContent = errorCode;
+var determineCommand = function(command) {
+	return commands[command];
 }
 
-var print = function(text) {
-	var container = document.createElement("p");
-	container.textContent = text;
-	var history = document.getElementById("history");
-	history.appendChild(container);
+commands.echo = function(input) {
+	print(input);
+	return 0;
 }
