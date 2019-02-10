@@ -1,4 +1,32 @@
 var commands = {};
+var filesystem = {
+	name: "/",
+	type: "directory",
+	protections: "755",
+	owner: "root",
+	group: "root",
+	date: Date.parse('04 Feb 2018 22:22:22 GMT'),
+	content: []
+};
+filesystem.content.push({
+		name: "home/",
+		type: "directory",
+		protections: "755",
+		owner: "root",
+		group: "root",
+		date: Date.parse('04 Feb 2018 22:23:01 GMT'),
+		content: []
+});
+filesystem.content[0].content.push({
+		name: "jetroid/",
+		type: "directory",
+		protections: "755",
+		owner: "jetroid",
+		group: "users",
+		date: new Date(),
+		content: []
+});
+filesystem.content[0].content[0].content.push(blogposts);
 
 var enablePrompt = function(errorCode) {
 	var prompt = document.getElementById("prompt");

@@ -9,6 +9,29 @@ custom_style_includes:
 custom_js:
 - terminal
 ---
+<script>
+var blogposts = {
+	name: "blog/",
+	type: "directory",
+	protections: "755",
+	owner: "jetroid",
+	group: "users",
+	date: Date.parse("{{ site.posts[0].date }}"),
+	content: [
+	{%- for post in site.posts -%}
+		{
+			name: "{{ post.date | date: '%Y-%m-%d-' }}{{ post.title | replace: ' ', '-' | downcase }}.html",
+			type: "file",
+			protections: "755",
+			owner: "jetroid",
+			group: "users",
+			date: Date.parse("{{ post.date }}"),
+			content: "url({{ post.url | prepend: site.baseurl }})"
+		},
+	{%- endfor -%}
+	]
+};
+</script>
 <div id="terminal-container">
 	<div id="history">
 	</div>
