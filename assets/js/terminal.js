@@ -11,7 +11,15 @@ var workingDirectory = homeDirectory =
 blogposts.content[".."] = homeDirectory;
 homeDirectory.content["blog"] = blogposts;
 
+var scrollToBottom = function() {
+	var element = document.getElementById("terminal-container");
+	element.scrollTop = element.scrollHeight;
+}
+
 var enablePrompt = function(errorCode) {
+	//TEMPORARY
+	errorCode = errorCode === undefined ? "ERROR CODE NOT SET": errorCode;
+
 	var prompt = document.getElementById("prompt");
 	prompt.style.display = "block";
 	document.getElementById("error-code").textContent = errorCode;
@@ -19,19 +27,32 @@ var enablePrompt = function(errorCode) {
 	document.getElementById("data").value = "";
 }
 
-var print = function(text) {
-	var container = document.createElement("p");
-	container.textContent = text;
+var print = function(text, append) {
 	var history = document.getElementById("history");
-	history.appendChild(container);
+	if (!append) {
+		var container = document.createElement("p");
+		container.textContent = text;
+		history.appendChild(container);
+	} else {
+		var container = history.lastChild;
+		container.innerHTML += htmlEntities(text);
+	}
 }
 
-
-var printUnsafe = function(text) {
-	var container = document.createElement("p");
-	container.innerHTML = text;
+var printUnsafe = function(text, append) {
 	var history = document.getElementById("history");
-	history.appendChild(container);
+	if (!append) {
+		var container = document.createElement("p");
+		container.innerHTML = text;
+		history.appendChild(container);
+	} else {
+		var container = history.lastChild;
+		container.innerHTML += text;
+	}
+}
+
+var htmlEntities = function(str) {
+    return String(str).replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 }
 
 var enterPressed = function() {
@@ -48,7 +69,7 @@ var enterPressed = function() {
 	var userTyped = document.getElementById("data").value;
 
 	// add the prompt to the 'output history'
-	print(oldTime + " jetroid@netricsa:" + oldError + oldPath + "$ " + userTyped);
+	printUnsafe("<span class='pink'>" + oldTime + " jetroid@netricsa</span>:" + oldError + oldPath + "$ " + userTyped);
 
 	// determine the command the user typed and execute it
 	var splitTyped = userTyped.trim().split(" ");
@@ -61,8 +82,7 @@ var enterPressed = function() {
 		enablePrompt(127);
 	} else {
 		//execute command on input
-		var errorCode = command(splitTyped);
-		enablePrompt(errorCode);
+		command(splitTyped);
 	}
 }
 
@@ -93,6 +113,7 @@ var pathToObject = function(pathStr) {
 		}
 	}
 
+	// navigate from the starting point and resolve the rest of the path
 	for (var i = 0; i < pathSegments.length; i++) {
 		var segment = pathSegments[i];
 		if (path["type"] === "directory" && segment in path.content) {
@@ -124,30 +145,44 @@ var setWorkingDirectory = function(pathObject) {
 	workingDirectory = pathObject;
 }
 
+var makeXHRRequest = function(url, onSuccess, onError) {
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", 'https://jetroidcors.herokuapp.com/' + url, true);
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status == 200) {
+			//Everything successful and OK
+			var contentType = xhr.getResponseHeader("Content-Type");
+			onSuccess(xhr.responseText, contentType);
+		} else if(xhr.readyState === XMLHttpRequest.DONE) {
+			onError(xhr.status, xhr.statusText);
+		}
+	};
+	xhr.send(null);
+}
+
 var determineCommand = function(command) {
 	return commands[command];
 }
 
 commands.echo = function(input) {
 	print(input);
-	return 0;
+	enablePrompt(0);
 }
 
 commands.ls = function(input) {
 	if (input.length === 0) {
 		var directoryContents = Object.keys(workingDirectory.content);
-		var lsStr = "";
 		for (var i = 0; i < directoryContents.length; i++) {
 			var name = directoryContents[i];
+			if (name === "." || name === "..") continue;
 			var meta = workingDirectory.content[name];
 			if (meta["type"] === "directory") {
-				lsStr += "<span class='nowrap lsdir'>" + name + "</span> ";
+				printUnsafe("<span class='nowrap lsdir'>" + htmlEntities(name) + "</span>");
 			} else {
-				lsStr += "<span class='nowrap lsblue'>" + name + "</span> ";
+				printUnsafe("<span class='nowrap lsblue'>" + htmlEntities(name) + "</span>");
 			}
 		}
-		printUnsafe(lsStr);
-		return 0;
+		enablePrompt(0);
 	} else {
 		//TODO: Other cases and parameters
 	}
@@ -155,31 +190,61 @@ commands.ls = function(input) {
 
 commands.cd = function(input) {
 	if (input.length === 0) {
-		// if no path give, we go home
+		// if no path given, we go home
 		setWorkingDirectory(homeDirectory);
+		enablePrompt(0);
 	} else if (input.length === 1) {
 		// if no parameters given,
 		var path = pathToObject(input[0]);
 		if (path === 1) {
 			print("cd: no such file or directory: " + input[0]);
-			return 1;
+			enablePrompt(1);
 		} else if (path.type === "file") {
 			print("cd: not a directory: " + input[0]);
-			return 1;
+			enablePrompt(1);
 		} else {
 			setWorkingDirectory(path);
-			return 0;
+			enablePrompt(0);
 		}
 	} else {
 		//TODO: Other cases and parameters
 		print("cd: too many arguments");
-		return 1;
+		enablePrompt(1);
 	}
 }
 
-commands.wget = function(input) {
-	for (var i = 0; i < input.length; i++) {
-		var string = input[i];
+commands.wget = function(input, startTime, countRuns, totalChars, totalFakeDownloadTime) {
+	var fakeSpeed = (Math.random() * (12.67 - 3.2) + 3.2).toFixed(2);
+	if (input.length === 0 && countRuns > 1) {
+		// generate the "FINISHED" stats stuff when wget'ing multiple urls
+		print("FINISHED --"+getDateStamp()+" "+getTimeStamp()+"--");
+		
+		var totalTimeDifference = Math.abs(startTime.getTime() - new Date().getTime());
+		var ms = totalTimeDifference % 1000;
+		var secs = ((totalTimeDifference - ms) / 1000) % 60;
+		print("Total wall clock time: "+secs+"."+ms+"s");
+		
+		var kb = totalChars.toString().slice(0,-3);
+		var downloadTime = totalFakeDownloadTime.toFixed(3);
+		print("Downloaded: "+countRuns+" files, "+kb+"K in "+downloadTime+"s ("+fakeSpeed+" MB/s)");
+		enablePrompt(0);
+	} else if (input.length === 0 && countRuns === 1) {
+		// don't print anything when finished wget'ing a single url
+		enablePrompt(0);
+	} else if (input.length === 0) {
+		// if we didn't specify a url we print an error
+		print("wget: missing URL");
+		enablePrompt(1);
+	} else {
+		// we still have urls to get
+
+		// set some defaults to the parameters
+		startTime = startTime || new Date() 
+		countRuns = countRuns || 0;
+		totalChars = totalChars || 0;
+		totalFakeDownloadTime = totalFakeDownloadTime || 0;
+
+		var string = input.shift();
 		if (!(string.startsWith("http://") 
 			|| string.startsWith("https://") 
 			|| string.startsWith("ftp://"))) {
@@ -189,29 +254,51 @@ commands.wget = function(input) {
 		if (urlregex.test(string)) {
 			string = string + "/"
 		}
-		print("--"+getDateStamp()+" "+getTimeStamp()+"  "+string);
-		var xhr = new XMLHttpRequest();
-		xhr.open("GET", 'https://jetroidcors.herokuapp.com/' + string, true);
-		xhr.onreadystatechange = function() {
-			if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
-				//Everything successful and OK
-				var filename = string.split("/").pop();
-				filename = filename.length === 0 ? "index.html" : filename;
-				if (pathToObject(filename) !== 1) {
-					filename = filename + ".1";
-					var int = 1;
-					while(pathToObject(filename) === 1) {
-						filename = filename.slice(0,-(int.toString().length)) + int++;
-					}
+		var onSuccess = function(text, type) {
+			// get just the file name, if there is one
+			var filename = string.split("/").pop();
+			// If not filename specified, resort to index.html
+			filename = filename.length === 0 ? "index.html" : filename;
+			// if filename is taken, keep appending numbers until we find one
+			if (pathToObject(filename) !== 1) {
+				filename = filename + ".1";
+				var int = 1;
+				while(pathToObject(filename) !== 1) {
+					console.log(filename + " is taken");
+					filename = filename.slice(0,-(int.toString().length)) + int++;
 				}
-				var file = new FilesystemObject("filename","file","755","jetroid","users");
-				file.content = xhr.responseText;
-				workingDirectory.content[filename] = file;
-			} else if(xhr.readyState == XMLHttpRequest.DONE) {
-				//Some kind of network error
 			}
+			var file = new FilesystemObject(filename,"file","755","jetroid","users");
+			file.content = text;
+			workingDirectory.content[filename] = file;
+			print(" 104.27.162.119, 104.27.163.119, 2606:4700:30::681b:a377, ...",true);
+			window.setTimeout(function(){
+				print("Connecting to "+string+" ("+string+")|104.27.162.119|:80...");
+				window.setTimeout(function(){
+					print(" connected.",true);
+					print("HTTP request sent, awaiting response...");
+					window.setTimeout(function(){
+						var fakeTime = (Math.random() * (0.010 - 0.001) + 0.001).toFixed(3);
+						var bytes = text.length;
+						print(" 200 OK",true);
+						print("Length: unspecified [" + type + "]");
+						print("Saving to: ‘"+filename+"’");
+						print("​");
+						printUnsafe("<pre style='display:inline;'>" +filename + "              [ &lt;=&gt; </pre><pre class='hugright'>]  "+bytes+"  --.-KB/s    in "+fakeTime+"s   </pre>");
+						print("​");
+						print(getDateStamp()+" "+getTimeStamp() + " ("+fakeSpeed+" MB/s) - ‘"+filename+"’ saved ["+bytes+"]");
+						print("​");
+						commands.wget(input, startTime, countRuns+1, totalChars+bytes, totalFakeDownloadTime+parseFloat(fakeTime));
+					},50);
+				},75);
+			},125);
 		}
-		xhr.send(null);
+		var onError = function(status, text) {
+			//TODO....
+		}
+		print("--"+getDateStamp()+"-- "+getTimeStamp()+"  "+string);
+		print("Resolving "+string+" ("+string+")...");
+		makeXHRRequest(string,onSuccess,onError);
 	}
 }
 
@@ -219,6 +306,7 @@ commands.cat = function(input) {
 	for (var i = 0; i < input.length; i++) {
 		var file = pathToObject(input[i]);
 		print(file.content);
+		enablePrompt(0);
 	}
 }
 
@@ -257,4 +345,18 @@ var setTime = function() {
 
 window.onload = function () {
 	setTime();
+	printUnsafe("<pre> __________     <==^==>___    /^^^\\  /```````/````\\</pre>");
+	printUnsafe("<pre><____  ----'/```\\ | | |___\\\\  \\/^\\ \\ |_/| |`` |/``\\\\</pre>");
+	printUnsafe("<pre>     | |   | |``` | | ||  ||`  `  \\ |   | |   ||  ||</pre>");
+	printUnsafe("<pre>     |j|   &gt;e==== |t| |r- //  /o\\ | |   i |   d|  //</pre>");
+	printUnsafe("<pre>     | |   | |___ | | || \\\\   | \\_/ / __/ |__ || //</pre>");
+	printUnsafe("<pre> /^--` /   \\____/ \\v/ |\\. \\\\. \\____/  \\_____/ <__/</pre>");
+	printUnsafe("<pre> ``````   _____--------```````````````````></pre>");
+	printUnsafe("<pre>          \\_____/------/``````````````\\--/</pre>");
+	print("​");
+	printUnsafe("<pre>             ###########################</pre>");
+	printUnsafe("<pre>            ###  WELCOME TO NETRICSA  ###</pre>")
+	printUnsafe("<pre>            ### ALL ACCESS IS LOGGED! ###</pre>");
+	printUnsafe("<pre>             ###########################</pre>");
+	enablePrompt(0);
 }

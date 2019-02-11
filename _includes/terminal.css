@@ -1,7 +1,9 @@
 body{
 	font-family: monospace;
+	color: #dcdccc;
+	background-color: #3f3f3f;
 }
-p {
+p, pre{
 	margin: 0;
 }
 .nowrap {
@@ -10,4 +12,12 @@ p {
 .lsdir {
 	color: #3f3fff;
 	font-weight: bold;
+}
+.pink {
+	color: #ff5f5f;
+	font-weight: bold;
+}
+.hugright {
+	display: block;
+	float: right;
 }
