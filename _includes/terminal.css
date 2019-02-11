@@ -21,3 +21,6 @@ p, pre{
 	display: block;
 	float: right;
 }
+.off {
+	background-color: #000;
+}

@@ -16,6 +16,11 @@ var scrollToBottom = function() {
 	element.scrollTop = element.scrollHeight;
 }
 
+//Generate an Int between lower (inclusive) and upper (exclusive)
+var generateRandomInt = function(lower, upper){
+	return Math.floor(Math.random()*((upper-1)-lower+1)+lower);
+}
+
 var enablePrompt = function(errorCode) {
 	//TEMPORARY
 	errorCode = errorCode === undefined ? "ERROR CODE NOT SET": errorCode;
@@ -289,9 +294,9 @@ commands.wget = function(input, startTime, countRuns, totalChars, totalFakeDownl
 						print(getDateStamp()+" "+getTimeStamp() + " ("+fakeSpeed+" MB/s) - ‘"+filename+"’ saved ["+bytes+"]");
 						print("​");
 						commands.wget(input, startTime, countRuns+1, totalChars+bytes, totalFakeDownloadTime+parseFloat(fakeTime));
-					},50);
-				},75);
-			},125);
+					},100+generateRandomInt(0,50));
+				},75+generateRandomInt(0,50));
+			},125+generateRandomInt(0,50));
 		}
 		var onError = function(status, text) {
 			//TODO....
@@ -304,8 +309,91 @@ commands.wget = function(input, startTime, countRuns, totalChars, totalFakeDownl
 
 commands.cat = function(input) {
 	for (var i = 0; i < input.length; i++) {
-		var file = pathToObject(input[i]);
-		print(file.content);
+		var object = pathToObject(input[i]);
+		if (object === 1) {
+			print("cat: "+ input[1] + ": No such file or directory");
+			enablePrompt(1);
+		} else if (object.type === "directory") {
+			print("cat: "+ input[1] + ": Is a directory");
+			enablePrompt(1);
+		} else {
+			if (object.content.startsWith("blogurl(")) {
+
+			} else if (object.content.startsWith("url(")) {
+
+			} else {
+				print(object.content);
+			}
+			enablePrompt(0);
+		}
+	}
+}
+
+commands.shutdown = function(input) {
+	var shutdown = function(){
+		var shutdownLines = [
+			"Broadcast message from jetroid@netricsa",
+			"(/dev/pts/0) at " + getDateStamp() + " ...",
+			"​",
+			"The system is going down for maintenance NOW!",
+			"<span>[root@netricsa ~]# Stopping httpd:</span><pre class='hugright'>[  OK  ]</pre>",
+			"<span>[root@netricsa ~]# Stopping sshd:</span><pre class='hugright'>[  OK  ]</pre>",
+			"<span>[root@netricsa ~]# Stopping crond:</span><pre class='hugright'>[  OK  ]</pre>",
+			"<span>[root@netricsa ~]# Shutting down wpa_supplicant:</span><pre class='hugright'>[  OK  ]</pre>",
+			"<span>[root@netricsa ~]# Stopping giving-a-damn:</span><pre class='hugright'>[  FAILED  ]</pre>",
+			"<span>[root@netricsa ~]# Stopping daydreaming:</span><pre class='hugright'>[  OK  ]</pre>",
+			"<span>[root@netricsa ~]# Stopping waiting_for_love:</span><pre class='hugright'>[  OK  ]</pre>",
+			"<span>[root@netricsa ~]# Stopping trying-to-fit-in:</span><pre class='hugright'>[  OK  ]</pre>",
+			"<span>[root@netricsa ~]# Stopping blaming#others:</span><pre class='hugright'>[  OK  ]</pre>",
+			"<span>[root@netricsa ~]# Stopping time:</span><pre class='hugright'>[  OK  ]</pre>",
+			"<span>[root@netricsa ~]# Stopping keylogger:</span><pre class='hugright'>[  OK  ]</pre>",
+			"<span>[root@netricsa ~]# Stopping wasting-time:</span><pre class='hugright'>[  FAILED  ]</pre>",
+			"<span>[root@netricsa ~]# Stopping smoking:</span><pre class='hugright'>[  OK  ]</pre>",
+			"<span>[root@netricsa ~]# Stopping drinking:</span><pre class='hugright'>[  OK  ]</pre>",
+			"<span>[root@netricsa ~]# Stopping overeating:</span><pre class='hugright'>[  FAILED  ]</pre>",
+			"<span>[root@netricsa ~]# Stopping typing:</span><pre class='hugright'>[  OK  ]</pre>",
+			"<span>[root@netricsa ~]# Shutting down the-us-government:</span><pre class='hugright'>[  OK  ]</pre>",
+			"<span>[root@netricsa ~]# Shutting down emotionally:</span><pre class='hugright'>[  OK  ]</pre>",
+			"Shutting down.",
+			"systemd-shutdown[1]: Syncing filesystems and block devices.",
+			"systemd-shutdown[1]: Sending SIGTERM to remaining processes..."
+		];
+		document.getElementById("terminal-container").style.display="none";
+		var shutdownContainer = document.getElementById("shutdown-container");
+		shutdownContainer.style.display = "block";
+
+		var getNextPrint = function(nextFunction,counter) {
+			var randomDelay = generateRandomInt(50,100);
+			if(counter === 4) {
+				// extra delay for the broadcast
+				randomDelay += 3000;
+			}
+			return function(){
+				setTimeout(function() {
+					var p = document.createElement("p");
+					p.innerHTML = shutdownLines[counter];
+					shutdownContainer.appendChild(p);
+					nextFunction();
+				},randomDelay);
+			};
+		};
+
+		var nextFunction = function() {
+			shutdownContainer.style.display = "none";
+			document.body.className = "off";
+		};
+		
+		for(var i = shutdownLines.length-1; i >= 0 ; i--) {
+			nextFunction = getNextPrint(nextFunction, i);
+		}
+		nextFunction();
+
+	};
+	if (input[0] === "now"){
+		shutdown();
+	} else {
+		var delaySeconds = parseInt(input[0]);
+		setTimeout(shutdown,delaySeconds*1000);
 		enablePrompt(0);
 	}
 }
