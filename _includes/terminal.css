@@ -6,8 +6,8 @@ body{
 p, pre{
 	margin: 0;
 }
-.nowrap {
-	white-space: nowrap;
+.ls {
+	display: inline;
 }
 .lsdir {
 	color: #3f3fff;

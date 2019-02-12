@@ -22,22 +22,24 @@ var FilesystemObject = function(name,type,protections,owner,group,date,parent) {
 	this.content["."] = this;
 };
 var blogposts = new FilesystemObject("blog","directory","755","jetroid","users", 
-	Date.parse("{{ site.posts[0].date }}"));
+	new Date(Date.parse("{{ site.posts[0].date }}")));
 {%- for post in site.posts -%}
 {%- capture posttitle -%}{{ post.date | date: '%Y-%m-%d-' }}{{ post.url | replace: '/', '' | downcase }}.html{%- endcapture -%}
-blogposts.content["{{ posttitle }}"] = new FilesystemObject("{{ posttitle }}","file","755","jetroid","users", Date.parse("{{ post.date }}"), blogposts);
+blogposts.content["{{ posttitle }}"] = new FilesystemObject("{{ posttitle }}","file","755","jetroid","users", new Date(Date.parse("{{ post.date }}")), blogposts);
 blogposts.content["{{ posttitle }}"].content="blogurl({{post.url}})";
 {%- endfor -%}
 </script>
-<div id="terminal-container">
-	<div id="history">
+<div id="container">
+	<div id="terminal-container">
+		<div id="history">
+		</div>
+		<div id="prompt" style="display: none;">
+			<p>
+				<span class="pink"><span id="time">17:39:32</span> <span id="user">jetroid</span>@netricsa</span>:<span id="error-code">0</span><span id="path">~</span>$ 
+				<input type="text" name="prompt" id="data"/>
+				<input type="button" value="enter" onclick="enterPressed()"/>
+			</p>
+		</div>
 	</div>
-	<div id="prompt" style="display: none;">
-		<p>
-			<span class="pink"><span id="time">17:39:32</span> jetroid@netricsa</span>:<span id="error-code">0</span><span id="path">~</span>$ 
-			<input type="text" name="prompt" id="data"/>
-			<input type="button" value="enter" onclick="enterPressed()"/>
-		</p>
-	</div>
+	<div id="shutdown-container" style="display: none;"></div>
 </div>
-<div id="shutdown-container" style="display: none;"></div>

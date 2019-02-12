@@ -1,15 +1,43 @@
-var commands = {};
-var filesystem = root = new FilesystemObject("/","directory","755","root","root", 
-	Date.parse('04 Feb 2018 22:22:22 GMT'));
+// SETUP THE FILESYSTEM AND USERS
+// the root /
+var filesystem = new FilesystemObject("/","directory","755","root","root", 
+	new Date(Date.parse('04 Feb 2018 22:22:22 GMT')));
+// the /home folder
 filesystem.content["home"] = 
 	new FilesystemObject("home","directory","755","root","root", 
-	Date.parse('04 Feb 2018 22:23:01 GMT'),filesystem);
-var workingDirectory = homeDirectory = 
-	filesystem.content["home"].content["jetroid"] =
+	new Date(Date.parse('04 Feb 2018 22:23:01 GMT')),filesystem);
+// jetroid's home directory
+filesystem.content["home"].content["jetroid"] =
 	new FilesystemObject("jetroid","directory","755","jetroid","users",
 	new Date(),filesystem.content["home"]);
-blogposts.content[".."] = homeDirectory;
-homeDirectory.content["blog"] = blogposts;
+// root's home directory, /root
+filesystem.content["root"] = new FilesystemObject("root","directory","750","root","root",
+	new Date(Date.parse('21 Jan 2019 16:51:08 GMT')),filesystem);
+
+var User = function(name,isSuperUser,groups,homeDirectory) {
+	this.name = name;
+	this.isSuperUser = isSuperUser;
+	this.groups = groups;
+	this.homeDirectory = homeDirectory;
+};
+
+var users = {
+	"root": new User("root",true,["root"],filesystem.content["root"],),
+	"jetroid": new User("jetroid",false,["users"],filesystem.content["home"].content["jetroid"]) 
+}
+var groups = ["root","users"];
+// add my blogposts to my home directory
+blogposts.content[".."] = users["jetroid"].homeDirectory;
+users["jetroid"].homeDirectory.content["blog"] = blogposts;
+
+var currentUser = users["jetroid"];
+var workingDirectory = currentUser.homeDirectory;
+var suStack = [];
+var isSudo = false;
+var commandHistory = [];
+var login = new Date();
+
+// DONE SETUP OF FILESYSTEM AND USERS
 
 var scrollToBottom = function() {
 	var element = document.getElementById("terminal-container");
@@ -30,6 +58,9 @@ var enablePrompt = function(errorCode) {
 	document.getElementById("error-code").textContent = errorCode;
 	//TODO: REPLACE THIS ONCE PROMPT INPUT HAS CHANGED
 	document.getElementById("data").value = "";
+	scrollToBottom();
+	// disable sudo afterwards
+	isSudo = false;
 }
 
 var print = function(text, append) {
@@ -42,6 +73,7 @@ var print = function(text, append) {
 		var container = history.lastChild;
 		container.innerHTML += htmlEntities(text);
 	}
+	scrollToBottom();
 }
 
 var printUnsafe = function(text, append) {
@@ -54,6 +86,7 @@ var printUnsafe = function(text, append) {
 		var container = history.lastChild;
 		container.innerHTML += text;
 	}
+	scrollToBottom();
 }
 
 var htmlEntities = function(str) {
@@ -73,22 +106,15 @@ var enterPressed = function() {
 	//TODO: REPLACE THIS ONCE PROMPT INPUT HAS CHANGED
 	var userTyped = document.getElementById("data").value;
 
+	// add the command to command history
+	commandHistory.push(userTyped);
+
 	// add the prompt to the 'output history'
-	printUnsafe("<span class='pink'>" + oldTime + " jetroid@netricsa</span>:" + oldError + oldPath + "$ " + userTyped);
+	printUnsafe("<span class='pink'>" + oldTime + " "+currentUser.name+"@netricsa</span>:" + oldError + oldPath + "$ " + userTyped);
 
 	// determine the command the user typed and execute it
 	var splitTyped = userTyped.trim().split(" ");
-	var commandPart = splitTyped.shift();
-	var command = determineCommand(commandPart);
-
-	if (command === undefined) {
-		//User didn't type a valid command
-		print("zsh: command not found: " + userTyped);
-		enablePrompt(127);
-	} else {
-		//execute command on input
-		command(splitTyped);
-	}
+	determineCommand(splitTyped);
 }
 
 var pathToObject = function(pathStr) {
@@ -107,7 +133,7 @@ var pathToObject = function(pathStr) {
 		path = filesystem;
 	} else if (firstSegment === "~") {
 		// path like ~/blog
-		path = homeDirectory;
+		path = currentUser.homeDirectory;
 	} else {
 		// path like ./blog or ../blog or blog 
 		if (firstSegment in workingDirectory.content) {
@@ -133,16 +159,79 @@ var pathToObject = function(pathStr) {
 
 var objectToPath = function(object) {
 	var string = "";
-	while (object !== filesystem && object !== homeDirectory) {
+	while (object !== filesystem && object !== currentUser.homeDirectory) {
 		string = "/" + object.name + string;
 		object = object.content[".."];
 		console.log(object);
 	}
-	if (object === homeDirectory) {
+	if (object === currentUser.homeDirectory) {
 		return "~" + string;
 	} else {
 		return string || "/";
 	}
+}
+
+var checkOctalPermission = function(octalInput) {
+	var octal = octalInput;
+	if (typeof octalInput === "string") {
+		octal = parseInt(octalInput);
+	}
+	// Easier and simpler than some hard to read math
+	switch(octal) {
+		case 7:
+			return [true, true, true];
+		case 6:
+			return [true, true, false];
+		case 5:
+			return [true, false, true];
+		case 4:
+			return [true, false, false];
+		case 3:
+			return [false, true, true];
+		case 2:
+			return [false, true, false];
+		case 1:
+			return [false, false, true];
+		case 0: 
+			return [false, false, false];
+		default:
+			console.log("Using checkOctalPermission incorrectly");
+			return [false, false, false]; 
+	}
+}
+
+var havePermission = function(object, permission) {
+	var checkPermission = function(octal, permission) {
+		var permissions = checkOctalPermission(octal);
+		if (permission === "read" || permission === "r") {
+			return permissions[0];
+		} else if (permission === "write" || permission === "w") {
+			return permissions[1];
+		} else if (permission === "execute" || permission === "x") {
+			return permissions[2];
+		} else {
+			return false;
+		}
+	}
+
+	if (object.owner === currentUser.name) {
+		checkPermission(object, permission);
+	} else if (currentUser.groups.includes(object.group)) {
+		checkPermission(object, permission);
+	} else {
+		checkPermission(object, permission);
+	}
+}
+
+var convertOctalPermissions = function(octalPermissions) {
+	var string = "";
+	for (var i = 0; i < octalPermissions.length; i++) {
+		var permission = checkOctalPermission(octalPermissions[i]);
+		string += permission[0] ? "r" : "-";
+		string += permission[1] ? "w" : "-";
+		string += permission[2] ? "x" : "-";
+	}
+	return string;
 }
 
 var setWorkingDirectory = function(pathObject) {
@@ -169,38 +258,122 @@ var fakeCorruption = function() {
 	return "";
 }
 
-var determineCommand = function(command) {
-	return commands[command];
+var changeUser = function(user) {
+	currentUser = user;
+	document.getElementById("user").textContent = user.name;
 }
+
+var determineCommand = function(input,bangDepth) {
+	bangDepth = bangDepth || 2;
+	var commandPart = input.shift();
+	var command = commands[commandPart];
+
+	if (commandPart === "!!" && commandHistory.length >= bangDepth) {
+		determineCommand(commandHistory[commandHistory.length-bangDepth].trim().split(" "),bangDepth+1);
+	} else if (commandPart === "!!") {
+		print("zsh: no such event: 0");
+		enablePrompt(1);
+	} else if (command === undefined) {
+		//User didn't type a valid command
+		print("zsh: command not found: " + userTyped);
+		enablePrompt(127);
+	} else {
+		//execute command on input
+		command(input);
+	}
+}
+
+var commands = {};
 
 commands.echo = function(input) {
 	print(input);
 	enablePrompt(0);
 }
 
+// primitive ls that only supports `-al`
 commands.ls = function(input) {
+	var ls = function(directories, isAll, isLong, returnValue) {
+		for (var i = 0; i < directories.length; i++) {
+			var directory = directories[i];
+			if (directories.length > 1) {
+				print(directory.name+ ":");
+			}
+			var directoryContents = Object.keys(directory.content);
+			
+			var nameLength = 0;
+			var ownerLength = 0;
+			var groupLength = 0;
+			// loop once to determine pad
+			for (var k = 0; k < directoryContents.length; k++) {
+				if (!isAll && (name === "." || name === "..")) continue;
+				var object = directory.content[directoryContents[k]];
+				nameLength = Math.max(nameLength, directoryContents[k].length);
+				ownerLength = Math.max(ownerLength, object.owner.length);
+				groupLength = Math.max(groupLength, object.group.length);
+			}
+			// actually output this time
+			var notLongString = "";
+			for (var j = 0; j < directoryContents.length; j++) {
+				var name = directoryContents[j];
+				var object = directory.content[name];
+				
+				// ignore . and .. unless -a
+				if (!isAll && (name === "." || name === "..")) continue;
+
+				// make directories blue
+				var blueClass = object["type"] === "directory" ? " lsdir" : "";
+				// if -l, one line per entry, otherwise keep appending
+				if (isLong) {
+					printUnsafe("<pre> "+convertOctalPermissions(object.protections)+
+					" 1 "+
+					object.owner.padEnd(ownerLength)+" "+
+					object.group.padEnd(groupLength)+" "+
+					generateRandomInt(111111,880000)+" "+getDateStamp(object.date,":",true) +"  "+
+					"<span class='"+blueClass+"'>" + htmlEntities(name.padEnd(nameLength)) + "</span></pre>");
+				} else {
+					notLongString += "<pre class='ls"+blueClass+"'> " + htmlEntities(name.padEnd(nameLength)) + "</pre> ";
+				}
+			}
+			//if not -l, we print all at once after appending a bunch.
+			if (!isLong) printUnsafe(notLongString);
+		}
+		enablePrompt(returnValue);
+	}
 	if (input.length === 0) {
-		var directoryContents = Object.keys(workingDirectory.content);
-		for (var i = 0; i < directoryContents.length; i++) {
-			var name = directoryContents[i];
-			if (name === "." || name === "..") continue;
-			var meta = workingDirectory.content[name];
-			if (meta["type"] === "directory") {
-				printUnsafe("<span class='nowrap lsdir'>" + htmlEntities(name) + "</span>");
+		ls([workingDirectory], false, false, 0);
+	} else {
+		var isAll = false;
+		var isLong = false;
+		var directories = [];
+		var returnValue = 0;
+		for (var i = 0; i < input.length; i++) {
+			var chunk = input[i];
+			var doubleTack = /^--.*/;
+			var singleTack = /^-/;
+			if (doubleTack.test(chunk)){
+				if (chunk === "--all") isAll = true;
+			} else if (singleTack.test(chunk)) {
+				if (chunk.includes("l")) isLong = true;
+				if (chunk.includes("a")) isAll = true;
 			} else {
-				printUnsafe("<span class='nowrap lsblue'>" + htmlEntities(name) + "</span>");
+				var object = pathToObject(chunk);
+				if (object === 1) {
+					print("ls: cannot access '"+chunk+"': No such file or directory");
+					returnValue = 1;
+				} else {
+					directories.push(object);
+				}
 			}
 		}
-		enablePrompt(0);
-	} else {
-		//TODO: Other cases and parameters
+		if (directories.length === 0) directories.push(workingDirectory);
+		ls(directories, isAll, isLong, returnValue);
 	}
 }
 
 commands.cd = function(input) {
 	if (input.length === 0) {
 		// if no path given, we go home
-		setWorkingDirectory(homeDirectory);
+		setWorkingDirectory(currentUser.homeDirectory);
 		enablePrompt(0);
 	} else if (input.length === 1) {
 		// if no parameters given,
@@ -284,7 +457,7 @@ commands.wget = function(input, startTime, countRuns, totalChars, totalFakeDownl
 					filename = filename.slice(0,-(int.toString().length)) + int++;
 				}
 			}
-			var file = new FilesystemObject(filename,"file","755","jetroid","users");
+			var file = new FilesystemObject(filename,"file","755",currentUser.name,"users");
 			file.content = text;
 			workingDirectory.content[filename] = file;
 			print(" 104.27.162.119, 104.27.163.119, 2606:4700:30::681b:a377, ...",true);
@@ -364,10 +537,127 @@ commands.cat = function(input, countRuns, errorCode) {
 	}
 }
 
+commands.chown = function(input) {
+	var userGroup = input[0].split(":");
+	var user = userGroup[0];
+	var group = userGroup[1];
+	var file = input[1];
+
+	if (users[user] === undefined) {
+		print("chown: invalid user: ‘"+user+"’");
+		enablePrompt(1);
+	} else if (group !== undefined && !(groups.includes(group))) {
+		print("chown: invalid group: ‘"+group+"’");
+		enablePrompt(1);
+	} else if (pathToObject(file) === 1) {
+		print("chown: cannot access '"+file+"': No such file or directory");
+		enablePrompt(1);
+	} else if (currentUser.isSuperUser || isSudo) {
+		var fileObject = pathToObject(file);
+		fileObject.owner = user;
+		if (group !== undefined) {
+			fileObject.group = group;
+		}
+		enablePrompt(0);
+	} else {
+		print("chown: changing ownership of '"+file+"': Operation not permitted");
+		enablePrompt(1);
+	}
+}
+
+commands.chgrp = function(input) {
+	var group = input[0];
+	var file = input[1];
+
+	if (group !== undefined && !(groups.includes(group))) {
+		print("chgrp: invalid group: ‘"+group+"’");
+		enablePrompt(1);
+	} else if (pathToObject(file) === 1) {
+		print("chgrp: cannot access '"+file+"': No such file or directory");
+		enablePrompt(1);
+	} else if (currentUser.isSuperUser || isSudo) {
+		var fileObject = pathToObject(file);
+		fileObject.group = group;
+		enablePrompt(0);
+	} else {
+		print("chgrp: changing ownership of '"+file+"': Operation not permitted");
+		enablePrompt(1);
+	}
+}
+
+commands.su = function(input) {
+	if (input.length === 0) {
+		print("su: no user specified");
+		enablePrompt(1);
+	} else if (users[input[0]] === undefined) {
+		print("su: user " + input[0] + " does not exist");
+		enablePrompt(1);
+	} else {
+		suStack.push(currentUser);
+		changeUser(users[input[0]]);
+		enablePrompt(0);
+	}
+}
+
+commands.sudo = function(input) {
+	isSudo = true;
+	determineCommand(input);
+}
+
+commands.groups = function(input) {
+	var user = input[0];
+	if (user !== undefined) {
+		var userObject = users[user];
+		if (userObject !== undefined) {
+			print(userObject.groups);
+			enablePrompt(0);
+		} else {
+			print("groups: unknown user " + user);
+			enablePrompt(1);
+		}
+	} else {
+		print(currentUser.groups);
+		enablePrompt(0);
+	}
+}
+
+commands.who = function(input) {
+	if (input.length === 0) {
+		printUnsafe("<pre>jetroid  tty1         2019-01-30 13:06</pre>");
+		printUnsafe("<pre>jetroid  pts0         "+getDateStamp()+" "+getTimeStamp(new Date(),":",true)+"</pre>");
+	}
+	//TODO OTHER CASES
+	enablePrompt(0)
+}
+
+commands.whoami = function(input) {
+	print(currentUser.name);
+	enablePrompt(0);
+}
+
+var logout = function() {
+	document.body.className = "off";
+	document.getElementById("container").style.display = "none";
+}
+
+commands.logout = function(input) {
+	logout();
+}
+
+commands.exit = function(input) {
+	if (suStack.length > 0) {
+		var user = suStack.pop();
+		changeUser(user);
+		enablePrompt(0);
+	} else {
+		logout();
+	}
+}
+
 commands.shutdown = function(input) {
 	var shutdown = function(){
 		var shutdownLines = [
-			"Broadcast message from jetroid@netricsa",
+			"Broadcast message from "+currentUser.name+"@netricsa",
 			"(/dev/pts/0) at " + getDateStamp() + " ...",
 			"​",
 			"The system is going down for maintenance NOW!",
@@ -413,10 +703,7 @@ commands.shutdown = function(input) {
 			};
 		};
 
-		var nextFunction = function() {
-			shutdownContainer.style.display = "none";
-			document.body.className = "off";
-		};
+		var nextFunction = logout;
 		
 		for(var i = shutdownLines.length-1; i >= 0 ; i--) {
 			nextFunction = getNextPrint(nextFunction, i);
@@ -433,22 +720,28 @@ commands.shutdown = function(input) {
 	}
 }
 
-var getDateStamp = function(time, delim, yearLast) {
+var getDateStamp = function(time, delim, altFormat) {
 	time = time || new Date();
+	console.log(time);
 	delim = delim || "-";
 	var day = time.getDate();
-	day = day < 10 ? "0" + day : day; 
+	day = day < 10 ? "0" + day : day;
+	var altDay = time.getDate() < 10 ? " " + time.getDate() : time.getDate();
 	var month = time.getMonth()+1;
 	month = month < 10 ? "0" + month : month;
 	var year = time.getFullYear();
-	if (yearLast) {
-		return day + delim + month + delim + year;
+	var months3 = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+	"Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+	if (altFormat) {
+		var currentTime = new Date();
+		var col3 = currentTime.getFullYear() !== year ? " " + year : getTimeStamp(time, ":", true);
+		return months3[time.getMonth()] + " " + altDay + " " + col3;
 	} else {
 		return year + delim + month + delim + day;
 	}
 }
 
-var getTimeStamp = function(time, delim) {
+var getTimeStamp = function(time, delim, noSeconds) {
 	time = time || new Date();
 	delim = delim || ":";
 	var hour = time.getHours();
@@ -457,7 +750,8 @@ var getTimeStamp = function(time, delim) {
 	minute = minute < 10 ? "0" + minute : minute;
 	var second = time.getSeconds(); 
 	second = second < 10 ? "0" + second : second;
-	return hour + delim + minute + delim + second;
+	var ending = noSeconds ? "" : delim + second;
+	return hour + delim + minute + ending;
 }
 
 var setTime = function() {
@@ -481,5 +775,6 @@ window.onload = function () {
 	printUnsafe("<pre>            ###  WELCOME TO NETRICSA  ###</pre>")
 	printUnsafe("<pre>            ### ALL ACCESS IS LOGGED! ###</pre>");
 	printUnsafe("<pre>             ###########################</pre>");
+	print("​");
 	enablePrompt(0);
 }
