@@ -26,6 +26,7 @@ var blogposts = new FilesystemObject("blog","directory","755","jetroid","users",
 {%- for post in site.posts -%}
 {%- capture posttitle -%}{{ post.date | date: '%Y-%m-%d-' }}{{ post.url | replace: '/', '' | downcase }}.html{%- endcapture -%}
 blogposts.content["{{ posttitle }}"] = new FilesystemObject("{{ posttitle }}","file","755","jetroid","users", Date.parse("{{ post.date }}"), blogposts);
+blogposts.content["{{ posttitle }}"].content="blogurl({{post.url}})";
 {%- endfor -%}
 </script>
 <div id="terminal-container">

@@ -165,6 +165,10 @@ var makeXHRRequest = function(url, onSuccess, onError) {
 	xhr.send(null);
 }
 
+var fakeCorruption = function() {
+	return "";
+}
+
 var determineCommand = function(command) {
 	return commands[command];
 }
@@ -218,8 +222,9 @@ commands.cd = function(input) {
 	}
 }
 
-commands.wget = function(input, startTime, countRuns, totalChars, totalFakeDownloadTime) {
+commands.wget = function(input, startTime, countRuns, totalChars, totalFakeDownloadTime, errorCode) {
 	var fakeSpeed = (Math.random() * (12.67 - 3.2) + 3.2).toFixed(2);
+	var errorCode = errorCode || 0;
 	if (input.length === 0 && countRuns > 1) {
 		// generate the "FINISHED" stats stuff when wget'ing multiple urls
 		print("FINISHED --"+getDateStamp()+" "+getTimeStamp()+"--");
@@ -232,10 +237,10 @@ commands.wget = function(input, startTime, countRuns, totalChars, totalFakeDownl
 		var kb = totalChars.toString().slice(0,-3);
 		var downloadTime = totalFakeDownloadTime.toFixed(3);
 		print("Downloaded: "+countRuns+" files, "+kb+"K in "+downloadTime+"s ("+fakeSpeed+" MB/s)");
-		enablePrompt(0);
+		enablePrompt(errorCode);
 	} else if (input.length === 0 && countRuns === 1) {
 		// don't print anything when finished wget'ing a single url
-		enablePrompt(0);
+		enablePrompt(errorCode);
 	} else if (input.length === 0) {
 		// if we didn't specify a url we print an error
 		print("wget: missing URL");
@@ -249,19 +254,25 @@ commands.wget = function(input, startTime, countRuns, totalChars, totalFakeDownl
 		totalChars = totalChars || 0;
 		totalFakeDownloadTime = totalFakeDownloadTime || 0;
 
-		var string = input.shift();
-		if (!(string.startsWith("http://") 
-			|| string.startsWith("https://") 
-			|| string.startsWith("ftp://"))) {
-			string = "http://" + string;
+		// convert what our typed into a couple variations that wget uses 
+		var userString = input.shift();
+		var protocolRegex = /(^\w+:|^)\/\/.*/;
+		var protocolString = userString;
+		if (!protocolRegex.test(protocolString)) {
+			protocolString = "http://" + userString;
 		}
-		urlregex = /((http|ftp|https):\/\/)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}$/g;
-		if (urlregex.test(string)) {
-			string = string + "/"
+
+		// try to append a slash if no path given
+		urlregex = /((http|ftp|https):\/\/)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}$/g;
+		if (urlregex.test(protocolString)) {
+			protocolString += "/";
 		}
+		// regex to just capture the domain
+		var urlregex2 = /(?:http|ftp|https):\/\/([-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b)(?:[-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+		var domainString = urlregex2.exec(protocolString)[1];
 		var onSuccess = function(text, type) {
 			// get just the file name, if there is one
-			var filename = string.split("/").pop();
+			var filename = protocolString.split("/").pop();
 			// If not filename specified, resort to index.html
 			filename = filename.length === 0 ? "index.html" : filename;
 			// if filename is taken, keep appending numbers until we find one
@@ -278,7 +289,7 @@ commands.wget = function(input, startTime, countRuns, totalChars, totalFakeDownl
 			workingDirectory.content[filename] = file;
 			print(" 104.27.162.119, 104.27.163.119, 2606:4700:30::681b:a377, ...",true);
 			window.setTimeout(function(){
-				print("Connecting to "+string+" ("+string+")|104.27.162.119|:80...");
+				print("Connecting to "+domainString+" ("+domainString+")|104.27.162.119|:80...");
 				window.setTimeout(function(){
 					print(" connected.",true);
 					print("HTTP request sent, awaiting response...");
@@ -293,23 +304,39 @@ commands.wget = function(input, startTime, countRuns, totalChars, totalFakeDownl
 						print("​");
 						print(getDateStamp()+" "+getTimeStamp() + " ("+fakeSpeed+" MB/s) - ‘"+filename+"’ saved ["+bytes+"]");
 						print("​");
-						commands.wget(input, startTime, countRuns+1, totalChars+bytes, totalFakeDownloadTime+parseFloat(fakeTime));
+						commands.wget(input, startTime, countRuns+1, totalChars+bytes, totalFakeDownloadTime+parseFloat(fakeTime), errorCode);
 					},100+generateRandomInt(0,50));
 				},75+generateRandomInt(0,50));
 			},125+generateRandomInt(0,50));
 		}
 		var onError = function(status, text) {
-			//TODO....
+			console.log(status);
+			console.log(text);
+			print(" failed: Name or service not known.",true);
+			print("wget: unable to resolve host address ‘fakesite.htmp’");
+			commands.wget(input, startTime, countRuns+1, totalChars, totalFakeDownloadTime, 1)
 		}
-		print("--"+getDateStamp()+"-- "+getTimeStamp()+"  "+string);
-		print("Resolving "+string+" ("+string+")...");
-		makeXHRRequest(string,onSuccess,onError);
+		print("--"+getDateStamp()+"-- "+getTimeStamp()+"  "+protocolString);
+		print("Resolving "+domainString+" ("+domainString+")...");
+		var noProtocolString = userString.replace(/(^\w+:|^)\/\//, '');
+		makeXHRRequest(noProtocolString,onSuccess,onError);
 	}
 }
 
-commands.cat = function(input) {
-	for (var i = 0; i < input.length; i++) {
-		var object = pathToObject(input[i]);
+commands.cat = function(input, countRuns, errorCode) {
+	errorCode = errorCode || 0;
+	countRuns = countRuns || 1;
+	if (input.length === 0 && countRuns > 1) {
+		// We've cat'ed everything, done.
+		enablePrompt(0);
+	} else if (input.length === 0) {
+		// if we didn't specify a file we print an error
+		print("cat: no file specified");
+		enablePrompt(1);
+	} else {
+		// try to cat the thing
+		var string = input.shift();
+		var object = pathToObject(string);
 		if (object === 1) {
 			print("cat: "+ input[1] + ": No such file or directory");
 			enablePrompt(1);
@@ -317,14 +344,22 @@ commands.cat = function(input) {
 			print("cat: "+ input[1] + ": Is a directory");
 			enablePrompt(1);
 		} else {
-			if (object.content.startsWith("blogurl(")) {
-
-			} else if (object.content.startsWith("url(")) {
-
+			var content = object.content;
+			if (content.startsWith("blogurl(")) {
+				var url = content.slice(8,-1);
+				var onSuccess = function(text, mime) {
+					print(text);
+					commands.cat(input,countRuns+1)
+				};
+				var onError = function(status, text) {
+					print(fakeCorruption());
+					commands.cat(input,countRuns+1)
+				}
+				makeXHRRequest("jetholt.com/" + url, onSuccess, onError);
 			} else {
-				print(object.content);
+				print(content);
+				commands.cat(input,countRuns+1)
 			}
-			enablePrompt(0);
 		}
 	}
 }
