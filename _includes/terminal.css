@@ -2,9 +2,13 @@ body{
 	font-family: monospace;
 	color: #dcdccc;
 	background-color: #3f3f3f;
+	overflow-wrap: break-word;
 }
 p, pre{
 	margin: 0;
+}
+.cat {
+	white-space: pre-wrap;
 }
 .ls {
 	display: inline;
@@ -23,4 +27,18 @@ p, pre{
 }
 .off {
 	background-color: #000;
+}
+.blogpost p {
+	margin: 1em 0;
+}
+.blogpost a {
+	color: #fff;
+}
+img {
+	margin: 0 auto;
+	display: block;
+}
+img+em {
+	display: block;
+	text-align: center;
 }

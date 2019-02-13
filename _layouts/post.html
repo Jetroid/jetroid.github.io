@@ -6,6 +6,8 @@ custom_style_includes:
 - mailchimp
 background: "background-blog.jpg"
 background-color: "#848485"
+custom_js_includes:
+- lazyload
 ---
 <header id="page-header">
 	<a href="{{ page.url | prepend: site.baseurl }}"><h1 id="page-title" class="borders">{{ page.title }}</h1></a>
@@ -110,12 +112,3 @@ background-color: "#848485"
 		{% endif %}
 	</footer>
 </div>
-<script>(function(w, d){
-	var b = d.getElementsByTagName('body')[0];
-	var s = d.createElement("script"); 
-	var v = !("IntersectionObserver" in w) ? "8.17.0" : "10.19.0";
-	s.async = true; 
-	s.src = "https://cdn.jsdelivr.net/npm/vanilla-lazyload@" + v + "/dist/lazyload.min.js";
-	w.lazyLoadOptions = {threshold: 1500};
-	b.appendChild(s);
-}(window, document));</script>

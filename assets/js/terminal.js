@@ -2,6 +2,13 @@
 // the root /
 var filesystem = new FilesystemObject("/","directory","755","root","root", 
 	new Date(Date.parse('04 Feb 2018 22:22:22 GMT')));
+// the etc folder
+filesystem.content["etc"] =	new FilesystemObject("etc","directory","755","root","root",
+	new Date(Date.parse('11 Feb 2019 19:51:00 GMT')),filesystem);
+filesystem.content["etc"].content["passwd"] = new FilesystemObject("passwd","file","644","root","root",
+	new Date(Date.parse('11 Feb 2019 19:26:00 GMT')),filesystem);
+filesystem.content["etc"].content["passwd"].content="root:x:0:0::/root:/bin/bash\r\nbin:x:1:1::/:/sbin/nologin\r\n" +
+	"jetroid:x:1000:995::/home/jetroid:/usr/bin/zsh";
 // the /home folder
 filesystem.content["home"] = 
 	new FilesystemObject("home","directory","755","root","root", 
@@ -13,7 +20,6 @@ filesystem.content["home"].content["jetroid"] =
 // root's home directory, /root
 filesystem.content["root"] = new FilesystemObject("root","directory","750","root","root",
 	new Date(Date.parse('21 Jan 2019 16:51:08 GMT')),filesystem);
-
 var User = function(name,isSuperUser,groups,homeDirectory) {
 	this.name = name;
 	this.isSuperUser = isSuperUser;
@@ -36,6 +42,7 @@ var suStack = [];
 var isSudo = false;
 var commandHistory = [];
 var login = new Date();
+var myLazyLoad;
 
 // DONE SETUP OF FILESYSTEM AND USERS
 
@@ -90,7 +97,7 @@ var printUnsafe = function(text, append) {
 }
 
 var htmlEntities = function(str) {
-    return String(str).replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
 var enterPressed = function() {
@@ -162,7 +169,6 @@ var objectToPath = function(object) {
 	while (object !== filesystem && object !== currentUser.homeDirectory) {
 		string = "/" + object.name + string;
 		object = object.content[".."];
-		console.log(object);
 	}
 	if (object === currentUser.homeDirectory) {
 		return "~" + string;
@@ -176,31 +182,14 @@ var checkOctalPermission = function(octalInput) {
 	if (typeof octalInput === "string") {
 		octal = parseInt(octalInput);
 	}
-	// Easier and simpler than some hard to read math
-	switch(octal) {
-		case 7:
-			return [true, true, true];
-		case 6:
-			return [true, true, false];
-		case 5:
-			return [true, false, true];
-		case 4:
-			return [true, false, false];
-		case 3:
-			return [false, true, true];
-		case 2:
-			return [false, true, false];
-		case 1:
-			return [false, false, true];
-		case 0: 
-			return [false, false, false];
-		default:
-			console.log("Using checkOctalPermission incorrectly");
-			return [false, false, false]; 
-	}
+
+	var read = (octal & 4) === 4;
+	var write = (octal & 2) === 2;
+	var execute = (octal & 1) === 1;
+	return [read, write, execute];
 }
 
-var havePermission = function(object, permission) {
+var havePermission = function(filesystemObject, requestedPermission) {
 	var checkPermission = function(octal, permission) {
 		var permissions = checkOctalPermission(octal);
 		if (permission === "read" || permission === "r") {
@@ -213,13 +202,15 @@ var havePermission = function(object, permission) {
 			return false;
 		}
 	}
-
-	if (object.owner === currentUser.name) {
-		checkPermission(object, permission);
-	} else if (currentUser.groups.includes(object.group)) {
-		checkPermission(object, permission);
+	var octals = filesystemObject.protections;
+	if (isSudo || currentUser.isSuperUser) {
+		return true;
+	} else if (filesystemObject.owner === currentUser.name) {
+		return checkPermission(octals.charAt(0), requestedPermission);
+	} else if (currentUser.groups.includes(filesystemObject.group)) {
+		return checkPermission(octals.charAt(1), requestedPermission);
 	} else {
-		checkPermission(object, permission);
+		return checkPermission(octals.charAt(2), requestedPermission);
 	}
 }
 
@@ -389,7 +380,6 @@ commands.cd = function(input) {
 			enablePrompt(0);
 		}
 	} else {
-		//TODO: Other cases and parameters
 		print("cd: too many arguments");
 		enablePrompt(1);
 	}
@@ -453,13 +443,9 @@ commands.wget = function(input, startTime, countRuns, totalChars, totalFakeDownl
 				filename = filename + ".1";
 				var int = 1;
 				while(pathToObject(filename) !== 1) {
-					console.log(filename + " is taken");
 					filename = filename.slice(0,-(int.toString().length)) + int++;
 				}
 			}
-			var file = new FilesystemObject(filename,"file","755",currentUser.name,"users");
-			file.content = text;
-			workingDirectory.content[filename] = file;
 			print(" 104.27.162.119, 104.27.163.119, 2606:4700:30::681b:a377, ...",true);
 			window.setTimeout(function(){
 				print("Connecting to "+domainString+" ("+domainString+")|104.27.162.119|:80...");
@@ -471,22 +457,30 @@ commands.wget = function(input, startTime, countRuns, totalChars, totalFakeDownl
 						var bytes = text.length;
 						print(" 200 OK",true);
 						print("Length: unspecified [" + type + "]");
-						print("Saving to: ‘"+filename+"’");
-						print("​");
-						printUnsafe("<pre style='display:inline;'>" +filename + "              [ &lt;=&gt; </pre><pre class='hugright'>]  "+bytes+"  --.-KB/s    in "+fakeTime+"s   </pre>");
-						print("​");
-						print(getDateStamp()+" "+getTimeStamp() + " ("+fakeSpeed+" MB/s) - ‘"+filename+"’ saved ["+bytes+"]");
-						print("​");
+						if (havePermission(workingDirectory,"write")) {
+							print("Saving to: ‘"+filename+"’");
+							print("​");
+							var file = new FilesystemObject(filename,"file","755",currentUser.name,"users");
+							file.content = text;
+							workingDirectory.content[filename] = file;
+							printUnsafe("<pre style='display:inline;'>" +filename + "              [ &lt;=&gt; </pre><pre class='hugright'>]  "+bytes+"  --.-KB/s    in "+fakeTime+"s   </pre>");
+							print("​");
+							print(getDateStamp()+" "+getTimeStamp() + " ("+fakeSpeed+" MB/s) - ‘"+filename+"’ saved ["+bytes+"]");
+							print("​");
+						} else {
+							print(filename+": Permission denied");
+							print("​");
+							print("Cannot write to ‘"+filename+"’ (Permission denied).");
+							errorCode = 3;
+						}
 						commands.wget(input, startTime, countRuns+1, totalChars+bytes, totalFakeDownloadTime+parseFloat(fakeTime), errorCode);
 					},100+generateRandomInt(0,50));
 				},75+generateRandomInt(0,50));
 			},125+generateRandomInt(0,50));
 		}
 		var onError = function(status, text) {
-			console.log(status);
-			console.log(text);
 			print(" failed: Name or service not known.",true);
-			print("wget: unable to resolve host address ‘fakesite.htmp’");
+			print("wget: unable to resolve host address ‘"+domainString+"’");
 			commands.wget(input, startTime, countRuns+1, totalChars, totalFakeDownloadTime, 1)
 		}
 		print("--"+getDateStamp()+"-- "+getTimeStamp()+"  "+protocolString);
@@ -511,17 +505,20 @@ commands.cat = function(input, countRuns, errorCode) {
 		var string = input.shift();
 		var object = pathToObject(string);
 		if (object === 1) {
-			print("cat: "+ input[1] + ": No such file or directory");
+			print("cat: "+ string + ": No such file or directory");
 			enablePrompt(1);
 		} else if (object.type === "directory") {
-			print("cat: "+ input[1] + ": Is a directory");
+			print("cat: "+ string + ": Is a directory");
+			enablePrompt(1);
+		} else if (!havePermission(object,"read")) {
+			print("cat: "+ string + ": Permission denied");
 			enablePrompt(1);
 		} else {
 			var content = object.content;
 			if (content.startsWith("blogurl(")) {
 				var url = content.slice(8,-1);
 				var onSuccess = function(text, mime) {
-					print(text);
+					printUnsafe("<pre>" + htmlEntities(text) + "</pre>");
 					commands.cat(input,countRuns+1)
 				};
 				var onError = function(status, text) {
@@ -530,7 +527,54 @@ commands.cat = function(input, countRuns, errorCode) {
 				}
 				makeXHRRequest("jetholt.com/" + url, onSuccess, onError);
 			} else {
-				print(content);
+				printUnsafe("<span class='cat'>"+htmlEntities(content)+"</span>");
+				commands.cat(input,countRuns+1)
+			}
+		}
+	}
+}
+
+commands.display = function(input) {
+	if (input.length === 0) {
+		print("display: no file specified");
+		enablePrompt(1);
+	} else {
+		// try to display the thing
+		var string = input.shift();
+		var object = pathToObject(string);
+		if (object === 1) {
+			print("display: "+ string + ": No such file or directory");
+			enablePrompt(1);
+		} else if (object.type === "directory") {
+			print("display: "+ string + ": Is a directory");
+			enablePrompt(1);
+		} else if (!havePermission(object,"read")) {
+			print("display: "+ string + ": Permission denied");
+			enablePrompt(1);
+		} else {
+			var content = object.content;
+			if (content.startsWith("blogurl(")) {
+				var url = content.slice(8,-1);
+				var onSuccess = function(text, mime) {
+					var junkElement = document.createElement("div");
+					junkElement.innerHTML = text;
+					var postContent = junkElement.querySelector("#post-content");
+					postContent.id = "";
+					postContent.className="blogpost";
+
+					var container = document.getElementById("history");
+					container.appendChild(postContent);
+					myLazyLoad.update();
+					enablePrompt(0);
+				};
+				var onError = function(status, text) {
+					print(fakeCorruption());
+					print("display: "+ string + ": File corrupted");
+					enablePrompt(1);
+				}
+				makeXHRRequest("jetholt.com/" + url, onSuccess, onError);
+			} else {
+				printUnsafe("<span class='cat'>"+htmlEntities(content)+"</span>");
 				commands.cat(input,countRuns+1)
 			}
 		}
@@ -722,7 +766,6 @@ commands.shutdown = function(input) {
 
 var getDateStamp = function(time, delim, altFormat) {
 	time = time || new Date();
-	console.log(time);
 	delim = delim || "-";
 	var day = time.getDate();
 	day = day < 10 ? "0" + day : day;
@@ -777,4 +820,5 @@ window.onload = function () {
 	printUnsafe("<pre>             ###########################</pre>");
 	print("​");
 	enablePrompt(0);
+	myLazyLoad = new LazyLoad();
 }
