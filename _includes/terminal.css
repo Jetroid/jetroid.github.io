@@ -3,9 +3,40 @@ body{
 	color: #dcdccc;
 	background-color: #3f3f3f;
 	overflow-wrap: break-word;
+	width: 100vw;
+	height: 100vh;
 }
 p, pre{
 	margin: 0;
+}
+#blink {
+	white-space: pre;
+	animation: flash 1s step-start 0s infinite;
+	-webkit-animation: flash 1s step-start 0s infinite;
+}
+@keyframes flash {	
+	0% { background: #3f3f3f; color: #dcdccc; }
+	50% { background: #dcdccc; color: #3f3f3f; }
+	100% { background: #3f3f3f; color: #dcdccc; }
+}
+@-webkit-keyframes flash {
+	0% { background: #3f3f3f; color: #dcdccc; }
+	50% { background: #dcdccc; color: #3f3f3f; }
+	100% { background: #3f3f3f; color: #dcdccc; }
+}
+#data {
+	box-sizing: border-box;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 1px;
+	height: 1px;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	outline: none;
+	background: #3f3f3f;
+	color: #3f3f3f;
 }
 .cat {
 	white-space: pre-wrap;
@@ -41,4 +72,20 @@ img {
 img+em {
 	display: block;
 	text-align: center;
+}
+body.hacker, .hacker .pink{
+	background:#000;
+	color:#00B200;
+	text-shadow: 1px 1px 6px #0C0;
+}
+.hacker a{
+	color:#1919FF;
+	text-shadow: 1px 1px 6px #3333FF;
+}
+.hacker .lsdir {
+	text-shadow: 1px 1px 6px #34F;
+}
+.hacker #data {
+	background: #000;
+	color: #000;
 }

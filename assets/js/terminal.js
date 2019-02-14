@@ -65,13 +65,28 @@ var enablePrompt = function(errorCode) {
 	errorCode = errorCode === undefined ? "ERROR CODE NOT SET": errorCode;
 
 	var prompt = document.getElementById("prompt");
-	prompt.style.display = "block";
 	document.getElementById("error-code").textContent = errorCode;
 	//TODO: REPLACE THIS ONCE PROMPT INPUT HAS CHANGED
 	document.getElementById("data").value = "";
+	writeInput();
+	prompt.style.display = "block";
 	scrollToBottom();
 	// disable sudo afterwards
 	isSudo = false;
+}
+
+var writeInput = function() {
+	var target = document.getElementById("input");
+	var data = document.getElementById("data");
+	var buffer = data.value;
+	var bufferIndex = data.selectionStart;
+	var left = buffer.slice(0,bufferIndex);
+	var middle = buffer.slice(bufferIndex, bufferIndex+1) || " ";
+	var right = buffer.slice(bufferIndex+1);
+	target.innerHTML = htmlEntities(left) + 
+	"<span id='blink'>" + htmlEntities(middle) + "</span>" +
+	htmlEntities(right);
+
 }
 
 var print = function(text, append) {
@@ -114,8 +129,8 @@ var enterPressed = function() {
 	var oldTime = document.getElementById("time").textContent;
 	var oldError = document.getElementById("error-code").textContent;
 	var oldPath = document.getElementById("path").textContent;
-	//TODO: REPLACE THIS ONCE PROMPT INPUT HAS CHANGED
 	var userTyped = document.getElementById("data").value;
+	writeInput();
 
 	// add the command to command history
 	commandHistory.push(userTyped);
@@ -800,6 +815,11 @@ commands.shutdown = function(input) {
 	}
 }
 
+commands.hacker = function(input) {
+	document.body.className = "hacker";
+	enablePrompt(0);
+}
+
 var getDateStamp = function(time, delim, altFormat) {
 	time = time || new Date();
 	delim = delim || "-";
@@ -839,6 +859,39 @@ var setTime = function() {
 	window.setTimeout(setTime,500);
 }
 
+var listenKeys = function(e) {
+	if (!e.ctrlKey && !e.altKey && !e.metaKey &&
+	    (e.keyCode >= 65 && e.keyCode <= 90) || 
+	    (e.keyCode >= 97 && e.keyCode <= 122)) {
+		bufferIndex++
+	}
+}
+
+var listenKeys2 = function(e) {
+	if (e.which === 37) { // left arrow
+		if (bufferIndex > 0) {
+			bufferIndex--;
+		}
+	} else if (e.which === 39) { // right arrow
+		console.log("right");
+		if (bufferIndex < document.getElementById("data").value.length) {
+			bufferIndex++;
+		}
+	} else if (e.which === 38) { // up arrow 
+		console.log("up");
+	} else if (e.which === 40) { // down arrow
+		console.log("down");
+	} else if (e.which === 8) {	// backspace
+		bufferIndex--;
+	} else if (e.which === 46 ) { // del
+	
+	} else if (e.which === 13) { // 13 is enter
+		enterPressed();
+	} 
+}
+
+
+
 window.onload = function () {
 	setTime();
 	printUnsafe("<pre> __________     <==^==>___    /^^^\\  /```````/````\\</pre>");
@@ -857,4 +910,13 @@ window.onload = function () {
 	print("​");
 	enablePrompt(0);
 	myLazyLoad = new LazyLoad();
+	document.body.onclick = function(){
+		console.log("focus");
+		document.getElementById("data").focus();
+	}
+	document.getElementById("data").onkeypress = listenKeys;
+	document.getElementById("data").onkeydown = listenKeys2;
+	document.getElementById("data").onkeyup = writeInput;
+	document.getElementById("data").oninput = writeInput;
+	document.getElementById("data").focus();
 }
