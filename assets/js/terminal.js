@@ -6,9 +6,13 @@ var filesystem = new FilesystemObject("/","directory","755","root","root",
 filesystem.content["etc"] =	new FilesystemObject("etc","directory","755","root","root",
 	new Date(Date.parse('11 Feb 2019 19:51:00 GMT')),filesystem);
 filesystem.content["etc"].content["passwd"] = new FilesystemObject("passwd","file","644","root","root",
-	new Date(Date.parse('11 Feb 2019 19:26:00 GMT')),filesystem);
-filesystem.content["etc"].content["passwd"].content="root:x:0:0::/root:/bin/bash\r\nbin:x:1:1::/:/sbin/nologin\r\n" +
-	"jetroid:x:1000:995::/home/jetroid:/usr/bin/zsh";
+	new Date(Date.parse('11 Feb 2019 19:26:00 GMT')),filesystem.content["etc"]);
+filesystem.content["etc"].content["passwd"].content["text"] = "root:x:0:0::/root:/bin/bash\r\nbin:x:1:1::/:/sbin/nologin\r\n" +
+	"jetroid:x:1000:995::/home/jetroid:/usr/bin/zsh\r\n";
+filesystem.content["etc"].content["shadow"] = new FilesystemObject("shadow","file","600","root","root",
+	new Date(Date.parse('11 Feb 2019 19:26:00 GMT')),filesystem.content["etc"]);
+filesystem.content["etc"].content["shadow"].content["text"] = "root:qwertyuiop:17516::::::\r\n" +
+"bin:!!:17515::::::\r\njetroid:lovesecretsexgod:17576:0:99999:7:::";
 // the /home folder
 filesystem.content["home"] = 
 	new FilesystemObject("home","directory","755","root","root", 
@@ -117,10 +121,11 @@ var enterPressed = function() {
 	commandHistory.push(userTyped);
 
 	// add the prompt to the 'output history'
-	printUnsafe("<span class='pink'>" + oldTime + " "+currentUser.name+"@netricsa</span>:" + oldError + oldPath + "$ " + userTyped);
+	printUnsafe("<span class='pink'>"+oldTime+" "+currentUser.name+"@netricsa</span>:"+oldError+oldPath+"$ "+
+		"<pre style='display:inline;'>"+htmlEntities(userTyped)+"</pre>");
 
 	// determine the command the user typed and execute it
-	var splitTyped = userTyped.trim().split(" ");
+	var splitTyped = userTyped.trim().replace(/\s\s+/g, ' ').split(" ");
 	determineCommand(splitTyped);
 }
 
@@ -385,6 +390,35 @@ commands.cd = function(input) {
 	}
 }
 
+commands.rm = function(input, errorCode) {
+	errorCode = errorCode || 0;
+	if (input.length === 0) {
+		print("rm: missing operand");
+		enablePrompt(1);
+	} else {
+		var string = input.shift();
+		var object = pathToObject(string);
+		if (object === 1) {
+			print("rm: cannot remove '"+string+"': No such file or directory");
+			errorCode = 1;
+		} else if (!isSudo && !currentUser.isSuperUser 
+			&& object.type === "directory") {
+			print("rm: cannot remove '"+ string + "': Is a directory");
+			errorCode = 1;
+		} else if (!havePermission(object,"write")) {
+			print("rm: cannot remove '"+ string + "': Permission denied");
+			errorCode = 1;
+		} else {
+			delete object.content[".."].content[string];
+		}
+		if (input.length !== 0) {
+			commands.rm(input, errorCode);
+		} else {
+			enablePrompt(errorCode);
+		}
+	}
+}
+
 commands.wget = function(input, startTime, countRuns, totalChars, totalFakeDownloadTime, errorCode) {
 	var fakeSpeed = (Math.random() * (12.67 - 3.2) + 3.2).toFixed(2);
 	var errorCode = errorCode || 0;
@@ -461,7 +495,7 @@ commands.wget = function(input, startTime, countRuns, totalChars, totalFakeDownl
 							print("Saving to: ‘"+filename+"’");
 							print("​");
 							var file = new FilesystemObject(filename,"file","755",currentUser.name,"users");
-							file.content = text;
+							file.content["text"] = text;
 							workingDirectory.content[filename] = file;
 							printUnsafe("<pre style='display:inline;'>" +filename + "              [ &lt;=&gt; </pre><pre class='hugright'>]  "+bytes+"  --.-KB/s    in "+fakeTime+"s   </pre>");
 							print("​");
@@ -502,19 +536,21 @@ commands.cat = function(input, countRuns, errorCode) {
 		enablePrompt(1);
 	} else {
 		// try to cat the thing
+		console.log(input);
 		var string = input.shift();
 		var object = pathToObject(string);
 		if (object === 1) {
 			print("cat: "+ string + ": No such file or directory");
 			enablePrompt(1);
 		} else if (object.type === "directory") {
+			console.log(object);
 			print("cat: "+ string + ": Is a directory");
 			enablePrompt(1);
 		} else if (!havePermission(object,"read")) {
 			print("cat: "+ string + ": Permission denied");
 			enablePrompt(1);
 		} else {
-			var content = object.content;
+			var content = object.content["text"];
 			if (content.startsWith("blogurl(")) {
 				var url = content.slice(8,-1);
 				var onSuccess = function(text, mime) {
@@ -552,7 +588,7 @@ commands.display = function(input) {
 			print("display: "+ string + ": Permission denied");
 			enablePrompt(1);
 		} else {
-			var content = object.content;
+			var content = object.content["text"];
 			if (content.startsWith("blogurl(")) {
 				var url = content.slice(8,-1);
 				var onSuccess = function(text, mime) {
