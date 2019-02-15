@@ -47,6 +47,7 @@ var isSudo = false;
 var commandHistory = [];
 var login = new Date();
 var myLazyLoad;
+var userTyped = "";
 
 // DONE SETUP OF FILESYSTEM AND USERS
 
@@ -127,7 +128,7 @@ var enterPressed = function() {
 	var oldTime = document.getElementById("time").textContent;
 	var oldError = document.getElementById("error-code").textContent;
 	var oldPath = document.getElementById("path").textContent;
-	var userTyped = document.getElementById("data").value;
+	userTyped = document.getElementById("data").value;
 	writeInput();
 
 	// add the command to command history
