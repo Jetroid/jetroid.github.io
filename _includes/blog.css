@@ -89,7 +89,9 @@ body{
 	display: block;
 	max-width: 100%;
 	max-height: 600px;
+{%- if jekyll.environment == "production" -%}
 	height: 1px;
+{%- endif -%}
 	margin: 0 auto;
 	border-radius: 5px;
 }

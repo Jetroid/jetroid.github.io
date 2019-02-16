@@ -89,4 +89,11 @@ images:
 - trips-768.jpg
 - trips-640.jpg
 - trips.jpg
+- graduation-1920.jpg
+- graduation-1600.jpg
+- graduation-1366.jpg
+- graduation-1024.jpg
+- graduation-768.jpg
+- graduation-640.jpg
+- graduation.jpg
 ---
