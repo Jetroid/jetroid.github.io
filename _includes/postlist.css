@@ -87,15 +87,26 @@
 
 /*Yes this is crazy, but these are the post backgrounds! */
 {% assign extensions-array = '' | split: ',' %}
+{% assign image-count-array = '' | split: ',' %}
 {% assign image-name-array = '' | split: ',' %}
+{% assign image-count-gifs = '' | split: ',' %}
+{% assign image-name-gifs = '' | split: ',' %}
 {% assign count = 0 %}
 {% for post in paginator.posts %}
 {% if post.unlisted != true or count == 0 %}
 	{% assign image-extension = post.background | split: '.' | last %}
 	{% assign image-name = post.background | split: '.' | pop | join: '.' %}
-	{% assign extensions-array = extensions-array | push: image-extension %}
-	{% assign image-name-array = image-name-array | push: image-name %}
+	{% if image-extension == "gif" %}
+		{% assign image-count-gifs = image-count-array | push: count %}
+		{% assign image-name-gifs = image-name-array | push: image-name %}
+	{% else %}
+		{% assign image-count-array = image-count-array | push: count %}
+		{% assign extensions-array = extensions-array | push: image-extension %}
+		{% assign image-name-array = image-name-array | push: image-name %}
+	{% endif %}
 	{% if paginator.page == 1 and count == 2 %}
+		{% assign count = count | plus: 1 %}
+		{% assign image-count-array = image-count-array | push: count %}
 		{% assign extensions-array = extensions-array | push: "jpg" %}
 		{% assign image-name-array = image-name-array | push: "mailchimp-beauty" %}
 	{% endif %}
@@ -103,10 +114,20 @@
 {% endif %}
 {% endfor %}
 
+/* Do the gifs - these don't get different sizes */
+{% for image-name in image-name-gifs %}
+	{% assign loopIndex = forloop.index0 %}
+	{% assign count = image-count-gifs[loopIndex] %}
+#p{{ count }} {
+	background-image: url("/assets/images/backgrounds/{{ image-name }}.gif");
+} 
+{% endfor %}
+
 {%- if jekyll.environment == "production" -%}
 {% for image-extension in extensions-array %}
-	{% assign count = forloop.index0 %}
-	{% assign image-name = image-name-array[count] %}
+	{% assign loopIndex = forloop.index0 %}
+	{% assign image-name = image-name-array[loopIndex] %}
+	{% assign count = image-count-array[loopIndex] %}
 #p{{ count }} {
 	background-image: url("/assets/images/backgrounds/{{ image-name }}-640.{{ image-extension }}");
 } 
@@ -114,8 +135,9 @@
 /* Now what if we're bigger than 640? We want next size up, etc */
 @media (min-width: 641px){
 {% for image-extension in extensions-array %}
-	{% assign count = forloop.index0 %}
-	{% assign image-name = image-name-array[count] %}
+	{% assign loopIndex = forloop.index0 %}
+	{% assign image-name = image-name-array[loopIndex] %}
+	{% assign count = image-count-array[loopIndex] %}
 	#p{{ count }} {
 		background-image: url("/assets/images/backgrounds/{{ image-name }}-768.{{ image-extension }}");
 	} 
@@ -123,8 +145,9 @@
 }
 @media (min-width: 769px){
 {% for image-extension in extensions-array %}
-	{% assign count = forloop.index0 %}
-	{% assign image-name = image-name-array[count] %}
+	{% assign loopIndex = forloop.index0 %}
+	{% assign image-name = image-name-array[loopIndex] %}
+	{% assign count = image-count-array[loopIndex] %}
 	#p{{ count }} {
 		background-image: url("/assets/images/backgrounds/{{ image-name }}-1024.{{ image-extension }}");
 	} 
@@ -132,8 +155,9 @@
 }
 @media (min-width: 1025px){
 {% for image-extension in extensions-array %}
-	{% assign count = forloop.index0 %}
-	{% assign image-name = image-name-array[count] %}
+	{% assign loopIndex = forloop.index0 %}
+	{% assign image-name = image-name-array[loopIndex] %}
+	{% assign count = image-count-array[loopIndex] %}
 	#p{{ count }} {
 		background-image: url("/assets/images/backgrounds/{{ image-name }}-1366.{{ image-extension }}");
 	} 
@@ -141,8 +165,9 @@
 }
 @media (min-width: 1367px){
 {% for image-extension in extensions-array %}
-	{% assign count = forloop.index0 %}
-	{% assign image-name = image-name-array[count] %}
+	{% assign loopIndex = forloop.index0 %}
+	{% assign image-name = image-name-array[loopIndex] %}
+	{% assign count = image-count-array[loopIndex] %}
 	#p{{ count }} {
 		background-image: url("/assets/images/backgrounds/{{ image-name }}-1600.{{ image-extension }}");
 	} 
@@ -150,8 +175,9 @@
 }
 @media (min-width: 1601px){
 {% for image-extension in extensions-array %}
-	{% assign count = forloop.index0 %}
-	{% assign image-name = image-name-array[count] %}
+	{% assign loopIndex = forloop.index0 %}
+	{% assign image-name = image-name-array[loopIndex] %}
+	{% assign count = image-count-array[loopIndex] %}
 	#p{{ count }} {
 		background-image: url("/assets/images/backgrounds/{{ image-name }}-1920.{{ image-extension }}");
 	} 
@@ -160,8 +186,9 @@
 /* Gone past all our breakpoints... show the original image now instead */
 @media (min-width: 1921px){
 {% for image-extension in extensions-array %}
-	{% assign count = forloop.index0 %}
-	{% assign image-name = image-name-array[count] %}
+	{% assign loopIndex = forloop.index0 %}
+	{% assign image-name = image-name-array[loopIndex] %}
+	{% assign count = image-count-array[loopIndex] %}
 	#p{{ count }} {
 		background-image: url("/assets/images/backgrounds/{{ image-name }}.{{ image-extension }}");
 	} 
@@ -169,8 +196,9 @@
 }
 {%- else -%}
 {% for image-extension in extensions-array %}
-	{% assign count = forloop.index0 %}
-	{% assign image-name = image-name-array[count] %}
+	{% assign loopIndex = forloop.index0 %}
+	{% assign image-name = image-name-array[loopIndex] %}
+	{% assign count = image-count-array[loopIndex] %}
 #p{{ count }} {
 	background-image: url("/assets/images/backgrounds/{{ image-name }}.{{ image-extension }}");
 } 
