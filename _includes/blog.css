@@ -144,6 +144,9 @@ pre {
 pre code {
 	border: none;
 }
+p/*ete*/ code/*s*/{
+	word-break: break-all;
+}
 /* Justify text on non-mobiles */
 @media (min-width: 500px){
 	#post-content > p {
