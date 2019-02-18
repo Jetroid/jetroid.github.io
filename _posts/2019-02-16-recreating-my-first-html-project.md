@@ -4,7 +4,7 @@ title: "Recreating My First HTML Project"
 date: 2019-02-16 19:41:21 +0800
 background: "terminal-background.gif"
 background-position: "top left"
-summary: ""
+summary: "My first attempt at HTML was a fairly-cool but terribly coded 'terminal simulator' web page. What can I do now, five years later?"
 categories:
  - "Projects"
 embed_twitter: true
