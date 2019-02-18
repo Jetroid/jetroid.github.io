@@ -34,7 +34,13 @@ image: me.png
 	{% if post.unlisted != true or count == 0 %}
 	<div class="post">
 		<a href="{{ post.url | prepend: site.baseurl }}">
-			<div id="p{{count}}" class="post-background" {% if post.background-color %}style="background-color:{{ post.background-color }}"{% endif %}>
+			<div id="p{{count}}" class="post-background" 
+				{% if post.background-position or post.background-color %}
+					style="
+					{% if post.background-color %}background-color:{{ post.background-color }};{% endif %}
+					{% if post.background-position %}background-position:{{ post.background-position }};{% endif %}
+					"{% endif %}
+			>
 				<div class="post-shadow">
 					<h2 class="post-title">{{ post.title }}</h2>
 					<p class="post-date">{{ post.date | date: "%Y/%m/%d" }}</p>

@@ -90,7 +90,7 @@
 {% assign image-name-array = '' | split: ',' %}
 {% assign count = 0 %}
 {% for post in paginator.posts %}
-
+{% if post.unlisted != true or count == 0 %}
 	{% assign image-extension = post.background | split: '.' | last %}
 	{% assign image-name = post.background | split: '.' | pop | join: '.' %}
 	{% assign extensions-array = extensions-array | push: image-extension %}
@@ -100,6 +100,7 @@
 		{% assign image-name-array = image-name-array | push: "mailchimp-beauty" %}
 	{% endif %}
 	{% assign count = count | plus: 1 %}
+{% endif %}
 {% endfor %}
 
 {%- if jekyll.environment == "production" -%}

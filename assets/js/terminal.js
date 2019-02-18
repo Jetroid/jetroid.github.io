@@ -890,7 +890,12 @@ window.onload = function () {
 	printUnsafe("<pre>             ###########################</pre>");
 	print("​");
 	enablePrompt(0);
-	myLazyLoad = new LazyLoad();
+	// Allow script to keep working in non-production jekyll environment
+	if (typeof LazyLoad === "function") {
+		myLazyLoad = new LazyLoad();
+	} else {
+		 myLazyLoad = {update:function(){}};
+	}
 	document.body.onclick = function(){
 		console.log("focus");
 		document.getElementById("data").focus();
