@@ -8,7 +8,7 @@ summary: "I create an interactive 3D visualisation of my travels around our worl
 categories:
  - "Projects"
 ---
-**Before I [left home to start travelling](/the-adventure-begins/), I had wanted some way to visually represent [my journey](travel) for my family and friends. In particular, my little brother is too young to know where some of the places I'd be visiting are, so I felt it would be nice to make something that he could interact with to better understand where I am and where I have been.**
+**Before I [left home to start travelling](/the-adventure-begins/), I had wanted some way to visually represent [my journey](/travel/) for my family and friends. In particular, my little brother is too young to know where some of the places I'd be visiting are, so I felt it would be nice to make something that he could interact with to better understand where I am and where I have been.**
 
 I finished [Jet's Trips](/trips/) today, an interactive map of my travels. I made it with [CesiumJS](https://cesiumjs.org/), an open source 3D mapping tool, and I'm super happy with the result.
 

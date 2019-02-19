@@ -30,6 +30,7 @@ custom_js_includes:
 						{%- assign rest = piece | split: '" alt="' | shift | join: '" alt="' | split: '"' | shift | join: '"' -%}
 						{%- assign url-filename = url | split: '.' | pop | join: '.' -%}
 						{%- assign url-extension = url | split: '.' | last -%}
+						<a class="img" href="{{ url }}">
 						{%- if url-extension == "gif" -%}
 							<noscript><img src="{{ url }}" alt={{alt}} /></noscript>
 							<img class="lazy" data-src="{{ url }}" alt={{alt}}{{ rest }}
@@ -56,13 +57,14 @@ custom_js_includes:
 									(min-width:500px) 88vw,
 									(min-width:800px) 76vw,
 									(min-width:1000px) 64vw"
-						alt="{{ alt }}"{{ rest }}
+						alt="{{ alt }}"></a{{ rest }}
 						{%- endif -%}
 					{%- else -%}
 						{%- assign url = piece | split: '"' | first -%}
 						{%- assign rest = piece | split: '"' | shift | join: '"' -%}
 						{%- assign url-filename = url | split: '.' |  pop | join: '.' -%}
 						{%- assign url-extension = url | split: '.' | last -%}
+						<a class="img" href="{{ url }}">
 						{%- if url-extension == "gif" -%}
 							<noscript><img src="{{ url }}" /></noscript>
 							<img class="lazy" data-src="{{ url }}"{{ rest }}
@@ -88,7 +90,7 @@ custom_js_includes:
 						data-sizes="82vw,
 									(min-width:500px) 88vw,
 									(min-width:800px) 76vw,
-									(min-width:1000px) 64vw"{{ rest }}
+									(min-width:1000px) 64vw"></a{{ rest }}
 						{%- endif -%}
 					{%- endif -%}
 				{%- endif -%}

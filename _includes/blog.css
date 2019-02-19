@@ -95,6 +95,9 @@ body{
 	margin: 0 auto;
 	border-radius: 5px;
 }
+a.img + a.img, img + img {
+	margin-top: 10px !important;
+}
 .post-container img.loaded {
 	height: auto !important;
 }
@@ -107,7 +110,7 @@ img.emoji {
 	margin-top: 1vh;
 }
 /* Captions for images */
-img + em {
+a.img + em, img + em {
 	display: block;
 	text-align: center;
 }

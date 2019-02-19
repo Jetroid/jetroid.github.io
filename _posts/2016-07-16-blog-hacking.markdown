@@ -53,8 +53,8 @@ You can play it [here!]({{ site.url }}/hacking)
 I'm sure that my source code would make a more experienced web developer weep,
 but I'm a beginner! Cut me some slack!
 
-[![Image of the hacking minigame]({{ site.url }}/assets/images/content/hacking-minigame-game.png)
-*Image of the hacking minigame*]({{ site.url }}/hacking)
+![Image of the hacking minigame]({{ site.url }}/assets/images/content/hacking-minigame-game.png)
+*Image of the hacking minigame*
 
 
 It was only when I had completed it that I realised I had no 'win condition'.
