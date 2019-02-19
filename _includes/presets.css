@@ -16,7 +16,7 @@ a, .clickable {
 a:hover, .clickable:hover {
 	text-shadow: 0.08em -0.08em {{ site.style.background-hex }};
 	cursor:pointer;
-	text-decoration: underline !important;
+	text-decoration: underline;
 }
 code.highlighter-rouge {
     background: {{ site.style.background-hex }};

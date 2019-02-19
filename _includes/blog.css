@@ -77,14 +77,6 @@ body{
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
-.post-container a {
-	display: inline;
-	color: {{ site.style.highlight }};
-	text-decoration: none;
-}
-.post-container a h2 {
-	display: inline;
-}
 .post-container img {
 	display: block;
 	max-width: 100%;
