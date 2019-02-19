@@ -96,4 +96,11 @@ images:
 - graduation-768.jpg
 - graduation-640.jpg
 - graduation.jpg
+- sightseeing-1920.jpg
+- sightseeing-1600.jpg
+- sightseeing-1366.jpg
+- sightseeing-1024.jpg
+- sightseeing-768.jpg
+- sightseeing-640.jpg
+- sightseeing.jpg
 ---
