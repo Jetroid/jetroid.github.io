@@ -991,6 +991,6 @@ function toggleFullScreen() {
   }
 }
 
-window.onload = function(){
-	preloadHacking();
-}
+document.body.className = "terminal-off";
+document.body.onselectstart = function() { return false };
+preloadHacking();
