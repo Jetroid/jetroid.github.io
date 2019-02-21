@@ -365,7 +365,7 @@ var generateRandomInt = function(lower, upper){
 }
 
 var playKeyboardSound = function() {
-	var soundID = generateRandomInt(1,9);
+	var soundID = generateRandomInt(1,8);
 	var sound = document.getElementById("key" + soundID);
 	sound.currentTime = 0;
 	sound.play();
