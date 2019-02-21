@@ -4,9 +4,27 @@ layout: compress
 <!DOCTYPE html>
 <html lang="en" Itemscope=”Blog”>
 	<head>
-	{% include sitewide.html %}
 	<link rel="dns-prefetch" href="//www.google-analytics.com" />
 	<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+	<!-- Custom Preconnects - use custom_preconnect in YAML front matter !-->
+	{% assign had_elements = "" %}
+	{% if page.custom_preconnect %}
+		{% for preconnect in page.custom_preconnect %}
+			{% capture had_elements %}{{ had_elements | join: delim }}{{ delim }}{{ preconnect }}{% endcapture %}
+			{% assign had_elements = had_elements | split: delim %}
+			<link rel="dns-prefetch" href="//{{ preconnect }}" />
+			<link rel="preconnect" href="https://{{ preconnect }}" crossorigin>
+		{% endfor %}
+	{% endif %}
+	{% if layout.custom_preconnect %}
+		{% for preconnect in layout.custom_preconnect %}
+			{% if had_elements contains preconnect %}{% else %}
+				<link rel="dns-prefetch" href="//{{ preconnect }}" />
+				<link rel="preconnect" href="{{ preconnect }}" crossorigin>
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+	{% include sitewide.html %}
 	<meta name="google-site-verification" content="9pNs8vHQ1C9hsyUgQ6tFQDPzNH_ANAd8kB9GcnBARYc" />
 	{% if page.embed_twitter %}
 		<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
