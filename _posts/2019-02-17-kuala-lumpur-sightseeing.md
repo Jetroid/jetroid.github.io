@@ -120,6 +120,8 @@ Once you get to the top, the view is just breathtaking:
 
 ![]({{ site.url }}/assets/images/content/sightseeing-kl-view2.jpg)
 
+I visited Kuala Lumpur during rainy season, and it rained with thunder on some part of the city on most days. The day we went up the KL Tower was no exception, though thankfully it didn't rain on the tower. We could see lightning crack through angry-looking clouds on the horizon. It was very beautiful and made me think of what it would be like to be floating in the eye of the red spot storm on Jupiter.
+
 Eventually, we started posing to take pictures:
 
 ![]({{ site.url }}/assets/images/content/sightseeing-kl-me.jpg)

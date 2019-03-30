@@ -8,6 +8,8 @@ permalink: :title/
 paginate: 10
 paginate_path: "/page:num/"
 
+calltoaction: "I'm late to the party, but I recently got <a href='https://twitter.com/JetroidMakes'>a twitter account</a> that you can follow <a href='https://twitter.com/intent/user?screen_name=JetroidMakes'>here</a>."
+
 collections:
   timeline:
     output: false

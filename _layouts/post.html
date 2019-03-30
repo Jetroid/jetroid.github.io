@@ -98,12 +98,15 @@ custom_js_includes:
 			{%- else -%}
 			{{ content }}
 			{%- endif -%}
+			{% if site.calltoaction or page.calltoaction %}
+			<em>P.S. {% if page.calltoaction %}{{ page.calltoaction }}{% else %}{{ site.calltoaction }}{% endif %}</em>
+			{% endif %}
 		</div>
-		<hr class="divider"/>
 	</article>
+	<hr class="divider"/>
 	{% include mailchimp.html %}
+	<hr class="divider"/>
 	<footer id="navigation">
-		<hr class="divider"/>
 		{% if page.previous.url %}
 			<a id="prev-post" href="{{page.previous.url}}">&lsaquo;{{page.previous.title}}</a>
 		{% else %} <p id="prev-post">&nbsp;&nbsp;---</p>

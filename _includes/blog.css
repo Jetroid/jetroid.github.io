@@ -87,8 +87,9 @@ body{
 	margin: 0 auto;
 	border-radius: 5px;
 }
-a.img + a.img, img + img {
+a.img + a.img, img + img, em + a.img, em + img {
 	margin-top: 10px !important;
+	display: block;
 }
 .post-container img.loaded {
 	height: auto !important;
@@ -141,6 +142,12 @@ pre code {
 }
 p/*ete*/ code/*s*/{
 	word-break: break-all;
+}
+#post-content small {
+	font-size: smaller;
+}
+#post-content small * {
+	font-size: 1em;
 }
 /* Justify text on non-mobiles */
 @media (min-width: 500px){
