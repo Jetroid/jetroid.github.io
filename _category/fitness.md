@@ -1,0 +1,4 @@
+---
+category: "Fitness"
+permalink: "/fitness/"
+---

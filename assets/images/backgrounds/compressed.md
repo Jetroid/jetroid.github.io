@@ -103,4 +103,11 @@ images:
 - sightseeing-768.jpg
 - sightseeing-640.jpg
 - sightseeing.jpg
+- rtyd5-beauty-1920.jpg
+- rtyd5-beauty-1600.jpg
+- rtyd5-beauty-1366.jpg
+- rtyd5-beauty-1024.jpg
+- rtyd5-beauty-768.jpg
+- rtyd5-beauty-640.jpg
+- rtyd5-beauty.jpg
 ---
