@@ -20,14 +20,14 @@ custom_preconnect:
   {% assign sorted = site.trips | sort: 'arrival-date' | reverse %}
   {% for trip in sorted %}
     {% capture date %}{% if trip.details-accurate %}{{ trip.date | date: "%Y/%m/%d" }}{% else %}{{ trip.date | date: "%B %Y" }}{% endif %}{% endcapture %}
-    {% capture emoji %}{% if trip.arrival-transport == 'boat' %}:ship:{% elsif trip.arrival-transport == 'air' %}:airplane:{% elsif trip.arrival-transport == 'car' %}:car:{% elsif trip.arrival-transport == 'train' %}:train2:{% elsif trip.arrival-transport == 'cycle' %}:bicyclist:{% elsif trip.arrival-transport == 'walk' %}:walking:{% elsif trip.arrival-transport == 'run' %}:runner:{% elsif trip.arrival-transport == 'birth' %}:baby:{% endif %}{% endcapture %}
+    {% capture emoji %}{% if trip.arrival-transport == 'boat' %}:ship:{% elsif trip.arrival-transport == 'air' %}:airplane:{% elsif trip.arrival-transport == 'car' %}:car:{% elsif trip.arrival-transport == 'train' %}:train2:{% elsif trip.arrival-transport == 'cycle' %}:bicyclist:{% elsif trip.arrival-transport == 'walk' %}:walking:{% elsif trip.arrival-transport == 'run' %}:runner:{% elsif trip.arrival-transport == 'birth' %}:baby:{% elsif trip.arrival-transport == 'scooter' %}:motor_scooter:{% elsif trip.arrival-transport == 'motorcycle' %}:motorcycle:{% endif %}{% endcapture %}
     {% if previousArrival %}
       <p class="transport">{{ trip.departed }} - {{ previousArrival }}</p><hr />
     </div>
     {% endif %}
     <div class="location">
       <h1>{{ emoji }} <span class="clickable" onclick="globeFocus({{ trip.location }}, 50000.0)">{{ trip.name }}</span>, {{ trip.country }}</h1>
-      <p>{{ date }} - {% if previousDate %}{{ previousDate }}{% else %}Present{% endif %}</p>
+      <p>{{ date }} - {% if previousDate %}{{ previousDate }}{% else %}Unknown{% endif %}</p>
       <hr />
       {% if trip.content.size > 3 %}{{ trip.content }}<hr />{% endif %}
       {% assign previousArrival = trip.arrival %}
@@ -46,7 +46,7 @@ var trips = [
     location: [{{ trip.location }}],
     arrival: "{{ trip.arrival }}",
     arrivalLocation: [{{ trip.arrival-location }}],
-    arrivalDate: "{{ trip.arrival-date }}",
+    arrivalDate: new Date("{{ trip.arrival-date }}"),
     arrivalTransport: "{{ trip.arrival-transport }}",
     departed: "{{ trip.departed }}",
     departedLocation: [{{ trip.departed-location }}]

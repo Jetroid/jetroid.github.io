@@ -1,8 +1,10 @@
+var today = new Date();
 var processtrips = function() {
   var arcs = [];
 
   var previousLalo = undefined;
   var lalo = undefined;
+  var date = undefined;
   var transportMethod = "not specified";
   var to = "";
 
@@ -13,12 +15,13 @@ var processtrips = function() {
   var isArc = function(lalo1, lalo2) {
     if (lalo1 === undefined || lalo1.length === 0) return false;
     if (lalo2 === undefined || lalo2.length === 0) return false;
+    if (date === undefined) return false;
     return !sameLalo(lalo1, lalo2);
   };
 
   var processArc = function() {
-    if (isArc(previousLalo, lalo)){
-      arcs.push({start: previousLalo, stop: lalo, transport: transportMethod, intensity: 10, to: to});
+    if (isArc(previousLalo, lalo, date)){
+      arcs.push({start: previousLalo, stop: lalo, transport: transportMethod, intensity: 10, to: to, date: date});
     }
     previousLalo = lalo;
     transportMethod = "not specified";
@@ -27,12 +30,16 @@ var processtrips = function() {
   for (var i = 0; i < trips.length; i++) {
     var trip = trips[i];
     lalo = trip.arrivalLocation;
+    date = trip.arrivalDate;
     transportMethod = trip.arrivalTransport;
     to = trip.name;
+    //Process the arc from departure location of previous location to arrival location of this location
     processArc();
     lalo = trip.location;
+    //Process the arc from arrival location to location
     processArc();
-    lalo = trip.departedLocation;
+    lalo = trip.departedLocation.length === 2 ? trip.departedLocation : trip.location;
+    //Process the arc from location to departure location
     processArc();
   }
 
@@ -41,13 +48,19 @@ var processtrips = function() {
     var start2 = arc2.start;
     var stop1 = arc1.stop;
     var stop2 = arc2.stop;
-    return (sameLalo(start1,start2) && sameLalo(stop1,stop2)) 
-    || (sameLalo(start1,stop2) && sameLalo(stop1,start2));
+    //Same arc if both are in the past and have the same positions
+    return 
+    (today > arc1.date) && (today > arc2.date) && (
+      (sameLalo(start1,start2) && sameLalo(stop1,stop2)) 
+      || (sameLalo(start1,stop2) && sameLalo(stop1,start2))
+    );
   }
 
   // Arcs in `arcs` will be sorted so that the most recent is last.
-  // If we pop them in order, and iterate descending,
-  // then we always get the most recent arcs first in quantified arcs
+  // If we pop them in order, we will always get the most recent arcs first in quantified arcs
+
+  // We are trying to represent repeated trips with a thicker glow
+  console.log(arcs);
   var quantifiedArcs = [];
   while (arcs.length > 0) {
     var arc = arcs.pop();
@@ -64,6 +77,7 @@ var processtrips = function() {
     }
     quantifiedArcs.push(arc);
   }
+  console.log(quantifiedArcs);
 
   return quantifiedArcs;
 }
@@ -167,16 +181,26 @@ for (var i = 0; i < arcs.length; i++) {
         outlineColor : color,
         outlineWidth : 3
     };
+    var material = null;
+    if (arc.date > today) {
+        material = new Cesium.PolylineDashMaterialProperty({
+            color : color
+        });
+        intensity -= 8;
+    } else {
+        material = new Cesium.PolylineGlowMaterialProperty({
+            glowPower : 0.24,
+            color : color
+        });
+    }
+       
+
+
     var arcEntity = viewer.entities.add({
         position : property,
-        // The point is optional, I just wanted to see it.
-        //point : point,
         path : {
             resolution : 1200,
-            material : new Cesium.PolylineGlowMaterialProperty({
-                glowPower : 0.24,
-                color : color
-            }),
+            material : material,
             width : intensity,
             leadTime: 1e10,
             trailTime: 1e10,
@@ -197,4 +221,8 @@ var globeFocus = function(lat, long, distance) {
   window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
 }
 
-globeFocus(trips[trips.length-1].location[0],trips[trips.length-1].location[1], 10000000.0);
+var tripIndex = 1;
+while(trips[trips.length-tripIndex].arrivalDate > today) {
+    tripIndex += 1;
+}
+globeFocus(trips[trips.length-tripIndex].location[0],trips[trips.length-tripIndex].location[1], 10000000.0);
