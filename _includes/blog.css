@@ -13,6 +13,18 @@ body{
 		padding: 5.7vw 0;
 	}
 }
+/* I'm basically only going to be using tables for statistics... right? */
+th,td,table {
+	border: 1px solid {{ site.style.text }};
+	border-collapse: collapse;
+}
+th,td {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+td {
+	text-align: right;
+}
 #page-title{
 	color: {{ site.style.highlight }};
 	font-family: "Roboto",Helvetica,sans-serif;
