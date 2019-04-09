@@ -7,16 +7,47 @@ background-color: "#160B04"
 ---
 <div id="index">
 	<h1>Index</h1>
+	<h1>Pages</h1>
 	<table>
-	{% for post in site.posts %}
+	{% for page in site.pages %}
+		{% if page.category == "project" %}
 		<tr>
-			<td><h1>{{ post.date | date: "%b '%y" }}</h1></td>
-			<td>{% for category in post.categories %}
-			<p><a href="/{{ category | replace: ' ', '-' | downcase }}/">{{ category }}</a></p>
-			{% endfor %}
-			</td>
-			<td><a href="{{ post.url | prepend: site.baseurl }}"><h1>{{ post.title }}</h1><p>{{ post.summary }}</p></a></td>
+			<td class="page"><a href="{{ page.url | prepend: site.baseurl }}"><h1>{{ page.title  | split: '-' | first }}</h1><p>{{ page.summary }}</p></a></td>
 		</tr>
+		{% endif %}
 	{% endfor %}
 	</table>
+	<h1>Categories</h1>
+	<p>
+
+	{% assign categoryArray = '' | split:'@' %}
+
+	{% for category in site.category %}
+		{% capture link %}<a href="{{ category.permalink }}">{{ category.category }}</a>{% endcapture %}
+		{% assign categoryArray = categoryArray | push: link %}
+	{% endfor %}
+
+	{{ categoryArray | array_to_sentence_string }}
+	
+	</p>
+
+	<h1>Posts</h1>
+	{% for post in site.posts %}
+		{% capture currentyear %}{{post.date | date: "%Y"}}{% endcapture %}
+		{% if currentyear != year %}
+			{% if year %}</table>{% endif %}
+			<h2 class="centered">{{ currentyear }}</h1>
+			<table>
+		{% capture year %}{{currentyear}}{% endcapture %} 
+		{% endif %}
+				<tr>
+					<td><h1>{{ post.date | date: "%b '%y" }}</h1></td>
+					<td>{% for category in post.categories %}
+					<p><a href="/{{ category | replace: ' ', '-' | downcase }}/">{{ category }}</a></p>
+					{% endfor %}
+					</td>
+					<td><a href="{{ post.url | prepend: site.baseurl }}"><h1>{{ post.title }}</h1><p>{{ post.summary }}</p></a></td>
+				</tr>
+	{% endfor %}
+			</table>
 </div>

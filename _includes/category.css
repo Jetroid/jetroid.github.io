@@ -1,11 +1,11 @@
 body {
 	 background-color: #160B04;
 }
-#index > h1:first-of-type, #index > p, .centered {
+#index > h1, #index > p {
 	padding-bottom: 5px;
 	text-align: center;
 }
-table h1, p {
+h1, p {
 	margin: 0;
 }
 h1 + p{
@@ -13,19 +13,6 @@ h1 + p{
 }
 p + p{
 	padding-top: 10px;
-}
-tr td {
-	box-sizing: border-box;
-}
-tr td:first-of-type:not(.page) {
-	width: 63px;
-}
-tr td:nth-of-type(2) {
-	display: none;
-	width: 96px;
-}
-tr td:nth-of-type(3) {
-	width: auto;
 }
 td {
 	padding: 5px;
@@ -41,8 +28,5 @@ td {
 @media (min-width: 900px){
 	#index {
 		padding: 80px 20vw;
-	}
-	tr td:nth-of-type(2) {
-		display: table-cell;
 	}
 }
