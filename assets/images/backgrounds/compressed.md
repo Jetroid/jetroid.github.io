@@ -110,4 +110,11 @@ images:
 - rtyd5-beauty-768.jpg
 - rtyd5-beauty-640.jpg
 - rtyd5-beauty.jpg
+- bali-imigrasi-beauty-1920.jpg
+- bali-imigrasi-beauty-1600.jpg
+- bali-imigrasi-beauty-1366.jpg
+- bali-imigrasi-beauty-1024.jpg
+- bali-imigrasi-beauty-768.jpg
+- bali-imigrasi-beauty-640.jpg
+- bali-imigrasi-beauty.jpg
 ---
