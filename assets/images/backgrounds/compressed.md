@@ -124,4 +124,11 @@ images:
 - connected-minds-beauty-768.jpg
 - connected-minds-beauty-640.jpg
 - connected-minds-beauty.jpg
+- gwk-beauty-1920.jpg
+- gwk-beauty-1600.jpg
+- gwk-beauty-1366.jpg
+- gwk-beauty-1024.jpg
+- gwk-beauty-768.jpg
+- gwk-beauty-640.jpg
+- gwk-beauty.jpg
 ---
