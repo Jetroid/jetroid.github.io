@@ -9,4 +9,5 @@ arrival-transport: "scooter"
 departed: "Tabanan"
 departed-location: "-8.537059, 115.136067"
 details-accurate: true
+include-arrival-departed: false
 ---

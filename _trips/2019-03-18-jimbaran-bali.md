@@ -9,4 +9,6 @@ arrival-transport: "scooter"
 departed: "Jimbaran"
 departed-location: "-8.783982, 115.187690"
 details-accurate: true
+include-arrival-departed: false
 ---
+[A Terrible Visa Extension Experience in Bali](/bali-visa-extension/)

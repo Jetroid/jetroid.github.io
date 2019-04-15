@@ -59,7 +59,7 @@ When the ticket machine came back online, I took my ticket and sat, waiting for 
 
 What?! I didn't read anything about this online! I read you can go anywhere?!
 
-The Jimbaran Immigration Office (Officially called the Ngurah Rai Immigration Office) is 20km away from the Denpasar Immigration office. I'm already ill, always feel stressed by dealings like this, and now I have to go somewhere else? I just want to sleep. I tried looking looking for a Grab to take me, but I must have mistyped the address because I couldn't find it. I felt really overwhelmed and just wanted to sleep. Ni had only really just left the immigration office, so she offered to take me to Jimbaran and told her work that she'd take the day off. Such a sweet girl. Ni manis! 
+The Jimbaran Immigration Office (Officially called the Ngurah Rai Immigration Office) is 20km away from the Denpasar Immigration office. I'm already ill, always feel stressed by dealings like this, and now I have to go somewhere else? I just want to sleep. I tried looking for a Grab to take me, but I must have mistyped the address because I couldn't find it. I felt really overwhelmed and just wanted to sleep. Ni had only really just left the immigration office, so she offered to take me to Jimbaran and told her work that she'd take the day off. Such a sweet girl. Ni manis! 
 
 Whilst I waited for Ni, the foreigner girl came out. Recognising me, she asked where she needed to go to pay. I explained that they had told me I needed to go elsewhere because I was staying in Canggu. She told me that she was staying in Ubud, and wished me the best of luck.
 
@@ -83,7 +83,7 @@ This time, the clerk accepted everything. He put everything inside a red folder 
 ![Stamp on my immigration receipt telling me when to come back.]({{ site.url }}/assets/images/content/bali-imigrasi-stamp.jpg)
 *Stamp on my immigration receipt telling me when to come back.*
 
-I hadn't misheard him. There was was a bright orange van in the courtyard with a payment machine inside. I'm not sure why the payment machine is in a van and not inside a building; maybe to make transporting the money to the bank easier.
+I hadn't misheard him. There was a bright orange van in the courtyard with a payment machine inside. I'm not sure why the payment machine is in a van and not inside a building; maybe to make transporting the money to the bank easier.
 
 Unfortunately, the payment machine wasn't working. Ni just said "Okay, let's go to the bank. There's one nearby." I didn't think this would work; inside the immigration office was a big roll-up banner saying which banks they accept transfer from (mostly Indonesian banks, but also including some British ones like HSBC) - but mine wasn't there. I actually dragged Ni back inside to show her the poster, but she told me not to worry and that we'd sort things out.
 
@@ -92,7 +92,7 @@ Unfortunately, the payment machine wasn't working. Ni just said "Okay, let's go 
 
 We went to the bank; Ni knew exactly what she was doing, bypassing the downstairs area and ascending directly. She presented the teller with the form that the immigration officer had requested, who took my money - 355,000 rupiah (£19.15, €22.26, $25.08) - and made the transfer, stapling a receipt to the form before returning it to me. At this point, I was incredibly glad that Ni was with me. I would have been clueless and thought it was impossible.
 
-And that was that for the first visit. Having to go between two different offices and then a bank was very annoying that '21st March' return date was troubling. For one, it was *a day after my visa expires* and I was worried that they might try to fine me. My other concern was that the stamp on the form said I had to be there between 8AM-11AM... That really didn't seem feasible if I was going to be travelling from where I was staying in Canggu - it's 25km from Jimbaran and it can be difficult to find a Grab driver who will travel long distances, especially in the morning. I'd miss the 8AM-11AM cutoff! I couldn't even ask Ni to take me (even part way) because she would be taking a holiday to Thailand for several days around that date.
+And that was that for the first visit. Having to go between two different offices and then a bank was very annoying, and that '21st March' return date was troubling. For one, it was *a day after my visa expires* and I was worried that they might try to fine me. My other concern was that the stamp on the form said I had to be there between 8AM-11AM... That really didn't seem feasible if I was going to be travelling from where I was staying in Canggu - it's 25km from Jimbaran and it can be difficult to find a Grab driver who will travel long distances, especially in the morning. I'd miss the 8AM-11AM cutoff! I couldn't even ask Ni to take me (even part way) because she would be taking a holiday to Thailand for several days around that date.
 
 I decided that I would stay in Jimbaran for the duration that Ni was in Thailand - my residency expired in Canggu soon anyway, and it wasn't like Jimbaran wouldn't be a nice place to stay anyway.
 

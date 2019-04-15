@@ -22,7 +22,7 @@ custom_preconnect:
   {% for trip in sorted %}
     {% capture date %}{% if trip.details-accurate %}{{ trip.date | date: "%Y/%m/%d" }}{% else %}{{ trip.date | date: "%B %Y" }}{% endif %}{% endcapture %}
     {% capture emoji %}{% if trip.arrival-transport == 'boat' %}:ship:{% elsif trip.arrival-transport == 'air' %}:airplane:{% elsif trip.arrival-transport == 'car' %}:car:{% elsif trip.arrival-transport == 'train' %}:train2:{% elsif trip.arrival-transport == 'cycle' %}:bicyclist:{% elsif trip.arrival-transport == 'walk' %}:walking:{% elsif trip.arrival-transport == 'run' %}:runner:{% elsif trip.arrival-transport == 'birth' %}:baby:{% elsif trip.arrival-transport == 'scooter' %}:motor_scooter:{% elsif trip.arrival-transport == 'motorcycle' %}:motorcycle:{% endif %}{% endcapture %}
-    {% if previousArrival %}
+    {% if trip.departed and previousArrival and includeTransport != false %}
       <p class="transport">{{ trip.departed }} - {{ previousArrival }}</p><hr />
     </div>
     {% endif %}
@@ -32,6 +32,7 @@ custom_preconnect:
       <hr />
       {% if trip.content.size > 3 %}{{ trip.content }}<hr />{% endif %}
       {% assign previousArrival = trip.arrival %}
+      {% assign includeTransport = trip.include-arrival-departed %}
       {% assign previousDate = date %}
   {% endfor %}
       <p class="transport">The Void - {{ previousArrival }}</p><hr />
