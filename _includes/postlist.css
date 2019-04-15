@@ -97,7 +97,6 @@
 {% assign image-name-gifs = '' | split: ',' %}
 {% assign count = 0 %}
 {% for post in paginator.posts %}
-{% if post.unlisted != true or count == 0 %}
 	{% assign image-extension = post.background | split: '.' | last %}
 	{% assign image-name = post.background | split: '.' | pop | join: '.' %}
 	{% if image-extension == "gif" %}
@@ -115,7 +114,6 @@
 		{% assign image-name-array = image-name-array | push: "mailchimp-beauty" %}
 	{% endif %}
 	{% assign count = count | plus: 1 %}
-{% endif %}
 {% endfor %}
 
 /* Do the gifs - these don't get different sizes */

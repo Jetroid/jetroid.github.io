@@ -6,7 +6,6 @@ background: "space-race-beauty.jpg"
 background-position: "right"
 background-color: "#000"
 summary: "A Space Race themed album leads to learning more about humanity's past."
-unlisted: true
 categories:
  - "Things I Like"
  - "Society"

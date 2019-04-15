@@ -54,12 +54,6 @@ prose:
           placeholder: "#5e655d"
           label: "Background Image Primary Colour"
           help: "Use this: http://matkl.github.io/average-color/"
-      - name: "unlisted"
-        field:
-          element: "checkbox"
-          label: "Show on Homepage?"
-          help: "Unlisted posts only show on the homepage if they are the most recent, otherwise, in the /index/ page."
-          value: false
       - name: "categories"
         field:
           element: "multiselect"

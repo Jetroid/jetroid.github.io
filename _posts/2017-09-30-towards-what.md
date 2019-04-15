@@ -4,8 +4,7 @@ title: "Towards What?"
 date: 2017-10-01 20:48:53 +0100
 background: "towards-what-beauty.jpg"
 background-color: "#5e655d"
-summary: ""
-unlisted: true
+summary: "Writing about a post-depression existential crisis."
 categories:
  - "Experiences"
 ---

@@ -31,7 +31,6 @@ image: me.png
 <div id="posts">
     {% assign count = 0 %}
 	{% for post in paginator.posts %}
-	{% if post.unlisted != true or count == 0 %}
 	<div class="post">
 		<a href="{{ post.url | prepend: site.baseurl }}">
 			<div id="p{{count}}" class="post-background" 
@@ -52,7 +51,6 @@ image: me.png
 			</div>
 		</a>
 	</div>
-	{% endif %}
 	<!-- Mailchimp email signup for 3rd item on first page !-->
 	{% if paginator.page == 1 and count == 2 %}
 		{% assign count = count | plus: 1 %}
