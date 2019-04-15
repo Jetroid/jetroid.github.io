@@ -2,7 +2,7 @@
 layout: post
 title: "Connected Minds"
 date: 2016-09-09 01:54:30 +0100
-background: "connected-minds-mine.jpg"
+background: "connected-minds-beauty.jpg"
 background-color: "#67585D"
 summary: "My sister and I take almost the same photo, minutes apart."
 categories:

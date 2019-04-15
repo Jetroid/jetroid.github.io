@@ -117,4 +117,11 @@ images:
 - bali-imigrasi-beauty-768.jpg
 - bali-imigrasi-beauty-640.jpg
 - bali-imigrasi-beauty.jpg
+- connected-minds-beauty-1920.jpg
+- connected-minds-beauty-1600.jpg
+- connected-minds-beauty-1366.jpg
+- connected-minds-beauty-1024.jpg
+- connected-minds-beauty-768.jpg
+- connected-minds-beauty-640.jpg
+- connected-minds-beauty.jpg
 ---
