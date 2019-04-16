@@ -131,4 +131,11 @@ images:
 - gwk-beauty-768.jpg
 - gwk-beauty-640.jpg
 - gwk-beauty.jpg
+- nyepi-beauty-1920.jpg
+- nyepi-beauty-1600.jpg
+- nyepi-beauty-1366.jpg
+- nyepi-beauty-1024.jpg
+- nyepi-beauty-768.jpg
+- nyepi-beauty-640.jpg
+- nyepi-beauty.jpg
 ---
