@@ -1,7 +1,7 @@
 {% unless page.suppress-bg == "true" %}
-{% capture background-color-partial %}{% if page.background-color %}{{ page.background-color }}{% else if layout.background-color %}{{ layout.background-color }}{% endif %}{% endcapture %}
-{% capture background-image-partial %}{% if page.background %}{{ page.background }}{% else if layout.background %}{{ layout.background }}{% else %}default-background.jpg{% endif %}{% endcapture %}
-{% capture background-position-partial %}{% if page.background-position %}{{ page.background-position }}{% else if layout.background-position %}{{ layout.background-position }}{% endif %}{% endcapture %}
+{% capture background-color-partial %}{% if overridebackgroundcolor %}{{ overridebackgroundcolor }}{% else if page.background-color %}{{ page.background-color }}{% else if layout.background-color %}{{ layout.background-color }}{% endif %}{% endcapture %}
+{% capture background-image-partial %}{% if overridebackground %}{{ overridebackground }}{% else if page.background %}{{ page.background }}{% else if layout.background %}{{ layout.background }}{% else %}default-background.jpg{% endif %}{% endcapture %}
+{% capture background-position-partial %}{% if overridebackgroundposition %}{{ overridebackgroundposition }}{% else if page.background-position %}{{ page.background-position }}{% else if layout.background-position %}{{ layout.background-position }}{% endif %}{% endcapture %}
 
 {% capture background-color %}{% unless background-color-partial == "" or background-color-partial == nil %}{{ background-color-partial }}{% else %}{{ site.style.background-hex }}{% endunless %}{% endcapture %}
 {% capture background-image %}{% unless background-image-partial == "none" or background-image-partial == "" or background-image-partial == nil %}{{ background-image-partial }}{% else %}default-background.jpg{% endunless %}{% endcapture %}

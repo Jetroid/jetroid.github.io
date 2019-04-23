@@ -1,0 +1,108 @@
+<header id="page-header">
+	<h1 id="page-title" class="borders">{{ post.title }}</h1>
+	<p id="page-subtitle" class="borders">{{ post.summary }}</p>
+</header>
+<div class="background  borders">
+	<article class="post-container">
+		<time class="post-date">{{ post.date | date: "%Y/%m/%d" }}</time>
+		<hr class="divider"/>
+		<div id="post-content">
+			{%- if jekyll.environment == "production" -%}
+			{%- assign pieces = post.content | split: '<img src="' -%}
+			{%- for piece in pieces -%}
+				{%- if forloop.first == true -%}
+					{{ piece }}
+				{%- else -%}
+					{%- if piece contains '" alt="' -%}
+						{%- assign url = piece | split: '" alt="' | first -%}
+						{%- assign alt = piece | split: '" alt="' | shift | join: '" alt="' | split: '"' | first -%}
+						{%- assign rest = piece | split: '" alt="' | shift | join: '" alt="' | split: '"' | shift | join: '"' -%}
+						{%- assign url-filename = url | split: '.' | pop | join: '.' -%}
+						{%- assign url-extension = url | split: '.' | last -%}
+						<a class="img" href="{{ url }}">
+						{%- if url-extension == "gif" -%}
+							<noscript><img src="{{ url }}" alt={{alt}} /></noscript>
+							<img class="lazy" data-src="{{ url }}" alt={{alt}}{{ rest }}
+						{%- else -%}
+						<noscript><img 
+							srcset="{{ url-filename }}-560.{{ url-extension }} 560w,
+									{{ url-filename }}-655.{{ url-extension }} 655w,
+									{{ url-filename }}-874.{{ url-extension }} 874w,
+									{{ url-filename }}-1024.{{ url-extension }} 1024w,
+									{{ url-filename }}-1230.{{ url-extension }} 1230w"
+							sizes="(max-width:499px) 82vw,
+									(max-width:799px) 88vw,
+									(max-width:999px) 76vw,
+									64vw"  
+							src="{{ url }}" alt="{{ alt }}" /></noscript>
+									<img class="lazy" 
+							data-src="{{ url }}"
+						data-srcset="{{ url-filename }}-560.{{ url-extension }} 560w,
+									{{ url-filename }}-655.{{ url-extension }} 655w,
+									{{ url-filename }}-874.{{ url-extension }} 874w,
+									{{ url-filename }}-1024.{{ url-extension }} 1024w,
+									{{ url-filename }}-1230.{{ url-extension }} 1230w"
+						data-sizes="82vw,
+									(min-width:500px) 88vw,
+									(min-width:800px) 76vw,
+									(min-width:1000px) 64vw"
+						alt="{{ alt }}"></a{{ rest }}
+						{%- endif -%}
+					{%- else -%}
+						{%- assign url = piece | split: '"' | first -%}
+						{%- assign rest = piece | split: '"' | shift | join: '"' -%}
+						{%- assign url-filename = url | split: '.' |  pop | join: '.' -%}
+						{%- assign url-extension = url | split: '.' | last -%}
+						<a class="img" href="{{ url }}">
+						{%- if url-extension == "gif" -%}
+							<noscript><img src="{{ url }}" /></noscript>
+							<img class="lazy" data-src="{{ url }}"{{ rest }}
+						{%- else -%}
+						<noscript><img 
+							srcset="{{ url-filename }}-560.{{ url-extension }} 560w,
+									{{ url-filename }}-655.{{ url-extension }} 655w,
+									{{ url-filename }}-874.{{ url-extension }} 874w,
+									{{ url-filename }}-1024.{{ url-extension }} 1024w,
+									{{ url-filename }}-1230.{{ url-extension }} 1230w"
+							sizes="(max-width:499px) 82vw,
+									(max-width:799px) 88vw,
+									(max-width:999px) 76vw,
+									64vw"  
+							src="{{ url }}" alt="{{ alt }}" /></noscript>
+									<img class="lazy" 
+							data-src="{{ url }}"
+						data-srcset="{{ url-filename }}-560.{{ url-extension }} 560w,
+									{{ url-filename }}-655.{{ url-extension }} 655w,
+									{{ url-filename }}-874.{{ url-extension }} 874w,
+									{{ url-filename }}-1024.{{ url-extension }} 1024w,
+									{{ url-filename }}-1230.{{ url-extension }} 1230w"
+						data-sizes="82vw,
+									(min-width:500px) 88vw,
+									(min-width:800px) 76vw,
+									(min-width:1000px) 64vw"></a{{ rest }}
+						{%- endif -%}
+					{%- endif -%}
+				{%- endif -%}
+			{%- endfor -%}
+			{%- else -%}
+			{{ post.content }}
+			{%- endif -%}
+		</div>
+		{% if site.calltoaction or post.calltoaction %}
+		<p><em>P.S. {% if post.calltoaction %}{{ post.calltoaction }}{% else %}{{ site.calltoaction }}{% endif %}</em></p>
+		{% endif %}
+	</article>
+	<hr class="divider"/>
+	{% include mailchimp.html %}
+	<hr class="divider"/>
+	<footer id="navigation">
+		{% if post.previous.url %}
+			<a id="prev-post" href="{{post.previous.url}}">&lsaquo;{{post.previous.title}}</a>
+		{% else %} <p id="prev-post">&nbsp;&nbsp;---</p>
+		{% endif %}
+		{% if post.next.url %}
+			<a id="next-post" href="{{post.next.url}}">{{post.next.title}}&rsaquo;</a>
+		{% else %} <p id="next-post">---&nbsp;&nbsp;</p>
+		{% endif %}
+	</footer>
+</div>

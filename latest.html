@@ -1,0 +1,18 @@
+---
+layout: default
+title: Latest
+custom_style_includes:
+- blog
+- mailchimp
+background: "background-blog.jpg"
+background-color: "#848485"
+custom_js_includes:
+- lazyload
+---
+{% for post in site.posts limit:1 %}
+{% assign overridebackground = post.background %}
+{% assign overridebackgroundcolor = post.background-color %}
+{% assign overridebackgroundposition = post.background-position %}
+<style>{% include background.css %}</style>
+{% include blog.html %}
+{% endfor %}
