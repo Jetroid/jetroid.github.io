@@ -36,7 +36,6 @@ image: me.png
 			<div id="p{{count}}" class="post-background" 
 				{% if post.background-position or post.background-color %}
 					style="
-					{% if post.background-color %}background-color:{{ post.background-color }};{% endif %}
 					{% if post.background-position %}background-position:{{ post.background-position }};{% endif %}
 					"{% endif %}
 			>

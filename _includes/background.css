@@ -1,10 +1,10 @@
 {% unless page.suppress-bg == "true" %}
-{% capture background-color-partial %}{% if overridebackgroundcolor %}{{ overridebackgroundcolor }}{% else if page.background-color %}{{ page.background-color }}{% else if layout.background-color %}{{ layout.background-color }}{% endif %}{% endcapture %}
-{% capture background-image-partial %}{% if overridebackground %}{{ overridebackground }}{% else if page.background %}{{ page.background }}{% else if layout.background %}{{ layout.background }}{% else %}default-background.jpg{% endif %}{% endcapture %}
-{% capture background-position-partial %}{% if overridebackgroundposition %}{{ overridebackgroundposition }}{% else if page.background-position %}{{ page.background-position }}{% else if layout.background-position %}{{ layout.background-position }}{% endif %}{% endcapture %}
+{% capture background-color-partial %}{% if overridebackgroundcolor != "" and overridebackgroundcolor != nil %}{{ overridebackgroundcolor }}{% else if page.background-color != "" and page.background-color != nil %}{{ page.background-color }}{% else if layout.background-color != "" and layout.background-color != nil %}{{ layout.background-color }}{% else %}#fff{% endif %}{% endcapture %}
+{% capture background-image-partial %}{% if overridebackground != "" and overridebackground != nil %}{{ overridebackground }}{% else if page.background != "" and page.background != nil %}{{ page.background }}{% else if layout.background != "" and layout.background != nil %}{{ layout.background }}{% else %}background-blog.jpg{% endif %}{% endcapture %}
+{% capture background-position-partial %}{% if overridebackgroundposition != "" and overridebackgroundposition != nil %}{{ overridebackgroundposition }}{% else if page.background-position != "" and page.background-position != nil %}{{ page.background-position }}{% else if layout.background-position != "" and layout.background-position != nil %}{{ layout.background-position }}{% else %}center center{% endif %}{% endcapture %}
 
-{% capture background-color %}{% unless background-color-partial == "" or background-color-partial == nil %}{{ background-color-partial }}{% else %}{{ site.style.background-hex }}{% endunless %}{% endcapture %}
-{% capture background-image %}{% unless background-image-partial == "none" or background-image-partial == "" or background-image-partial == nil %}{{ background-image-partial }}{% else %}default-background.jpg{% endunless %}{% endcapture %}
+{% capture background-color %}{% unless background-color-partial == "" or background-color-partial == nil %}{{ background-color-partial }}{% else %}#51514D{% endunless %}{% endcapture %}
+{% capture background-image %}{% unless background-image-partial == "none" or background-image-partial == "" or background-image-partial == nil %}{{ background-image-partial }}{% else %}background-blog.jpg{% endunless %}{% endcapture %}
 {% capture background-position %}{% unless background-position-partial == "" or background-image-partial == nil %}{{ background-position-partial }}{% else %}center center{% endunless %}{% endcapture %}
 
 {% assign image-extension = background-image | split: '.' | last %}

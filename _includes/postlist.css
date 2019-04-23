@@ -4,7 +4,6 @@
 .post-background{
   background-position: center;
   background-size: cover;
-  /*background-repeat: no-repeat;*/
   background-attachment: fixed;
   height: 100%;
 }
@@ -97,8 +96,10 @@
 {% assign image-name-gifs = '' | split: ',' %}
 {% assign count = 0 %}
 {% for post in paginator.posts %}
-	{% assign image-extension = post.background | split: '.' | last %}
-	{% assign image-name = post.background | split: '.' | pop | join: '.' %}
+	{% capture background-color %}{% unless post.background-color == "" or post.background-color == nil %}{{ post.background-color }}{% else %}#51514D{% endunless %}{% endcapture %}
+	{% capture background-image %}{% unless post.background == "" or post.background == nil %}{{ post.background }}{% else %}background-blog.jpg{% endunless %}{% endcapture %}
+	{% assign image-extension = background-image | split: '.' | last %}
+	{% assign image-name = background-image | split: '.' | pop | join: '.' %}
 	{% if image-extension == "gif" %}
 		{% assign image-count-gifs = image-count-array | push: count %}
 		{% assign image-name-gifs = image-name-array | push: image-name %}
@@ -121,6 +122,7 @@
 	{% assign loopIndex = forloop.index0 %}
 	{% assign count = image-count-gifs[loopIndex] %}
 #p{{ count }} {
+	background-color: {{ background-color }};
 	background-image: url("/assets/images/backgrounds/{{ image-name }}.gif");
 } 
 {% endfor %}
@@ -131,6 +133,7 @@
 	{% assign image-name = image-name-array[loopIndex] %}
 	{% assign count = image-count-array[loopIndex] %}
 #p{{ count }} {
+	background-color: {{ background-color }};
 	background-image: url("/assets/images/backgrounds/{{ image-name }}-640.{{ image-extension }}");
 } 
 {% endfor %}
@@ -202,6 +205,7 @@
 	{% assign image-name = image-name-array[loopIndex] %}
 	{% assign count = image-count-array[loopIndex] %}
 #p{{ count }} {
+	background-color: {{ background-color }};
 	background-image: url("/assets/images/backgrounds/{{ image-name }}.{{ image-extension }}");
 } 
 {% endfor %}
