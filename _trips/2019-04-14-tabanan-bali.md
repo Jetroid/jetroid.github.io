@@ -11,3 +11,4 @@ departed-location: "-8.7449247, 115.1667575"
 details-accurate: true
 include-arrival-departed: false
 ---
+[Thank You, Danke](/thank-you-danke/)
