@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "A Terrible Visa Extension Experience in Bali"
-date: 2019-04-11 18:22:22 +0800
+date: 2019-03-28 18:22:22 +0800
 background: "bali-imigrasi-beauty.jpg"
 background-color: "#807F77"
 summary: "I had the worst time extending my visa in Bali. Here's what happened."
@@ -9,8 +9,7 @@ categories:
  - "Travel"
  - "Experiences"
 ---
-**A few weeks ago I renewed my visa in Bali. This post is coming out later because I caught Typhus and delayed writing it. The visa situation in Indonesia sucks. I'd heard stuff about it long before I had ever considered coming to Bali - [Aiden](https://twitter.com/Aidenbuis) talked about it in [Chiang Mai](/chilling-in-chiang-mai/) and mentioned how complicated and annoying it was. I'm here to tell you that he wasn't wrong.**
-<!--**I recently renewed my visa in Bali. The visa situation in Indonesia sucks. I'd heard stuff about it long before I had ever considered coming to Bali - Aiden talked about it in Chiang Mai and mentioned how complicated and annoying it was. I'm here to tell you that he wasn't wrong.**!-->
+**I recently renewed my visa in Bali. The visa situation in Indonesia sucks. I'd heard stuff about it long before I had ever considered coming to Bali - [Aiden](https://twitter.com/Aidenbuis) talked about it in [Chiang Mai](/chilling-in-chiang-mai/) and mentioned how complicated and annoying it was. I'm here to tell you that he wasn't wrong.**
 
 In Indonesia, you can get a free 30 day Visa on Arrival when you land at the airport. Sounds great right? Well, sure, but you can't extend it if you want to stay for more than 30 days. Instead, you can pay $35 at the airport to buy a 30 day Visa on Arrival that **can** be extended for an additional 30 days. This really isn't made clear to you, and I suspect that some people who would have wanted to extend weren't able to because they got the free Visa on Arrival. I'm fortunate that I came with my friend who knew more than I did.
 
@@ -156,7 +155,7 @@ Luckily, you can get to the carpark easily from both the north and south gates a
 
 ## Jimbaran Immigration Office
 
-**2019/03/21, 1:30PM**
+**2019/03/28, 1:30PM**
 
 I'm half an hour early, and the stamp on my form clearly states that I should be here between 2-3PM, so I sit down and wait. Pull out my phone, browse a little; nothing much interesting that I didn't already see. 
 

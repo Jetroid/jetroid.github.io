@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Run Till You Drop"
-date: 2019-04-02 17:02:46 +0800
+date: 2019-03-31 17:02:46 +0800
 background: "rtyd5-beauty.jpg"
 background-color: "#1F293D"
 summary: "The story of my first ever race; a 3 hour run in Bali, Indonesia. Plus, a trip to a beautiful secluded beach."
