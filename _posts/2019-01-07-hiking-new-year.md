@@ -229,3 +229,5 @@ I was hurting for days afterwards - it even hurt just to walk from my bed to my 
 I have a good feeling about 2019!
 
 *Thank you to Aiden, Guilherme, and Jurn for letting me use some of their photographs for this article.*
+
+[My visa expired a few weeks later, so I moved on to Kuala Lumpur.](/living-kuala-lumpur/)

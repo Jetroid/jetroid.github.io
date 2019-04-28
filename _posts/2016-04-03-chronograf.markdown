@@ -108,3 +108,5 @@ as it has a prototype front panel.
 
 However, the Polygraf still has some small hardware problems to solve - 
 it is unclear which module will delay the other.
+
+[I later went back and substantially reworked the project.](/chronograf-its-about-time/)

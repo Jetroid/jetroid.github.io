@@ -157,3 +157,7 @@ Sitting in these public spaces to work has a lot of quirks and perks. I saw coun
 
 ![I also sat in King Tomislav square fairly often. It's a less favourable spot though, as people go there to smoke. Judging by this picture there also seems to be some kind of spatial anomaly centred on my laptop. So watch out for that.]({{ site.url }}/assets/images/content/zagreb-sitting-by-king-tomislav.jpg)
 *I also sat in King Tomislav square fairly often. It's a less favourable spot though, as people go there to smoke. Judging by this picture there also seems to be some kind of spatial anomaly centred on my laptop. So watch out for that.*
+
+<a href="/meeting-matej/" class="cta">Next, I took the opportunity to visit my friend Matej. Meeting him was one of the reasons I chose to go to Croatia in the first place!</a>
+
+<a href="/from-croatia-to-asia/" class="cta">After I had spent a month in Croatia, I decided to fly to Thailand.</a>

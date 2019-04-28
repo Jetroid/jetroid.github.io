@@ -211,3 +211,9 @@ I think my lack of productivity is a combination of several factors:
 * Stress of being unproductive. As weird as this sounds I actually feel this is one of the bigger factors. I can't really explain it but it definitely makes it harder to stay motivated.
 
 Going forward I'm going to avoid trying to work from my room. Hopefully the 'social pressure' will make it easier to be productive.
+
+<a href="/camping-out/" class="cta">True to my word, I started working from C.A.M.P, an inexpensive co-working place!</a>
+
+<a href="/a-tradition-broken/" class="cta">I spent my first Christmas away from home in Chiang Mai, something I had mixed feelings about.</a>
+
+<a href="/living-kuala-lumpur/" class="cta">After Chiang Mai, I moved on to stay in Kuala Lumpur...</a>

@@ -177,3 +177,5 @@ I'd really like to try the Nomad lifestyle.
 Even if I find it isn't for me, I think it would be better to try and fail,
 than to spend an eternity wondering "What if?".
 The challenge will be to make it work.
+
+[Two years later, I decided to give the lifestyle a shot.](/the-adventure-begins/)

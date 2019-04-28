@@ -121,3 +121,5 @@ At one point, Matej's mother offered me some [Ajvar](https://en.wikipedia.org/wi
 Eventually it was time for me to leave to go back to Zagreb. Matej and his mother dropped me at the train station. His mother had a conversation with the train conductor in Croatian, and they both laughed a lot, and judging by the fact that he started talking to me in English rather than Croatian made me think that my nationality was mentioned. I had been worried that my ticket might be denied as I wasn't going back on the train I had selected, but I had no problems.
 
 I really enjoyed meeting Matej. I felt like it would be weird to meet somebody you only know from online interactions, but it was refreshingly simple in this world of complicated human interactions. 
+
+[A week after visiting Matej, I was on a plane on my way to Thailand to continue the adventure.](/from-croatia-to-asia/)

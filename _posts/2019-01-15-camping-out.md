@@ -37,3 +37,4 @@ C.A.M.P. mostly seems to be used by students, but I see a lot of westerners doin
 
 I've always found it easier to maintain productivity and focus in public space, and C.A.M.P. is an inexpensive/free option to do that in Chiang Mai.  
 
+[A few months later, I found a space with similar upsides as C.A.M.P. located in Bali, called Matra...](/whats-the-matra/)

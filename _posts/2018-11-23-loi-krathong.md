@@ -191,6 +191,7 @@ Eventually, it got late enough (~1.30AM) that we were all tired and considering 
 
 Chiang Mai was everything I had hoped it would be.
 
+[Let's find places to live and eat long-term!](/chilling-in-chiang-mai/)
 
 
 

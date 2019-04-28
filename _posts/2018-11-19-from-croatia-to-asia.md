@@ -180,4 +180,4 @@ I departed from the train in Phaya Thai station (which is confusingly in the [Ra
 
 I left the train, wandered around the train station (which feels more like the underside of an overpass), took a deep breath, and went down the stairs to the city. 
 
-[...and just like that, I was in Bangkok](/exploring-bangkok/). 
+[...and just like that, I was in Bangkok.](/exploring-bangkok/)

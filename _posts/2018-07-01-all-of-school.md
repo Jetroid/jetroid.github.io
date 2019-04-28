@@ -84,3 +84,5 @@ I still don't think the actual qualification means much of anything, but I'm gla
 All I have to do now is collect my certificate once it has been printed.
 
 And pay off the tens of thousands of debt I have accrued. But let's not worry about that.
+
+[Later, I reluctantly attended my graduation ceremony.](/best-of-both-worlds/)

@@ -65,6 +65,15 @@ td {
 	margin-bottom: 0;
 	font-size: 5vw;
 }
+/* Make the CTA 'chaser' link have an arrow */
+#post-content > p:last-child > a::before, .cta::before {
+	content: "► ";
+}
+/* Make the CTA 'chaser' link have bigger text */
+#post-content > p:last-child > a, .cta {
+	font-size: larger;
+}
+
 /* Make font size less gaudy on large screens */
 @media (min-width: 500px){
 	#page-title{

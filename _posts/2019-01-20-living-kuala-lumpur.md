@@ -168,3 +168,7 @@ There's a food court here called 'Taste Of Asia', which has all different kinds 
 # A Good Feeling
 
 I have a good feeling about Malaysia - every mall I have visited has had vegetarian stalls, and generally I like the feel for the city, even if it is hostile to pedestrians. I think Kuala Lumpur feels like what I had expected [Bangkok](/exploring-bangkok/) to feel like - pockets of developed spaces with less developed, rougher areas between. I like it! It's a good feeling. It might be more expensive than somewhere like [Chiang Mai](/chilling-in-chiang-mai/), but you can't expect everywhere to be so cheap. It's still much cheaper than living a similar lifestyle in the United Kingdom. 
+
+<a href="/twenty-three-and-me/" class="cta">I celebrated my 23rd Birthday here, too...</a>
+
+<a href="/kuala-lumpur-sightseeing/" class="cta">...and went to visit the few tourism landmarks that exist in Kuala Lumpur.</a>

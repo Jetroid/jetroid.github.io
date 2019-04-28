@@ -47,7 +47,7 @@ When I think about being away from my home, family, and parents, I'm continually
 
 I worry that by living my live the way I am now and intend to for the foreseeable future, I am missing out on time with my loved ones. You never know when you time with them is going to run out. I think it's important to be mindful of how you spend your time. But perhaps it's also important to accept that things change? 
 
-
+<a href="/hiking-new-year/" class="cta">I then spent New Years with my friends, which made me feel better.</a>
 
 
  

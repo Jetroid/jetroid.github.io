@@ -128,3 +128,5 @@ The Hostel seems fairly clean, I have no real complaints. No kitchen or laundry 
 ![]({{ site.url }}/assets/images/content/tab-hostel.jpg)
 
 It turned out I was sharing this room with three Croatian guys. I had expected to meet foreigners like myself. The guys were quite friendly but also quite tired. I was the last to go to sleep, working to edit my research paper and write down my thoughts in this entry.
+
+[Next, I wanted to find somewhere I could work in Zagreb, and get comfortable being in a foreign country.](/zdravo-zagreb/)

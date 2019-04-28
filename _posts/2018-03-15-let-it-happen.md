@@ -51,3 +51,5 @@ It's so close.
 > Something's trying to get out -<br />
 > and it's never been closer. <br/>
 > -- <cite>[Tame Impala - Let It Happen](https://www.youtube.com/watch?v=pFptt7Cargc)</cite>
+
+[I later took heed of the call and set off on an adventure.](/the-adventure-begins/)

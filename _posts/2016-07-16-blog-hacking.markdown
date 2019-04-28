@@ -97,3 +97,5 @@ them across the site.
 
 ![Image of this blog post]({{ site.url }}/assets/images/content/hacking-minigame-blog-post.png)
 *Image of this blog post*
+
+[I later went back and substantially improved the project after I had learned more.](/robco-revisited/)

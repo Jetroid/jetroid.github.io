@@ -144,5 +144,6 @@ All in all, I left Bangkok on fairly good terms. My issues here were my own. I j
 
 Bangkok wasn't such a harsh place after-all. I just needed to get to know her first.
 
-[In Chiang Mai, I had a great time celebrating the Loi Krathong festival](/loi-krathong/)
+<a href="/loi-krathong/" class="cta">In Chiang Mai, I had a great time celebrating the Loi Krathong festival...</a>
 
+<a href="/chilling-in-chiang-mai/" class="cta">...as well as being in the city in general.</a>

@@ -155,4 +155,4 @@ After running my script, my PageSpeed went right back up!
 ![PageSpeed Analysis after optimising images]({{ site.url }}/assets/images/content/image-compression-final.png)
 *PageSpeed Analysis after optimising images*
 
-***[I later altered this process to also generate responsive images and lazily load them too! »](/jekyll-responsive-images/)*** 
+[I later altered this process to also generate responsive images and lazily load them too!](/jekyll-responsive-images/) 

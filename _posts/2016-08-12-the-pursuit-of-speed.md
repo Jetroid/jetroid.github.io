@@ -123,3 +123,8 @@ leaving me at a respectable score of 98/100.
 Like using HTTPS, it is a feature that is unsupported by GitHub Pages at this current time.
 It's a limitation I'd rather not have, but considering I'm using free hosting,
 I can't exactly complain.
+
+<a href="/automatic-image-optimisation/" class="cta">I later went on to automatically compress my images using git hooks.</a>
+
+<a href="/jekyll-responsive-images/" class="cta">Later still, I implemented lazy loading and responsive images.</a>
+
