@@ -70,7 +70,7 @@ td {
 	content: "► ";
 }
 /* Make the CTA 'chaser' link have bigger text */
-#post-content > p:last-child > a, .cta {
+#post-content > p:last-child > a, #post-content a.cta {
 	font-size: larger;
 }
 
