@@ -8,7 +8,7 @@ categories:
  - "Jekyll"
 ---
 
-**Want to have a page on your Jekyll site that always shows your most recent post? This tutorial will show you show you how to create a URL that always shows your latest post with Jekyll. Click [here](#tutorial) to skip the preface.**
+**Want to have a page on your Jekyll site that always shows your most recent post? This tutorial will show you how to create a URL that always shows your latest post with Jekyll. Click [here](#tutorial) to skip the preface.**
 
 I send out an email that looks like this at the end of any week when I upload a post to this website:
 
