@@ -1514,4 +1514,10 @@ images:
 - ihr-no-resize-655.png
 - ihr-no-resize-560.png
 - ihr-no-resize.png
+- ihr-ui-1230.png
+- ihr-ui-1024.png
+- ihr-ui-874.png
+- ihr-ui-655.png
+- ihr-ui-560.png
+- ihr-ui.png
 ---
