@@ -145,4 +145,11 @@ images:
 - danke-beauty-768.jpg
 - danke-beauty-640.jpg
 - danke-beauty.jpg
+- ihr-beauty-1920.png
+- ihr-beauty-1600.png
+- ihr-beauty-1366.png
+- ihr-beauty-1024.png
+- ihr-beauty-768.png
+- ihr-beauty-640.png
+- ihr-beauty.png
 ---
