@@ -22,7 +22,7 @@
 						<a class="img" href="{{ url }}">
 						{%- if url-extension == "gif" -%}
 							<noscript><img src="{{ url }}" alt={{alt}} /></noscript>
-							<img class="lazy" data-src="{{ url }}" alt={{alt}}{{ rest }}
+							<img class="lazy" data-src="{{ url }}" alt={{alt}}"></a{{ rest }}
 						{%- else -%}
 						<noscript><img 
 							srcset="{{ url-filename }}-560.{{ url-extension }} 560w,
@@ -56,7 +56,7 @@
 						<a class="img" href="{{ url }}">
 						{%- if url-extension == "gif" -%}
 							<noscript><img src="{{ url }}" /></noscript>
-							<img class="lazy" data-src="{{ url }}"{{ rest }}
+							<img class="lazy" data-src="{{ url }}"></a{{ rest }}
 						{%- else -%}
 						<noscript><img 
 							srcset="{{ url-filename }}-560.{{ url-extension }} 560w,
