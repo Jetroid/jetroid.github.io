@@ -4,6 +4,7 @@ title: "I Hate Reading Big Text"
 date: 2019-05-27 13:56:13 +0800
 background: "ihr-beauty.png"
 background-color: "#B1B8B3"
+suppress-bg: "true"
 summary: "A reflection on an old project and some of the side-effects it had."
 categories:
  - "Projects"
@@ -58,7 +59,7 @@ The summer ended shortly after, and I never really took the opportunity to work 
 
 <hr />
 
-Now what about bigtext.js? Well, eager to make my work available to the world, I published it to NPM and on Github. Not knowing much about the javascript ecosystem (I had only learned javascript that summer), my code worked by adding a `.bigtext()` function to the prototype for TODO. Apparently that's non-gratis, because I later found that my code was [forked to create big-text.js](https://github.com/BrOrlandi/big-text.js) (well... kinda. The git repository has no commits by me. But then I did the same thing to DanielHoffmann... :see_no_evil:)1 to replace that with a module export. Okay, sure.
+Now what about bigtext.js? Well, eager to make my work available to the world, I published it to NPM and on Github. Not knowing much about the javascript ecosystem (I had only learned javascript that summer), my code worked by adding a `.bigtext()` function to the prototype for `HTMLElement` :man_facepalming:. I didn't know that doing that was non-grata, and I later found that my code was [forked to create big-text.js](https://github.com/BrOrlandi/big-text.js) (well... kinda. The git repository has no commits by me. But then I did the same thing to DanielHoffmann... :see_no_evil:) to replace the prototype function with a module export of a regular function. Okay, sure.
 
 The nice thing is that the original [bigtext-jquery.js](https://github.com/DanielHoffmann/jquery-bigtext) is now no longer maintained, and has a message pointing to [big-text.js](https://github.com/BrOrlandi/big-text.js) (the fork of my version) as the official version!
 
