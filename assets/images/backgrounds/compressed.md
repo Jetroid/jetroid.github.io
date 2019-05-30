@@ -152,4 +152,11 @@ images:
 - ihr-beauty-768.png
 - ihr-beauty-640.png
 - ihr-beauty.png
+- klkl-beauty-1920.jpg
+- klkl-beauty-1600.jpg
+- klkl-beauty-1366.jpg
+- klkl-beauty-1024.jpg
+- klkl-beauty-768.jpg
+- klkl-beauty-640.jpg
+- klkl-beauty.jpg
 ---
