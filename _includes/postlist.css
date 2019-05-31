@@ -1,15 +1,24 @@
 .post{
 	margin-bottom: 25px;
 }
+.background-container {
+	position: relative;
+	overflow: hidden;
+}
 .post-background{
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  height: 100%;
+  height: 130%; /* remove the annoying edges, hidden by background-container */
+  position: absolute;
+  top: -40px; /* remove the annoying edges, hidden by background-container */
+  right: 0px;
+  left: 0px;
 }
 .post-shadow {
 	padding: 30px 15vw 60px 15vw;
 	font-weight: bold;
+	position: relative;
 	text-shadow: 0px 1px {{ site.style.background-hex }}, 0px -1px {{ site.style.background-hex }}, 1px 0px {{ site.style.background-hex }}, -1px 0px {{ site.style.background-hex }}, 2px 2px {{ site.style.background-hex }};
 }
 .shadow {
@@ -92,27 +101,33 @@
 {% assign extensions-array = '' | split: ',' %}
 {% assign image-count-array = '' | split: ',' %}
 {% assign image-name-array = '' | split: ',' %}
+{% assign image-blur-array = '' | split: ',' %}
 {% assign image-count-gifs = '' | split: ',' %}
 {% assign image-name-gifs = '' | split: ',' %}
+{% assign image-blur-gifs = '' | split: ',' %}
 {% assign count = 0 %}
 {% for post in paginator.posts %}
 	{% capture background-color %}{% unless post.background-color == "" or post.background-color == nil %}{{ post.background-color }}{% else %}#51514D{% endunless %}{% endcapture %}
 	{% capture background-image %}{% unless post.background == "" or post.background == nil %}{{ post.background }}{% else %}background-blog.jpg{% endunless %}{% endcapture %}
 	{% assign image-extension = background-image | split: '.' | last %}
 	{% assign image-name = background-image | split: '.' | pop | join: '.' %}
+	{% capture image-blur %}{% if post.blur-intensity != "" and post.blur-intensity != nil %}{{ post.blur-intensity }}{% else %}3{% endif %}{% endcapture %}
 	{% if image-extension == "gif" %}
-		{% assign image-count-gifs = image-count-array | push: count %}
-		{% assign image-name-gifs = image-name-array | push: image-name %}
+		{% assign image-count-gifs = image-count-gifs | push: count %}
+		{% assign image-name-gifs = image-name-gifs | push: image-name %}
+		{% assign image-blur-gifs = image-name-gifs | push: image-blur %}
 	{% else %}
 		{% assign image-count-array = image-count-array | push: count %}
 		{% assign extensions-array = extensions-array | push: image-extension %}
 		{% assign image-name-array = image-name-array | push: image-name %}
+		{% assign image-blur-array = image-blur-array | push: image-blur %}
 	{% endif %}
 	{% if paginator.page == 1 and count == 2 %}
 		{% assign count = count | plus: 1 %}
 		{% assign image-count-array = image-count-array | push: count %}
 		{% assign extensions-array = extensions-array | push: "jpg" %}
 		{% assign image-name-array = image-name-array | push: "mailchimp-beauty" %}
+		{% assign image-blur-array = image-blur-array | push: 1 %}
 	{% endif %}
 	{% assign count = count | plus: 1 %}
 {% endfor %}
@@ -121,7 +136,9 @@
 {% for image-name in image-name-gifs %}
 	{% assign loopIndex = forloop.index0 %}
 	{% assign count = image-count-gifs[loopIndex] %}
+	{% assign blur-level = image-blur-array[loopIndex] %}
 #p{{ count }} {
+    filter: blur({{ blur-level }}px);
 	background-color: {{ background-color }};
 	background-image: url("/assets/images/backgrounds/{{ image-name }}.gif");
 } 
@@ -132,7 +149,9 @@
 	{% assign loopIndex = forloop.index0 %}
 	{% assign image-name = image-name-array[loopIndex] %}
 	{% assign count = image-count-array[loopIndex] %}
+    {% assign blur-level = image-blur-array[loopIndex] %}
 #p{{ count }} {
+    filter: blur({{ blur-level }}px);
 	background-color: {{ background-color }};
 	background-image: url("/assets/images/backgrounds/{{ image-name }}-640.{{ image-extension }}");
 } 
@@ -143,7 +162,9 @@
 	{% assign loopIndex = forloop.index0 %}
 	{% assign image-name = image-name-array[loopIndex] %}
 	{% assign count = image-count-array[loopIndex] %}
-	#p{{ count }} {
+	{% assign blur-level = image-blur-array[loopIndex] %}
+    #p{{ count }} {
+        filter: blur({{ blur-level }}px);
 		background-image: url("/assets/images/backgrounds/{{ image-name }}-768.{{ image-extension }}");
 	} 
 {% endfor %}
@@ -153,7 +174,9 @@
 	{% assign loopIndex = forloop.index0 %}
 	{% assign image-name = image-name-array[loopIndex] %}
 	{% assign count = image-count-array[loopIndex] %}
-	#p{{ count }} {
+	{% assign blur-level = image-blur-array[loopIndex] %}
+    #p{{ count }} {
+        filter: blur({{ blur-level }}px);
 		background-image: url("/assets/images/backgrounds/{{ image-name }}-1024.{{ image-extension }}");
 	} 
 {% endfor %}
@@ -163,7 +186,9 @@
 	{% assign loopIndex = forloop.index0 %}
 	{% assign image-name = image-name-array[loopIndex] %}
 	{% assign count = image-count-array[loopIndex] %}
-	#p{{ count }} {
+	{% assign blur-level = image-blur-array[loopIndex] %}
+    #p{{ count }} {
+        filter: blur({{ blur-level }}px);
 		background-image: url("/assets/images/backgrounds/{{ image-name }}-1366.{{ image-extension }}");
 	} 
 {% endfor %}
@@ -173,7 +198,9 @@
 	{% assign loopIndex = forloop.index0 %}
 	{% assign image-name = image-name-array[loopIndex] %}
 	{% assign count = image-count-array[loopIndex] %}
-	#p{{ count }} {
+	{% assign blur-level = image-blur-array[loopIndex] %}
+    #p{{ count }} {
+        filter: blur({{ blur-level }}px);
 		background-image: url("/assets/images/backgrounds/{{ image-name }}-1600.{{ image-extension }}");
 	} 
 {% endfor %}
@@ -183,7 +210,9 @@
 	{% assign loopIndex = forloop.index0 %}
 	{% assign image-name = image-name-array[loopIndex] %}
 	{% assign count = image-count-array[loopIndex] %}
-	#p{{ count }} {
+	{% assign blur-level = image-blur-array[loopIndex] %}
+    #p{{ count }} {
+        filter: blur({{ blur-level }}px);
 		background-image: url("/assets/images/backgrounds/{{ image-name }}-1920.{{ image-extension }}");
 	} 
 {% endfor %}
@@ -194,7 +223,9 @@
 	{% assign loopIndex = forloop.index0 %}
 	{% assign image-name = image-name-array[loopIndex] %}
 	{% assign count = image-count-array[loopIndex] %}
-	#p{{ count }} {
+	{% assign blur-level = image-blur-array[loopIndex] %}
+    #p{{ count }} {
+        filter: blur({{ blur-level }}px);
 		background-image: url("/assets/images/backgrounds/{{ image-name }}.{{ image-extension }}");
 	} 
 {% endfor %}
@@ -204,7 +235,9 @@
 	{% assign loopIndex = forloop.index0 %}
 	{% assign image-name = image-name-array[loopIndex] %}
 	{% assign count = image-count-array[loopIndex] %}
+    {% assign blur-level = image-blur-array[loopIndex] %}
 #p{{ count }} {
+    filter: blur({{ blur-level }}px);
 	background-color: {{ background-color }};
 	background-image: url("/assets/images/backgrounds/{{ image-name }}.{{ image-extension }}");
 } 

@@ -33,12 +33,13 @@ image: me.png
 	{% for post in paginator.posts %}
 	<div class="post">
 		<a href="{{ post.url | prepend: site.baseurl }}">
-			<div id="p{{count}}" class="post-background" 
-				{% if post.background-position or post.background-color %}
-					style="
-					{% if post.background-position %}background-position:{{ post.background-position }};{% endif %}
-					"{% endif %}
-			>
+			<div class="background-container">
+				<div id="p{{count}}" class="post-background"
+					{% if post.background-position or post.background-color %}
+						style="
+						{% if post.background-position %}background-position:{{ post.background-position }};{% endif %}
+						"{% endif %}
+				></div>
 				<div class="post-shadow">
 					<div class="wtf-text-underline">
 					<h2 class="post-title">{{ post.title }}</h2>
@@ -53,12 +54,13 @@ image: me.png
 	<!-- Mailchimp email signup for 3rd item on first page !-->
 	{% if paginator.page == 1 and count == 2 %}
 		{% assign count = count | plus: 1 %}
-        <div class="post">
-            <div id="p{{count}}" class="post-background" style="background-color: #010103">
-			    <div class="post-shadow">
-                    {% include mailchimp.html %}
-                </div>
-		    </div>
+		<div class="post">
+			<div class="background-container">
+				<div id="p{{count}}" class="post-background" style="background-color: #010103"></div>
+				<div class="post-shadow">
+					{% include mailchimp.html %}
+				</div>
+			</div>
         </div>
 	{% endif %}
 	{% assign count = count | plus: 1 %}

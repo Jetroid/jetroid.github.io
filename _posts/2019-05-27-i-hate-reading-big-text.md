@@ -4,8 +4,8 @@ title: "I Hate Reading Big Text"
 date: 2019-05-27 13:56:13 +0800
 background: "ihr-beauty.png"
 background-color: "#B1B8B3"
-suppress-bg: "true"
 summary: "A reflection on an old project and some of the side-effects it had."
+blur-intensity: 9
 categories:
  - "Projects"
  - "Reflections"

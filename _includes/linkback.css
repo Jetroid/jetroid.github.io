@@ -1,6 +1,7 @@
 #linkback, #linkback img {
 	width: 300px;
 	z-index: 50000;
+	position: relative;
 }
 @media (max-width: 500px){
 	#linkback img {

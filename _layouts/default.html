@@ -37,9 +37,9 @@ layout: compress
 		{%- unless page.nopresets -%}
 			{%- include presets.css -%}
 		{%- endunless -%}
-		{%- unless page.donotlinkback -%}
+		{%- if page.donotlinkback -%}{%- else if layout.donotlinkback -%}{% else -%}
 			{%- include linkback.css -%}
-		{%- endunless -%}
+		{%- endif -%}
 		{%- include master.scss -%}
 	{%- endcapture -%}
 	<style>
@@ -63,7 +63,7 @@ layout: compress
 	{% endif %}
 	</head>
 	<body>
-		{% if page.donotlinkback %}{% else %}
+		{% if page.donotlinkback %}{% else if layout.donotlinkback %}{% else %}
 		<nav id="linkback"><a href="/"><img src="/assets/images/jetroid-logo-miami.png" /></a></nav>
 		{% endif %}
 		{{ content }}

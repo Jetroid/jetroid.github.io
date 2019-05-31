@@ -4,14 +4,16 @@ body{
 }
 #page-header{
 	width: 100%;
-	padding: 7vh 0;
 	text-align: center;
+	height: 100vh;
+	position: relative;
 }
-/* Bigger header on larger screens */
-@media (min-width: 1081px){
-	#page-header{
-		padding: 5.7vw 0;
-	}
+#title-stuff {
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
 }
 /* I'm basically only going to be using tables for statistics... right? */
 th,td,table {

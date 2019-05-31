@@ -4,6 +4,7 @@ title: "Automatic Responsive Images on Jekyll without Plugins"
 date: 2019-01-05 17:58:29 +0700
 background: "responsive.jpg"
 background-color: "#ffffff"
+blur-intensity: 1
 suppress-bg: "true"
 summary: "A tutorial on how to automatically generate responsive images for Jekyll, without using plugins. "
 categories:
