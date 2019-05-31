@@ -17,6 +17,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  height: calc(100vh + 60px) !important;
 }
 /* Our cutoffs for backgrounds are at 1920,1600,1366,1024,768,640 */
 /* Default size will be 640 (mobile first) */
