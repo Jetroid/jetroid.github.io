@@ -20,7 +20,7 @@ body::before {
   position: fixed;
   filter: blur({{ blur-level }}px);
   top: 0; left: 0;
-  width: 100vw;
+  width: 100%;
   height: calc(100vh + 60px) !important;
   background-color: {{ background-color }};
   background-position: {{ background-position }};
