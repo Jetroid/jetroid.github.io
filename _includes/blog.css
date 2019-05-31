@@ -68,35 +68,6 @@ td {
 	margin-bottom: 0;
 	font-size: 5vw;
 }
-/* Make the CTA 'chaser' link have an arrow */
-#post-content > p:last-child > a::before, .cta::before {
-	content: "► ";
-}
-/* Make the CTA 'chaser' link have bigger text */
-#post-content > p:last-child > a, #post-content a.cta {
-	font-size: larger;
-}
-
-/* Make font size less gaudy on large screens */
-@media (min-width: 500px){
-	#page-title{
-		font-size: 5vw;
-	}
-	#post-content *, p {
-		font-size: 1.4vw;
-	}
-	#post-content h1, h2, h3, h4, h5, h6{
-		margin-top: 0;
-		margin-bottom: 0;
-		font-size: 3vw;
-	}
-	#post-content h1{
-		font-size: 3.5vw;
-	}
-	.post-date {
-		font-size: 1.5vw;
-	}
-}
 .post-container, #navigation{
 	padding-top: 20px;
 	padding-bottom: 20px;
@@ -182,7 +153,7 @@ p/*ete*/ code/*s*/{
 /* Next Post and Previous Post buttons */
 #navigation {
 	margin: 0;
-	font-size: 2.2vw;
+	font-size: 4vw;
 	display: block;
 	width: auto;
 	overflow: hidden;
@@ -222,6 +193,38 @@ p/*ete*/ code/*s*/{
 	width: 100%;
 	height: 100%;
 	border: none;
+}
+/* Make the CTA 'chaser' link have an arrow */
+#post-content > p:last-child > a::before, .cta::before {
+	content: "► ";
+}
+/* Make the CTA 'chaser' link have bigger text */
+#post-content > p:last-child > a, #post-content a.cta {
+	font-size: larger;
+}
+
+/* Make font size less gaudy on large screens */
+@media (min-width: 500px){
+	#page-title{
+		font-size: 5vw;
+	}
+	#post-content *, p {
+		font-size: 1.4vw;
+	}
+	#post-content h1, h2, h3, h4, h5, h6{
+		margin-top: 0;
+		margin-bottom: 0;
+		font-size: 3vw;
+	}
+	#post-content h1{
+		font-size: 3.5vw;
+	}
+	.post-date {
+		font-size: 1.5vw;
+	}
+	#navigation {
+		font-size: 2.2vw;
+	}
 }
 /* Size the borders responsively */
 .borders{
