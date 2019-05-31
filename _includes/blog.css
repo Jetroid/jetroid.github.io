@@ -46,6 +46,7 @@ td {
 	height: 0.3vh;
 	background: {{ site.style.text}};
 	display: block;
+	box-sizing: border-box;
 }
 #post-content > h1:first-child,
 #post-content > h2:first-child{
