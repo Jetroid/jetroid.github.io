@@ -8,3 +8,7 @@
 		width: 50%;
 	}
 }
+#linkback a img {
+	position: absolute;
+	left: 0;
+}
