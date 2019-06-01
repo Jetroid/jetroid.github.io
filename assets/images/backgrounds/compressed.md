@@ -159,4 +159,11 @@ images:
 - klkl-beauty-768.jpg
 - klkl-beauty-640.jpg
 - klkl-beauty.jpg
+- fingerprints-beauty-1920.jpg
+- fingerprints-beauty-1600.jpg
+- fingerprints-beauty-1366.jpg
+- fingerprints-beauty-1024.jpg
+- fingerprints-beauty-768.jpg
+- fingerprints-beauty-640.jpg
+- fingerprints-beauty.jpg
 ---
