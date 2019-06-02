@@ -6,14 +6,16 @@
 	overflow: hidden;
 }
 .post-background{
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  height: 130%; /* remove the annoying edges, hidden by background-container */
-  position: absolute;
-  top: -40px; /* remove the annoying edges, hidden by background-container */
-  right: 0px;
-  left: 0px;
+	-webkit-backface-visibility: none;
+	backface-visibility: none;
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	height: 130%; /* remove the annoying edges, hidden by background-container */
+	position: absolute;
+	top: -40px; /* remove the annoying edges, hidden by background-container */
+	right: 0px;
+	left: 0px;
 }
 .post-shadow {
 	padding: 30px 15vw 60px 15vw;

@@ -16,17 +16,19 @@ body {
 }
 {% capture blur-level %}{% if page.blur-intensity != "" and page.blur-intensity != nil %}{{ page.blur-intensity }}{% else %}1{% endif %}{% endcapture %}
 body::before {
-  content: "";
-  position: fixed;
-  filter: blur({{ blur-level }}px);
-  top: 0; left: 0;
-  width: 100%;
-  height: calc(100vh + 60px) !important;
-  background-color: {{ background-color }};
-  background-position: {{ background-position }};
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+	content: "";
+	position: fixed;
+	-webkit-backface-visibility: none;
+	backface-visibility: none;
+	filter: blur({{ blur-level }}px);
+	top: 0; left: 0;
+	width: 100%;
+	height: calc(100vh + 60px) !important;
+	background-color: {{ background-color }};
+	background-position: {{ background-position }};
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 /* Our cutoffs for backgrounds are at 1920,1600,1366,1024,768,640 */
 /* Default size will be 640 (mobile first) */
