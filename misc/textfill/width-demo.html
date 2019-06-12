@@ -1,0 +1,76 @@
+---
+layout: compress
+title: Text Resize Libraries Pixel Demo
+summary: A Specific Example of Text Fill Library Underflow and Overflow
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		{% include sitewide.html %}
+		<style>
+		body {
+			background: #373731;
+			font-family: monospace;
+			color: #cfcfc9;
+		}
+		.container {
+			background: #d05d5d;
+			width: 300px; height: 200px; float: left;
+		}
+		.text {
+			float: left;
+		}
+		.underflow {
+			display: inline-block; height: 200px; background: yellow;
+			float: right;
+		}
+		.overflow {
+			display: inline-block; height: 200px; background: red;
+		}
+		.pad {
+			margin: 0px 5px 0px 0px;
+		}
+		div::after{
+			clear: both;
+		}
+		</style>
+	</head>
+<body>
+	<div style=" height: 32px; color: white; font-size: 30px">
+		<span style="width: 300px; display: block; float: left; margin-right: 5px; text-align: center;">
+			122px
+		</span>
+		<span style="width: 300px; display: block; float: left; margin-right: 5px; text-align: center;">
+			124px
+		</span>
+		<span style="width: 300px; display: block; float: left; margin-right: 5px; text-align: center;">
+			125px
+		</span>
+	</div>
+	<div style="margin-bottom: 5px; clear: both;">
+		<div class="container pad">
+			<span class="text" style="font-size: 122px;">Test</span>
+			<div class="underflow" style="width: 7.12px"></div>
+		</div>
+		<div class="container pad">
+			<span class="text" style="font-size: 124px;">Test</span>
+			<div class="underflow" style="width: 2.34px"></div>
+		</div>
+		<div class="container">
+			<span class="text" style="font-size: 125px;">Test</span>
+			
+		</div>
+		<div class="overflow" style="width: 0.05px"></div>
+	</div>
+	<div>
+		<div class="container pad">
+			<span class="text" style="font-size: 122px;">Test</span>
+		</div>
+		<div class="container pad">
+			<span class="text" style="font-size: 124px;">Test</span>
+		</div>
+		<div class="container">
+			<span class="text" style="font-size: 125px;">Test</span>
+		</div>
+	</div>
+</body>

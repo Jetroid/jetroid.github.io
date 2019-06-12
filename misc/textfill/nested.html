@@ -1,0 +1,155 @@
+---
+title: Text Resize Libraries With Nested Content
+summary: A test of seven text resize libraries where the content is nested.
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		{% include sitewide.html %}
+		<meta http-equiv='cache-control' content='no-cache'>
+		<meta http-equiv='expires' content='0'>
+		<meta http-equiv='pragma' content='no-cache'>
+		<style>
+		body {
+			background: #373731;
+			font-family: monospace;
+		}
+		.test-container {
+			background: #d05d5d;
+			font-size: 16px;
+		}
+		.test-container *, h1, h3, pre {
+			color: #cfcfc9;
+		}
+		</style>
+		<script src="/assets/js/jquery-3.4.1.min.js"></script>
+		<script src="/assets/js/jquery-bigtext.min.js"></script>
+		<script src="/assets/js/big-text.min.js"></script>
+		<script src="/assets/js/jquery-textfill.min.js"></script>
+		<script src="/assets/js/textfill.min.js"></script>
+		<script src="/assets/js/textFit.min.js"></script>
+		<script src="/assets/js/fancy-textfill-jquery.min.js"></script>
+		<script src="/assets/js/fancy-textfill.min.js"></script>
+		<script>
+		var humanNames = [
+			"jquery-bigtext",
+			"big-text.js",
+			"jquery-textfill",
+			"textfill.js",
+			"textFit",
+			"fancy-textfill-jquery",
+			"fancy-textfill.js"
+		];
+		var createTestSpace = function(width, height, content) {
+			var libraries = [
+				"jquery-bigtext",
+				"big-text",
+				"jquery-textfill",
+				"textfill",
+				"textFit",
+				"fancy-textfill-jquery",
+				"fancy-textfill"
+			];
+			var divOrSpans = [
+				"span",
+				"span",
+				"div",
+				"div",
+				"div",
+				"span",
+				"span"
+			];
+			//clear the space
+			var testSpace = document.getElementById("test-spaces");
+			while (testSpace.firstChild) {
+				testSpace.removeChild(testSpace.firstChild);
+			}
+			//add the test
+			for(var i = 0; i < libraries.length; i++) {
+				var library = libraries[i];
+				var humanName = humanNames[i];
+				var divOrSpan = divOrSpans[i]; 
+				
+				var title = document.createElement("h3");
+				title.textContent = humanName;
+				testSpace.appendChild(title);
+
+				//Create the div
+				var div = document.createElement("DIV");
+				div.style.width = width + "px";
+				div.style.height = height + "px";
+				div.className = "test-container";
+				if(divOrSpan === "div"){
+					div.id = "test-" + library;
+				}
+				//Create the span
+				if (library !== "textFit") {
+					var span = document.createElement("SPAN");
+					span.innerHTML = content;
+
+					if(divOrSpan === "span"){
+						span.id = "test-" + library;
+					}
+					div.appendChild(span);
+				} else {
+					div.innerHTML = content;
+				}
+				testSpace.appendChild(div);
+			}
+		};
+		var runTest = function(){
+			var functions = [
+				function(){$("#test-jquery-bigtext").bigText({fontSizeFactor: 1});},
+				function(){BigText("#test-big-text",{fontSizeFactor: 1});},
+				function(){$("#test-jquery-textfill").textfill({maxFontPixels: 0});},
+				function(){TextFill("#test-textfill", {correctLineHeightOffset: false});},
+				function(){textFit(document.getElementById("test-textFit"),{minFontSize: 0, maxFontSize: 99999999999999});},
+				function(){$("#test-fancy-textfill-jquery").fancyTextFill({maxFontSize: 0});},
+				function(){fancyTextFill.fillParentContainer(document.getElementById("test-fancy-textfill"), {maxFontSize: 0});},
+			];
+			
+			for(var j=0; j<functions.length; j++){
+				var func = functions[j];
+				func();
+			}
+		}
+		var checker;
+		var checkFontAwesome = function(){
+			var icon = document.getElementById("fa-icon");
+			var iconStyle = window.getComputedStyle(icon, null).getPropertyValue("font-family") 
+
+			if (iconStyle !== 'FontAwesome') {
+				return false;
+			} else {
+				createTestSpace(350,100,"<i class='fa fa-home' style='font-size: 1.3em'></i><span style='font-size: 1.3em'>Big</span><span style='font-size: 0.5em'>small</span><i class='fa fa-home' style='font-size: 0.5em'></i>");
+				clearInterval(checker);
+				document.getElementById("loading").style.display = "none";
+				icon.style.display = "none";
+				runTest();
+				return true;
+			}
+		}
+
+		window.onload = function(){
+			
+			checker = setInterval(checkFontAwesome,100);
+		};
+		</script>
+<body>
+<i id="fa-icon" class="fa fa-home" style="font-size: 0.5em"></i>
+<h1 id="loading">Waiting for FontAwesome to load, please wait...</h1>
+<pre>
+&lt;link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"&gt;
+&lt;div style="width: 350px; height: 100px"&gt;
+  &lt;span&gt;
+    &lt;i class="fa fa-home" style="font-size: 1.3em"&gt;&lt;/i&gt;
+    &lt;span style="font-size: 1.2em"&gt;Big&lt;/span&gt;
+    &lt;span style="font-size: 0.8em"&gt;small&lt;/span&gt;
+    &lt;i class="fa fa-home" style="font-size: 0.5em"&gt;&lt;/i&gt;
+  &lt;/span&gt;
+&lt;/div&gt;
+</pre>
+	<div id="test-spaces">
+	</div>
+</body>

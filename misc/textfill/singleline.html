@@ -1,0 +1,128 @@
+---
+title: Text Resize Libraries On A Single Line
+summary: A test of seven text resize libraries where the text should be on a single line.
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		{% include sitewide.html %}
+		<meta http-equiv='cache-control' content='no-cache'>
+		<meta http-equiv='expires' content='0'>
+		<meta http-equiv='pragma' content='no-cache'>
+		<style>
+		body {
+			background: #373731;
+			font-family: monospace;
+		}
+		.test-container {
+			background: #d05d5d;
+			font-size: 16px;
+		}
+		.test-container span, h3, #results {
+			color: #cfcfc9;
+		}
+		</style>
+		<script src="/assets/js/jquery-3.4.1.min.js"></script>
+		<script src="/assets/js/jquery-bigtext.min.js"></script>
+		<script src="/assets/js/big-text.min.js"></script>
+		<script src="/assets/js/jquery-textfill.min.js"></script>
+		<script src="/assets/js/textfill.min.js"></script>
+		<script src="/assets/js/textFit.min.js"></script>
+		<script src="/assets/js/fancy-textfill-jquery.min.js"></script>
+		<script src="/assets/js/fancy-textfill.min.js"></script>
+		<script>
+		var humanNames = [
+			"jquery-bigtext",
+			"big-text.js",
+			"jquery-textfill",
+			"textfill.js",
+			"textFit",
+			"fancy-textfill-jquery",
+			"fancy-textfill.js"
+		];
+		var createTestSpace = function(width, height, content) {
+			var libraries = [
+				"jquery-bigtext",
+				"big-text",
+				"jquery-textfill",
+				"textfill",
+				"textFit",
+				"fancy-textfill-jquery",
+				"fancy-textfill"
+			];
+			var divOrSpans = [
+				"span",
+				"span",
+				"div",
+				"div",
+				"div",
+				"span",
+				"span"
+			];
+			//clear the space
+			var testSpace = document.getElementById("test-spaces");
+			while (testSpace.firstChild) {
+				testSpace.removeChild(testSpace.firstChild);
+			}
+			//add the test
+			for(var i = 0; i < libraries.length; i++) {
+				var library = libraries[i];
+				var humanName = humanNames[i];
+				var divOrSpan = divOrSpans[i]; 
+				
+				var title = document.createElement("h3");
+				title.textContent = humanName;
+				testSpace.appendChild(title);
+
+				//Create the div
+				var div = document.createElement("DIV");
+				div.style.width = width + "px";
+				div.style.height = height + "px";
+				div.className = "test-container";
+				if(divOrSpan === "div"){
+					div.id = "test-" + library;
+				}
+				//Create the span
+				if (library !== "textFit") {
+					var span = document.createElement("SPAN");
+					span.textContent = content;
+
+					if(divOrSpan === "span"){
+						span.id = "test-" + library;
+					}
+					div.appendChild(span);
+				} else {
+					div.innerHTML = content;
+				}
+				testSpace.appendChild(div);
+			}
+		};
+		var runTest = function(){
+			var functions = [
+				function(){$("#test-jquery-bigtext").bigText({fontSizeFactor: 1});},
+				function(){BigText("#test-big-text",{fontSizeFactor: 1});},
+				function(){$("#test-jquery-textfill").textfill({maxFontPixels: 0, widthOnly: true});},
+				function(){TextFill("#test-textfill", {correctLineHeightOffset: false, widthOnly: true});},
+				function(){textFit(document.getElementById("test-textFit"),{minFontSize: 0, maxFontSize: 99999999999999, detectMultiLine: false});},
+				function(){$("#test-fancy-textfill-jquery").fancyTextFill({maxFontSize: 0, multiline: false});},
+				function(){fancyTextFill.fillParentContainer(document.getElementById("test-fancy-textfill"), {maxFontSize: 0, multiline: false});},
+			];
+			
+			for(var j=0; j<functions.length; j++){
+				var func = functions[j];
+				var result = results[j];
+				func();
+			}
+		}
+		window.onload = function(){
+			createTestSpace(800,100,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ullamcorper mattis semper. Sed placerat ac mi a cursus.");
+			runTest();
+
+		};
+		</script>
+<body>
+	<div id="results">
+	</div>
+	<div id="test-spaces">
+	</div>
+</body>

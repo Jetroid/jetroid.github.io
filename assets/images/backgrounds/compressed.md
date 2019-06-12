@@ -166,4 +166,11 @@ images:
 - fingerprints-beauty-768.jpg
 - fingerprints-beauty-640.jpg
 - fingerprints-beauty.jpg
+- resize-beauty-1920.jpg
+- resize-beauty-1600.jpg
+- resize-beauty-1366.jpg
+- resize-beauty-1024.jpg
+- resize-beauty-768.jpg
+- resize-beauty-640.jpg
+- resize-beauty.jpg
 ---

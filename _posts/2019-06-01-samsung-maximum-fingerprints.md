@@ -9,7 +9,7 @@ categories:
  - "Tutorials"
 ---
 
-**I recently bought the Samsung Galaxy A7, which comes with a fingerprint scanner built into the power button (on the right side of the phone). Unfortunately I found that I could only store three fingerprints at once. I came up with a workaround. (Skip to the tutorial by clicking [here](#tutorial).**
+**I recently bought the Samsung Galaxy A7, which comes with a fingerprint scanner built into the power button (on the right side of the phone). Unfortunately I found that I could only store three fingerprints at once. I came up with a workaround. (Skip to the tutorial by clicking [here](#tutorial).)**
 
 ![Samsung Galaxy A7]({{ site.url }}/assets/images/content/fingerprints-phoneoff.jpg)
 
@@ -49,7 +49,7 @@ Sorry, but any time you spent recording fingerprints before reading this tutoria
 On the fingerprint scanner screen, tap 'edit', select all the fingerprints, and then tap 'remove'. 
 
 ![Tap 'Edit'.]({{ site.url }}/assets/images/content/fingerprints-edit.jpg)
-*Tap 'Edit'.
+*Tap 'Edit'.*
 
 Select all fingerprints, then tap 'remove'.
 

@@ -120,20 +120,116 @@ Overall, I'm very happy with my performance. I didn't beat any of my records for
 
 Here are some statistics:
 
-| Lap   | Distance (km) | Time     | Splits   | Pace (min/km) | Note |
-|-------|---------------|----------|----------|---------------|------|
-| Start | 0             | 00:00:52 | 00:00:52 | -             | 1    |
-| 1     | 2.2           | 00:14:14 | 00:13:22 | 6:04          |      |
-| 2     | 4.4           | 00:26:43 | 00:12:28 | 5:40          |      |
-| 3     | 6.6           | 00:38:51 | 00:12:08 | 5:31          |      |
-| 4     | 8.8           | 00:51:27 | 00:12:36 | 5:44          |      |
-| 5     | 11            | 01:04:36 | 00:13:08 | 5:58          |      |
-| 6     | 13.2          | 01:20:45 | 00:16:09 | 7:20          | 2    |
-| 7     | 15.4          | 01:39:01 | 00:18:16 | 8:18          |      |
-| 8     | 17.6          | 01:55:16 | 00:16:15 | 7:23          |      |
-| 9     | 19.8          | 02:12:30 | 00:17:13 | 7:50          |      |
-| 10    | 22            | 02:36:46 | 00:24:16 | 11:02         | 3    |
-| 11    | 24.2          | 02:54:37 | 00:17:50 | 8:06          |      |
+<div class="table-container">
+<table>
+<thead><tr>
+<th>Lap</th>
+<th>Distance (km)</th>
+<th>Time</th>
+<th>Splits</th>
+<th>Pace (min/km)</th>
+<th>Note</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Start</td>
+<td>0</td>
+<td>00:00:52</td>
+<td>00:00:52</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2.2</td>
+<td>00:14:14</td>
+<td>00:13:22</td>
+<td>6:04</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>2</td>
+<td>4.4</td>
+<td>00:26:43</td>
+<td>00:12:28</td>
+<td>5:40</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>3</td>
+<td>6.6</td>
+<td>00:38:51</td>
+<td>00:12:08</td>
+<td>5:31</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>4</td>
+<td>8.8</td>
+<td>00:51:27</td>
+<td>00:12:36</td>
+<td>5:44</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>5</td>
+<td>11</td>
+<td>01:04:36</td>
+<td>00:13:08</td>
+<td>5:58</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>6</td>
+<td>13.2</td>
+<td>01:20:45</td>
+<td>00:16:09</td>
+<td>7:20</td>
+<td>2</td>
+</tr>
+<tr>
+<td>7</td>
+<td>15.4</td>
+<td>01:39:01</td>
+<td>00:18:16</td>
+<td>8:18</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>8</td>
+<td>17.6</td>
+<td>01:55:16</td>
+<td>00:16:15</td>
+<td>7:23</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>9</td>
+<td>19.8</td>
+<td>02:12:30</td>
+<td>00:17:13</td>
+<td>7:50</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>10</td>
+<td>22</td>
+<td>02:36:46</td>
+<td>00:24:16</td>
+<td>11:02</td>
+<td>3</td>
+</tr>
+<tr>
+<td>11</td>
+<td>24.2</td>
+<td>02:54:37</td>
+<td>00:17:50</td>
+<td>8:06</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
 
 <div><small>Notes:</small>
 <ul style="margin-top:0px;">

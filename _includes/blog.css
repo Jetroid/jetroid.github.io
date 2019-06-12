@@ -17,8 +17,17 @@ body{
 }
 /* I'm basically only going to be using tables for statistics... right? */
 th,td,table {
+	box-sizing: border-box;
 	border: 1px solid {{ site.style.text }};
 	border-collapse: collapse;
+}
+table {
+	width: 100%;
+}
+.table-container {
+	width: 100%;
+	overflow-x: auto;
+	margin-bottom: 1em;
 }
 th,td {
 	padding-left: 10px;
@@ -52,7 +61,7 @@ td {
 #post-content > h2:first-child{
     padding-top: 20px;
 }
-#post-content *, p{
+#post-content, #calltoaction, #page-subtitle {
 	font-size: 5vw;
 }
 #post-content h1, h2, h3, h4, h5, h6{
@@ -208,7 +217,7 @@ p/*ete*/ code/*s*/{
 	#page-title{
 		font-size: 5vw;
 	}
-	#post-content *, p {
+	#post-content, #calltoaction, #page-subtitle {
 		font-size: 1.4vw;
 	}
 	#post-content h1, h2, h3, h4, h5, h6{

@@ -1,0 +1,126 @@
+---
+title: fancy-textfill-jquery performance
+summary: A single execution test of fancy-textfill-jquery's performance. 
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		{% include sitewide.html %}
+		<meta http-equiv='cache-control' content='no-cache'>
+		<meta http-equiv='expires' content='0'>
+		<meta http-equiv='pragma' content='no-cache'>
+		<style>
+		body {
+			background: #373731;
+			font-family: monospace;
+		}
+		.test-container {
+			background: #d05d5d;
+			font-size: 16px;
+		}
+		.test-container span, h3, #results {
+			color: #cfcfc9;
+		}
+		</style>
+		<script src="/assets/js/jquery-3.4.1.min.js"></script>
+		<script src="/assets/js/jquery-bigtext.min.js"></script>
+		<script src="/assets/js/big-text.min.js"></script>
+		<script src="/assets/js/jquery-textfill.min.js"></script>
+		<script src="/assets/js/textfill.min.js"></script>
+		<script src="/assets/js/textFit.min.js"></script>
+		<script src="/assets/js/fancy-textfill-jquery.min.js"></script>
+		<script src="/assets/js/fancy-textfill.min.js"></script>
+		<script>
+		var humanNames = [
+			"jquery-bigtext",
+			"big-text.js",
+			"jquery-textfill",
+			"textfill.js",
+			"textFit",
+			"fancy-textfill-jquery",
+			"fancy-textfill.js"
+		];
+		var generateRandomInt = function(lower, upper){
+			return Math.floor(Math.random()*((upper-1)-lower+1)+lower);
+		}
+		var createTestSpace = function(width, height, content, i) {
+			var libraries = [
+				"jquery-bigtext",
+				"big-text",
+				"jquery-textfill",
+				"textfill",
+				"textFit",
+				"fancy-textfill-jquery",
+				"fancy-textfill"
+			];
+			var divOrSpans = [
+				"span",
+				"span",
+				"div",
+				"div",
+				"div",
+				"span",
+				"span"
+			];
+			//clear the space
+			var testSpace = document.getElementById("test-spaces");
+			while (testSpace.firstChild) {
+				testSpace.removeChild(testSpace.firstChild);
+			}
+			var library = libraries[i];
+			var humanName = humanNames[i];
+			var divOrSpan = divOrSpans[i]; 
+			
+			var title = document.createElement("h3");
+			title.textContent = humanName;
+			testSpace.appendChild(title);
+
+			//Create the div
+			var div = document.createElement("DIV");
+			div.style.width = width + "px";
+			div.style.height = height + "px";
+			div.className = "test-container";
+			if(divOrSpan === "div"){
+				div.id = "test-" + library;
+			}
+			//Create the span
+			if (library !== "textFit") {
+				var span = document.createElement("SPAN");
+				span.textContent = content;
+
+				if(divOrSpan === "span"){
+					span.id = "test-" + library;
+				}
+				div.appendChild(span);
+			} else {
+				div.innerHTML = content;
+			}
+			testSpace.appendChild(div);
+		};
+		var functions = [
+			function(){$("#test-jquery-bigtext").bigText({fontSizeFactor: 1});},
+			function(){BigText("#test-big-text",{fontSizeFactor: 1});},
+			function(){$("#test-jquery-textfill").textfill({maxFontPixels: 0});},
+			function(){TextFill("#test-textfill", {correctLineHeightOffset: false});},
+			function(){textFit(document.getElementById("test-textFit"),{minFontSize: 0, maxFontSize: 99999999999999});},
+			function(){$("#test-fancy-textfill-jquery").fancyTextFill({maxFontSize: 0});},
+			function(){fancyTextFill.fillParentContainer(document.getElementById("test-fancy-textfill"), {maxFontSize: 0});},
+		]
+		window.onload = function(){
+			var i = 5;
+			createTestSpace(300, 200, "Test", i);
+			var a = performance.now();
+			functions[i]();
+			var b = performance.now();
+			var total = (b - a);
+			var p = document.createElement("p");
+			document.getElementById("results").appendChild(p);
+			p.appendChild(document.createTextNode("Exectution of "+ humanNames[i] +" took " + total.toFixed(1) + "ms"));
+		}
+		</script>
+<body>
+	<div id="results">
+	</div>
+	<div id="test-spaces">
+	</div>
+</body>

@@ -1,0 +1,283 @@
+---
+title: Text Resize Libraries Performance Benchmarking
+summary: A performance benchmark of seven text resize libraries.
+---
+<!--
+MMMMMMMMMMMMMMMMMMMNhs+/-..``````.-:/+shNMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMms/.````````   ```````````./smMMMMMMMMMMMMMMM
+MMMMMMMMMMMMd+.``````````````````````````````.+dMMMMMMMMMMMM
+MMMMMMMMMNs-````````````````````````````````````.sNMMMMMMMMM
+MMMMMMMNs.````````````````````````````````````````.oNMMMMMMM
+MMMMMMy-.................:oydhhysso+----------------/dMMMMMM
+MMMMNo////+/+++++++////+hdmmmmdhhhhhso+///////////////oNMMMM
+MMMm+/:::://///////:///ommdhmmddddhhyys/:::::::::-:::::/mMMM
+MMm/::::::/:://////////shyyyyhysoymdyys/::::///::::::::::mMM
+MN/::/:::://:::///////+odmdyhddhyshmmdh/:::::/::::::-----:NM
+Mo::://///:::::::::/:/+syysosyyso+odmmh+/////::::::::::::-+M
+m::::::::::--::::://:::/osyysso++//shyhy://:::::---:--::---d
+o::::::::---:---:-::--:-oyhhyyo++/:+ydNN+---..-:-::--------o
+/:::::----:::-----------:yyysso+++//yhhds-...--..-----------
+:--:::-------..----..-...:ydhyssso+//+o/------.-....-------/
+----------------------:shmNNhdhysso+/+hNmy+:------..-----//h
+:------------------:odNMMNMMdhdhyysssyNMNNNmh+:-::::--:ydmmN
+o-----------------/NNNNNNNMMdhhdhhhyhNMMMNNNNmy:-------/hhmN
+d---:-::::::::::::dNNNMMMMMMNhyhhyyhNMNNMMMMNNmh::------+:oN
+Mo::::::::::::::::mMMMMMMMMMMMNmdmNMMMMMNNMMMNNmy:::::----sM
+MN/:::::::::::::::mMMMMMMMMMMMMMMMMMMMMMMNNNNNNmd/::::::/sMM
+MMm////////::::::/dMMMMMMMMMMMMMMMMMMMMMMMMNMNNNm+///+oosNMM
+MMMm+/////////////dMMMMMMMMMMMMMMMMMMMMMMMMMMMNNmo+osysyNMMM
+MMMMNs///////+syhsNMMMMMMMMMMMMMMMMMMMMMMMMMMMNNmssssoyNMMMM
+MMMMMMd+++++++shyhdNNNNNNMMMMMMMMMMMMMMMMMMMMMNNmyssymMMMMMM
+MMMMMMMNho++++++++osssydohMMMMMMMMMMMMMMMMMMMMNNmyydMMMMMMMM
+MMMMMMMMMMho++ooo+oyysyd+yNMMMMMMMMMMMMMMMMMMNNNmmMMMMMMMMMM
+MMMMMMMMMMMMmhsooooyssyhohNMMMMMMMMMMMMMMMMMNNNMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMNdysssyyyomMMMMMMMMMMMMMMyhmMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMNmmddyNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+
+Don't judge the script in this file too harshly. 
+I rushed to get it finished to I could work on more important things,
+and changed direction after writing the first version. :)
+P.S. sorry if I crash your browser.
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		{% include sitewide.html %}
+		<meta http-equiv='cache-control' content='no-cache'>
+		<meta http-equiv='expires' content='0'>
+		<meta http-equiv='pragma' content='no-cache'>
+		<style>
+		body {
+			background: #373731;
+			font-family: monospace;
+		}
+		.test-container {
+			background: #d05d5d;
+			font-size: 16px;
+		}
+		.test-container span, h3, #results {
+			color: #cfcfc9;
+		}
+		</style>
+		<script src="/assets/js/jquery-3.4.1.min.js"></script>
+		<script src="/assets/js/jquery-bigtext.min.js"></script>
+		<script src="/assets/js/big-text.min.js"></script>
+		<script src="/assets/js/jquery-textfill.min.js"></script>
+		<script src="/assets/js/textfill.min.js"></script>
+		<script src="/assets/js/textFit.min.js"></script>
+		<script src="/assets/js/fancy-textfill-jquery.min.js"></script>
+		<script src="/assets/js/fancy-textfill.min.js"></script>
+		<script>
+		var humanNames = [
+			"jquery-bigtext",
+			"big-text.js",
+			"jquery-textfill",
+			"textfill.js",
+			"textFit",
+			"fancy-textfill-jquery",
+			"fancy-textfill.js"
+		];
+		var generateRandomInt = function(lower, upper){
+			return Math.floor(Math.random()*((upper-1)-lower+1)+lower);
+		}
+		var createTestSpace = function(testId, width, height, content, doRandom) {
+			var libraries = [
+				"jquery-bigtext",
+				"big-text",
+				"jquery-textfill",
+				"textfill",
+				"textFit",
+				"fancy-textfill-jquery",
+				"fancy-textfill"
+			];
+			var divOrSpans = [
+				"span",
+				"span",
+				"div",
+				"div",
+				"div",
+				"span",
+				"span"
+			];
+			//clear the space
+			var testSpace = document.getElementById("test-spaces");
+			while (testSpace.firstChild) {
+				testSpace.removeChild(testSpace.firstChild);
+			}
+			// sometimes we want to vary the div size to upset caching
+			if(doRandom){
+				var widthOffset = generateRandomInt(-99,101);
+				var heightOffset = generateRandomInt(-99,101);
+				var alphabet = "abcdefghijklmnopqrstuvwxyz";
+				var alphabetIndex = generateRandomInt(0,26);
+				var chars = generateRandomInt(0,11);
+				width += widthOffset;
+				height += heightOffset;
+				for (var j = 0; j < chars; j++) {
+					content += alphabet[alphabetIndex];
+				}
+			}
+			//add the test
+			for(var i = 0; i < libraries.length; i++) {
+				var library = libraries[i];
+				var humanName = humanNames[i];
+				var divOrSpan = divOrSpans[i]; 
+				
+				var title = document.createElement("h3");
+				title.textContent = humanName;
+				testSpace.appendChild(title);
+
+				//Create the div
+				var div = document.createElement("DIV");
+				div.style.width = width + "px";
+				div.style.height = height + "px";
+				div.className = "test-container";
+				if(divOrSpan === "div"){
+					div.id = "test" + testId + "-" + library;
+				}
+				//Create the span
+				if (library !== "textFit") {
+					var span = document.createElement("SPAN");
+					span.textContent = content;
+
+					if(divOrSpan === "span"){
+						span.id = "test" + testId + "-" + library;
+					}
+					div.appendChild(span);
+				} else {
+					div.innerHTML = content;
+				}
+				testSpace.appendChild(div);
+			}
+		};
+		var runTest = function(testName,testId, width, height, content, doRandom, n, nextExperiment){
+			var functions = [
+				function(){$("#test"+testId+"-jquery-bigtext").bigText({fontSizeFactor: 1});},
+				function(){BigText("#test"+testId+"-big-text",{fontSizeFactor: 1});},
+				function(){$("#test"+testId+"-jquery-textfill").textfill({maxFontPixels: 0});},
+				function(){TextFill("#test"+testId+"-textfill", {correctLineHeightOffset: false});},
+				function(){textFit(document.getElementById("test"+testId+"-textFit"),{minFontSize: 0, maxFontSize: 99999999999999});},
+				function(){$("#test"+testId+"-fancy-textfill-jquery").fancyTextFill({maxFontSize: 0});},
+				function(){fancyTextFill.fillParentContainer(document.getElementById("test"+testId+"-fancy-textfill"), {maxFontSize: 0});},
+			];
+			var results = [
+				[],
+				[],
+				[],
+				[],
+				[],
+				[],
+				[]
+			];
+			var averages = [];
+
+
+			var finishCalcCallback = function() {
+				//calculate the averages
+				for(i = 0; i<results.length; i++){
+					var sum = results[i].reduce(function(a, b) { return a + b; });
+	    			averages[i] = sum / n;
+				}
+				console.log(averages);
+				appendTable(testId,averages);
+				var p = document.createElement("p");
+				document.getElementById("results").appendChild(p);
+				p.appendChild(document.createTextNode("Completed test " + testId + " of 6: " + testName ));
+				nextExperiment();
+			}
+
+			// run n times for accuracy - index is our counter
+			var counter = 0;
+			//Give some time for the previous executions to finish
+			var outerFunc = function() {setTimeout(function(){
+				createTestSpace(testId, width, height, content, doRandom);
+				//Wait for the testspace to finish
+				setTimeout(function() {
+					//run each function against it
+					for(var j=0; j<functions.length; j++){
+						var func = functions[j];
+						var result = results[j];
+						var a = performance.now();
+						func();
+						var b = performance.now();
+						var total = (b - a);
+						result.push(total);
+					}
+					// run n times for accuracy
+					counter++;
+				    if (counter < n) {
+				        outerFunc();
+				    } else {
+				    	finishCalcCallback();
+				    }
+				},50);
+			},400);};
+			outerFunc();
+		}
+		var setupTable = function(){
+			var table = document.createElement("table");
+			document.getElementById("results").appendChild(table);
+			
+			var tableHead = document.createElement("thead");
+			table.appendChild(tableHead);
+			
+			var tableBody = document.createElement("tbody");
+			tableBody.id = "results-body";
+			table.appendChild(tableBody);
+
+			var headings = document.createElement("tr");
+			tableHead.appendChild(headings);
+			var testIdHeading = document.createElement("th")
+			testIdHeading.appendChild(document.createTextNode("Test ID"));
+			headings.appendChild(testIdHeading);
+
+			for (var i = 0; i < humanNames.length; i++){
+				var th = document.createElement("th");
+				th.appendChild(document.createTextNode(humanNames[i]));
+				headings.appendChild(th);
+			}
+			
+		};
+		var appendTable = function(testId, results) {
+			var body = document.getElementById("results-body");
+			var row = document.createElement("tr");
+			body.appendChild(row);
+
+			var testIdTd = document.createElement("td");
+			testIdTd.appendChild(document.createTextNode(testId));
+			row.appendChild(testIdTd);
+
+			for (var i = 0; i < results.length; i++){
+				var datum = results[i];
+				var td = document.createElement("td");
+				td.appendChild(document.createTextNode(datum.toFixed(1) + "ms"));
+				row.appendChild(td);
+			}
+		};
+		window.onload = function(){
+			setupTable();
+			//Test to see performance on first execution
+			runTest("Performance for single execution for a single word.",1, 300, 200, "Test", false, 1, function() {
+			//Test to see performance when you run it lots of times with randomisation
+			runTest("Performance for singe execution for a multiline string.", 2, 800, 100, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ullamcorper mattis semper. Sed placerat ac mi a cursus.", false, 1, function() {
+			runTest("Average of performance for 100 executions of a single word, with slight randomisation.", 3, 300, 200, "Test", true, 100, function() {
+			//Test to see performance when you run it lots of times with no change
+			runTest("Average of performance for 100 executions of a single word, without randomisation.", 4, 300, 200, "Test", false, 100, function() {
+			//Test to see perfomance on a longer string with randomisation
+			runTest("Average of performance for 100 executions of a multiline string, with slight randomisation.", 5, 800, 100, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ullamcorper mattis semper. Sed placerat ac mi a cursus.", true, 100, function() {
+			//Test to see perfomance on a longer string with randomisation
+			runTest("Average of performance for 100 executions of a multiline string, without randomisation.", 6, 800, 100, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ullamcorper mattis semper. Sed placerat ac mi a cursus.", false, 100, function() {
+					var p = document.createElement("p");
+					document.getElementById("results").appendChild(p);
+					p.appendChild(document.createTextNode("All Done!"));
+
+			});});});});});});
+
+		};
+		</script>
+<body>
+	<div id="results">
+	</div>
+	<div id="test-spaces">
+	</div>
+</body>
