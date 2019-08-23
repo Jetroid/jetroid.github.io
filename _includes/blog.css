@@ -204,12 +204,12 @@ p/*ete*/ code/*s*/{
 	border: none;
 }
 /* Make the CTA 'chaser' link have an arrow */
-#post-content > p:last-child > a:only-child::before,
+#post-content > p:last-child > a:not(.img):only-child::before,
 #post-content a.cta::before {
 	content: "► ";
 }
 /* Make the CTA 'chaser' link have bigger text */
-#post-content > p:last-child > a:only-child,
+#post-content > p:last-child > a:not(.img):only-child,
 #post-content a.cta {
 	font-size: larger;
 }
