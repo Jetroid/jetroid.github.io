@@ -173,4 +173,11 @@ images:
 - resize-beauty-768.jpg
 - resize-beauty-640.jpg
 - resize-beauty.jpg
+- bangkok-again-beauty-1920.jpg
+- bangkok-again-beauty-1600.jpg
+- bangkok-again-beauty-1366.jpg
+- bangkok-again-beauty-1024.jpg
+- bangkok-again-beauty-768.jpg
+- bangkok-again-beauty-640.jpg
+- bangkok-again-beauty.jpg
 ---

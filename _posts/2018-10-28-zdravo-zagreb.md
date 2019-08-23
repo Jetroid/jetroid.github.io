@@ -25,14 +25,14 @@ Next, I needed to find somewhere I could work out of. I had pretty stable WiFi i
 
 I had an idea that public libraries might make a good space to work from.
 
-My first attempt was the City Library Zagreb, located at the edge of the King Tomislav Square. The foyer really didn't look very promising; there were ancient-looking computers available to use freely, but no space to sit down alone with a laptop. 
+My first attempt was the City Library Zagreb, located at the edge of the King Tomislav Square. The foyer really didn't look very promising; there were ancient-looking computers available to use freely, but no space to sit down alone with a laptop.
 
 ![City Library Zagreb.]({{ site.url }}/assets/images/content/zagreb-city-library.jpg)
 *City Library Zagreb. Photo taken from [here](http://www1.zagreb.hr/galerijakd.nsf/c31dd4a135787898c1256f9600325af4/c2df5e3357e497f7c1257f3e00491efc?OpenDocument).*
 
-There was a stairwell at the back of the building, and I ascended to look at different floors; perhaps I could find a suitable space up there. I kept seeing these little plaques on the doors, which I assumed denoted the function of the room. I used the Google Translate app's "Camera" functionality to inplace replace the Croatian with English so that I could understand the labels on the doors - Reading Room, Resource Pickup, etc. 
+There was a stairwell at the back of the building, and I ascended to look at different floors; perhaps I could find a suitable space up there. I kept seeing these little plaques on the doors, which I assumed denoted the function of the room. I used the Google Translate app's "Camera" functionality to inplace replace the Croatian with English so that I could understand the labels on the doors - Reading Room, Resource Pickup, etc.
 
-I got to the top floor of the building, where a cleaning lady was sweeping a landing. Through a door behind her I could see lots and lots of desks, but before I was able to investigate, she barked something Croatian at me and he generally demeanour made me think I shouldn't be here, so I went away sheepishly after explaining I hadn't understood. She merely rolled her eyes. 
+I got to the top floor of the building, where a cleaning lady was sweeping a landing. Through a door behind her I could see lots and lots of desks, but before I was able to investigate, she barked something Croatian at me and he generally demeanour made me think I shouldn't be here, so I went away sheepishly after explaining I hadn't understood. She merely rolled her eyes.
 
 I had been running into the [Eduroam](https://www.eduroam.org/) WiFi signal pretty much everywhere I went so far. Eduroam is a WiFi network that is used by universities around the world; if you have an account at one university, you can connect everywhere. This gave me the idea that I may be able to find a University library that I could work out of, just like I always did as a student in Southampton. I looked online and The National and University Library of Zagreb seemed a good candidate.
 
@@ -59,7 +59,7 @@ Eventually I found my way to the University Library, but was disappointed to fin
 
 I loitered in the nearby [Sveučilišna livada park](https://goo.gl/maps/WWWN69tiG792), trying to look up other libraries, and then coworking spaces, on my phone. I noticed a common theme; the libraries were either just places with books and no places to work, or they were only available to Croatian citizens. The coworking spaces were too far out of my price range, or catered only to Croatian citizens. Bummer.
 
-I had also noticed from my little bit of walking around that I hadn't yet seen a single person using a laptop at a café. There are probably dozens of cafés around the city, and I had probably already seen over a thousand people sitting in them, but yet not one where someone was working there? Most cafés in Zagreb have mostly-outside seating, so it's not like I'd miss it. I didn't want to go in and sit down only to be forced to leave again. This observation basically nixed my fallback plan.  
+I had also noticed from my little bit of walking around that I hadn't yet seen a single person using a laptop at a café. There are probably dozens of cafés around the city, and I had probably already seen over a thousand people sitting in them, but yet not one where someone was working there? Most cafés in Zagreb have mostly-outside seating, so it's not like I'd miss it. I didn't want to go in and sit down only to be forced to leave again. This observation basically nixed my fallback plan.
 
 It was now that I started to get this sense of dread. This feeling that I had made a huge mistake coming here. I started to feel sick in my stomach and I was suddenly really not confident that my decisions were sensible.
 
@@ -67,11 +67,11 @@ It was now that I started to get this sense of dread. This feeling that I had ma
 
 I decided that what I really needed to do was settle down and get comfortable here and not worry about that stuff. Put myself at ease, you know? Maybe the solution would come to me, who knows? No point getting stressed out.
 
-I had been talking to my friend [Daniel](https://daniellockyer.com) whilst I wandered around, and he said that the next thing I should do is find somewhere to eat. I actually hadn't realised how hungry I was until he told me that. He helpfully looked up Zagreb on HappyCow (a Vegan/Vegetarian website) and pointed me towards Green Point. 
+I had been talking to my friend [Daniel](https://daniellockyer.com) whilst I wandered around, and he said that the next thing I should do is find somewhere to eat. I actually hadn't realised how hungry I was until he told me that. He helpfully looked up Zagreb on HappyCow (a Vegan/Vegetarian website) and pointed me towards Green Point.
 
 ![]({{ site.url }}/assets/images/content/zagreb-green-point-exterior.jpg)
 
-Green Point sells burgers, falafel wraps, grilled vegetables, fruit shakes, and Thai and Chinese-style wok-cooked foods, as well as different types of fruit- or milk- shakes. I had trouble ordering at first because the main display board is in Croatian, but they helpfully provided me with a hand-held menu in English. 
+Green Point sells burgers, falafel wraps, grilled vegetables, fruit shakes, and Thai and Chinese-style wok-cooked foods, as well as different types of fruit- or milk- shakes. I had trouble ordering at first because the main display board is in Croatian, but they helpfully provided me with a hand-held menu in English.
 
 ![Green Point's Menu. There's actually a second side which I didn't realise, which has all different kinds of Wok-based meals, and breakfast things.]({{ site.url }}/assets/images/content/zagreb-green-point-menu.jpg)
 *Green Point's Menu. There's actually a second side which I didn't realise, which has all different kinds of Wok-based meals, and breakfast things.*
@@ -81,7 +81,7 @@ The decor here is really minimal but with a romantic charm - they leave out post
 ![Post-Its written by previous diners cover the walls of Green Point.]({{ site.url }}/assets/images/content/zagreb-green-point-walls.jpg)
 *Post-Its written by previous diners cover the walls of Green Point.*
 
-I spent the rest of this day just exploring and trying to relax my nerves. 
+I spent the rest of this day just exploring and trying to relax my nerves.
 
 ![]({{ site.url }}/assets/images/content/zagreb-small-church.jpg)
 ![]({{ site.url }}/assets/images/content/zagreb-small-street.jpg)
@@ -94,25 +94,25 @@ Zagreb is an incredibly green city. There are lots of little green parks and spa
 ![A beautiful bridge inside a botanical garden.]({{ site.url }}/assets/images/content/zagreb-botanical-bridge.jpg)
 *A beautiful bridge inside a botanical garden.*
 
-In the botanical garden pictured above, I saw a metal tin stuck to the back of a sign with a magnet. Inside was an incredibly cryptic note. It seemed to be about some kind of puzzle or something, and there were a few scraps of paper with symbols. I felt like I was finding it part-way through the puzzle and didn't comprehend it, so I left it alone. Interesting, though! 
+In the botanical garden pictured above, I saw a metal tin stuck to the back of a sign with a magnet. Inside was an incredibly cryptic note. It seemed to be about some kind of puzzle or something, and there were a few scraps of paper with symbols. I felt like I was finding it part-way through the puzzle and didn't comprehend it, so I left it alone. Interesting, though!
 
 ![A mysterious note I found...]({{ site.url }}/assets/images/content/zagreb-mysterious-note.jpg)
 *A mysterious note I found...*
 
-I explored for hours and it was quickly dark as we were rapidly approaching November. A few of the roads I had explored had been pretty dead during the day, but when I went back there during the night, they were bustling with activity. 
+I explored for hours and it was quickly dark as we were rapidly approaching November. A few of the roads I had explored had been pretty dead during the day, but when I went back there during the night, they were bustling with activity.
 
 ![An advertisement for beer that reminded me of Hotline Miami.]({{ site.url }}/assets/images/content/zagreb-hotline-miami.jpg)
 *An advertisement for beer that reminded me of [Hotline Miami](https://en.wikipedia.org/wiki/Hotline_Miami).*
 
 Some of the back streets felt even more alive than the main squares. There was music coming from the bars and restaurants, there were people everywhere, and there were pleasant smells wafting around. I even saw a couple of guys wandering around dressed up in WWII-looking uniforms and gas-masks, which was a little cool but also weird and at some point I started to wonder if these guys were actual Croatian authorities.
 
-I went to bed exhausted that day. 
+I went to bed exhausted that day.
 
-# More Exploration 
+# More Exploration
 
-Frustratingly, a new guest arrived in the hostel room at 4AM and woke me up, so by the time I got up at 9AM, not only was I exhausted and cranky, but I also found that the bathroom had been flooded and that there was a horrible smell and black dirt everywhere. I had wanted to stay a few hours in the hostel in the morning to do some more research and decide on a plan of action, but the smell was so bad that I just left immediately. 
+Frustratingly, a new guest arrived in the hostel room at 4AM and woke me up, so by the time I got up at 9AM, not only was I exhausted and cranky, but I also found that the bathroom had been flooded and that there was a horrible smell and black dirt everywhere. I had wanted to stay a few hours in the hostel in the morning to do some more research and decide on a plan of action, but the smell was so bad that I just left immediately.
 
-Back when I was on the plane and about to land in Zagreb, I had seen this huge smoke stack in the west of the city - it towered above pretty much everything else and I had made myself the promise that I would go and visit it. I spotted it again from the first crossroads that I came to after I left the hostel that day; it seemed so far away now that I was here on foot. 
+Back when I was on the plane and about to land in Zagreb, I had seen this huge smoke stack in the west of the city - it towered above pretty much everything else and I had made myself the promise that I would go and visit it. I spotted it again from the first crossroads that I came to after I left the hostel that day; it seemed so far away now that I was here on foot.
 
 ![The chimney from not so far away.]({{ site.url }}/assets/images/content/zagreb-big-chimney.jpg)
 *The chimney from not so far away.*
@@ -148,10 +148,10 @@ I eventually encountered the railway, which offered an open clearing allowing me
 
 # A Working Solution
 
-An observation I made was that free, public WiFi sources were available pretty readily throughout the central parts of the city. The connections were fairly stable, and fast enough that I figured I could comfortably sit in the main plazas and parks with my laptop and work there. There were thousands of people around and police too, so I wasn't worried about becoming a target for criminals. Crime is fairly low in Croatia anyway, if the official statistics can be believed. 
+An observation I made was that free, public WiFi sources were available pretty readily throughout the central parts of the city. The connections were fairly stable, and fast enough that I figured I could comfortably sit in the main plazas and parks with my laptop and work there. There were thousands of people around and police too, so I wasn't worried about becoming a target for criminals. Crime is fairly low in Croatia anyway, if the official statistics can be believed.
 
 ![I sat by this fountain so often that I was caught in people's Instagram pictures.]({{ site.url }}/assets/images/content/zagreb-sitting-by-fountain.jpg)
-*I sat by this fountain so often that I was caught in people's [Instagram pictures](https://www.instagram.com/p/Bpkz5RxFYrf/).*
+*I sat by this fountain so often that I was caught in people's [Instagram pictures]({{ site.url }}/assets/images/content/rtb-jet-zagreb.jpg).*
 
 Sitting in these public spaces to work has a lot of quirks and perks. I saw countless street performers, including a man who plays familiar pop songs on a saxophone, a Spanish woman who sang the same song over and over again every night, and a lady dressed in some kind of milk-maid-looking-outfit who continually cranked some kind of mechanical organ. I've even seen processions of Buddhist monks, dressed in orange robes and with shaved heads too, which was bizarre to see in Europe. They came and hassled me about 'money to print books', so I feel like they are running a scam of some kind and are not actually proper monks.
 
