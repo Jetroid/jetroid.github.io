@@ -143,6 +143,7 @@ pre {
 }
 pre code {
 	border: none;
+	font-size: smaller;
 }
 p/*ete*/ code/*s*/{
 	word-break: break-all;

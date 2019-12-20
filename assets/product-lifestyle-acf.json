@@ -1,0 +1,105 @@
+[
+    {
+        "key": "group_5dcc78682fe6c",
+        "title": "Product Lifecycle",
+        "fields": [
+            {
+                "key": "field_5dcc78ff617fc",
+                "label": "Product Status",
+                "name": "product_status",
+                "type": "radio",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "forsale": "For Sale",
+                    "discontinued": "Discontinued",
+                    "forthcoming": "Forthcoming"
+                },
+                "allow_null": 0,
+                "other_choice": 0,
+                "default_value": "For Sale",
+                "layout": "horizontal",
+                "return_format": "value",
+                "save_other_choice": 0
+            },
+            {
+                "key": "field_5dcc7979617fd",
+                "label": "Replaced With",
+                "name": "replaced_with",
+                "type": "post_object",
+                "instructions": "The product that is replacing this one.",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5dcc78ff617fc",
+                            "operator": "==",
+                            "value": "discontinued"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "product"
+                ],
+                "taxonomy": "",
+                "allow_null": 1,
+                "multiple": 1,
+                "return_format": "id",
+                "ui": 1
+            },
+            {
+                "key": "field_5df583358e7f1",
+                "label": "Available From",
+                "name": "available_from",
+                "type": "date_time_picker",
+                "instructions": "The date and time when this product will become available for purchase.",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5dcc78ff617fc",
+                            "operator": "==",
+                            "value": "forthcoming"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "display_format": "F j, Y g:i a",
+                "return_format": "F j, Y",
+                "first_day": 1
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "product"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    }
+]
