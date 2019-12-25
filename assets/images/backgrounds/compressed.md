@@ -180,4 +180,11 @@ images:
 - bangkok-again-beauty-768.jpg
 - bangkok-again-beauty-640.jpg
 - bangkok-again-beauty.jpg
+- seismograph-bug-1920.jpg
+- seismograph-bug-1600.jpg
+- seismograph-bug-1366.jpg
+- seismograph-bug-1024.jpg
+- seismograph-bug-768.jpg
+- seismograph-bug-640.jpg
+- seismograph-bug.jpg
 ---

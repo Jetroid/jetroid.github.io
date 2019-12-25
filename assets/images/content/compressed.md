@@ -1976,4 +1976,10 @@ images:
 - lifecycle-unavailable-655.png
 - lifecycle-unavailable-560.png
 - lifecycle-unavailable.png
+- seismobug-oscilloscopes-1230.jpg
+- seismobug-oscilloscopes-1024.jpg
+- seismobug-oscilloscopes-874.jpg
+- seismobug-oscilloscopes-655.jpg
+- seismobug-oscilloscopes-560.jpg
+- seismobug-oscilloscopes.jpg
 ---
