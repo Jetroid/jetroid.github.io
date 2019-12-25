@@ -17,52 +17,29 @@ Deep Thought, like any good project, started as a joke.
 My Father and I were talking about logic gates at a family dinner
 when one of my family members mentioned that she didn't really understand.
 
-I joked that I could program a PIC and put it in a box to demonstrate what each
-logic gate does. She could take it in to teach the kids in her class
-at the school she works at!
+I joked that I could program a PIC and put it in a box with some switches and LEDs to demonstrate what each
+logic gate does. She's a teacher, so she could take it in to school to teach the kids in her class!
 
 Later, my Father and I talked about how it could actually be a useful module.
-It would be very simple to program, and would not require a complicated circuit,
-meaning that designing the PCB should be quick, and the component cost would be low.
+It would be very simple to program, and would not require a complicated circuit. Designing the PCB should be quick, and the component cost would be low, and it would be easy to stock.
 There was no real reason *not* to make it!
 
 ![Deep Thought Prototype]({{ site.url }}/assets/images/content/deep-thought-prototype.jpg)
-*Deep Thought Development Prototype*
+*Deep Thought Prototype with 3x Programmable Gates*
 
-I had two ideas for how it would work.
+I had two variants on the idea of what the functionality for the module could be.
 
-Obviously there would be two inputs as the inputs to the logic gate,
-but exactly what the output should be like was up for debate.
+1. I could two inputs, A and B, and a set of every boolean operator applied to those two inputs. (ie, a set of NOT A, NOT B, AND, NAND, OR, NOR, XOR, and XNOR outputs)
+2. I could two inputs, A and B, with one output that doesn't output any specific gate. Instead, the specific gate it outputs would be determined by a third input. We could potentially have three of these on a single cheap PIC. In essence, this would be a   'programmable gate'.
 
-I could either have just a set of every output,
-(AND, NAND, OR, NOR, XOR, XNOR, NOT A, NOT B),
-or just one output along with a second input to select which of the gates to use.
+We had a lot of back and forth about which option we should go with (we were thinking of going ahead with the 3x programmable gates version), before realising at the last minute that if we implemented (or chose not to include) the NOT A and NOT B gates with transistors, we could actually have the best of both worlds in our module. A module with two different sections, one of which has two inputs and a set of every output, and another section with three inputs and one output.
 
-In effect, the second configuration becomes a 'programmable gate' -
-It is a logic gate whose specific gate is determined by an extra input.
+![Deep Thought Prototype]({{ site.url }}/assets/images/content/deep-thought-prototype2.jpg)
+*Deep Thought Prototype with 1x Programmable Gate and a set of every operator. The NOT A and NOT B operators were implemented with transistors and were not tested on this board.*
 
-The 'programmable gate' uses 6 less I/O pins (4 vs 10),
-meaning that the PIC could potentially hold multiple 'programmable gates'.
+I had fun implementing the project and love the idea of it, as it isn't as simple as just using some off-the-shelf chips. The 'Programmable Gate' concept would be difficult to implement with anything but a micro-controller, which meant it was quite a novel idea.
 
-Whilst I really liked the idea of having one output per gate,
-in the end we settled for a configuration including 3 pairs of 'programmable gates',
-as it was the much more versatile combination.
+Deep Thought was later released in [June 2018](https://web.facebook.com/frequency.central/photos/a.1030751053637271/1773524529359916/), and is [available for purchase now](https://frequencycentral.co.uk/product/deep-thought/).
 
-It really wasn't a complicated project, 
-and it required no new skills to complete,
-so I completed it quite quickly after the concept was developed.
-
-Of the three unreleased modules I have developed to date 
-(Polygraf, Chronograf, Deep Thought), 
-I would guess that this module releases first due to its simplicity.
-
-As with these other two, it also needs a production prototype,
-but this will really only change from the development prototype
-by introducing the correct interface.
-(The development prototype uses switches as inputs -
-the production prototype would use actual sockets).
-from switches and LEDs to buffered sockets/buttons.
-
-I'm interested to see what happens with the Deep Thought's
-production prototype when the output of one gate is fed into another,
-as this was not a feature that was possible to test on the development prototype.
+![Deep Thought Production Model]({{ site.url }}/assets/images/content/deep-thought-production.jpg)
+*Deep Thought Production Model*

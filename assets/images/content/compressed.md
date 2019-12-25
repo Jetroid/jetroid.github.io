@@ -1982,4 +1982,22 @@ images:
 - seismobug-oscilloscopes-655.jpg
 - seismobug-oscilloscopes-560.jpg
 - seismobug-oscilloscopes.jpg
+- deep-thought-logic-bomb-1230.jpg
+- deep-thought-logic-bomb-1024.jpg
+- deep-thought-logic-bomb-874.jpg
+- deep-thought-logic-bomb-655.jpg
+- deep-thought-logic-bomb-560.jpg
+- deep-thought-logic-bomb.jpg
+- deep-thought-production-1230.jpg
+- deep-thought-production-1024.jpg
+- deep-thought-production-874.jpg
+- deep-thought-production-655.jpg
+- deep-thought-production-560.jpg
+- deep-thought-production.jpg
+- deep-thought-prototype2-1230.jpg
+- deep-thought-prototype2-1024.jpg
+- deep-thought-prototype2-874.jpg
+- deep-thought-prototype2-655.jpg
+- deep-thought-prototype2-560.jpg
+- deep-thought-prototype2.jpg
 ---
