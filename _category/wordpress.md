@@ -1,0 +1,4 @@
+---
+category: "Wordpress"
+permalink: "/wordpress/"
+---
