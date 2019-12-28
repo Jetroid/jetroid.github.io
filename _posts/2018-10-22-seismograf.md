@@ -10,11 +10,9 @@ categories:
  - "Projects"
 ---
 
-When revamping the waveforms on the [Chronograf](/chronograf-its-about-time/), one of the sound functions we created was an exponentially damped sine wave. I looked up the [Roland TR808](https://en.wikipedia.org/wiki/Roland_TR-808) [Bass Drum waveform](http://audio.avalon-zone.be/wp-content/uploads/2011/02/bassdrumwaveform.png) and tried to mimic it using mathematical formulas as best I could. The result was incredibly promising, and has a pleasing thud, just like a Bass Drum.
+When revamping the waveforms on the [Chronograf](/chronograf-its-about-time/), one of the sound functions we created was an exponentially damped sine wave. I looked up the [Roland TR808](https://en.wikipedia.org/wiki/Roland_TR-808) [Bass Drum waveform](http://audio.avalon-zone.be/wp-content/uploads/2011/02/bassdrumwaveform.png) and tried to mimic it using mathematical formulas as best I could. The result was incredibly promising, and has a pleasing thud, just like a Bass Drum. I auditioned out various different versions of the damped sine wave in the space of Chronograf's other waveforms, and essentially created a drum module with very similar sounds.
 
-[Polygraf](/polygraf/), our grid editor module, was designed to tell other modules when to trigger. In particular, we envisioned it triggering drum sound modules, and created patterns mimicking classic 80s hits; when played with the correct drum modules on the correct outputs, they sound pretty good!
-
-It made sense to try to develop a module that made drum noises.
+[Polygraf](/polygraf/), our grid editor module, was designed to tell other modules when to trigger. In particular, we envisioned it being used to trigger drum modules. The Chronograf-based drum sounds and the concept of Polygraf came together, and it suddenly made sense to develop the drum sounds chip further and make a dedicated drum module.
 
 # Damped Sines
 
