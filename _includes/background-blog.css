@@ -14,13 +14,11 @@ body {
 #inside {
 	position: relative;
 }
-{% capture blur-level %}{% if page.blur-intensity != "" and page.blur-intensity != nil %}{{ page.blur-intensity }}{% else %}1{% endif %}{% endcapture %}
 body::before {
 	content: "";
 	position: fixed;
 	-webkit-backface-visibility: none;
 	backface-visibility: none;
-	filter: blur({{ blur-level }}px);
 	top: 0; left: 0;
 	width: 100%;
 	height: calc(100vh + 60px) !important;

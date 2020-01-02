@@ -103,33 +103,27 @@
 {% assign extensions-array = '' | split: ',' %}
 {% assign image-count-array = '' | split: ',' %}
 {% assign image-name-array = '' | split: ',' %}
-{% assign image-blur-array = '' | split: ',' %}
 {% assign image-count-gifs = '' | split: ',' %}
 {% assign image-name-gifs = '' | split: ',' %}
-{% assign image-blur-gifs = '' | split: ',' %}
 {% assign count = 0 %}
 {% for post in paginator.posts %}
 	{% capture background-color %}{% unless post.background-color == "" or post.background-color == nil %}{{ post.background-color }}{% else %}#51514D{% endunless %}{% endcapture %}
 	{% capture background-image %}{% unless post.background == "" or post.background == nil %}{{ post.background }}{% else %}background-blog.jpg{% endunless %}{% endcapture %}
 	{% assign image-extension = background-image | split: '.' | last %}
 	{% assign image-name = background-image | split: '.' | pop | join: '.' %}
-	{% capture image-blur %}{% if post.blur-intensity != "" and post.blur-intensity != nil %}{{ post.blur-intensity }}{% else %}3{% endif %}{% endcapture %}
 	{% if image-extension == "gif" %}
 		{% assign image-count-gifs = image-count-gifs | push: count %}
 		{% assign image-name-gifs = image-name-gifs | push: image-name %}
-		{% assign image-blur-gifs = image-name-gifs | push: image-blur %}
 	{% else %}
 		{% assign image-count-array = image-count-array | push: count %}
 		{% assign extensions-array = extensions-array | push: image-extension %}
 		{% assign image-name-array = image-name-array | push: image-name %}
-		{% assign image-blur-array = image-blur-array | push: image-blur %}
 	{% endif %}
 	{% if paginator.page == 1 and count == 2 %}
 		{% assign count = count | plus: 1 %}
 		{% assign image-count-array = image-count-array | push: count %}
 		{% assign extensions-array = extensions-array | push: "jpg" %}
 		{% assign image-name-array = image-name-array | push: "mailchimp-beauty" %}
-		{% assign image-blur-array = image-blur-array | push: 1 %}
 	{% endif %}
 	{% assign count = count | plus: 1 %}
 {% endfor %}
@@ -138,12 +132,10 @@
 {% for image-name in image-name-gifs %}
 	{% assign loopIndex = forloop.index0 %}
 	{% assign count = image-count-gifs[loopIndex] %}
-	{% assign blur-level = image-blur-array[loopIndex] %}
 #p{{ count }} {
-    filter: blur({{ blur-level }}px);
 	background-color: {{ background-color }};
 	background-image: url("/assets/images/backgrounds/{{ image-name }}.gif");
-} 
+}
 {% endfor %}
 
 {%- if jekyll.environment == "production" -%}
@@ -151,12 +143,10 @@
 	{% assign loopIndex = forloop.index0 %}
 	{% assign image-name = image-name-array[loopIndex] %}
 	{% assign count = image-count-array[loopIndex] %}
-    {% assign blur-level = image-blur-array[loopIndex] %}
 #p{{ count }} {
-    filter: blur({{ blur-level }}px);
 	background-color: {{ background-color }};
 	background-image: url("/assets/images/backgrounds/{{ image-name }}-640.{{ image-extension }}");
-} 
+}
 {% endfor %}
 /* Now what if we're bigger than 640? We want next size up, etc */
 @media (min-width: 641px){
@@ -164,11 +154,9 @@
 	{% assign loopIndex = forloop.index0 %}
 	{% assign image-name = image-name-array[loopIndex] %}
 	{% assign count = image-count-array[loopIndex] %}
-	{% assign blur-level = image-blur-array[loopIndex] %}
     #p{{ count }} {
-        filter: blur({{ blur-level }}px);
 		background-image: url("/assets/images/backgrounds/{{ image-name }}-768.{{ image-extension }}");
-	} 
+	}
 {% endfor %}
 }
 @media (min-width: 769px){
@@ -176,11 +164,9 @@
 	{% assign loopIndex = forloop.index0 %}
 	{% assign image-name = image-name-array[loopIndex] %}
 	{% assign count = image-count-array[loopIndex] %}
-	{% assign blur-level = image-blur-array[loopIndex] %}
     #p{{ count }} {
-        filter: blur({{ blur-level }}px);
 		background-image: url("/assets/images/backgrounds/{{ image-name }}-1024.{{ image-extension }}");
-	} 
+	}
 {% endfor %}
 }
 @media (min-width: 1025px){
@@ -188,11 +174,9 @@
 	{% assign loopIndex = forloop.index0 %}
 	{% assign image-name = image-name-array[loopIndex] %}
 	{% assign count = image-count-array[loopIndex] %}
-	{% assign blur-level = image-blur-array[loopIndex] %}
     #p{{ count }} {
-        filter: blur({{ blur-level }}px);
 		background-image: url("/assets/images/backgrounds/{{ image-name }}-1366.{{ image-extension }}");
-	} 
+	}
 {% endfor %}
 }
 @media (min-width: 1367px){
@@ -200,11 +184,9 @@
 	{% assign loopIndex = forloop.index0 %}
 	{% assign image-name = image-name-array[loopIndex] %}
 	{% assign count = image-count-array[loopIndex] %}
-	{% assign blur-level = image-blur-array[loopIndex] %}
     #p{{ count }} {
-        filter: blur({{ blur-level }}px);
 		background-image: url("/assets/images/backgrounds/{{ image-name }}-1600.{{ image-extension }}");
-	} 
+	}
 {% endfor %}
 }
 @media (min-width: 1601px){
@@ -212,11 +194,9 @@
 	{% assign loopIndex = forloop.index0 %}
 	{% assign image-name = image-name-array[loopIndex] %}
 	{% assign count = image-count-array[loopIndex] %}
-	{% assign blur-level = image-blur-array[loopIndex] %}
     #p{{ count }} {
-        filter: blur({{ blur-level }}px);
 		background-image: url("/assets/images/backgrounds/{{ image-name }}-1920.{{ image-extension }}");
-	} 
+	}
 {% endfor %}
 }
 /* Gone past all our breakpoints... show the original image now instead */
@@ -225,11 +205,9 @@
 	{% assign loopIndex = forloop.index0 %}
 	{% assign image-name = image-name-array[loopIndex] %}
 	{% assign count = image-count-array[loopIndex] %}
-	{% assign blur-level = image-blur-array[loopIndex] %}
     #p{{ count }} {
-        filter: blur({{ blur-level }}px);
 		background-image: url("/assets/images/backgrounds/{{ image-name }}.{{ image-extension }}");
-	} 
+	}
 {% endfor %}
 }
 {%- else -%}
@@ -237,11 +215,9 @@
 	{% assign loopIndex = forloop.index0 %}
 	{% assign image-name = image-name-array[loopIndex] %}
 	{% assign count = image-count-array[loopIndex] %}
-    {% assign blur-level = image-blur-array[loopIndex] %}
 #p{{ count }} {
-    filter: blur({{ blur-level }}px);
 	background-color: {{ background-color }};
 	background-image: url("/assets/images/backgrounds/{{ image-name }}.{{ image-extension }}");
-} 
+}
 {% endfor %}
 {%- endif -%}
