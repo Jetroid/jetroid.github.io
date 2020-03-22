@@ -32,7 +32,7 @@ My first attempt was the City Library Zagreb, located at the edge of the King To
 
 There was a stairwell at the back of the building, and I ascended to look at different floors; perhaps I could find a suitable space up there. I kept seeing these little plaques on the doors, which I assumed denoted the function of the room. I used the Google Translate app's "Camera" functionality to inplace replace the Croatian with English so that I could understand the labels on the doors - Reading Room, Resource Pickup, etc.
 
-I got to the top floor of the building, where a cleaning lady was sweeping a landing. Through a door behind her I could see lots and lots of desks, but before I was able to investigate, she barked something Croatian at me and he generally demeanour made me think I shouldn't be here, so I went away sheepishly after explaining I hadn't understood. She merely rolled her eyes.
+I got to the top floor of the building, where a cleaning lady was sweeping a landing. Through a door behind her I could see lots and lots of desks, but before I was able to investigate, she barked something Croatian at me and her general demeanour made me think I shouldn't be here, so I went away sheepishly after explaining I hadn't understood. She merely rolled her eyes.
 
 I had been running into the [Eduroam](https://www.eduroam.org/) WiFi signal pretty much everywhere I went so far. Eduroam is a WiFi network that is used by universities around the world; if you have an account at one university, you can connect everywhere. This gave me the idea that I may be able to find a University library that I could work out of, just like I always did as a student in Southampton. I looked online and The National and University Library of Zagreb seemed a good candidate.
 
