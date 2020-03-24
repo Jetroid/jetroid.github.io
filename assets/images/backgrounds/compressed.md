@@ -235,4 +235,11 @@ images:
 - neograf-prototype-768.jpg
 - neograf-prototype-640.jpg
 - neograf-prototype.jpg
+- 4x4x48-1920.jpg
+- 4x4x48-1600.jpg
+- 4x4x48-1366.jpg
+- 4x4x48-1024.jpg
+- 4x4x48-768.jpg
+- 4x4x48-640.jpg
+- 4x4x48.jpg
 ---
