@@ -5,4 +5,5 @@ images:
 - rsz_me.png
 - me.png
 - foliephonics.png
+- panel-selector.png
 ---
