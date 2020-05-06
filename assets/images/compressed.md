@@ -4,4 +4,5 @@ images:
 - grayscreen.png
 - rsz_me.png
 - me.png
+- foliephonics.png
 ---
