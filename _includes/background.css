@@ -1,8 +1,4 @@
 {% unless page.suppress-bg == "true" %}
-
-{% if page.url == "/latest/" or post.url == "/latest/" %}
-		{% assign page = site.posts | where: "layout", "post" | first %}
-{% endif %}
 {% capture background-color-partial %}{% if page.background-color != "" and page.background-color != nil %}{{ page.background-color }}{% elsif layout.background-color != "" and layout.background-color != nil %}{{ layout.background-color }}{% else %}#fff{% endif %}{% endcapture %}
 {% capture background-image-partial %}{% if page.background != "" and page.background != nil %}{{ page.background }}{% elsif layout.background != "" and layout.background != nil %}{{ layout.background }}{% else %}background-blog.jpg{% endif %}{% endcapture %}
 {% capture background-position-partial %}{% if page.background-position != "" and page.background-position != nil %}{{ page.background-position }}{% elsif layout.background-position != "" and layout.background-position != nil %}{{ layout.background-position }}{% else %}center center{% endif %}{% endcapture %}
