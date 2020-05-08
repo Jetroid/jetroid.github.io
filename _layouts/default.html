@@ -37,7 +37,7 @@ layout: compress
 		{%- unless page.nopresets -%}
 			{%- include presets.css -%}
 		{%- endunless -%}
-		{%- if page.donotlinkback -%}{%- else if layout.donotlinkback -%}{% else -%}
+		{%- if page.donotlinkback -%}{%- elsif layout.donotlinkback -%}{% else -%}
 			{%- include linkback.css -%}
 		{%- endif -%}
 		{%- include master.scss -%}
@@ -62,17 +62,17 @@ layout: compress
 		{% endfor %}
 	{% endif %}
 	{% if page.url == "/latestmicro/" %}
-		{% assign silly = site.micro | where: "layout", "post" | last %}
-		<link rel="canonical" href="{{ site.url }}{{ silly.url }}" />
-	{% else if page.url == "/latest/" %}
-		{% assign silly = site.posts | where: "layout", "post" | first %}
-		<link rel="canonical" href="{{ site.url }}{{ silly.url }}" />
+		{% assign micro = site.micro | where: "layout", "post" | last %}
+		<link rel="canonical" href="{{ site.url }}{{ micro.url }}" />
+	{% elsif page.url == "/latest/" %}
+		{% assign latest = site.posts | where: "layout", "post" | first %}
+		<link rel="canonical" href="{{ site.url }}{{ latest.url }}" />
 	{% else %}
 		<link rel="canonical" href="{{ site.url }}{{ page.url }}" />
 	{% endif %}
 	</head>
 	<body>
-		{% if page.donotlinkback %}{% else if layout.donotlinkback %}{% else %}
+		{% if page.donotlinkback %}{% elsif layout.donotlinkback %}{% else %}
 		<nav id="linkback"><a href="/"><img src="/assets/images/jetroid-logo-miami.png" /></a></nav>
 		{% endif %}
 		{{ content }}
