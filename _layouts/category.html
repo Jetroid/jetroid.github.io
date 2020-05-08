@@ -6,12 +6,13 @@ custom_style_includes:
 <div id="index">
     <header>
 	    <h1>{{ page.category }}</h1>
-	    <p>View <a href="/index/">all posts</a>.</p>
+	    <p>View <a href="/archive/">all posts</a>.</p>
 	</header>
 	<table>
-	{% for post in site.categories[page.category] %}
-		<tr>
-			<td><h1>{{ post.date | date: "%b '%y" }}</h1></td>
+	{% assign stuff = site.categories[page.category] | concat: site.micro | sort: 'date' | reverse | where_exp: "item", "item.categories contains page.category" %}
+	{% for post in stuff %}
+		<tr class="{% if post.micro == true %}micro{% else %}post{% endif %}">
+			<td><h1><time>{{ post.date | date: "%d %b '%y" }}<time></h1></td>
 			<td><a href="{{ post.url | prepend: site.baseurl }}"><h1>{{ post.title }}</h1><p>{{ post.summary }}</p></a></td>
 		</tr>
 	{% endfor %}

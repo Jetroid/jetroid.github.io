@@ -2,6 +2,8 @@
 layout: default
 custom_style_includes:
 - index
+redirect_from:
+  - /index/
 ---
 <div id="index">
 	<h1>Index</h1>
@@ -26,26 +28,24 @@ custom_style_includes:
 	{% endfor %}
 
 	{{ categoryArray | array_to_sentence_string }}
-	
+
 	</p>
 
 	<h1>Posts</h1>
-	{% for post in site.posts %}
-		{% capture currentyear %}{{post.date | date: "%Y"}}{% endcapture %}
-		{% if currentyear != year %}
-			{% if year %}</table>{% endif %}
-			<h2 class="centered">{{ currentyear }}</h1>
-			<table>
-		{% capture year %}{{currentyear}}{% endcapture %} 
-		{% endif %}
-				<tr>
-					<td><h1>{{ post.date | date: "%b '%y" }}</h1></td>
-					<td>{% for category in post.categories %}
-					<p><a href="/{{ category | replace: ' ', '-' | downcase }}/">{{ category }}</a></p>
-					{% endfor %}
-					</td>
-					<td><a href="{{ post.url | prepend: site.baseurl }}"><h1>{{ post.title }}</h1><p>{{ post.summary }}</p></a></td>
-				</tr>
+	{% assign grouped_posts = site.posts | concat: site.micro | sort: 'date' | reverse | group_by_exp: "post", "post.date | date: '%Y'" %}
+	{% for year in grouped_posts %}
+		<h2 class="centered">{{ year.name }}</h1>
+		<table>
+		{% for post in year.items %}
+			<tr class="{% if post.micro == true %}micro{% else %}post{% endif %}" >
+				<td><h1><time>{{ post.date | date: "%d %b" }}</time></h1></td>
+				<td>{% for category in post.categories %}
+				<p><a href="/{{ category | replace: ' ', '-' | downcase }}/">{{ category }}</a></p>
+				{% endfor %}
+				</td>
+				<td><a href="{{ post.url | prepend: site.baseurl }}"><h1>{{ post.title }}</h1><p>{{ post.summary }}</p></a></td>
+			</tr>
+		{% endfor %}
+		</table>
 	{% endfor %}
-			</table>
 </div>

@@ -1,4 +1,4 @@
-{% unless page.suppress-bg == "true" %}
+{% unless page.suppress-bg == "true" or page.micro == true %}
 {% capture background-color-partial %}{% if overridebackgroundcolor != "" and overridebackgroundcolor != nil %}{{ overridebackgroundcolor }}{% else if page.background-color != "" and page.background-color != nil %}{{ page.background-color }}{% else if layout.background-color != "" and layout.background-color != nil %}{{ layout.background-color }}{% else %}#fff{% endif %}{% endcapture %}
 {% capture background-image-partial %}{% if overridebackground != "" and overridebackground != nil %}{{ overridebackground }}{% else if page.background != "" and page.background != nil %}{{ page.background }}{% else if layout.background != "" and layout.background != nil %}{{ layout.background }}{% else %}background-blog.jpg{% endif %}{% endcapture %}
 {% capture background-position-partial %}{% if overridebackgroundposition != "" and overridebackgroundposition != nil %}{{ overridebackgroundposition }}{% else if page.background-position != "" and page.background-position != nil %}{{ page.background-position }}{% else if layout.background-position != "" and layout.background-position != nil %}{{ layout.background-position }}{% else %}center center{% endif %}{% endcapture %}
@@ -71,4 +71,8 @@ body::before {
 	background-image: url("/assets/images/backgrounds/{{ image-name }}.{{ image-extension }}");
 }
 {%- endif -%}
+{% else %}
+body {
+	background-color: rgb(55,55,49);
+}
 {% endunless %}

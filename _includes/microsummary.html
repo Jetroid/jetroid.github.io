@@ -1,0 +1,42 @@
+<header id="page-header">
+	<nav id="linkback"><a href="/"><img src="/assets/images/jetroid-logo-miami.png" /></a></nav>
+	<div id="title-stuff">
+		<h1 id="page-title" class="borders">{{ post.title }}</h1>
+		<p id="page-subtitle" class="borders">{{ post.summary }}</p>
+	</div>
+</header>
+<div class="background  borders">
+	<article class="post-container">
+		<time class="post-date">{{ post.date | date: "%Y/%m" }}</time>
+		<hr class="divider"/>
+		<div id="post-content">
+			{{ post.content }}
+			{% assign monthyear = post.date | date: '%B-%Y' %}
+			{% assign micro_by_month = site.micro | group_by_exp:"micro", "micro.date | date: '%B-%Y'" %}
+			{% for item in micro_by_month %}
+				{% if item.name == monthyear %}
+					{% for micropost in item.items %}
+					<article>
+						<h1><a href="{{ micropost.url | prepend: site.baseurl }}">{{ micropost.title }}</a></h1>
+						<time>{{ micropost.date | date: "%Y/%m/%d" }}</time>
+						<p>{{ micropost.content | strip_html | truncatewords:50 }} <a href="{{ micropost.url | prepend: site.baseurl }}">read more</a></p>
+					</article>
+					{% endfor %}
+				{% endif %}
+			{% endfor %}
+		</div>
+	</article>
+	<hr class="divider"/>
+	{% include mailchimp.html %}
+	<hr class="divider"/>
+	<footer id="navigation">
+		{% if post.previous.url %}
+			<a id="prev-post" href="{{post.previous.url}}">&lsaquo;{{post.previous.title}}</a>
+		{% else %} <p id="prev-post">&nbsp;&nbsp;---</p>
+		{% endif %}
+		{% if post.next.url %}
+			<a id="next-post" href="{{post.next.url}}">{{post.next.title}}&rsaquo;</a>
+		{% else %} <p id="next-post">---&nbsp;&nbsp;</p>
+		{% endif %}
+	</footer>
+</div>

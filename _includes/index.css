@@ -8,6 +8,9 @@ body {
 table h1, p {
 	margin: 0;
 }
+td > h1 {
+	text-align: center;
+}
 h1 + p{
 	text-align: justify;
 }
@@ -27,8 +30,14 @@ tr td:nth-of-type(2) {
 tr td:nth-of-type(3) {
 	width: auto;
 }
-td {
+.post td, .micro td:nth-of-type(2){
 	padding: 5px;
+}
+.micro > td:nth-of-type(1), .micro > td:nth-of-type(3) {
+	font-size: xx-small;
+}
+.micro > td:nth-of-type(1) > h1 > time {
+	font-size: smaller;
 }
 #index {
 	padding-top: 40px;

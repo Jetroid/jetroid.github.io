@@ -19,8 +19,22 @@ image: me.png
 		<div id="image"></div>
 		<div id="text"><p>
 			I'm Jet, a <a href="http://www.ecs.soton.ac.uk/programmes/g401-meng-computer-science-4-yrs">CS</a> <a href="/all-of-school/">graduate</a> who enjoys working on his own <a href="/projects/">projects</a>. I'm known for my <a href="https://frequencycentral.co.uk/product-tag/Jetroid/">Eurorack synth modules</a>. <!-- I'm currently <a href="/trips/">travelling</a> in Asia. !-->
-			You can <a href="/index/">read all of my posts here</a><span id="mail"></span>.
+			You can <a href="/archive/">read all of my posts here</a><span id="mail"></span>.
 		</p></div>
+	</div>
+	<div id="microposts">
+		<h4>Latest Micro Posts:</h4>
+
+		{% assign micropostarray = '' | split:'@' %}
+
+		{% assign latest = site.micro | reverse %}
+		{% for post in latest limit:3 %}
+			{% capture link %}<a href="{{post.url}}">{{ post.title }}</a>{% endcapture %}
+			{% assign micropostarray = micropostarray | push: link %}
+		{% endfor %}
+
+		{{ micropostarray | array_to_sentence_string }}
+
 	</div>
 </div>
 {% else %}

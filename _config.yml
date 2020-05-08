@@ -1,4 +1,4 @@
-title: Jetroid!!
+title: Jetroid
 description: The personal site for Jet 'Jetroid' Holt
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://jetholt.com" # the base hostname & protocol for your site
@@ -17,6 +17,9 @@ collections:
     output: true
   trips:
     output: false
+  micro:
+    output: true
+    permalink: micro/:title/
 
 defaults:
   -
@@ -30,6 +33,13 @@ defaults:
       path: "old-terminal/*"
     values:
       sitemap: false
+  -
+    scope:
+      path: ""
+      type: micro
+    values:
+      layout: post
+      includemailchimp: false
 
 # Build settings
 markdown: kramdown
@@ -44,6 +54,7 @@ plugins:
   - jemoji
   - jekyll-sitemap
   - jekyll-paginate
+  - jekyll-redirect-from
 
 # Style settings - will be used in css
 style:

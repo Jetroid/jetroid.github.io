@@ -9,6 +9,7 @@ SOURCE = "."
 CONFIG = {
   'layouts' => File.join(SOURCE, "_layouts"),
   'posts' => File.join(SOURCE, "_posts"),
+  'micro' => File.join(SOURCE, "_micro"),
   'images' => File.join(SOURCE, "assets/images"),
   'post_ext' => "md",
 }
@@ -42,6 +43,36 @@ task :post do
     post.puts "summary: \"\""
     post.puts "categories:"
     post.puts " - \"\""
+    post.puts "---"
+  end
+end # task :post
+
+# Usage: rake micro title="Micro Title"
+desc "Begin a new micro post in #{CONFIG['micro']}"
+task :micro do
+  abort("rake aborted: '#{CONFIG['micro']}' directory not found.") unless FileTest.directory?(CONFIG['micro'])
+  title = ENV["title"] || ENV["Title"] || "new-post"
+  slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+  begin
+    date = (ENV['date'] ? Time.parse(ENV['date']) : Time.now).strftime('%Y-%m-%d')
+    time = (ENV['date'] ? Time.parse(ENV['date']) : Time.now).strftime('%T %z')
+  rescue => e
+    puts "Error - date format must be YYYY-MM-DD, please check you typed it correctly!"
+    exit -1
+  end
+  filename = File.join(CONFIG['micro'], "#{date}-#{slug}.#{CONFIG['post_ext']}")
+  if File.exist?(filename)
+    abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
+  end
+
+  puts "Creating new post: #{filename}"
+  open(filename, 'w') do |post|
+    post.puts "---"
+    post.puts "title: #{ title }"
+    post.puts "date: #{ date } #{ time }"
+    post.puts "micro: true"
+    post.puts "categories:"
+    post.puts " - \"Micro\""
     post.puts "---"
   end
 end # task :post

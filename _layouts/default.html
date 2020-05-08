@@ -29,7 +29,7 @@ layout: compress
 	{% if page.embed_twitter %}
 		<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 	{% endif %}
-	<!-- This whole section is incredibly ugly, but unfortunately necessary 
+	<!-- This whole section is incredibly ugly, but unfortunately necessary
 	as liquid 3.0.6 does not support concat !-->
 	{% assign delim = "|" %}
 	<!-- Custom Includes - use custom_style_includes in YAML front matter !-->
@@ -60,6 +60,15 @@ layout: compress
 				<link rel="stylesheet" href="/assets/css/{{ stylesheet }}.css" type="text/css">
 			{% endif %}
 		{% endfor %}
+	{% endif %}
+	{% if page.url == "/latestmicro/" %}
+		{% assign silly = site.micro | where: "layout", "post" | last %}
+		<link rel="canonical" href="{{ site.url }}{{ silly.url }}" />
+	{% else if page.url == "/latest/" %}
+		{% assign silly = site.posts | where: "layout", "post" | first %}
+		<link rel="canonical" href="{{ site.url }}{{ silly.url }}" />
+	{% else %}
+		<link rel="canonical" href="{{ site.url }}{{ page.url }}" />
 	{% endif %}
 	</head>
 	<body>

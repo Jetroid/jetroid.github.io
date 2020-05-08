@@ -10,7 +10,7 @@
 		<time class="post-date">{{ post.date | date: "%Y/%m/%d" }}</time>
 		<hr class="divider"/>
 		<div id="post-content">
-			{%- if jekyll.environment == "production" -%}
+			{%- if jekyll.environment == "production" and post.micro != true -%}
 			{%- assign pieces = post.content | split: '<img src="' -%}
 			{%- for piece in pieces -%}
 				{%- if forloop.first == true -%}
@@ -76,8 +76,10 @@
 		{% endif %}
 	</article>
 	<hr class="divider"/>
+	{% if post.includemailchimp != false %}
 	{% include mailchimp.html %}
 	<hr class="divider"/>
+	{% endif %}
 	<footer id="navigation">
 		{% if post.previous.url %}
 			<a id="prev-post" href="{{post.previous.url}}">&lsaquo;{{post.previous.title}}</a>

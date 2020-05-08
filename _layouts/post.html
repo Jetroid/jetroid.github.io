@@ -11,7 +11,7 @@ background-color: "#848485"
 custom_js_includes:
 - lazyload
 ---
-<div id="inside">
+<div id="inside" class="{% if page.micro == true %}micro{% else %}post{% endif %}">
 {% assign post = page %}
 {% include blog.html %}
 </div>

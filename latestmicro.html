@@ -1,17 +1,18 @@
 ---
 layout: default
-title: Latest Post
+title: Latest Micro Post
 custom_style_includes:
 - blog
-- mailchimp
 - linkback
 - background-blog
 background: "background-blog.jpg"
 background-color: "#848485"
 custom_js_includes:
 - lazyload
+micro: true
 ---
-{% assign post = site.posts | where: "layout", "post" | first %}
-<div id="inside" class="post">
+{% assign post = site.micro | where: "layout", "post" | last %}
+{% assign canonical = post.url %}
+<div id="inside" class="micro">
 {% include blog.html %}
 </div>

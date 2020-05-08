@@ -1,0 +1,4 @@
+---
+category: "Micro"
+permalink: "/micro/"
+---

@@ -5,8 +5,11 @@ body{
 #page-header{
 	width: 100%;
 	text-align: center;
-	height: 100vh;
 	position: relative;
+	height: 20vh;
+}
+.post #page-header{
+	height: 100vh;
 }
 #title-stuff {
 	position: absolute;
@@ -14,6 +17,9 @@ body{
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
+}
+.micro #title-stuff {
+	padding-top: 5vh;
 }
 /* I'm basically only going to be using tables for statistics... right? */
 th,td,table {
@@ -67,10 +73,24 @@ td {
 #post-content h1, h2, h3, h4, h5, h6{
 	margin-top: 0;
 	margin-bottom: 0;
-	font-size: 7vw;
 }
 #post-content h1{
 	font-size: 7.5vw;
+}
+#post-content h2{
+	font-size: 7.25vw;
+}
+#post-content h3{
+	font-size: 7vw;
+}
+#post-content h4{
+	font-size: 6.75vw;
+}
+#post-content h5{
+	font-size: 6.5vw;
+}
+#post-content h6{
+	font-size: 6.25vw;
 }
 .post-date {
 	margin-top: 0;
@@ -226,10 +246,24 @@ p/*ete*/ code/*s*/{
 	#post-content h1, h2, h3, h4, h5, h6{
 		margin-top: 0;
 		margin-bottom: 0;
-		font-size: 3vw;
 	}
 	#post-content h1{
 		font-size: 3.5vw;
+	}
+	#post-content h2{
+		font-size: 3.25vw;
+	}
+	#post-content h3{
+		font-size: 3vw;
+	}
+	#post-content h4{
+		font-size: 2.75vw;
+	}
+	#post-content h5{
+		font-size: 2.5vw;
+	}
+	#post-content h6{
+		font-size: 2.25vw;
 	}
 	.post-date {
 		font-size: 1.5vw;

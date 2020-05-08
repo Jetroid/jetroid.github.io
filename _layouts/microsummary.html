@@ -1,17 +1,17 @@
 ---
 layout: default
-title: Latest Post
 custom_style_includes:
 - blog
+- background-blog
 - mailchimp
 - linkback
-- background-blog
+donotlinkback: true
 background: "background-blog.jpg"
 background-color: "#848485"
 custom_js_includes:
 - lazyload
 ---
-{% assign post = site.posts | where: "layout", "post" | first %}
 <div id="inside" class="post">
-{% include blog.html %}
+{% assign post = page %}
+{% include microsummary.html %}
 </div>
