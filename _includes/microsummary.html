@@ -19,7 +19,7 @@
 					<article>
 						<h1><a href="{{ micropost.url | prepend: site.baseurl }}">{{ micropost.title }}</a></h1>
 						<time>{{ micropost.date | date: "%Y/%m/%d" }}</time>
-						<p>{{ micropost.content | strip_html | truncatewords:50 }} <a href="{{ micropost.url | prepend: site.baseurl }}">read more</a></p>
+						<p>{{ micropost.content | markdownify | strip_html | truncatewords:50 }} <a href="{{ micropost.url | prepend: site.baseurl }}">read more</a></p>
 					</article>
 					{% endfor %}
 				{% endif %}
