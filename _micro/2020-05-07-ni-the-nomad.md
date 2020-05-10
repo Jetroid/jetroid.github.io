@@ -29,6 +29,6 @@ I'm aiming to archive the website on web.archive.org every time she pushes an up
 
 Ni knows little to nothing about programming right now, so I'm excited to see how she progresses.
 
-P.S. I find it very funny that whilst most westerns get into the 'digital nomad' lifestyle so that they can go and live in Bali, Ni is interested in learning these skills so that she can get away!
+P.S. I find it very funny that whilst most westerners get into the 'digital nomad' lifestyle so that they can go and live in Bali, Ni is interested in learning these skills so that she can get away!
 
 

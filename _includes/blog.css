@@ -147,10 +147,6 @@ blockquote {
 blockquote p {
 	margin: 0 0 0 1em;
 }
-#post-content blockquote * {
-  font-size: 2.2vw;
-}
-
 /* Code blocks should wrap and be even more background-ier!*/
 pre, code {
 	border: 1px solid #d05d5d;

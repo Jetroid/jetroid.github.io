@@ -18,7 +18,7 @@ I was in a very negative mindset, and it shows. I felt like my life sucked, was 
 
 I was complaining a lot, or writing about the bad things that had happened to me, or just talking about the few boring things I did.
 
-Few of the posts from that time are worth reading, so I won't be publishing all of them. Of those that are at least half way interesting, I will edit and produce proper backdated blog posts with at some point.
+Few of the posts from that time are worth reading, so I won't be publishing all of them. Of those that are at least half way interesting, I will edit and produce proper backdated blog posts with their content at some point.
 
 It's a good idea to be conscious about how our mood and mindset is affecting our output, especially during our current shared Coronavirus experience!
 
