@@ -4,7 +4,7 @@ date: 2020-05-10 22:41:40 +0100
 micro: true
 categories:
  - "Micro"
- - "Tutorial"
+ - "Tutorials"
  - "Jekyll"
 ---
 In this tutorial, I will instruct you about how to create a page to show all of an author's posts, without using any plugins.
@@ -38,7 +38,7 @@ defaults:
 
 ```
 
-The first block (`collections`) defines `authors` as a new collection. It says that the files should be output (meaning that all files in the `_authors/` directory map to pages on your site), and that the url for those pages should be your.website.url/author/title-of-your-file/
+The first block (`collections`) defines `authors` as a new collection. It says that the files should be output (meaning that all files in the `_authors/` directory map to pages on your site), and that the url for those pages should be `your.website.url/author/title-of-your-file/`
 
 The second block (`defaults`) says that all posts with the type `authors` (ie, anything in the `authors` collection) should use the `author` layout.
 
@@ -113,6 +113,8 @@ Everyone's `post.html` layout will be different, so I can only provide some code
 
 Modify these snippets and include them wherever you want to link to the author of a post. This will probably be in `post.html` layout, and perhaps even somewhere in your `index.html` to.
 
+**NB: You may have to change `post` to `page` to get these snippets to work!**
+
 ###### Simple Snippet
 
 This first simple snippet simply writes each author's names (as hyperlinks to their author pages) to new lines, similar to the below:
@@ -160,7 +162,7 @@ Next, we want to create the template for our author pages. This will be the temp
 
 Again, this will vary drastically from site to site, so I will just be including some useful snippets.
 
-Note that all of the fields you created in you `_authors/username.md` file are accessible here using the `page` variable. For example, `jetroid`'s `page.name` is `Jet A. Holt`.
+Note that all of the fields you created in your `_authors/username.md` file are accessible here using the `page` variable. For example, `jetroid`'s `page.name` is `Jet A. Holt`.
 
 ###### Header, Photo, Bio
 
