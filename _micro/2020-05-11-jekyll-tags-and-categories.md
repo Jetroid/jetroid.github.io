@@ -4,9 +4,11 @@ date: 2020-05-11 22:57:19 +0100
 micro: true
 categories:
  - "Micro"
+ - "Tutorials"
+ - "Jekyll"
 ---
 
-Continuing on from [my post yesterday](/micro/jekyll-author-pages/) where I gave you code snippets to use to make a author pages, today I will give you snippets that are useful for making tags and categories pages.
+Continuing on from [my tutorial yesterday](/micro/jekyll-author-pages/) where I gave you code snippets to use to make a author pages, in today's tutorial I will give you snippets that are useful for making tags and categories pages.
 
 **Tags and categories are implemented in the same way in Jekyll, so I will refer to both as 'tags'. To implement categories, simply replace the word 'tag' with 'category', and the code should all still work.**
 
