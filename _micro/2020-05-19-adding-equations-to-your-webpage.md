@@ -35,6 +35,7 @@ $$
 
 and when you load your page, MathJax will automatically convert them:
 
+<div>
 $$
 f(x)=\begin{cases}
     1  &: x \leq -1\\
@@ -42,8 +43,9 @@ f(x)=\begin{cases}
     1  &: x \geq 1\\
 \end{cases}
 $$
+</div>
 
-and your \\( \\text{inline mathematics}: x \\leq -1 \\)
+...or some \\( \\text{inline mathematics}: x \\leq -1 \\)
 
 If you are writing your article in markdown, you might have to double up any backslashes for inline mathematics, because they are interpreted as an escape character. I'm writing this article in markdown, so the above inline mathematics actually looked like this:
 
