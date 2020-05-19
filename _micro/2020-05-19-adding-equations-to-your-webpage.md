@@ -11,7 +11,13 @@ If you work in mathematics or a mathematics adjacent field, eventually you're go
 
 If you're in one of those fields, more likely than not, you're familiar with LaTeX and it's equations.
 
-[MathJax](https://github.com/mathjax/MathJax) is an open source JavaScript library that you can embed on to your page to add
+[MathJax](https://github.com/mathjax/MathJax) is an open source JavaScript library that you can embed on to your page.
+
+Simply add the following to the end of your HTML:
+
+```
+<script src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js' type="text/javascript"></script>
+```
 
 Then simply add some LaTex math notation to your document (between two set of `$$` for blocks of mathematics, and between `\(` and `\)` for inline mathematics):
 
