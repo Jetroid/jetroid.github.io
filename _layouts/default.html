@@ -79,16 +79,16 @@ layout: compress
 		<!-- Custom JS (as seperate file) - use custom_js in YAML front matter !-->
 		{% assign had_elements = "" %}
 		{% if page.custom_js %}
-			{% for js_file in page.custom_js %}
-				{% capture had_elements %}{{ had_elements | join: delim }}{{ delim }}{{ js_file }}{% endcapture %}
+			{% for js_url in page.custom_js %}
+				{% capture had_elements %}{{ had_elements | join: delim }}{{ delim }}{{ js_url }}{% endcapture %}
 				{% assign had_elements = had_elements | split: delim %}
-				<script src='/assets/js/{{ js_file }}.js' type="text/javascript"></script>
+				<script src='{{ js_url }}' type="text/javascript"></script>
 			{% endfor %}
 		{% endif %}
 		{% if layout.custom_js %}
-			{% for js_file in layout.custom_js %}
-				{% if had_elements contains js_file %}{% else %}
-					<script src='/assets/js/{{ js_file }}.js' type="text/javascript"></script>
+			{% for js_url in layout.custom_js %}
+				{% if had_elements contains js_url %}{% else %}
+					<script src='{{ js_url }}' type="text/javascript"></script>
 				{% endif %}
 			{% endfor %}
 		{% endif %}
