@@ -1,5 +1,5 @@
 ---
-title: Running Without Music: Day One
+title: "Running Without Music: Day One"
 date: 2020-06-03 23:14:58 +0100
 micro: true
 categories:
