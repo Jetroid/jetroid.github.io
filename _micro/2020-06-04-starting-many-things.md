@@ -29,7 +29,7 @@ Personally, despite all of his achievements, my favourite thing that he has done
 
 Whilst studying the Intelligent Agents module at my university, I was introduced to the concepts of Exploration and Exploitation. Exploration is when you purposefully choose not to take the action that you think will be most rewarding, but to try something new to gain new information. Exploitation is when you take advantage of the best strategies that you have discovered through exploration.
 
-In Reinforcement Learning, agents (ie intelligent programs) are rewarded (given points) when they do something right, and punished (receive a point penalty) when they do something right. The idea is that the agent will learn the kind of action to do to maximize reward.
+In Reinforcement Learning, agents (ie intelligent programs) are rewarded (given points) when they do something right, and punished (receive a point penalty) when they do something wrong. The idea is that the agent will learn the kind of action to do to maximize reward.
 
 If the agent finds the first strategy that works and then does it over and over again, they risk missing out on a more optimal strategy and get a worse outcome overall. So instead, the agent follows a period of exploration, where it tries to determine the optimal strategy, and then once the optimal strategy is identified, it exploits it by following the optimal strategy repeatedly. If the environment can change, the agent might occasionally try something new to see if a better option has come into existence.
 
