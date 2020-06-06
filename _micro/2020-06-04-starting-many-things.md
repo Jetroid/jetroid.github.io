@@ -5,7 +5,7 @@ micro: true
 categories:
  - "Micro"
 ---
-My friend [Pat](patwalls.co) wrote an article yesterday titled 'A lot about a little', in which he talks about how he is currently trying to [avoid starting new things](https://daily.patwalls.co/a-lot-about-a-little). He says that if he focuses on mastering just a few things, he would be happier, and have more success.
+My friend [Pat](https://patwalls.co) wrote an article yesterday titled 'A lot about a little', in which he talks about how he is currently trying to [avoid starting new things](https://daily.patwalls.co/a-lot-about-a-little). He says that if he focuses on mastering just a few things, he would be happier, and have more success.
 
 He also talks about how most people have one thing that they are known for, and how he has apprehensions about being locked into a specific career or endeavour. He gives the example of Tiger Woods, who is known for golf. Everything Tiger Woods does is about Golf. He plays golf, designs golf courses, and writes about golf.
 
