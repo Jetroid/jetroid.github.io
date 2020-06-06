@@ -30,6 +30,7 @@ redirect_from:
 	{{ categoryArray | array_to_sentence_string }}
 
 	</p>
+	<p> RSS Feeds: <a href="/feed.xml">Main Posts</a>, <a href="/microfeed.xml">Daily Posts</a>, <a href="/all.xml">Everything</a></p>
 
 	<h1>Posts</h1>
 	{% assign grouped_posts = site.posts | concat: site.micro | sort: 'date' | reverse | group_by_exp: "post", "post.date | date: '%Y'" %}
