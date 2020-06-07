@@ -46,8 +46,11 @@ markdown: kramdown
 compress_html:
   comments: all
   clippings: all
+  ignore:
+    envs: ["development"]
 sass:
   style: compressed
+
 #Jekyll Sitemap must come after any gems which generate content
 #gems which come after sitemap will not be included in the sitemap
 plugins:

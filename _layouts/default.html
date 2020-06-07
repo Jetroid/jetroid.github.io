@@ -2,36 +2,29 @@
 layout: compress
 ---
 <!DOCTYPE html>
+{% assign empty_array = "" | split: "," %}
 <html lang="en" Itemscope=”Blog”>
 	<head>
 	<link rel="dns-prefetch" href="//www.google-analytics.com" />
 	<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+
 	<!-- Custom Preconnects - use custom_preconnect in YAML front matter !-->
-	{% assign had_elements = "" %}
-	{% if page.custom_preconnect %}
-		{% for preconnect in page.custom_preconnect %}
-			{% capture had_elements %}{{ had_elements | join: delim }}{{ delim }}{{ preconnect }}{% endcapture %}
-			{% assign had_elements = had_elements | split: delim %}
-			<link rel="dns-prefetch" href="//{{ preconnect }}" />
-			<link rel="preconnect" href="https://{{ preconnect }}" crossorigin>
-		{% endfor %}
-	{% endif %}
-	{% if layout.custom_preconnect %}
-		{% for preconnect in layout.custom_preconnect %}
-			{% if had_elements contains preconnect %}{% else %}
-				<link rel="dns-prefetch" href="//{{ preconnect }}" />
-				<link rel="preconnect" href="{{ preconnect }}" crossorigin>
-			{% endif %}
-		{% endfor %}
-	{% endif %}
+	{% assign page_preconnects = page.custom_preconnect | default: empty_array %}
+    {% assign layout_preconnects = layout.custom_preconnect | default: empty_array %}
+    {% assign custom_preconnect = page_preconnects | concat: layout_preconnects | uniq %}
+	{% for preconnect in custom_preconnects %}
+		<link rel="dns-prefetch" href="//{{ preconnect }}" />
+		<link rel="preconnect" href="https://{{ preconnect }}" crossorigin>
+	{% endfor %}
+
 	{% include sitewide.html %}
+
 	<meta name="google-site-verification" content="9pNs8vHQ1C9hsyUgQ6tFQDPzNH_ANAd8kB9GcnBARYc" />
+
 	{% if page.embed_twitter %}
 		<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 	{% endif %}
-	<!-- This whole section is incredibly ugly, but unfortunately necessary
-	as liquid 3.0.6 does not support concat !-->
-	{% assign delim = "|" %}
+
 	<!-- Custom Includes - use custom_style_includes in YAML front matter !-->
 	{%- capture include_to_scssify -%}
 		{%- unless page.nopresets -%}
@@ -42,25 +35,20 @@ layout: compress
 		{%- endif -%}
 		{%- include master.scss -%}
 	{%- endcapture -%}
+
 	<style>
 		{{ include_to_scssify | scssify }}
 	</style>
+
 	<!-- Custom Stylesheets - use custom_css in YAML front matter !-->
-	{% assign had_elements = "" %}
-	{% if page.custom_css %}
-		{% for stylesheet in page.custom_css %}
-			{% capture had_elements %}{{ had_elements | join: delim }}{{ delim }}{{ stylesheet }}{% endcapture %}
-			{% assign had_elements = had_elements | split: delim %}
-			<link rel="stylesheet" href="/assets/css/{{ stylesheet }}.css" type="text/css">
-		{% endfor %}
-	{% endif %}
-	{% if layout.custom_css %}
-		{% for stylesheet in layout.custom_css %}
-			{% if had_elements contains stylesheet %}{% else %}
-				<link rel="stylesheet" href="/assets/css/{{ stylesheet }}.css" type="text/css">
-			{% endif %}
-		{% endfor %}
-	{% endif %}
+	{% assign page_css = page.custom_css | default: empty_array %}
+    {% assign layout_css = layout.custom_css | default: empty_array %}
+    {% assign custom_css = page_css | concat: layout_css | uniq %}
+	{% for stylesheet in custom_css %}
+		<link rel="stylesheet" href="/assets/css/{{ stylesheet }}.css" type="text/css">
+	{% endfor %}
+
+	<!-- Set Canonical URLS for latest and latestmicro !-->
 	{% if page.url == "/latestmicro/" %}
 		{% assign micro = site.micro | where: "layout", "post" | last %}
 		<link rel="canonical" href="{{ site.url }}{{ micro.url }}" />
@@ -70,45 +58,31 @@ layout: compress
 	{% else %}
 		<link rel="canonical" href="{{ site.url }}{{ page.url }}" />
 	{% endif %}
+
 	</head>
 	<body>
 		{% if page.donotlinkback %}{% elsif layout.donotlinkback %}{% else %}
 		<nav id="linkback"><a href="/"><img src="/assets/images/jetroid-logo-miami.png" /></a></nav>
 		{% endif %}
 		{{ content }}
+
 		<!-- Custom JS (as seperate file) - use custom_js in YAML front matter !-->
-		{% assign had_elements = "" %}
-		{% if page.custom_js %}
-			{% for js_url in page.custom_js %}
-				{% capture had_elements %}{{ had_elements | join: delim }}{{ delim }}{{ js_url }}{% endcapture %}
-				{% assign had_elements = had_elements | split: delim %}
-				<script src='{{ js_url }}' type="text/javascript"></script>
-			{% endfor %}
-		{% endif %}
-		{% if layout.custom_js %}
-			{% for js_url in layout.custom_js %}
-				{% if had_elements contains js_url %}{% else %}
-					<script src='{{ js_url }}' type="text/javascript"></script>
-				{% endif %}
-			{% endfor %}
-		{% endif %}
+		{% assign page_js = page.custom_js | default: empty_array %}
+    	{% assign layout_js = layout.custom_js | default: empty_array %}
+    	{% assign custom_js = page_js | concat: layout_js | uniq %}
+		{% for js_url in custom_js %}
+			<script src='{{ js_url }}' type="text/javascript"></script>
+		{% endfor %}
+
 		<script>
-		{% include analytics.min.js %}
-		{% assign had_elements = "" %}
-		{% if page.custom_js_includes %}
-			{% for script in page.custom_js_includes %}
-				{% capture had_elements %}{{ had_elements | join: delim }}{{ delim }}{{ script }}{% endcapture %}
-				{% assign had_elements = had_elements | split: delim %}
-				{% include {{ script }}.min.js %}
-			{% endfor %}
-		{% endif %}
-		{% if layout.custom_js_includes %}
-			{% for script in layout.custom_js_includes %}
-				{% if had_elements contains script %}{% else %}
-					{% include {{ script }}.min.js %}
-				{% endif %}
-			{% endfor %}
-		{% endif %}
+			{% include analytics.min.js %}
+
+		{% assign page_custom_js_includes = page.custom_js_includes | default: empty_array %}
+    	{% assign layout_custom_js_includes = layout.custom_js_includes | default: empty_array %}
+    	{% assign custom_js_includes = page_custom_js_includes | concat: layout_custom_js_includes | uniq %}
+		{% for script in custom_js_includes %}
+			{% include {{ script }}.min.js %}
+		{% endfor %}
 		</script>
 	</body>
 </html>
