@@ -62,7 +62,7 @@ Eventually we reached the summit of the mountain, 2151m above sea level. It was 
 ![At the summit of Mt. Abang, 2151m above sea level.]({{ site.url }}/assets/images/content/bali-mountain-summit.jpg)
 *At the summit of Mt. Abang, 2151m above sea level.*
 
-During our climb, I had trouble getting purchase on the damp mud and slippery soil a few times. This wasn't too bad on the climb up, but on the way down, I slipped repeatedly. It was really embarrassing for me and I felt like I was letting down my culture and representing the west in a bad way. In truth, it was because my trainers were worn down and flat from the hundreds of kilometers of running that I had done in the sixth months since I had bough my shoes. But nobody believed that excuse.
+During our climb, I had trouble getting purchase on the damp mud and slippery soil a few times. This wasn't too bad on the climb up, but on the way down, I slipped repeatedly. It was really embarrassing for me and I felt like I was letting down my culture and representing the west in a bad way. In truth, it was because my trainers were worn down and flat from the hundreds of kilometres of running that I had done in the sixth months since I had bought my shoes. But nobody believed that excuse.
 
 ![Struggling to make my way down an incline.]({{ site.url }}/assets/images/content/bali-mountain-slipping.jpg)
 *Struggling to make my way down an incline.*
