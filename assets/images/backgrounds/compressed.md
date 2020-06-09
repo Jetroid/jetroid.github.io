@@ -256,4 +256,11 @@ images:
 - may-768.jpg
 - may-640.jpg
 - may.jpg
+- bali-mountains-1920.jpg
+- bali-mountains-1600.jpg
+- bali-mountains-1366.jpg
+- bali-mountains-1024.jpg
+- bali-mountains-768.jpg
+- bali-mountains-640.jpg
+- bali-mountains.jpg
 ---
