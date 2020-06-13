@@ -18,8 +18,13 @@ body{
 	left: 50%;
 	transform: translate(-50%,-50%);
 }
+.micro #page-header {
+	height: auto;
+}
 .micro #title-stuff {
 	padding-top: 5vh;
+	position: static;
+	transform: none;
 }
 /* I'm basically only going to be using tables for statistics... right? */
 th,td,table {
