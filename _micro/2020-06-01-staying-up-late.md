@@ -12,13 +12,13 @@ This usually isn't because I "work better at night" - I actually feel like I pro
 
 And it isn't because I "prefer to be awake at night". I do - it's cooler and quieter - but that's not the reason.
 
-No, it's because I keep trying to push to achieve more in a day.
+No, it's because **I keep trying to push to achieve more in a day**.
 
-Let's say I'm sleeping at a 'normal' sleep schedule - waking up early, sleeping before midnight, whatever. Sometimes, if I'm not happy with what I achieved during the day, I try to squeeze in a little more by staying up late.
+Let's say I'm sleeping at a 'normal' sleep schedule - waking up early, sleeping before midnight, whatever. If I'm not happy with what I achieved during the day, I try to squeeze in *a little bit more* by staying up late.
 
 This has a knock-on effect of making me wake up later (assuming that I don't have a commitment to attend to).
 
-Repeat this enough times, and suddenly I'm waking up during the middle of the day, and heading to sleep at around the same time that the sun is beginning to rise!
+Repeat this enough times, and suddenly *I'm waking up during the middle of the day*, and heading to sleep at around the same time that the sun is beginning to rise!
 
 I end up having to do a 'correction day' where I stay awake for longer and sleep at a 'normal' time.
 
@@ -32,5 +32,5 @@ Maybe I should try it the other way. If I want to "push" to achieve a little mor
 
 Food for thought.
 
-<small>Yes, this was published at 4AM. I'm on a night own schedule right now.</small>
+<small>Yes, this was published at 4AM. I'm on a night owl schedule right now.</small>
 

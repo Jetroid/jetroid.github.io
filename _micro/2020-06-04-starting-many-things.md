@@ -64,3 +64,7 @@ I want to conclude with the following statements:
 * Be true to who you are inside. Don't do something just because you want other people to see you in a certain way, or because you see others doing something a certain way. Don't feel confused just because your life doesn't look like your peers.
 * By all means, find something that you can dedicate your life to, but make sure that you're not just [falling into place](/micro/falling-into-place). Make sure you've explored all of your options and that you're happy with the path you're taking.
 * Not everything has to be for profit. Not everything has to be worked on consistently. It's okay to waste a few days on something that will never see the light of day just to get an urge out of your system. You might even learn something from the process that you can apply to your main endeavour.
+
+[This post was discussed on Hacker News.](https://news.ycombinator.com/item?id=23427591){: .cta }
+
+[Read Pat's response here.](https://patwalls.com/virtuoso){: .cta }
