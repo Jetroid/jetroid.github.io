@@ -5,7 +5,7 @@ micro: true
 categories:
  - "Micro"
 ---
-Last week, I wrote a post titled "[Starting Many Things](/micro/starting-many-things/)", which was a reply to my friend Pat's post called "[A Little About A Lot](https://patwalls.com/a-lot-about-a-little)".
+Last week, I wrote a post titled "[Starting Many Things](/micro/starting-many-things/)", which was a reply to my friend Pat's post called "[A Lot About A Little](https://patwalls.com/a-lot-about-a-little)".
 
 I felt that it was an article deserving of a response, and rather respond to him directly, I thought it could  be fun to lay out my ideas in one of the microblogs that I'm currently writing for this site.
 
@@ -80,7 +80,7 @@ I also really appreciated [aazaa's comment](https://news.ycombinator.com/item?id
 
 As another take away is that I'm very greatful that I added a call to action at the bottom of my articles. When I first added it, it felt a little tacky. Currently, I have a link to my twitter account; because of that, I near enough doubled my current twitter followers overnight.
 
-[Read Pat's original post, 'A Little About A Lot' here.](https://daily.patwalls.co/a-lot-about-a-little){: .cta}
+[Read Pat's original post, 'A Lot About A Little' here.](https://daily.patwalls.co/a-lot-about-a-little){: .cta}
 
 [Read my post, 'Starting Many Things', here.](/micro/starting-many-things/){: .cta}
 

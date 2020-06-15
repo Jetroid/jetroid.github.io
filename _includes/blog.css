@@ -236,6 +236,35 @@ p/*ete*/ code/*s*/{
 	font-size: larger;
 }
 
+.spoiler:hover {
+    color: #cfcfc9;
+    background: transparent;
+}
+.spoiler {
+    color: #d05d5d;
+    background: #d05d5d;
+}
+.spoiler::before {
+	content: "Spoiler";
+	position: relative;
+    color: #cfcfc9;
+    margin: auto;
+}
+.spoiler:hover::before {
+	display: none;
+}
+/* Accessibility Stuff */
+.visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
+}
 /* Make font size less gaudy on large screens */
 @media (min-width: 500px){
 	#page-title{
