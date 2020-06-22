@@ -19,4 +19,4 @@ Feel terrible on a run, or whilst lifting weights? No worries. It'll end. Keep p
 
 Doing great, making lots of money? That'll end, so make sure you're preparing for the future.
 
-I often think about this - and a few logical extensions - when I'm finding something tough. I might be experiencing pain or displeasure now, but by tomorrow/next week/next month, I won't be feeling it, and [can look upon it fondly](/micro/the-best-times/). My current feelings don't matter, so why not 'rip off the bandaid' and experience all the pain at once rather than drawing it out? The pain will pass, so why not embrace it?
+I often think about this - and a few logical extensions - when I'm finding something tough. I might be experiencing pain or displeasure now, but by tomorrow/next week/next month, I won't be feeling it, and [can look upon it fondly](/micro/the-best-times/){: .no-cta }. My current feelings don't matter, so why not 'rip off the bandaid' and experience all the pain at once rather than drawing it out? The pain will pass, so why not embrace it?

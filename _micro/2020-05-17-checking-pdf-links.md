@@ -36,4 +36,4 @@ Processing Stasis-Leak-Build-Doc.pdf file..
 
 Thus automating the detection part of the process, making it much simpler to correct all of the hyperlinks.
 
-(I used [masterpdfeditor4](https://aur.archlinux.org/packages/masterpdfeditor-free/) to edit the PDF links.)
+(I used [masterpdfeditor4](https://aur.archlinux.org/packages/masterpdfeditor-free/){: .no-cta } to edit the PDF links.)
