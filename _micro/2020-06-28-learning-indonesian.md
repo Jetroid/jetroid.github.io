@@ -18,11 +18,11 @@ Anyway, here goes...!
 
 Hari ini tanggal dua puluh delapan bulan Juni. Saat ini, aku tinggal di Inggris dengan orang tuaku. Biasanya, aku suka berkunjung banyak negara, tapi karena pandeminya, aku tidak bisa lakukan itu sekarang. Minggu ini, aku akan bekerja membuat situs web untuk menjual produkku. Aku sudah mulai, tapi hanya sedikit komplet. Aku mau membuat situs web yang menarik dan keren, dan aku berpikir yang aku bisa. Aku harap ada banyak orang akan suka situsku. Aku sedikit miskin sekarang, jadi jika banyak orang membeli produkku, itu sangat baik.
 
-Aku tidak tahu apa aku lakukan tahun depan. Apakah aku akan perjalanan lagi? Apakah aku bisa boleh it? Atau apakah pandemi arti yang segala masih tutup?
+Aku tidak tahu apa aku lakukan tahun depan. Apakah aku akan perjalanan lagi? Apakah aku bisa boleh itu? Atau apakah pandemi arti yang segala masih tutup?
 
 Aku sudah bosan tinggal di Inggris. Aku tidak pernah bermain disini; aku hanya olah raga, lari, belajar, dan bekerja. Aku rindu makan luar, bertemu teman atau pacarku, dan jumpa orang baru. Aku mau melihat sesuatu baru dan makan makanan baru, juga.
 
-Namun, ketika aku di negara yang baru, terkadang aku merasa sedikit sedih. Aku tidah tahu kenapa, tapi aku berpikir itu karena aku sendiri. Aku paling senang ketika aku berkunjung Chiang Mai di Desember 2018, karena aku punya banyak teman di sekitar aku. Aku suka tinggal dengan pacarku juga, tapi dia selalu marah dengan aku karena aku mengganggu dia terlalu banyak dan tidak pernah lakukan yang dia mau. Dia sangat mau menikah, tapi aku sangat jauh dari siap.
+Namun, ketika aku di negara yang baru, terkadang aku merasa sedikit sedih. Aku tidak tahu kenapa, tapi aku berpikir itu karena aku sendiri. Aku paling senang ketika aku berkunjung Chiang Mai di Desember 2018, karena aku punya banyak teman di sekitar aku. Aku suka tinggal dengan pacarku juga, tapi dia selalu marah dengan aku karena aku mengganggu dia terlalu banyak dan tidak pernah lakukan yang dia mau. Dia sangat mau menikah, tapi aku sangat jauh dari siap.
 
 Jika hidup aku menjadi sempurna, maka aku selalu bersama dengan temanku dan pacarku (dan punya lebih banyak uang, juga!). Aku mau membuat sesuatu yang aku tidak harus menjual. Aku hanya mau membuat untuk aku. Seperti furnitur seni; tidak untuk duduk, tapi lihat. Mirip lampu gunting atau meja kawat oleh Simone Giertz, atau apa pun oleh Colin Furze atau Eli Orzechowski (ZNA Productions).
 
