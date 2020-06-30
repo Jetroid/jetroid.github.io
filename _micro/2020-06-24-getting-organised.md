@@ -1,6 +1,6 @@
 ---
 title: Getting Organised
-date: 2020-06-25 04:06:44 +0100
+date: 2020-06-24 20:06:44 +0100
 micro: true
 categories:
  - "Micro"
