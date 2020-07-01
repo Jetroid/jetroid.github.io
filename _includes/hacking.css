@@ -358,6 +358,12 @@ img {
 .close:after {
 	transform: rotate(-45deg);
 }
+.hide .close:before{
+	transform: rotate(0deg);
+}
+.hide .close:after {
+	transform: rotate(90deg);
+}
 
 /* Chevron thanks to https://codepen.io/jonneal/ */
 .chevron {
