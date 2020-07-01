@@ -18,7 +18,7 @@ var hadRefresh = false;
 var clickedBrackets = new Set();
 //Has the user been locked out?
 var terminalLocked = false;
-//Used as a 'loading' distraction. 
+//Used as a 'loading' distraction.
 var commandPromptText = [
 	{"text":"WELCOME TO ROBCO INDUSTRIES (TM) TERMLINK", "isMachine":true, "delay":10, "targetId":"loading-welcome"},
 	{"text":"\>", "isMachine":true, "delay":400, "targetId":"loading-firsttype"},
@@ -49,7 +49,7 @@ var minigameText = [
 	{"text":"ENTER PASSWORD NOW", "isMachine":true, "delay":10},
 	{"text":"4 Attempt(s) Left: ██ ██ ██ ██", "isMachine":true, "delay":10},
 ];
-//Prerendered left and right pointers and symbols columns 
+//Prerendered left and right pointers and symbols columns
 var ptrleft = "";
 var ptrright = "";
 var symbolsleft = "";
@@ -100,7 +100,7 @@ var generateDataCorruption = function(){
 			if(words.length > 0){
 				//Which word do we add?
 				wordindex = Math.floor(Math.random() * words.length);
-				string += " " + words[wordindex] + " "; 
+				string += " " + words[wordindex] + " ";
 				words.splice(wordindex,1)
 			}
 		}
@@ -143,7 +143,7 @@ var viewPost = function(postURL){
 			var corruptionContainer = document.createElement("p");
 			corruptionContainer.innerHTML = generateDataCorruption();
 			container.innerHTML = "";
-			container.appendChild(corruptionContainer); 
+			container.appendChild(corruptionContainer);
 		}
 		document.getElementById("enter").play();
 		resizeLoggedIn();
@@ -443,7 +443,7 @@ var hover = function(span) {
 	if(enableMinigame != true){
 		return;
 	}
-	//Do special stuff if it's a word 
+	//Do special stuff if it's a word
 	if (span.classList.contains("word")) {
 		var word = getWordFromSpan(span);
 		var wordNoSpaces = word.replace(/ /g,"");
@@ -481,7 +481,7 @@ var hover = function(span) {
 	}
 }
 var unhover = function(span) {
-	//Do special stuff if it's a word 
+	//Do special stuff if it's a word
 	span.classList.remove("highlight");
 	if (span.classList.contains("word")) {
 		//Determine the correct classname that identifies this word
@@ -575,7 +575,7 @@ var fixImages = function(){
 		//Make background-image of `var image` equal to the src of the image
 		//as this way we can use background-blend-mode
 		image.src = image.getAttribute("data-src");
-		image.style.backgroundImage = 'url(' + image.getAttribute("data-src") +')'; 
+		image.style.backgroundImage = 'url(' + image.getAttribute("data-src") +')';
 
 
 		var parentdiv = document.createElement("DIV");
@@ -977,17 +977,18 @@ var mute = function() {
 }
 
 function toggleFullScreen() {
-  var doc = window.document;
-  var docEl = doc.documentElement;
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    var doc = window.document;
+    var docEl = doc.documentElement;
 
-  var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
-  var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+    var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+    var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
 
-  if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
-    requestFullScreen.call(docEl);
-  }
-  else {
-    cancelFullScreen.call(doc);
+    if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+      requestFullScreen.call(docEl);
+    } else {
+      cancelFullScreen.call(doc);
+    }
   }
 }
 
