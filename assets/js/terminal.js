@@ -289,7 +289,7 @@ var autoComplete = function() {
 			} else if (options === "directories") {
 				autocompleteFiles(userTyped, toComplete, options);
 			} else if (options === "commands") {
-				autocommand(userTyped, toComplete);
+				autocompleteCommand(userTyped, toComplete);
 			} else if (typeof options === "string") {
 				document.getElementById("data").value = userTyped.replace(new RegExp(toComplete + '$'), options);
 				writeInput();
