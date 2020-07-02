@@ -1,6 +1,6 @@
 // SETUP THE FILESYSTEM AND USERS
 // the root /
-var filesystem = new FilesystemObject("/","directory","755","root","root", 
+var filesystem = new FilesystemObject("/","directory","755","root","root",
 	new Date(Date.parse('04 Feb 2018 22:22:22 GMT')));
 // the etc folder
 filesystem.content["etc"] =	new FilesystemObject("etc","directory","755","root","root",
@@ -14,8 +14,8 @@ filesystem.content["etc"].content["shadow"] = new FilesystemObject("shadow","fil
 filesystem.content["etc"].content["shadow"].content["text"] = "root:qwertyuiop:17516::::::\r\n" +
 "bin:!!:17515::::::\r\njetroid:lovesecretsexgod:17576:0:99999:7:::";
 // the /home folder
-filesystem.content["home"] = 
-	new FilesystemObject("home","directory","755","root","root", 
+filesystem.content["home"] =
+	new FilesystemObject("home","directory","755","root","root",
 	new Date(Date.parse('04 Feb 2018 22:23:01 GMT')),filesystem);
 // jetroid's home directory
 filesystem.content["home"].content["jetroid"] =
@@ -32,8 +32,8 @@ var User = function(name,isSuperUser,groups,homeDirectory) {
 };
 
 var users = {
-	"root": new User("root",true,["root"],filesystem.content["root"],),
-	"jetroid": new User("jetroid",false,["users"],filesystem.content["home"].content["jetroid"]) 
+	"root": new User("root",true,["root"],filesystem.content["root"]),
+	"jetroid": new User("jetroid",false,["users"],filesystem.content["home"].content["jetroid"])
 }
 var groups = ["root","users"];
 // add my blogposts to my home directory
@@ -44,7 +44,8 @@ var currentUser = users["jetroid"];
 var workingDirectory = currentUser.homeDirectory;
 var suStack = [];
 var isSudo = false;
-var commandHistory = [];
+var commandHistory = [""];
+var commandIndex = 0;
 var login = new Date();
 var myLazyLoad;
 var userTyped = "";
@@ -83,7 +84,7 @@ var writeInput = function() {
 	var left = buffer.slice(0,bufferIndex);
 	var middle = buffer.slice(bufferIndex, bufferIndex+1) || " ";
 	var right = buffer.slice(bufferIndex+1);
-	target.innerHTML = htmlEntities(left) + 
+	target.innerHTML = htmlEntities(left) +
 		"<span id='blink'>" + htmlEntities(middle) + "</span>" +
 		htmlEntities(right);
 }
@@ -118,11 +119,7 @@ var htmlEntities = function(str) {
     return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-var enterPressed = function() {
-	// hide the prompt (needs to be hidden whilst  commands are executing)
-	var prompt = document.getElementById("prompt");
-	prompt.style.display = "none";
-
+var writeHistory = function() {
 	// create a simple copy of the current state of the prompt
 	// and write it to the history.
 	var oldTime = document.getElementById("time").textContent;
@@ -131,23 +128,189 @@ var enterPressed = function() {
 	userTyped = document.getElementById("data").value;
 	writeInput();
 
-	// add the command to command history
-	commandHistory.push(userTyped);
-
 	// add the prompt to the 'output history'
 	printUnsafe("<span class='pink'>"+oldTime+" "+currentUser.name+"@netricsa</span>:"+oldError+oldPath+"$ "+
 		"<pre style='display:inline;'>"+htmlEntities(userTyped)+"</pre>");
+}
+
+var enterPressed = function() {
+	// hide the prompt (needs to be hidden whilst  commands are executing)
+	var prompt = document.getElementById("prompt");
+	prompt.style.display = "none";
+
+	writeHistory();
+
+	// add the command to command history
+	userTyped = document.getElementById("data").value;
+	commandHistory.push(userTyped);
+	commandIndex = commandHistory.length;
 
 	// determine the command the user typed and execute it
 	var splitTyped = userTyped.trim().replace(/\s\s+/g, ' ').split(" ");
 	determineCommand(splitTyped);
 }
 
+var cancel = function() {
+	writeHistory();
+	enablePrompt(130);
+}
+
+var repeat = function(isUp) {
+	if (isUp){
+		commandIndex--;
+	} else {
+		commandIndex++
+	}
+	commandIndex = Math.min(commandHistory.length - 1, Math.max(commandIndex, 0));
+
+	var inputElem = document.getElementById("data");
+
+	inputElem.value = commandHistory[commandIndex];
+	writeInput();
+}
+
+
+var showRecommendations = function(matches) {
+	var padToLength = matches.reduce((accumulator, value) => {
+		return accumulator > value["name"].length ? accumulator : value["name"].length;
+	});
+
+	var recommendationsHTML = "";
+	for (var m = 0; m < matches.length; m++) {
+		recommendationsHTML += "<pre class='ls'> " + htmlEntities(matches[m]["name"].padEnd(padToLength)) + "</pre> ";
+	}
+
+	recommendations.innerHTML = recommendationsHTML;
+	recommendations.style.display = "block";
+}
+
+// https://www.w3resource.com/javascript-exercises/javascript-array-exercise-28.php
+function longestCommonStartingSubstring(arr1){
+	var arr= arr1.concat().sort(),
+	a1= arr[0], a2= arr[arr.length-1], L= a1.length, i= 0;
+	while(i< L && a1.charAt(i)=== a2.charAt(i)) i++;
+	return a1.substring(0, i);
+}
+
+var autocompleteHelper = function(command, chunk, possibilities) {
+	var matches = possibilities.filter(obj => obj["name"].startsWith(chunk));
+	var recommendations = document.getElementById("recommendations");
+
+	if (matches.length == 0) {
+		// No matches, hide recommendations
+		recommendations.style.display = "none";
+	} else if (matches.length == 1) {
+		// Exact match, hide recommendations & autocomplete
+		recommendations.style.display = "none";
+		var newText = command.replace(new RegExp(chunk + '$'), matches[0]["name"]);
+		document.getElementById("data").value = newText + matches[0]["append"];
+		writeInput();
+	} else {
+		// Multiple matches, show recommendations.
+		showRecommendations(matches);
+
+		// autocomplete to longest common substring
+		var names = matches.map(obj => obj["name"]);
+		document.getElementById("data").value = command.replace(new RegExp(chunk + '$'), longestCommonStartingSubstring(names));
+		writeInput();
+	}
+}
+
+var autocompleteFiles = function(command, chunk, option) {
+	var parts = chunk.split("/");
+	chunk = parts.pop();
+	var path = parts.join("/");
+
+	var directory = pathToObject(path);
+	// if path exists
+	if (path !== 1 && path.type !== "file") {
+		var dot = directory.content["."];
+		var dotdot = directory.content[".."];
+		var fs = Object.values(directory.content).filter(fsObject => fsObject !== dot && fsObject !== dotdot);
+
+		if (option == "filesystem") {
+			var formatted = fs.map(fsObject => {
+				return {
+					"name": fsObject.name,
+					"append": fsObject["type"] === "directory" ? "/" : " "
+				}
+			});
+			autocompleteHelper(command, chunk, formatted);
+		} else if (option == "directories") {
+			// Find all of the directories not including ./ and ../
+			var directories = fs.filter(fsObject => fsObject["type"] === "directory");
+			var formatted = directories.map(fsObject => {
+				return {
+					"name": fsObject.name,
+					"append": "/"
+				}
+			});
+			console.log(formatted);
+			autocompleteHelper(command, chunk, formatted);
+		}
+	}
+
+}
+
+var autocompleteCommand = function(command, chunk) {
+	// find matching commands
+	var commandNames = Object.keys(commands);
+	var formatted = commandNames.map(name => {
+		return {
+			"name": name,
+			"append": " "
+		}
+	});
+	autocompleteHelper(command, chunk, formatted);
+}
+
+var autoComplete = function() {
+	userTyped = document.getElementById("data").value;
+	if (userTyped.trim().length === 0) {
+		document.getElementById("data").value = userTyped + "        ";
+		writeInput();
+	} else if(!userTyped.trimStart().includes(" ")){
+		// if the user is trying to autocomplete a command
+		autocompleteCommand(userTyped, userTyped.trim());
+	} else {
+		// determine type of autocomplete based on command
+		var bits = userTyped.trim().replace(/\s\s+/g, ' ').split(" ");
+		var command = bits[0];
+		var toComplete = bits[bits.length - 1];
+		if (bits[0] == "!!") {
+			commandHistory = 0;
+			repeat(true);
+		} else if (command in complete) {
+			var options = complete[command];
+			if (options === "") {
+				// do nothing
+			} else if (options === "filesystem") {
+				autocompleteFiles(userTyped, toComplete, options);
+			} else if (options === "directories") {
+				autocompleteFiles(userTyped, toComplete, options);
+			} else if (options === "commands") {
+				autocommand(userTyped, toComplete);
+			} else if (typeof options === "string") {
+				document.getElementById("data").value = userTyped.replace(new RegExp(toComplete + '$'), options);
+				writeInput();
+			} else if (typeof options == "function") {
+				options(null, null);
+			}
+		}
+	}
+}
+
 var pathToObject = function(pathStr) {
 	// remove a trailing slash because that breaks things
 	if (pathStr.endsWith("/")) {
 		pathStr = pathStr.slice(0,-1);
-	}  
+	}
+
+	// if pathStr completely blank, we are ./
+	if (pathStr === "") {
+		return workingDirectory;
+	}
+
 	// navigate the path left to right to find the object
 	var pathSegments = pathStr.split("/");
 	var path;
@@ -161,7 +324,7 @@ var pathToObject = function(pathStr) {
 		// path like ~/blog
 		path = currentUser.homeDirectory;
 	} else {
-		// path like ./blog or ../blog or blog 
+		// path like ./blog or ../blog or blog
 		if (firstSegment in workingDirectory.content) {
 			path = workingDirectory.content[firstSegment];
 		} else {
@@ -283,6 +446,8 @@ var determineCommand = function(input,bangDepth) {
 	} else if (commandPart === "!!") {
 		print("zsh: no such event: 0");
 		enablePrompt(1);
+	} else if (commandPart !== undefined && commandPart.trim().length === 0) {
+		enablePrompt(0);
 	} else if (command === undefined) {
 		//User didn't type a valid command
 		print("zsh: command not found: " + userTyped);
@@ -293,12 +458,22 @@ var determineCommand = function(input,bangDepth) {
 	}
 }
 
+// command execution functions
 var commands = {};
+
+// command specific autocomplete options
+// * "filesystem": all files and folders in ./
+// * "directories": only directories in ./
+// * "commands": other commands
+// * {}: A list of more objects and strings,
+//       to be resolved down to for specific suggestions
+var complete = {};
 
 commands.echo = function(input) {
 	print(input);
 	enablePrompt(0);
 }
+complete.echo = "filesystem";
 
 // primitive ls that only supports `-al`
 commands.ls = function(input) {
@@ -309,7 +484,7 @@ commands.ls = function(input) {
 				print(directory.name+ ":");
 			}
 			var directoryContents = Object.keys(directory.content);
-			
+
 			var nameLength = 0;
 			var ownerLength = 0;
 			var groupLength = 0;
@@ -326,7 +501,7 @@ commands.ls = function(input) {
 			for (var j = 0; j < directoryContents.length; j++) {
 				var name = directoryContents[j];
 				var object = directory.content[name];
-				
+
 				// ignore . and .. unless -a
 				if (!isAll && (name === "." || name === "..")) continue;
 
@@ -379,6 +554,7 @@ commands.ls = function(input) {
 		ls(directories, isAll, isLong, returnValue);
 	}
 }
+complete.ls = "filesystem";
 
 commands.cd = function(input) {
 	if (input.length === 0) {
@@ -403,6 +579,7 @@ commands.cd = function(input) {
 		enablePrompt(1);
 	}
 }
+complete.cd = "directories";
 
 commands.rm = function(input, errorCode) {
 	errorCode = errorCode || 0;
@@ -415,7 +592,7 @@ commands.rm = function(input, errorCode) {
 		if (object === 1) {
 			print("rm: cannot remove '"+string+"': No such file or directory");
 			errorCode = 1;
-		} else if (!isSudo && !currentUser.isSuperUser 
+		} else if (!isSudo && !currentUser.isSuperUser
 			&& object.type === "directory") {
 			print("rm: cannot remove '"+ string + "': Is a directory");
 			errorCode = 1;
@@ -432,6 +609,7 @@ commands.rm = function(input, errorCode) {
 		}
 	}
 }
+complete.rm = "filesystem";
 
 commands.wget = function(input, startTime, countRuns, totalChars, totalFakeDownloadTime, errorCode) {
 	var fakeSpeed = (Math.random() * (12.67 - 3.2) + 3.2).toFixed(2);
@@ -439,12 +617,12 @@ commands.wget = function(input, startTime, countRuns, totalChars, totalFakeDownl
 	if (input.length === 0 && countRuns > 1) {
 		// generate the "FINISHED" stats stuff when wget'ing multiple urls
 		print("FINISHED --"+getDateStamp()+" "+getTimeStamp()+"--");
-		
+
 		var totalTimeDifference = Math.abs(startTime.getTime() - new Date().getTime());
 		var ms = totalTimeDifference % 1000;
 		var secs = ((totalTimeDifference - ms) / 1000) % 60;
 		print("Total wall clock time: "+secs+"."+ms+"s");
-		
+
 		var kb = totalChars.toString().slice(0,-3);
 		var downloadTime = totalFakeDownloadTime.toFixed(3);
 		print("Downloaded: "+countRuns+" files, "+kb+"K in "+downloadTime+"s ("+fakeSpeed+" MB/s)");
@@ -460,12 +638,12 @@ commands.wget = function(input, startTime, countRuns, totalChars, totalFakeDownl
 		// we still have urls to get
 
 		// set some defaults to the parameters
-		startTime = startTime || new Date() 
+		startTime = startTime || new Date()
 		countRuns = countRuns || 0;
 		totalChars = totalChars || 0;
 		totalFakeDownloadTime = totalFakeDownloadTime || 0;
 
-		// convert what our typed into a couple variations that wget uses 
+		// convert what our typed into a couple variations that wget uses
 		var userString = input.shift();
 		var protocolRegex = /(^\w+:|^)\/\/.*/;
 		var protocolString = userString;
@@ -537,6 +715,10 @@ commands.wget = function(input, startTime, countRuns, totalChars, totalFakeDownl
 		makeXHRRequest(noProtocolString,onSuccess,onError);
 	}
 }
+complete.wget = function(latestArgument, countArguments) {
+	// https/http/ftp/etc then a url
+	// some good opportunities for an easter egg here
+}
 
 commands.cat = function(input, countRuns, errorCode) {
 	errorCode = errorCode || 0;
@@ -583,6 +765,7 @@ commands.cat = function(input, countRuns, errorCode) {
 		}
 	}
 }
+complete.cat = "filesystem";
 
 commands.display = function(input) {
 	if (input.length === 0) {
@@ -630,6 +813,7 @@ commands.display = function(input) {
 		}
 	}
 }
+complete.display = "filesystem";
 
 commands.chown = function(input) {
 	var userGroup = input[0].split(":");
@@ -658,6 +842,11 @@ commands.chown = function(input) {
 		enablePrompt(1);
 	}
 }
+complete.chown = function(latestArgument, countArguments) {
+	// users:groups filesystem
+
+	var users = Object.keys(users);
+}
 
 commands.chgrp = function(input) {
 	var group = input[0];
@@ -678,6 +867,9 @@ commands.chgrp = function(input) {
 		enablePrompt(1);
 	}
 }
+complete.chgrp = function(latestArgument, countArguments) {
+	// group filesystem
+}
 
 commands.su = function(input) {
 	if (input.length === 0) {
@@ -692,11 +884,15 @@ commands.su = function(input) {
 		enablePrompt(0);
 	}
 }
+complete.chgrp = function(latestArgument, countArguments) {
+	// user
+}
 
 commands.sudo = function(input) {
 	isSudo = true;
 	determineCommand(input);
 }
+complete.sudo = "commands";
 
 commands.groups = function(input) {
 	var user = input[0];
@@ -714,6 +910,9 @@ commands.groups = function(input) {
 		enablePrompt(0);
 	}
 }
+complete.groups = function(latestArgument, countArguments) {
+	// groups filesystem
+}
 
 commands.who = function(input) {
 	if (input.length === 0) {
@@ -723,11 +922,13 @@ commands.who = function(input) {
 	//TODO OTHER CASES
 	enablePrompt(0)
 }
+complete.who = "";
 
 commands.whoami = function(input) {
 	print(currentUser.name);
 	enablePrompt(0);
 }
+complete.whoami = "";
 
 var logout = function() {
 	document.body.className = "off";
@@ -737,6 +938,7 @@ var logout = function() {
 commands.logout = function(input) {
 	logout();
 }
+complete.logout = "";
 
 commands.exit = function(input) {
 	if (suStack.length > 0) {
@@ -747,6 +949,7 @@ commands.exit = function(input) {
 		logout();
 	}
 }
+complete.logout = "";
 
 commands.shutdown = function(input) {
 	var shutdown = function(){
@@ -798,7 +1001,7 @@ commands.shutdown = function(input) {
 		};
 
 		var nextFunction = logout;
-		
+
 		for(var i = shutdownLines.length-1; i >= 0 ; i--) {
 			nextFunction = getNextPrint(nextFunction, i);
 		}
@@ -813,9 +1016,34 @@ commands.shutdown = function(input) {
 		enablePrompt(0);
 	}
 }
+complete.shutdown = "";
 
 commands.hacker = function(input) {
 	document.body.className = "hacker";
+	enablePrompt(1337);
+}
+complete.hacker = "https://www.youtube.com/watch?v=1uvr7CJazqE";
+
+commands.clear = function(input) {
+	document.getElementById("history").innerHTML = "";
+	enablePrompt(0);
+}
+complete.clear = "";
+
+commands.help = function(input) {
+	print("​");
+	print("I'm Jet 'Jetroid' Holt and this is a website I made to look like my UNIX terminal.");
+	print("​");
+	print("I run zsh with a custom configuration, and it looks exactly like this webpage!");
+	print("​");
+	print("The terminal currently supports the following commands:")
+	print("​");
+	print(Object.keys(commands).sort().toString().replace(/,/g, " "));
+	print("​");
+	print("I hope you enjoy it!");
+	print("​");
+	print("P.S. I don't actually record the commands you type here. Go wild!");
+	print("​");
 	enablePrompt(0);
 }
 
@@ -828,7 +1056,7 @@ var getDateStamp = function(time, delim, altFormat) {
 	var month = time.getMonth()+1;
 	month = month < 10 ? "0" + month : month;
 	var year = time.getFullYear();
-	var months3 = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+	var months3 = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
 	"Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 	if (altFormat) {
 		var currentTime = new Date();
@@ -843,10 +1071,10 @@ var getTimeStamp = function(time, delim, noSeconds) {
 	time = time || new Date();
 	delim = delim || ":";
 	var hour = time.getHours();
-	hour = hour < 10 ? "0" + hour : hour; 
+	hour = hour < 10 ? "0" + hour : hour;
 	var minute = time.getMinutes();
 	minute = minute < 10 ? "0" + minute : minute;
-	var second = time.getSeconds(); 
+	var second = time.getSeconds();
 	second = second < 10 ? "0" + second : second;
 	var ending = noSeconds ? "" : delim + second;
 	return hour + delim + minute + ending;
@@ -898,12 +1126,43 @@ window.onload = function () {
 	}
 	document.body.onclick = function(){
 		console.log("focus");
-		document.getElementById("data").focus();
+		window.setTimeout(function(){
+			document.getElementById("data").focus();
+		},1500)
 	}
+	document.body.onkeyup = function(e) {
+	    // input box always steals focus
+	    document.getElementById("data").focus();
+	}
+
+
 	document.getElementById("data").onkeydown = function(e) {
+		document.getElementById("data").focus();
+		// most keys hide autocomplete recommendations
+		document.getElementById("recommendations").style.display = "none";
+
 		if (e.which === 13) { // 13 is enter
 			enterPressed();
-		} 
+		}
+		if (e.which === 9) { // 9 is tab
+			e.preventDefault();	// prevent tabbing from highlighting a tags (sry a11y)
+			autoComplete();
+		}
+		if (e.which === 38) { // 38 is arrow up
+			e.preventDefault();	// don't go to the start of the line
+			repeat(true);
+		}
+		if (e.which === 40) { // 40 is arrow down
+			e.preventDefault();	// don't go to the end of the line
+			repeat(false);
+		}
+		if (e.ctrlKey && e.which == 67) { // 67 is C
+			//CTRL + C, so don't execute command and make a new line
+			cancel();
+		}
+
+		// input box always steals focus
+		document.getElementById("data").focus();
 	}
 	document.getElementById("data").onkeyup = writeInput;
 	document.getElementById("data").oninput = writeInput;

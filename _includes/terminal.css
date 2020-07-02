@@ -6,9 +6,15 @@ body{
 	width: 100vw;
 	height: 100vh;
 	overflow-x: hidden;
+	margin: 0px;
+	padding: 10px;
+	box-sizing: border-box;
 }
 p, pre{
 	margin: 0;
+}
+a:focus {
+	outline: none !important;
 }
 #input {
 	white-space: pre-wrap;
@@ -18,7 +24,7 @@ p, pre{
 	animation: flash 1s step-start 0s infinite;
 	-webkit-animation: flash 1s step-start 0s infinite;
 }
-@keyframes flash {	
+@keyframes flash {
 	0% { background: #3f3f3f; color: #dcdccc; }
 	50% { background: #dcdccc; color: #3f3f3f; }
 	100% { background: #3f3f3f; color: #dcdccc; }
@@ -97,12 +103,12 @@ body.hacker, .hacker .pink{
 	animation: hackerflash 1s step-start 0s infinite;
 	-webkit-animation: hackerflash 1s step-start 0s infinite;
 }
-@keyframes hackerflash {	
+@keyframes hackerflash {
 	0% { background: #000; color: #00B200; }
 	50% { background: #00B200; color: #000; text-shadow: 0px 0px 15px #0C0; }
 	100% { background: #000; color: #00B200; }
 }
-@-webkit-keyframes hackerflash {	
+@-webkit-keyframes hackerflash {
 	0% { background: #000; color: #00B200; }
 	50% { background: #00B200; color: #000; text-shadow: 0px 0px 15px #0C0; }
 	100% { background: #000; color: #00B200; }
@@ -179,6 +185,18 @@ body.hacker, .hacker .pink{
 #information-text p a {
 	font-size: 12px;
 }
+.social-links {
+	text-align: center;
+}
+.social-links a {
+	text-decoration: none;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.social-links svg {
+	fill: #dcdccc;
+	font-size: 13px;
+}
 .close {
 	width: 20px;
 	height: 30px;
@@ -187,7 +205,7 @@ body.hacker, .hacker .pink{
 	display: inline-block;
 }
 .close.open {
-	left: 105px;
+	left: 97.3px;
 }
 .close:hover {
 	background: #dcdccc;
@@ -209,6 +227,12 @@ body.hacker, .hacker .pink{
 }
 .close:after {
 	transform: rotate(-45deg);
+}
+.hide .close:before{
+	transform: rotate(0deg);
+}
+.hide .close:after {
+	transform: rotate(90deg);
 }
 
 /* Chevron thanks to https://codepen.io/jonneal/ */

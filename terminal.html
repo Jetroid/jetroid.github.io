@@ -46,26 +46,28 @@ blogposts.content["{{ posttitle }}"].content["text"] = "blogurl({{post.url}})";
 				<input id="data" type="text" autocapitalize="none" spellcheck="false"/>
 			</p>
 		</div>
+		<div id="recommendations" style="display: none;">
+		</div>
 	</div>
 	<div id="shutdown-container" style="display: none;"></div>
 </div>
 <div id="information">
 	<div id="information-header">
 		<span id="information-expand-shrink" class="chevron" onclick="maximiseInfo();"></span>
-		<a id="information-anchor" href="https://jetholt.com">
+		<a id="information-anchor" href="https://twitter.com/JetroidMakes/">
 			<div id="information-image-container" class="image-container">
 				<div id="information-image-color" class="image-color">
 					<img id="information-image" src="/assets/images/rsz_me.png">
 				</div>
 			</div>
-			<p id="information-by">by <em id="information-em">Jetroid</em></p>
+			<p id="information-by">by <em id="information-em">Jet Holt</em></p>
 		</a>
 		<span id="information-hide" class="close" onclick="hideInfo();"></span>
 	</div>
 	<div id="information-text">
 		<p>
 		<span itemprop=”description”>Linux Terminal Emulator by Jetroid.</span>
-		Created as part of a <a href="https://twitter.com/JetroidMakes/status/1094534029964062720">live tweet session</a> to deliver content for my <a href="https://coderstory.io">Coder Story</a> interview. Inspired by a <a href="/old-terminal/">much older version</a> I made as a way to learn HTML, CSS, and JavaScript. I can be contacted
+		Created as part of a <a href="https://twitter.com/JetroidMakes/status/1094534029964062720">live tweet session</a>. Inspired by a <a href="/old-terminal/">much older version</a> that I made to get to grips with HTML, CSS, and JavaScript. I can be contacted
 		<script type="text/javascript" language="javascript">
 			ML="hl/j< air\"@ocemf:=>.t";
 			MI="46508=?A9>671D;@0=11;:3=D0;1DC<;>9B0=8=426B";
@@ -75,5 +77,10 @@ blogposts.content["{{ posttitle }}"].content["text"] = "blogurl({{post.url}})";
 			}document.write(OT);
 		</script>.
 		</p>
+		<div class="social-links">
+			<a href="https://twitter.com/JetroidMakes">{% include twitter.html %}</a>
+			<a href="https://www.instagram.com/jetroidmakes/">{% include instagram.html %}</a>
+			<a href="https://github.com/Jetroid/">{% include github.html %}</a>
+		</div>
 	</div>
 </div>
