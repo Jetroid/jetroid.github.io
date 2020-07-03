@@ -1,5 +1,6 @@
 ---
 title: Doing Something That You Put Off
+summary: "Finally doing something that you've been putting off can take a huge weight off of your shoulders."
 date: 2020-06-10 23:48:15 +0100
 micro: true
 categories:

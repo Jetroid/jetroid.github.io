@@ -1,5 +1,6 @@
 ---
 title: Stranger in a Strange Land
+summary: "This immersive website puts you in a car in a foreign city. It's the closest thing to arriving in a new city without travelling."
 date: 2020-06-17 03:00:16 +0100
 micro: true
 categories:

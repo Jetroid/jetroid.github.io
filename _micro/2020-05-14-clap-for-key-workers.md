@@ -1,5 +1,6 @@
 ---
 title: Clap for Key Workers
+summary: "My thoughts on the Clap for Key Workers movement."
 date: 2020-05-14 19:04:58 +0100
 micro: true
 categories:

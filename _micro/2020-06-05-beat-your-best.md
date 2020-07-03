@@ -1,5 +1,6 @@
 ---
 title: Beat Your Best
+summary: "One of the most satisfying things is beating your personal best."
 date: 2020-06-05 21:58:15 +0100
 micro: true
 categories:

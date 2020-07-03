@@ -1,5 +1,6 @@
 ---
 title: This Too Shall Pass
+summary: "One of my favourite proverbs highlights that change is inevitable."
 date: 2020-06-21 23:08:17 +0100
 micro: true
 categories:

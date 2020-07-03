@@ -1,5 +1,6 @@
 ---
 title: Investment vs Return
+summary: "The projects that I spent the most time on were not the most valuable."
 date: 2020-05-16 23:04:25 +0100
 micro: true
 categories:

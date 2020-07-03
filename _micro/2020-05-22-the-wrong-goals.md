@@ -1,5 +1,6 @@
 ---
 title: Are you meeting the wrong goals?
+summary: "Some of our desires and goals are actually harmful."
 date: 2020-05-22 23:47:56 +0100
 micro: true
 categories:

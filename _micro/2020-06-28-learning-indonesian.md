@@ -1,5 +1,6 @@
 ---
 title: Learning Indonesian
+summary: "I've been learning Indonesian! Here's a few paragraphs I wrote."
 date: 2020-06-28 22:35:56 +0100
 micro: true
 categories:

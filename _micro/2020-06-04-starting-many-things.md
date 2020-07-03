@@ -1,5 +1,6 @@
 ---
 title: Starting Many Things
+summary: "Why I think that starting many things is one of the best things to do to become a unique and successful person."
 date: 2020-06-04 16:23:30 +0100
 micro: true
 categories:

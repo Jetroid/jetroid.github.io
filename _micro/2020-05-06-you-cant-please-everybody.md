@@ -1,5 +1,6 @@
 ---
 title: You Can't Please Everybody
+summary: "Four specific coronavirus-related cases where you can't please everybody."
 date: 2020-05-06 14:51:50 +0100
 micro: true
 categories:

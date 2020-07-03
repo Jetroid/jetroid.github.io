@@ -1,5 +1,6 @@
 ---
 title: "Running Without Music: Day One"
+summary: "I'm going to be trying to run without music."
 date: 2020-06-03 23:14:58 +0100
 micro: true
 categories:

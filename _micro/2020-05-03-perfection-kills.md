@@ -1,5 +1,6 @@
 ---
 title: Perfection Kills
+summary: "Thoughts about a specific instance of perfectionism was getting in the way of the big picture."
 date: 2020-05-03 18:12:52 +0100
 micro: true
 categories:

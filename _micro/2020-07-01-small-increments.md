@@ -1,5 +1,6 @@
 ---
 title: Small Increments
+summary: "Halting and revisiting projects is a strategy that really works for me to keep the overall momentum going."
 date: 2020-07-01 23:21:02 +0100
 micro: true
 categories:

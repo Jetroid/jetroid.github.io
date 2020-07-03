@@ -1,5 +1,6 @@
 ---
 title: Disturbed Productivity
+summary: "In my experience, there are two emotional states that can disturb productivity more than any other."
 date: 2020-06-06 22:55:52 +0100
 micro: true
 categories:

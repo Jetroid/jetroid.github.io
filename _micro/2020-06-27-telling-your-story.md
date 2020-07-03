@@ -1,5 +1,6 @@
 ---
 title: Telling your story
+summary: "It's important to tell your story as it happens, because it'll change if you don't."
 date: 2020-06-27 22:11:36 +0100
 micro: true
 categories:

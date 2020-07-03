@@ -1,5 +1,6 @@
 ---
 title: Don't Waste Your Willpower
+summary: "Maybe if we removed the temptations from our life, we'd find it easier to meet our goals."
 date: 2020-06-16 23:52:10 +0100
 micro: true
 categories:

@@ -1,5 +1,6 @@
 ---
 title: Getting Organised
+summary: "A look at my new organisation system."
 date: 2020-06-24 20:06:44 +0100
 micro: true
 categories:

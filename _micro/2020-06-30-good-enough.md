@@ -1,5 +1,6 @@
 ---
 title: You only have to be good enough
+summary: "In a small organisation, you wear many hats. It's more important to have a diverse set of skills than to be a specialist."
 date: 2020-06-30 17:07:08 +0100
 micro: true
 categories:

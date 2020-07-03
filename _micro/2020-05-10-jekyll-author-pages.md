@@ -1,5 +1,6 @@
 ---
 title: Jekyll Author Pages
+summary: "A tutorial for how to add author metadata to your Jekyll posts."
 date: 2020-05-10 22:41:40 +0100
 micro: true
 categories:

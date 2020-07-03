@@ -1,5 +1,6 @@
 ---
 title: Don't Ignore The Value
+summary: "Disagreeing with someone isn't grounds to disregard their knowledge."
 date: 2020-05-18 22:07:25 +0100
 micro: true
 categories:

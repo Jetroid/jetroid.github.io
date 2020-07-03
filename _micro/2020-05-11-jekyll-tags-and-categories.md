@@ -1,5 +1,6 @@
 ---
 title: Jekyll Tags and Categories
+summary: "A tutorial for how to add tags and categories metadata to your Jekyll posts."
 date: 2020-05-11 22:57:19 +0100
 micro: true
 categories:

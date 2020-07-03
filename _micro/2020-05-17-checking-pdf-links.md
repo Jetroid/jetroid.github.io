@@ -1,5 +1,6 @@
 ---
 title: Checking PDF links
+summary: "A tutorial on how to bulk check links in a set of PDFs."
 date: 2020-05-17 17:28:37 +0100
 micro: true
 categories:

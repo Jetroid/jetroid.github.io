@@ -1,5 +1,6 @@
 ---
 title: Make Failure Suck
+summary: "A strategy to achieve things that you don't like to do."
 date: 2020-05-05 23:33:53 +0100
 micro: true
 categories:

@@ -1,5 +1,6 @@
 ---
 title: A Guide to PIC Microcontroller Paging
+summary: "A comprehensive guide to PIC Microcontroller Paging. What is it, and how can we work around it?"
 date: 2020-06-12 21:07:23 +0100
 micro: true
 categories:
@@ -7,7 +8,7 @@ categories:
 ---
 When your program grows long enough on a simple PIC microcontroller, you will eventually reach a point where your code no longer fits on a single page.
 
-I'm writing this to explain the problem and hopefully help you avoid some of the pitfalls that I experienced when I ran up against this problem for the first time recently.
+I'm writing this to explain the problem and hopefully  What is it, and how can we work around it?help you avoid some of the pitfalls that I experienced when I ran up against this problem for the first time recently.
 
 # An Introduction to Paging
 

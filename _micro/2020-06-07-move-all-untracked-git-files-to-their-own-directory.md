@@ -1,5 +1,6 @@
 ---
 title: Move all untracked git files to their own directory
+summary: "A bash one-liner to move all untracked git files to their own directory."
 date: 2020-06-07 17:24:45 +0100
 micro: true
 categories:

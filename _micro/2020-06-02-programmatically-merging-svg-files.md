@@ -1,5 +1,6 @@
 ---
 title: Programmatically Merging SVG files
+summary: "An outline of a python script to help you merge two SVG files."
 date: 2020-06-02 23:26:48 +0100
 micro: true
 categories:

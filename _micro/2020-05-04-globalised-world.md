@@ -1,5 +1,6 @@
 ---
 title: Globalised World
+summary: "Nine countries were involved to bring me my flip-flops."
 date: 2020-05-04 19:51:57 +0100
 micro: true
 categories:

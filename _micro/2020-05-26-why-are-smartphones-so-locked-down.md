@@ -1,5 +1,6 @@
 ---
 title: Why are smartphones so locked down?
+summary: "Most technology is fairly reconfigurable. So why are smartphones so locked down?"
 date: 2020-05-26 23:59:48 +0100
 micro: true
 categories:

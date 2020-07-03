@@ -1,5 +1,6 @@
 ---
 title: Terminal Updates
+summary: "I improved my UNIX simulator toy website!"
 date: 2020-07-02 18:41:07 +0100
 micro: true
 categories:

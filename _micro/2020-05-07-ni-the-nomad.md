@@ -1,5 +1,6 @@
 ---
 title: Ni the Nomad
+summary: "My girlfriend has been learning new skills and making her own website."
 date: 2020-05-07 18:26:10 +0100
 micro: true
 categories:

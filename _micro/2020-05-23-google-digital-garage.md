@@ -1,5 +1,6 @@
 ---
 title: Google's Digital Garage
+summary: "My thoughts on the Google Garage Digital Marketing course."
 date: 2020-05-23 20:45:27 +0100
 micro: true
 categories:

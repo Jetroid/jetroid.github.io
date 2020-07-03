@@ -1,5 +1,6 @@
 ---
 title: Keep It Short, Stupid
+summary: "A reminder to myself to not overthink these microposts."
 date: 2020-05-08 18:37:59 +0100
 micro: true
 categories:

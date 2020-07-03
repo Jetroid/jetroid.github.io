@@ -1,5 +1,6 @@
 ---
 title: Add knob scales to your synth project
+summary: "A pointer to an easy way to generate SVG knob scales."
 date: 2020-05-21 18:40:08 +0100
 micro: true
 categories:

@@ -1,5 +1,6 @@
 ---
 title: Falling into place
+summary: "Did you choose your current path, or did life choose it for you?"
 date: 2020-05-28 23:26:42 +0100
 micro: true
 categories:

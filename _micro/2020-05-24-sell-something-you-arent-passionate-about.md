@@ -1,5 +1,6 @@
 ---
 title: Sell something you aren't passionate about
+summary: "A thought about how to learn to sell."
 date: 2020-05-24 23:23:59 +0100
 micro: true
 categories:

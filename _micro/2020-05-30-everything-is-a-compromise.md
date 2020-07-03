@@ -1,5 +1,6 @@
 ---
 title: Everything is a compromise
+summary: "If you tried to do everything that anyone asked for, nobody would be happy."
 date: 2020-05-30 20:39:48 +0100
 micro: true
 categories:

@@ -1,5 +1,6 @@
 ---
 title: Domain Names
+summary: "I bought a new domain name that I've been thinking about for years!"
 date: 2020-05-12 23:35:35 +0100
 micro: true
 categories:

@@ -1,5 +1,6 @@
 ---
 title: Live Another Sol
+summary: "My thoughts on The Martian."
 date: 2020-06-14 02:00:48 +0100
 micro: true
 categories:

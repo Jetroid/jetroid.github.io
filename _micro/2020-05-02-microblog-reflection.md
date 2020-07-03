@@ -1,5 +1,6 @@
 ---
 title: Reflection
+summary: "Thoughts about how mood affects our output, and a reflection on an earlier attempt at microblogging."
 date: 2020-05-02 14:54:48 +0100
 micro: true
 categories:

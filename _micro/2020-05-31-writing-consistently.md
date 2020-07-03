@@ -1,5 +1,6 @@
 ---
 title: Writing Consistently
+summary: "A look at the first month of my micro blogging project."
 date: 2020-05-31 16:54:02 +0100
 micro: true
 categories:

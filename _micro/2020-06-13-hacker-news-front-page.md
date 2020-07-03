@@ -1,5 +1,6 @@
 ---
 title: Hacker News Front Page
+summary: "I was featured on the front page of Hacker News for the first time!"
 date: 2020-06-13 23:24:48 +0100
 micro: true
 categories:

@@ -1,5 +1,6 @@
 ---
 title: Adding equations to your webpage
+summary: "A quick guide to setting up MathJax on your webpage."
 date: 2020-05-19 20:07:30 +0100
 micro: true
 categories:

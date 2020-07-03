@@ -1,5 +1,6 @@
 ---
 title: Some days, nothing works
+summary: "Some days, nothing works. It is those days that test the strength of your character."
 date: 2020-05-25 23:55:32 +0100
 micro: true
 categories:

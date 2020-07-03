@@ -1,5 +1,6 @@
 ---
 title: Bulk crop images
+summary: "A quick guide to bulk cropping images to the same dimensions."
 date: 2020-05-20 22:25:48 +0100
 micro: true
 categories:

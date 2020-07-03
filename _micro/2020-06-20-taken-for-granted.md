@@ -1,5 +1,6 @@
 ---
 title: Taken for Granted
+summary: "An inconsequential event caused me to think about some things that I take for granted."
 date: 2020-06-20 23:38:33 +0100
 micro: true
 categories:
