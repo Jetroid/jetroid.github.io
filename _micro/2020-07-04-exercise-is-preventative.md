@@ -1,5 +1,6 @@
 ---
 title: Exercise is preventative
+summary: Exercise is a great thing to prevent certain kinds of mental and physical illness.
 date: 2020-07-04 22:00:33 +0100
 micro: true
 categories:

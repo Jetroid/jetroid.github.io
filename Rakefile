@@ -69,6 +69,7 @@ task :micro do
   open(filename, 'w') do |post|
     post.puts "---"
     post.puts "title: #{ title }"
+    post.puts "summary: \"\""
     post.puts "date: #{ date } #{ time }"
     post.puts "micro: true"
     post.puts "categories:"
