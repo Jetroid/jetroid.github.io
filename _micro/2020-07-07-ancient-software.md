@@ -1,7 +1,7 @@
 ---
 title: The Duality of Nostalgia and Dread for Ancient Software
 summary: "How do you feel when you see a screenshot of Windows 95 or Mac OS 8?"
-date: 2020-07-08 02:00:19 +0100
+date: 2020-07-07 22:00:19 +0100
 micro: true
 categories:
  - "Micro"
