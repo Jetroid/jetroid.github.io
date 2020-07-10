@@ -110,12 +110,15 @@ td {
 	display: block;
 	max-width: 100%;
 	max-height: 600px;
-{%- if jekyll.environment == "production" -%}
-	height: 1px;
-{%- endif -%}
 	margin: 0 auto;
 	border-radius: 5px;
 }
+{%- if jekyll.environment == "production" -%}
+.post-container a > img.lazy {
+	height: 1px;
+}
+{%- endif -%}
+
 a.img + a.img, img + img, em + a.img, em + img {
 	margin-top: 10px !important;
 	display: block;
