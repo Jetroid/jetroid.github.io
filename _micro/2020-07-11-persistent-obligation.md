@@ -9,7 +9,7 @@ categories:
 
 I associate with an individual who publishes a YouTube video every week.
 
-Today, this person told me that they feel a sense of pressure whenever 'video day' rolls around. Whilst they try to make an interesting video, some days they just aren't 'feeling it' and are tempted to just put anything together and release it. Whenever they are done recording the video for the day, they feel like a weight has been lifted from his shoulders.
+Today, this person told me that they feel a sense of pressure whenever 'video day' rolls around. Whilst they try to make an interesting video, some days they just aren't 'feeling it' and are tempted to just put anything together and release it. Whenever they are done recording the video for the day, they feel like a weight has been lifted from their shoulders.
 
 I can identify with how this person feel. To date, I have written 63 of these micro-blogs (including this one) across two and a half months-ish. Naturally, during the course of this experiment, there have been days when I didn't feel like writing. Not too many at first, but recently, perhaps quite often. I usually try to publish something, even if I'm not 'feeling it'. The only time that I don't is when I have something more important and urgent to do.
 
