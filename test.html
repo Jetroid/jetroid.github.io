@@ -298,7 +298,7 @@ var drawBackground = function(wrapper) {
 function onIntersection(entries) {
 	for (var e in entries) {
 		if(entries[e].intersectionRatio <= 0) continue;
-		observer.unobserve(entries[e].target); // Stop watching
+		observer.unobserve(entries[e].target); 
 		drawBackground(entries[e].target);
 	}
 }
