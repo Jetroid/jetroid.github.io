@@ -145,7 +145,7 @@ custom_style_includes:
 /* Generate a random int between lower (inclusive) and upper (exclusive) */
 var rint = function(lower, upper){
 	return Math.floor(Math.random()*((upper-1)-lower+1)+lower);
-}
+};
 var drawIndex = rint(0,3);
 var drawBackground = function(wrapper) {
 	var title = wrapper.firstElementChild;
@@ -196,7 +196,7 @@ var drawBackground = function(wrapper) {
 		color: "#94cbc4",
 		queue: true,
 		inkAmount: 6 + rawarea/20000,
-		splashing: true,
+		splashing: true
 	};
 
 	// Initialization
@@ -209,7 +209,7 @@ var drawBackground = function(wrapper) {
 
 
 	var drawingtype = drawIndex;
-	drawIndex = (drawIndex + 1) % 3
+	drawIndex = (drawIndex + 1) % 3;
 
 	if (drawingtype === 0) {
 		/* This style swipes right then left then right again */
@@ -289,7 +289,7 @@ var drawBackground = function(wrapper) {
 				size: 50 + rint(0,6),
 				duration: 0.04,
 				inkAmount: 4
-			})
+			});
 		}
 	}
 	bs.promise = bs.promise.then(function(){console.log("Hello?")});
@@ -325,7 +325,7 @@ var scene = document.getElementById('scene');
 var parallaxInstance = new Parallax(scene, {
   invertX: false,
   invertY: false,
-  hoverOnly: true,
+  hoverOnly: true
 });
 
 
