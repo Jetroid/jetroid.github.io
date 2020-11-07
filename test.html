@@ -210,6 +210,7 @@ var drawBackground = function(wrapper) {
 
 	var drawingtype = drawIndex;
 	drawIndex = (drawIndex + 1) % 3;
+	console.log(drawingtype);
 
 	if (drawingtype === 0) {
 		/* This style swipes right then left then right again */
@@ -240,8 +241,11 @@ var drawBackground = function(wrapper) {
 		});
 	} else if (drawingtype === 1) {
 		/* This style draws a horizontal line for each line */
+		console.log("Triggered a call of horizontal line");
 		var lines = Math.floor(title.offsetHeight / lineHeight);
+		console.log("lines: " + lines);
 		for (var i = 0; i < lines - 1; i++) {
+			console.log("Interation");
 			bs.draw({
 				delay: 0.1,
 				points: [
@@ -253,6 +257,7 @@ var drawBackground = function(wrapper) {
 				inkAmount: 4 + rawarea / 15000
 			});
 		}
+		console.log("Drawing last line");
 		/* The last line is shorter */
 		bs.draw({
 			delay: 0.1,
@@ -298,7 +303,7 @@ var drawBackground = function(wrapper) {
 function onIntersection(entries) {
 	for (var e in entries) {
 		if(entries[e].intersectionRatio <= 0) continue;
-		observer.unobserve(entries[e].target); 
+		observer.unobserve(entries[e].target);
 		drawBackground(entries[e].target);
 	}
 }
