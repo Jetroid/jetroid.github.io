@@ -6,6 +6,7 @@ custom_style_includes:
 ---
 <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
 <script src="/assets/js/brushstroke.min.js"></script>
+<script src="/assets/js/line-height.min.js"></script>
 <div class="hero-container-wrapper">
 	<div id="hero-container" class="hero-container">
 		<div id="scene" class="scene">
@@ -170,7 +171,8 @@ var drawBackground = function(wrapper) {
 	var padR = mywidth - (title.offsetLeft + rawwidth) - marginX;
 	var padT = title.offsetTop + marginY;
 
-	var lineHeight = parseFloat(titleStyle.getPropertyValue("line-height"));
+	var lineHeight = window.lineHeight(title);
+	console.log(lineHeight);
 
 	var rawarea = rawwidth * rawheight;
 
