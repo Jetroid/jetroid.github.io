@@ -294,7 +294,7 @@ var drawBackground = function(wrapper) {
 	}
 	bs.promise = bs.promise.then(function(){console.log("Hello?");});
 
-}
+};
 function onIntersection(entries) {
 	for (var e in entries) {
 		if(entries[e].intersectionRatio <= 0) continue;
@@ -302,7 +302,7 @@ function onIntersection(entries) {
 		drawBackground(entries[e].target);
 	}
 }
-document.addEventListener("DOMContentLoaded", (event) => {
+document.addEventListener("DOMContentLoaded", function(event){
     var wrappers = document.getElementsByClassName("title-wrapper");
 	if ('IntersectionObserver' in window) {
 		observer = new IntersectionObserver(onIntersection, {
