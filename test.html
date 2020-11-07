@@ -185,7 +185,7 @@ var drawBackground = function(wrapper) {
 
 
 
-	// Options for customization
+	/* Options for customization */
 	var options = {
 		width: mywidth,
 		height: myheight,
@@ -199,7 +199,7 @@ var drawBackground = function(wrapper) {
 		splashing: true
 	};
 
-	// Initialization
+	/* Initialization */
 	var bs = new Brushstroke(options);
 	var canvas = wrapper.lastElementChild;
 	canvas.style.left = "-" + marginX + "px";
@@ -329,8 +329,8 @@ var parallaxInstance = new Parallax(scene, {
 });
 
 
-// The higher this value, the less the fps will reflect temporary variations
-// A value of 1 will only keep the last value
+/* The higher this value, the less the fps will reflect temporary variations */
+/* A value of 1 will only keep the last value */
 var filterStrength = 20;
 var frameTime = 0, lastLoop = new Date, thisLoop;
 
@@ -343,7 +343,7 @@ requestAnimationFrame(
     }
  );
 
-// Report the fps only every second, to only lightly affect measurements
+/* Report the fps only every second, to only lightly affect measurements */
 var fpsOut = document.getElementById('fps');
 setTimeout(function() {
 	setInterval(function(){
