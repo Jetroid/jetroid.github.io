@@ -5,14 +5,13 @@ title: jetroid@netricsa
 favicon: terminal-favicon.ico
 summary: An interactive UNIX terminal simulator by Jetroid.
 background: terminal-square.png
+nobackground: true
 category: "project"
 nopresets: true
-custom_style_includes:
+inline_css:
 - terminal
 custom_js:
-- /assets/js/terminal.min.js
-custom_js_includes:
-- lazyload
+- /assets/js/terminal.js
 custom_preconnect:
 - jetroidcors.herokuapp.com
 ---
@@ -78,9 +77,9 @@ blogposts.content["{{ posttitle }}"].content["text"] = "blogurl({{post.url}})";
 		</script>.
 		</p>
 		<div class="social-links">
-			<a href="https://twitter.com/JetroidMakes">{% include twitter.html %}</a>
-			<a href="https://www.instagram.com/jetroidmakes/">{% include instagram.html %}</a>
-			<a href="https://github.com/Jetroid/">{% include github.html %}</a>
+			<a href="https://twitter.com/JetroidMakes">{% include logos/twitter.html %}</a>
+			<a href="https://www.instagram.com/jetroidmakes/">{% include logos/instagram.html %}</a>
+			<a href="https://github.com/Jetroid/">{% include logos/github.html %}</a>
 		</div>
 	</div>
 </div>

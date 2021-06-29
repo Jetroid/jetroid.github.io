@@ -1,0 +1,7 @@
+<!-- Custom Stylesheets - use custom_css in YAML front matter !-->
+{% assign page_css = include.pagecss | default: empty_array %}
+{% assign layout_css = include.layoutcss | default: empty_array %}
+{% assign custom_css = page_css | concat: layout_css | uniq %}
+{% for stylesheet in custom_css %}
+	<link rel="stylesheet" href="/assets/css/{{ stylesheet }}.css" type="text/css">
+{% endfor %}

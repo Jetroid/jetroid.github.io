@@ -1,0 +1,7 @@
+<!-- Custom JS (as seperate file) - use custom_js in YAML front matter !-->
+{% assign page_js = include.pagejs | default: empty_array %}
+{% assign layout_js = include.layoutjs | default: empty_array %}
+{% assign custom_js = page_js | concat: layout_js | uniq %}
+{% for js_url in custom_js %}
+	<script src='{{ js_url }}' type="text/javascript"></script>
+{% endfor %}

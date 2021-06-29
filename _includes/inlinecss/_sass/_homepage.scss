@@ -1,0 +1,354 @@
+:root {
+  --general-width: min(1024px, 0.8 * 100vw);
+}
+
+body {
+  font-family: monospace;
+  color: #cfcfc9;
+	overflow-x: hidden;
+}
+h1, h2, h3, h4, h5, h6 {
+
+}
+h1 {
+  font-size: 2.75rem;
+  line-height: 1.25;
+}
+p {
+  font-family: Poppins;
+  font-size: 1.4rem;
+  margin: 0.5em 0;
+}
+
+a, .clickable {
+  text-decoration: none;
+  color: #d05d5d;
+}
+a:hover, .clickable:hover {
+  text-shadow: 0.08em -0.08em #373731;
+  cursor:pointer;
+  text-decoration: underline;
+}
+
+@media(min-width: 1150px) {
+  .inner-content-wrapper {
+    display: flex;
+  }
+  .details {
+    max-width: 600px;
+
+    h2 {
+      height: 23px;
+      margin-bottom: 0.25rem;
+    }
+
+  }
+}
+
+/* This should be for every page as it defines how titles are drawn sitewide. */
+.title-wrapper {
+  padding: 40px;
+  display: block;
+  position: relative !important;
+  text-align: center;
+  vertical-align: bottom;
+}
+.title-wrapper h1,
+.title-wrapper h2,
+.title-wrapper h3,
+.title-wrapper h4,
+.title-wrapper h5,
+.title-wrapper h6 {
+  font-weight: 1000;
+  position: relative;
+  z-index: 10;
+  color: #d05d5d;
+  text-shadow: 2px 1px #373731;
+  display: inline;
+}
+.title-wrapper h1{
+  font-size: 50px;
+}
+.title-wrapper h2{
+  font-size: 40px;
+}
+.title-wrapper h3{
+  font-size: 30px;
+}
+.title-wrapper h4{
+  font-size: 20px;
+}
+.title-wrapper h5{
+  font-size: 10px;
+}
+.title-wrapper h6 {
+  font-size: 5px;
+}
+.title-wrapper canvas {
+  position: absolute;
+}
+
+.inner-content-wrapper {
+  width: 90%;
+  max-width: var(--general-width);
+  margin: auto;
+  padding: 10% 0 10% 0;
+}
+
+.prelude-text {
+  background: var(--gray);
+  padding-top: 50px;
+
+  .inner-content-wrapper {
+    max-width: 42rem;
+    padding-bottom: 0px;
+
+    h1, small {
+      display: inline-block;
+    }
+    small {
+      padding: 10px
+    }
+
+    p {
+      margin-top: 15px;
+    }
+  }
+  .asterisk {
+    font-size: 0.65em;
+    top: -6px;
+    position: relative;
+  }
+}
+
+.annotation {
+  position: absolute;
+  z-index: 10;
+
+  svg {
+    position: relative;
+    fill: var(--white);
+    pointer-events: none;
+  }
+
+  p {
+    position: relative;
+  }
+}
+
+.fade-tear {
+  position: relative;
+}
+.fade-tear:before, .fade-tear:after {
+  content: '';
+  z-index: 49;
+  position: absolute;
+  background: inherit;
+  height: 100px;
+  width: 100%;
+  pointer-events: none;
+  -webkit-mask-image: url(/assets/images/svg/texture-tear.svg);
+  mask-image: url(/assets/images/svg/texture-tear.svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% auto;
+  mask-size: 100% auto;
+  -webkit-mask-position: bottom;
+  mask-position: bottom;
+}
+.fade-tear:before {
+  top: -99px;
+}
+.fade-tear:after {
+  bottom: -98px;
+  transform: rotate(-180deg);
+}
+
+.bg-splatter::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: var(--lightblue);
+  -webkit-mask-image: url(/assets/images/svg/splatter.svg);
+  mask-image: url(/assets/images/svg/splatter.svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+
+.fade-dots {
+  position: relative;
+}
+.fade-dots:before, .fade-dots:after {
+  content: '';
+  z-index: 49;
+  position: absolute;
+  background: inherit;
+  height: 100px;
+  width: 100%;
+  pointer-events: none;
+  -webkit-mask-image: url(/assets/images/svg/texture-dot-fade.svg);
+  mask-image: url(/assets/images/svg/texture-dot-fade.svg);
+  -webkit-mask-repeat: repeat-x;
+  mask-repeat: repeat-x;
+  -webkit-mask-size: 400px auto;
+  mask-size: 400px auto;
+  -webkit-mask-position: bottom;
+  mask-position: bottom;
+}
+.fade-dots:before {
+  top: -97px;
+}
+.fade-dots:after {
+  bottom: -97px;
+  transform: rotate(-180deg);
+}
+
+@keyframes wavescroll{from{background-position:0 0}to{background-position:150px 0}}
+.sinewave-seperator {
+  width: calc(50vw + 0.5 * var(--general-width));
+  left: 50%;
+  margin-left: -50vw;
+  -webkit-tap-highlight-color: transparent;
+  animation: wavescroll 1s linear infinite;
+  background-repeat: repeat no-repeat;
+  background-size: 150px 50px;
+  height: 58px;
+  position: relative;
+  transform: scale(-1, 1);
+}
+@keyframes cursorUpDown{
+  to { transform: translatey(42.5px);}
+}
+.sinewave-seperator::after {
+  width: 20px;
+  height: 20px;
+  content: "";
+  position: absolute;
+  animation: cursorUpDown 0.5s alternate infinite ease-in-out;
+  background: radial-gradient(#ffffff, #D05D5D, #D05D5D55, #ffffff00, #ffffff00);
+  top: -6px;
+  left: -10px;
+}
+
+
+.fade-splash {
+  position: relative;
+}
+.fade-splash:before {
+  content: '';
+  z-index: 49;
+  position: absolute;
+  background: inherit;
+  height: 300px;
+  width: 100%;
+  pointer-events: none;
+  -webkit-mask-image: url(/assets/images/svg/texture-splash.svg);
+  mask-image: url(/assets/images/svg/texture-splash.svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-position: bottom;
+  mask-position: bottom;
+}
+.fade-splash:before {
+  top: -296px;
+}
+
+.full-page {
+  height: 100vh;
+}
+
+.showcase {
+  position: relative;
+  z-index: 50;
+  transition: all 0.3s ease-in;
+}
+.card {
+  transition: transform 0.3s ease-in
+}
+
+.depth-level-1 {
+  box-shadow: 0 4px 34px 2px rgba(14,30,37,.16);
+  z-index: 1
+}
+
+.depth-level-1:hover {
+  transform: translateY(-16px)
+}
+
+.depth-level-2 {
+  transform: scale(.8,.8);
+  box-shadow: 0 4px 24px 2px rgba(14,30,37,.16);
+  z-index: 2
+}
+
+.depth-level-2:hover {
+  transform: scale(.8,.8) translateY(-16px)
+}
+
+.depth-level-3 {
+  transform: scale(.7,.7);
+  box-shadow: 0 4px 14px 2px rgba(14,30,37,.16);
+  z-index: 3
+}
+
+.depth-level-3:hover {
+  transform: scale(.7,.7) translateY(-16px)
+}
+
+.blog {
+  background: var(--lightblue);
+  color: var(--gray);
+  padding-top: 200px;
+  padding-bottom: 300px;
+}
+
+.other-stuff {
+  background: var(--gray);
+
+  .misc-row > div {
+    width: 50%;
+  }
+  .misc-row > div:nth-child(1) {
+    float: left;
+  }
+  .misc-row > div:nth-child(2) {
+    float: right;
+  }
+  .misc-row:after {
+    content: "";
+    display: table;
+     clear: both;
+  }
+
+  #model {
+    padding-top: 75px;
+
+    .model-image-container {
+      overflow: auto;
+    }
+    .image {
+      float: left;
+    }
+    img {
+      border: var(--lightblue) 5px solid;
+    }
+    .image:nth-child(1) img {
+      height: 500px;
+      transform: rotate(1deg) translate(20px, 0px);
+    }
+    .image:nth-child(2) img {
+      width: 500px;
+      transform: rotate(-2deg) translate(10px, 15px);
+    }
+    .image:nth-child(3) img {
+      width: 500px;
+      transform: rotate(2deg) translate(20px, -30px);
+    }
+  }
+
+}

@@ -1,0 +1,268 @@
+body{
+	font-family: monospace;
+	color: #dcdccc;
+	background-color: #3f3f3f;
+	overflow-wrap: break-word;
+	width: 100vw;
+	height: 100vh;
+	overflow-x: hidden;
+	margin: 0px;
+	padding: 10px;
+	box-sizing: border-box;
+}
+p, pre{
+	margin: 0;
+}
+a:focus {
+	outline: none !important;
+}
+#input {
+	white-space: pre-wrap;
+}
+#blink {
+	white-space: pre;
+	animation: flash 1s step-start 0s infinite;
+	-webkit-animation: flash 1s step-start 0s infinite;
+}
+@keyframes flash {
+	0% { background: #3f3f3f; color: #dcdccc; }
+	50% { background: #dcdccc; color: #3f3f3f; }
+	100% { background: #3f3f3f; color: #dcdccc; }
+}
+@-webkit-keyframes flash {
+	0% { background: #3f3f3f; color: #dcdccc; }
+	50% { background: #dcdccc; color: #3f3f3f; }
+	100% { background: #3f3f3f; color: #dcdccc; }
+}
+#data {
+	box-sizing: border-box;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 1px;
+	height: 1px;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	outline: none;
+	background: #3f3f3f;
+	color: #3f3f3f;
+}
+.cat {
+	white-space: pre-wrap;
+}
+.ls {
+	display: inline;
+}
+.lsdir {
+	color: #3f3fff;
+	font-weight: bold;
+}
+.pink {
+	color: #ff5f5f;
+	font-weight: bold;
+}
+.hugright {
+	display: block;
+	float: right;
+}
+.off {
+	background-color: #000;
+}
+.blogpost p {
+	margin: 1em 0;
+}
+.blogpost a {
+	color: #fff;
+}
+img {
+	margin: 0 auto;
+	display: block;
+}
+img+em {
+	display: block;
+	text-align: center;
+}
+body.hacker, .hacker .pink{
+	background:#000;
+	color:#00B200;
+	text-shadow: 1px 1px 6px #0C0;
+}
+.hacker a{
+	color:#1919FF;
+	text-shadow: 1px 1px 6px #3333FF;
+}
+.hacker .lsdir {
+	text-shadow: 1px 1px 6px #34F;
+}
+.hacker #data {
+	background: #000;
+	color: #000;
+}
+.hacker #blink {
+	animation: hackerflash 1s step-start 0s infinite;
+	-webkit-animation: hackerflash 1s step-start 0s infinite;
+}
+@keyframes hackerflash {
+	0% { background: #000; color: #00B200; }
+	50% { background: #00B200; color: #000; text-shadow: 0px 0px 15px #0C0; }
+	100% { background: #000; color: #00B200; }
+}
+@-webkit-keyframes hackerflash {
+	0% { background: #000; color: #00B200; }
+	50% { background: #00B200; color: #000; text-shadow: 0px 0px 15px #0C0; }
+	100% { background: #000; color: #00B200; }
+}
+/* Everything to do with the bottom right corner 'information' box goes below */
+#information {
+	display: none;
+	position: fixed;
+	z-index: 1000000000;
+	bottom: 0;
+	right: 0;
+	padding: 5px;
+	padding-bottom: 0px;
+	border-radius: 7px 0 0 0;
+	border: 1px solid #000;
+	border-bottom-width: 0px;
+	border-right-width: 0px;
+	opacity: 1;
+	transition: opacity 0.5s ease-in-out;
+	background-color: #373731;
+}
+#information.hide {
+	opacity: 0;
+}
+#information.hide:hover {
+	opacity: 0.5;
+}
+/* Display information only on non-mobiles */
+@media only screen and (min-width: 1000px) {
+    #information {
+    	display: block;
+    }
+}
+#information-by {
+	font-size: 15px;
+}
+#information-em {
+	font-size: 17px;
+}
+#information a {
+	color: #d05d5d;
+}
+#information-anchor {
+	display: inline-flex;
+	align-items: center;
+	text-decoration: none;
+}
+#information-anchor.open{
+	position: relative;
+	left:40px;
+}
+#information-image-container {
+	padding-right: 5px;
+}
+#information-image-color {
+	border-radius: 100%;
+}
+#information-image {
+	width: 30px;
+	height: 30px;
+	border-radius: 100%;
+}
+#information-text p {
+	font-size: 12px;
+	width: 300px;
+	padding-bottom: 2px;
+}
+#information-text {
+	display: none;
+}
+#information-text.open{
+	display: block;
+}
+#information-text p a {
+	font-size: 12px;
+}
+.social-links {
+	text-align: center;
+}
+.social-links a {
+	text-decoration: none;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.social-links svg {
+	fill: #dcdccc;
+	font-size: 13px;
+}
+.close {
+	width: 20px;
+	height: 30px;
+	margin-left: 2px;
+	position: relative;
+	display: inline-block;
+}
+.close.open {
+	left: 97.3px;
+}
+.close:hover {
+	background: #dcdccc;
+}
+.close:hover:before, .close:hover:after {
+	background: #062414;
+}
+.close:before, .close:after {
+	position: absolute;
+	right: 9px;
+	content: ' ';
+	height: 15px;
+	width: 3px;
+	top: 9px;
+	background: #dcdccc;
+}
+.close:before {
+	transform: rotate(45deg);
+}
+.close:after {
+	transform: rotate(-45deg);
+}
+.hide .close:before{
+	transform: rotate(0deg);
+}
+.hide .close:after {
+	transform: rotate(90deg);
+}
+
+/* Chevron thanks to https://codepen.io/jonneal/ */
+.chevron {
+	padding: 6px;
+	padding-bottom: 7px;
+	bottom: 11px;
+	position: relative;
+}
+.chevron:hover {
+	background: #dcdccc;
+}
+.chevron:hover:before, .chevron:hover:after {
+	border-color: #062414;
+}
+.chevron:before {
+	border-color: #dcdccc;
+	border-style: solid;
+	border-width: 0.25em 0.25em 0 0;
+	content: '';
+	display: inline-block;
+	height: 0.45em;
+	position: relative;
+	top: 24px;
+	transform: rotate(-45deg);
+	vertical-align: top;
+	width: 0.45em;
+}
+.chevron.open:before {
+	top: 19px;
+	transform: rotate(135deg);
+}
+/* End Chevron */

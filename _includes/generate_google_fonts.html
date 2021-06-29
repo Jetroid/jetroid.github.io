@@ -1,0 +1,8 @@
+<!-- Custom Google Fonts - use google_font in YAML front matter !-->
+{% assign page_fonts = include.pagefonts | default: empty_array %}
+{% assign layout_fonts = include.layoutfonts | default: empty_array %}
+{% assign custom_fonts = page_fonts | concat: layout_fonts | uniq %}
+{% for font in custom_fonts %}
+	<link href="https://fonts.googleapis.com/css2?family={{ font }}" rel="stylesheet">
+{% endfor %}
+

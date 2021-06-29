@@ -25,28 +25,33 @@ layout: compress
 		<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 	{% endif %}
 
-	<!-- Custom Includes - use custom_style_includes in YAML front matter !-->
-	{%- capture include_to_scssify -%}
-		{%- unless page.nopresets -%}
-			{%- include presets.css -%}
-		{%- endunless -%}
-		{%- if page.donotlinkback -%}{%- elsif layout.donotlinkback -%}{% else -%}
-			{%- include linkback.css -%}
-		{%- endif -%}
-		{%- include master.scss -%}
-	{%- endcapture -%}
+	<script>
+		window.lazyLoadOptions = {
+			threshold: 250
+		};
+		window.addEventListener(
+			"LazyLoad::Initialized",
+			function (event) {
+				window.lazyLoadInstance = event.detail.instance;
+			},
+			false
+		);
+	</script>
+	<!-- Custom CSS
+			Seperate file - use css in YAML front matter
+			Inline - use inline_css in YAML front matter !-->
+	{%- include_cached generate_inline_css.html pagecss=page.inline_css layoutcss=layout.inline_css -%}
+	{%- include_cached generate_css.html pagecss=page.css layoutcss=layout.custom_css -%}
 
-	<style>
-		{{ include_to_scssify | scssify }}
-	</style>
+	<!-- Google Fonts
+			Linking as a stylesheet directly from their API.
+			- use google_font in YAML front matter.
+			- Just include the name (as it would appear in a URL)
+			for example "Nanum+Pen+Script"
+		!-->
+	{%- include_cached generate_google_fonts.html pagefonts=page.google_fonts layoutfonts=layout.google_fonts -%}
 
-	<!-- Custom Stylesheets - use custom_css in YAML front matter !-->
-	{% assign page_css = page.custom_css | default: empty_array %}
-    {% assign layout_css = layout.custom_css | default: empty_array %}
-    {% assign custom_css = page_css | concat: layout_css | uniq %}
-	{% for stylesheet in custom_css %}
-		<link rel="stylesheet" href="/assets/css/{{ stylesheet }}.css" type="text/css">
-	{% endfor %}
+
 
 	<!-- Set Canonical URLS for latest and latestmicro !-->
 	{% if page.url == "/latestmicro/" %}
@@ -60,29 +65,21 @@ layout: compress
 	{% endif %}
 
 	</head>
-	<body>
-		{% if page.donotlinkback %}{% elsif layout.donotlinkback %}{% else %}
+	<body {% unless page.nobackground or layout.nobackground %}{% if page.background %}class="lazy" data-bg="/assets/images/backgrounds/{{ page.background }}"{% else if layout.background %}class="lazy" data-bg="{{ layout.background }}"{% endif %}{% endunless %}>
+		{% unless page.donotlinkback %}
 		<nav id="linkback"><a href="/"><img src="/assets/images/jetroid-logo-miami.png" /></a></nav>
-		{% endif %}
+		{% endunless %}
+
 		{{ content }}
 
-		<!-- Custom JS (as seperate file) - use custom_js in YAML front matter !-->
-		{% assign page_js = page.custom_js | default: empty_array %}
-    	{% assign layout_js = layout.custom_js | default: empty_array %}
-    	{% assign custom_js = page_js | concat: layout_js | uniq %}
-		{% for js_url in custom_js %}
-			<script src='{{ js_url }}' type="text/javascript"></script>
-		{% endfor %}
-
-		<script>
-			{% include analytics.min.js %}
-
-		{% assign page_custom_js_includes = page.custom_js_includes | default: empty_array %}
-    	{% assign layout_custom_js_includes = layout.custom_js_includes | default: empty_array %}
-    	{% assign custom_js_includes = page_custom_js_includes | concat: layout_custom_js_includes | uniq %}
-		{% for script in custom_js_includes %}
-			{% include {{ script }}.min.js %}
-		{% endfor %}
-		</script>
+		<!-- Custom JS
+			Seperate file - use js in YAML front matter
+			Inline - use inline_js in YAML front matter !-->
+		{%- include_cached generate_js.html pagejs=page.custom_js layoutjs=layout.custom_js -%}
+		{%- include_cached generate_inline_js.html inlinepagejs=page.inline_js inlinelayoutjs=layout.custom_inline_js -%}
+		<script
+		  async
+		  src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.4.0/dist/lazyload.min.js"
+		></script>
 	</body>
 </html>

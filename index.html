@@ -1,92 +1,474 @@
 ---
 layout: default
 donotlinkback: true
-custom_style_includes:
-- splashpage
-- background
-- postlist
-- mailchimp
-custom_js_includes:
-- highlight
+inline_css:
+- homepage
+inline_js:
+- youtube-lazy
 - emailprotect
+custom_js:
+- /assets/js/homepage.js
+google_fonts:
+- Caveat+Brush
+- Poppins
 background: "background-homepage.jpg"
+nobackground: true
 background-color: "#160B04"
 image: me.png
 ---
-{% if paginator.page == 1 %}
-<div id="splash-container">
-	<div id="splash">
-		<div id="image"></div>
-		<div id="text"><p>
-			I'm Jet, a <a href="http://www.ecs.soton.ac.uk/programmes/g401-meng-computer-science-4-yrs">CS</a> <a href="/all-of-school/">graduate</a> who enjoys working on his own <a href="/projects/">projects</a>. I'm known for my <a href="https://frequencycentral.co.uk/product-tag/Jetroid/">Eurorack synth modules</a>. <!-- I'm currently <a href="/trips/">travelling</a> in Asia. !-->
-			You can <a href="/archive/">read all of my posts here</a><span id="mail"></span>.
-		</p></div>
-	</div>
-	<div id="microposts">
-		<h4>Latest Micro Posts:</h4>
-
-		{% assign micropostarray = '' | split:'@' %}
-
-		{% assign latest = site.micro | reverse %}
-		{% for post in latest limit:3 %}
-			{% capture link %}<a href="{{post.url}}">{{ post.title }}</a>{% endcapture %}
-			{% assign micropostarray = micropostarray | push: link %}
-		{% endfor %}
-
-		{{ micropostarray | array_to_sentence_string }}
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+<div class="hero-container-wrapper lazy" data-bg="/assets/images/homepage/hero/brickwork.jpg">
+	<div id="hero-container" class="hero-container">
+		<div id="scene" class="scene">
+			<div class="hero-far" data-depth="0.02">
+				<picture>
+				  <source media="(orientation: landscape)" srcset="/assets/images/homepage/hero/landscape/far.png">
+				  <source media="(orientation: portrait)" srcset="/assets/images/homepage/hero/portrait/far.png">
+				  <img src="/assets/images/homepage/hero/landscape/far.png">
+				</picture>
+			</div>
+			<div class="hero-middle" data-depth="0.08">
+				<picture>
+				  <source media="(orientation: landscape)" srcset="/assets/images/homepage/hero/landscape/middle.png">
+				  <source media="(orientation: portrait)" srcset="/assets/images/homepage/hero/portrait/middle.png">
+				  <img src="/assets/images/homepage/hero/landscape/middle.png">
+				</picture>
+			</div>
+			<div class="hero-close" data-depth="0.11">
+				<picture>
+				  <source media="(orientation: landscape)" srcset="/assets/images/homepage/hero/landscape/close.png">
+				  <source media="(orientation: portrait)" srcset="/assets/images/homepage/hero/portrait/close.png">
+				  <img src="/assets/images/homepage/hero/landscape/close.png">
+				</picture>
+			</div>
+			<div class="hero-stamp" data-depth="0.13">
+				<a href="/trips/">
+					<picture>
+					  <source media="(orientation: landscape)" srcset="/assets/images/homepage/hero/landscape/stamp.png">
+					  <source media="(orientation: portrait)" srcset="/assets/images/homepage/hero/portrait/stamp.png">
+					  <img src="/assets/images/homepage/hero/landscape/stamp.png">
+					</picture>
+				</a>
+			</div>
+			<div class="hero-photo" data-depth="0.23">
+				<picture>
+				  <source media="(orientation: landscape)" srcset="/assets/images/homepage/hero/landscape/photo.png">
+				  <source media="(orientation: portrait)" srcset="/assets/images/homepage/hero/portrait/photo.png">
+				  <img src="/assets/images/homepage/hero/landscape/photo.png">
+				</picture>
+			</div>
+			<div class="hero-links" data-depth="0.23">
+				<div class="hero-links-wrapper">
+					<a href="#projects">Projects</a>
+					<a href="/blog/">Blog</a>
+					<span id="mail"></span>
+				</div>
+			</div>
+			<div class="hero-name" class="ghost" data-depth="0.40">
+				<picture>
+				  <source media="(orientation: landscape)" srcset="/assets/images/homepage/hero/landscape/name.png">
+				  <source media="(orientation: portrait)" srcset="/assets/images/homepage/hero/portrait/name.png">
+				  <img src="/assets/images/homepage/hero/landscape/name.png" alt="Jet 'Jetroid' Holt">
+				</picture>
+			</div>
+		</div>
 	</div>
 </div>
-{% else %}
-<div id="page-header">
-	<h1 id="page-title">Page {{ paginator.page }}</h1>
+<div class="container prelude-text fade-tear">
+	<div class="inner-content-wrapper">
+		<div>
+			<h1>I write code and travel through time.<span class="asterisk">*</span></h1>
+			<small>* legal: Jet exclusively travels forward through time at a rate of one second per second, relative to an observer travelling at the same velocity as him.</small>
+			<p>I like video games, running, and putting absurdly large images on my website.</p>
+			<p>I'm terrible at learning languages (but try anyway), dabble in editing photos and creating SVG, and was <a href="#model">once a model for a day</a>.</p>
+			<p>If I could do anything, it would be exploring the solar system. In lieu of that, exploring Earth will do.</p>
+		</div>
+	</div>
 </div>
-{% endif %}
-<div id="posts">
-    {% assign count = 0 %}
-	{% for post in paginator.posts %}
-	<div class="post">
-		<a href="{{ post.url | prepend: site.baseurl }}">
-			<div class="background-container">
-				<div id="p{{count}}" class="post-background"
-					{% if post.background-position or post.background-color %}
-						style="
-						{% if post.background-position %}background-position:{{ post.background-position }};{% endif %}
-						"{% endif %}
-				></div>
-				<div class="post-shadow">
-					<div class="wtf-text-underline">
-					<h2 class="post-title">{{ post.title }}</h2>
-					<p class="post-date">{{ post.date | date: "%Y/%m/%d" }}</p>
-					<div class="divider"></div>
-					<p class="post-summary">{{ post.summary }}</p>
+<div class="container frequencycentral fade-tear">
+
+	<div class="inner-content-wrapper">
+		<div class="details-wrapper">
+			<section class="details">
+				<h1>Synthesiser Modules</h1>
+				<h2>collaboration with <a href="https://frequencycentral.co.uk/">Frequency Central</a></h2>
+				<div class="module-details-text">
+					<p>I sometimes program and co-design synthesiser modules with Frequency Central.</p>
+					<p>I use PIC microcontrollers and write with assembly code, which I'm told makes me a troglodyte.</p>
+				</div>
+				<div class="image-container">
+					<div>
+						{% include image.html src="/assets/images/homepage/fc-photos/microcontroller.jpg" alt="PIC microcontroller with a label reading 'Jetroid - Tool PIC 1.0'. It is in a circuit with other electronic components." noresize=true lazy="auto" %}
+						<div class="microcontroller-hint annotation">
+							{% include arrow.html width="60" height="110" %}
+							<p class="handwritten">This is a PIC microcontroller</p>
+						</div>
+					</div>
+					<div>
+						{% include image.html src="/assets/images/homepage/fc-photos/assembly.png" alt="Screenshot of the Frequency Central website, showing the Full Kits page." noresize=true %}
+						<div class="assembly-hint annotation">
+							{% include arrow.html width="60" height="110" style=1 %}
+							<p class="handwritten">That is assembly code</p>
+						</div>
 					</div>
 				</div>
-			</div>
-		</a>
-	</div>
-	<!-- Mailchimp email signup for 3rd item on first page !-->
-	{% if paginator.page == 1 and count == 2 %}
-		{% assign count = count | plus: 1 %}
-		<div class="post">
-			<div class="background-container">
-				<div id="p{{count}}" class="post-background" style="background-color: #010103"></div>
-				<div class="post-shadow">
-					{% include mailchimp.html %}
+			</section>
+			<section class="bartos-flur-details details module-details hidden">
+				<h1>Bartos Flur</h1>
+				<h2>Esoteric Sequencer/Trigger Generator</h2>
+				<div class="module-details-text">
+					<p>Bartos Flur was the first synth module I ever programmed, created when I was 17 for my A-level Electronics course.</p>
+					<p>It's a quirky creature; a sequencer whose step is determined by the input voltage level. It's weird... but fun, too!</p>
+				</div>
+				<div class="module-links">
+					<a href="https://frequencycentral.co.uk/product/bartos-flur-ii/">View at Frequency Central</a>
+				</div>
+				<div class="image-container">
+					{% include image.html src="/assets/images/homepage/fc-photos/bartos-flur-electronics-project.jpg" alt="A messy circuit made from many hand made circuit boards connected by wires." caption="Development Prototype, 2013" noresize=true lazy="manual" %}
+					{% include youtube.html v="ta03qPUdyzA" caption="Video Credit: Frequency Central" enablejsapi=true %}
+				</div>
+			</section>
+			<section class="deep-thought-details details module-details hidden">
+				<h1>Deep Thought</h1>
+				<h2>All-In-One Boolean Logic</h2>
+				<div class="module-details-text">
+					<p>One day, I was explaining logic gates to a teacher, and joked that I should make a circuit with gates, switches and LEDs that could be used as a learning tool.</p>
+					<p>That idea inspired <b><i>Deep Thought</i></b>, which has all the logic gates plus a section that can act as any gate. Hopefully it won't take 7,500,000 years to come up with answers.</p>
+				</div>
+				<div class="module-links">
+					<a href="https://frequencycentral.co.uk/product/deep-thought/">View at Frequency Central</a>
+				</div>
+				<div class="image-container">
+					{% include image.html src="/assets/images/homepage/fc-photos/deep-thought-prototype.jpg" alt="Hand made prototype for the Frequency Central Deep Thought sythesiser module." caption="Development Prototype, 2016" noresize=true lazy="manual" %}
+					{% include youtube.html v="zOjmP5djRoA" caption="Video Credit: Frequency Central" enablejsapi=true %}
+				</div>
+			</section>
+			<section class="polygraf-details details module-details hidden">
+				<h1>Polygraf</h1>
+				<h2>Programmable Drum Sequencer</h2>
+				<div class="module-details-text">
+					<p>Polygraf comes from an experiment where I inadvertently created a powerful sequencer that 'normal people' would struggle with. Who knew that only 'nerds' can read binary?</p>
+					<p>Adding seven-segment displays and a reworked record mode resulted in a drum sequencer that is "like something <a href="https://en.wikipedia.org/wiki/Roland_Corporation">Roland</a> would have created in 1978".</p>
+				</div>
+				<div class="module-links">
+					<a href="https://frequencycentral.co.uk/product/polygraf/">View at Frequency Central</a>
+				</div>
+				<div class="image-container">
+					{% include image.html src="/assets/images/homepage/fc-photos/polygraf-in-development.jpg" alt="Assorted circuit boards and wires, connected to a laptop off to one side. " caption="In development, 2015" noresize=true lazy="manual" %}
+					{% include youtube.html v="E6U8A-1G6fU" caption="Video Credit: Frequency Central" enablejsapi=true broken=true %}
+				</div>
+			</section>
+			<section class="chronograf-details details module-details hidden">
+				<h1>Chronograf</h1>
+				<h2>Start/Stoppable Low Frequency Oscillator</h2>
+				<div class="module-details-text">
+					<p>Chronograf was designed to be a controller of Polygraf and modules like it; something to tell them when to go, when to stop, and which sequences to play.</p>
+					<p>My favourite thing about the module is the large variety of waveforms it can produce, which makes it a powerful modulation source.</p>
+				</div>
+				<div class="module-links">
+					<a href="https://frequencycentral.co.uk/product/chronograf/">View at Frequency Central</a>
+				</div>
+				<div class="image-container">
+					{% include image.html src="/assets/images/homepage/fc-photos/chronograf-breakdown.jpg" alt="Assembled Frequency Central Chronograf module next to two populated PCBs." caption="Photo Credit: Frequency Central" noresize=true lazy="manual" %}
+					{% include youtube.html v="ysHfwp8U6U0" caption="Video Credit: Frequency Central" enablejsapi=true %}
+				</div>
+			</section>
+			<section class="seismograf-details details module-details hidden">
+				<h1>Seismograf</h1>
+				<h2>Drum Sample Module</h2>
+				<div class="module-details-text">
+					<p>In Chronograf, we experimened with decaying sine waveforms, which often sound like drums.</p>
+					<p>Seismograf is a further exploration, replacing the waveform data with samples from some of our favourite electronic drum kits. I created two variations, BD (Bass) and SD (Snare), and hope to create more in the future.</p>
+				</div>
+				<div class="module-links">
+					View at Frequency Central:
+					<a href="https://frequencycentral.co.uk/product/seismograf-bd/">BD</a>,
+					<a href="https://frequencycentral.co.uk/product/seismograf-bd/">SD</a>
+				</div>
+				<div class="image-container">
+					{% include image.html src="/assets/images/homepage/fc-photos/seismograf-breakdown.jpg" alt="Frequency Central Seismograf module broken down into it's constituent parts; two panels, two circuit boards, and an assembled module are visible." caption="Photo Credit: Frequency Central" noresize=true lazy="manual" %}
+					{% include youtube.html v="2jnv02ElCec" caption="Video Credit: Frequency Central" enablejsapi=true %}
+				</div>
+			</section>
+			<section class="little-melody-details details module-details hidden">
+				<h1>Little Melody</h1>
+				<h2>Generative Sequencer</h2>
+				<div class="module-details-text">
+					<p>Little Melody is based on a technique that the Director of Frequency Central has used for decades, combining a clock divider with a mixer to create sequences.</p>
+					<p>This old technique is modernised in Little Melody with spicy features like selectable divison channels, new counting modes, and a quantiser.</p>
+				</div>
+				<div class="module-links">
+					<a href="https://frequencycentral.co.uk/product/little-melody/">View at Frequency Central</a>
+				</div>
+				<div class="image-container">
+					{% include image.html src="/assets/images/homepage/fc-photos/little-melody-prototype.jpg" alt="Hand made prototype for the Frequency Central Little Melody sythesiser module." caption="Development Prototype, 2019" noresize=true lazy="manual" %}
+					{% include youtube.html v="lanpSKZZw6k" caption="Video Credit: Frequency Central" enablejsapi=true %}
+				</div>
+			</section>
+			<section class="high-towers-details details module-details hidden">
+				<h1>High Towers</h1>
+				<h2>Programmable Clock Divider</h2>
+				<div class="module-details-text">
+					<p>High Towers is a sister module to Little Melody, using the same code but with different hardware.</p>
+					<p>It's a super flexible clock divider. Each output can be assigned to a different division on the fly. It can count up, down, and various versions of 'up-down'. There is also 'cues' mode, which pulses at intervals of the clock.</p>
+				</div>
+				<div class="module-links">
+					<a href="https://frequencycentral.co.uk/product/high-towers/">View at Frequency Central</a>
+				</div>
+				<div class="image-container">
+					{% include image.html src="/assets/images/homepage/fc-photos/high-towers-logic-board.jpg" alt="Assembled logic board for the Frequency Central High Towers module." caption="Photo Credit: Frequency Central" noresize=true lazy="manual" %}
+					{% include youtube.html v="Di9oGpnCWbg" caption="Video Credit: Frequency Central" enablejsapi=true %}
+				</div>
+			</section>
+			<section class="reset-simulation-details details module-details hidden">
+				<h1>Reset Simulation</h1>
+				<h2>Boolean Logic Set</h2>
+				<div class="module-details-text">
+					<p>Reset Simulation has Deep Thought's logic gate set (but without the user selectable section) in a small form factor.</p>
+					<p>Legend says that when all the LEDs are lit, the simulation we are living in will be replaced with another, more bizarre simulation. Other sources say this has already happened several times.</p>
+				</div>
+				<div class="module-links">
+					<a href="https://frequencycentral.co.uk/product/reset-simulation/">View at Frequency Central</a>
+				</div>
+				<div class="image-container">
+					{% include image.html src="/assets/images/homepage/fc-photos/reset-simulation-breakdown.jpg" alt="Closeup of an assembled Frequency Central Reset Simulation and associated logic board." caption="Photo Credit: Frequency Central" lazy="manual" noresize=true %}
+					{% include youtube.html v="v3Gg-EmzQk4" caption="Video Credit: Frequency Central" enablejsapi=true %}
+				</div>
+			</section>
+			<section class="logic-bomb-details details module-details hidden">
+				<h1>Logic Bomb</h1>
+				<h2>User Selectable Boolean Logic</h2>
+				<div class="module-details-text">
+					<p>Logic Bomb has two independent addressable logic sections, which can act as any logic gate. It evolved from an early prototype of Deep Thought!<p>
+					<p>A logic bomb is a malicious piece of code that triggers when specific conditions are met. This module probably isn't malicious, though. I think.</p>
+				</div>
+				<div class="module-links">
+					<a href="https://frequencycentral.co.uk/product/logic-bomb/">View at Frequency Central</a>
+				</div>
+				<div class="image-container">
+					{% include image.html src="/assets/images/homepage/fc-photos/logic-bomb-prototype.jpg" alt="Hand made prototype for the Frequency Central Logic Bomb sythesiser module." caption="Logic Bomb Prototype, 2019" noresize=true lazy="manual" %}
+					{% include youtube.html v="nNkQ2Fudz_U" caption="Video Credit: Frequency Central" enablejsapi=true %}
+				</div>
+			</section>
+			<section class="tempograf-details details module-details hidden">
+				<h1>Tempograf</h1>
+				<h2>Start/Stoppable Clock Module</h2>
+				<div class="module-details-text">
+					<p>Tempograf is a slimmer version of Chronograf without the advanced features. Chronograf is versatile, but often you end up just using it as a startable/stopable clock source.</p>
+					<p>In some ways, Tempograf is much more like our original vision for Chronograf before we developed the LFO's feature set.</p>
+				</div>
+				<div class="module-links">
+					<a href="https://frequencycentral.co.uk/product/tempograf/">View at Frequency Central</a>
+				</div>
+				<div class="image-container">
+					{% include image.html src="/assets/images/homepage/fc-photos/reset-simulation-breakdown.jpg" alt="Closeup of an assembled Frequency Central Reset Simulation and associated logic board." caption="Photo Credit: Frequency Central" noresize=true lazy="manual" %}
+					{% include youtube.html v="F9TA2cCBoF0" caption="Video Credit: Frequency Central" enablejsapi=true %}
+				</div>
+			</section>
+		</div>
+		<div class="carousel frequencycentral-carousel">
+			<div class="carousel__interactivity-wrapper annotation">
+				<div class="carousel__interactivity-indicator">
+					<p class="handwritten">
+						Click me!
+					</p>
+					{% include arrow.html width=40 height=60 %}
+				</div>
+				<div class="modules-hint">
+					{% include arrow.html width="90" height="110" style=2 %}
+					<p class="handwritten">Those are synth modules</p>
 				</div>
 			</div>
-        </div>
-	{% endif %}
-	{% assign count = count | plus: 1 %}
-	{% endfor %}
+			<ul class="carousel__list">
+				<li class="carousel__item bartos-flur_module"      data-pos="3">{% include image.html src="/assets/images/homepage/jetroid-modules/300-bartos-flur.jpg" alt="Bartos Flur II" noresize=true nolink=true %}</li>
+				<li class="carousel__item deep-thought_module"     data-pos="4">{% include image.html src="/assets/images/homepage/jetroid-modules/300-deep-thought.jpg" alt="Deep Thought" noresize=true nolink=true %}</li>
+				<li class="carousel__item polygraf_module"         data-pos="5">{% include image.html src="/assets/images/homepage/jetroid-modules/300-polygraf.jpg" alt="Polygraf" noresize=true nolink=true %}</li>
+				<li class="carousel__item chronograf_module"       data-pos="6">{% include image.html src="/assets/images/homepage/jetroid-modules/300-chronograf.jpg" alt="Chronograf" noresize=true nolink=true %}</li>
+				<li class="carousel__item seismograf_module"       data-pos="7">{% include image.html src="/assets/images/homepage/jetroid-modules/300-seismograf.jpg" alt="Seismograf" noresize=true nolink=true %}</li>
+				<li class="carousel__item little-melody_module"    data-pos="8">{% include image.html src="/assets/images/homepage/jetroid-modules/300-little-melody.jpg" alt="Little Melody" noresize=true nolink=true %}</li>
+				<li class="carousel__item high-towers_module"      data-pos="9">{% include image.html src="/assets/images/homepage/jetroid-modules/300-high-towers.jpg" alt="High Towers" noresize=true nolink=true %}</li>
+				<li class="carousel__item reset-simulation_module" data-pos="0">{% include image.html src="/assets/images/homepage/jetroid-modules/300-reset-simulation.jpg" alt="Reset Simulation" noresize=true nolink=true %}</li>
+				<li class="carousel__item logic-bomb_module"       data-pos="1">{% include image.html src="/assets/images/homepage/jetroid-modules/300-logic-bomb.jpg" alt="Logic Bomb" noresize=true nolink=true %}</li>
+				<li class="carousel__item tempograf_module"        data-pos="2">{% include image.html src="/assets/images/homepage/jetroid-modules/300-tempograf.jpg" alt="Tempograf" noresize=true nolink=true %}</li>
+			</ul>
+			<div class="carousel__navigation">
+				<button class="carousel__previous">
+					<span class="sr-only">Previous Module</span>
+					{% include image.html src="/assets/images/homepage/arrow-left.png" alt="Previous Module" noresize=true nolink=true %}
+				</button>
+				<button class="carousel__close">
+					<span class="sr-only">Close Modules</span>
+  					{% include image.html src="/assets/images/homepage/cross.png" alt="Previous Module" noresize=true nolink=true %}
+				</button>
+				<button class="carousel__next">
+					<span class="sr-only">Next Module</span>
+  					{% include image.html src="/assets/images/homepage/arrow-right.png" alt="Previous Module" noresize=true nolink=true %}
+				</button>
+			</div>
+			<!-- This SVG is here just to act as a filter, see:
+				https://stackoverflow.com/a/46536304/6822172
+			!-->
+			<svg>
+				<defs>
+				<filter id="lightblue-to-pink" color-interpolation-filters="sRGB">
+					<feColorMatrix type="matrix" values="1 0 0 0 0
+				                                 0 1 0 0 0
+				                                 0 0 1 0 0
+				                                 0 0 0 1 0"/>
+
+				</filter>
+				</defs>
+			</svg>
+		</div>
+	</div>
 </div>
-<div id="navigation">
-	{% if paginator.previous_page %}
-		<a id="prev-post" href="{{paginator.previous_page_path}}">&lsaquo;Page {{ paginator.previous_page }}</a>
-	{% else %} <p id="prev-post">&nbsp;&nbsp;---</p>
-	{% endif %}
-	{% if paginator.next_page %}
-		<a id="next-post" href="{{paginator.next_page_path}}">Page {{paginator.next_page}}&rsaquo;</a>
-	{% else %} <p id="next-post">---&nbsp;&nbsp;</p>
-	{% endif %}
+<div class="container hacking bg-splatter">
+	<div class="inner-content-wrapper">
+		<div class="details-wrapper">
+			<div class="details">
+				<h1>Fallout Terminal</h1>
+				<p>This is my love letter to the <a href="https://en.wikipedia.org/wiki/Fallout_(series)" target="_blank">Fallout</a> video game series.</p>
+				<p>It originally started as just a simple implementation of the hacking minigame as subject to experiment my newly-learned web development skill on.</p>
+				<p>Over the years it has grown to become a deep and faithful recreation of the computation experience from that post-apocalyptic world.</p>
+				<p>It's the thing that brings the most people to my website, and I'm very proud of it.</p>
+				<p><a href="/hacking/">> Give it a look</a></p>
+			</div>
+		</div>
+		<div class="showcase">
+			<div class="card"><a href="/hacking/" target="_blank">
+				<div class="hacking-terminal">
+					<img class="lazy" data-src="/assets/images/svg/terminal-minified.svg">
+					<video class="lazy" autoplay loop muted plays-inline>
+						<source data-src="/assets/images/homepage/hacking/hacking-small.webm" type="video/webm">
+					</video>
+				</div>
+			</a></div>
+			<div class="card screenshot depth-level-2"><a href="/hacking/" target="_blank">
+				{% include image.html src="/assets/images/homepage/hacking/hacking1.png" alt="Logic Bomb" noresize=true nolink=true %}
+			</a></div>
+			<div class="card screenshot depth-level-3"><a href="/hacking/" target="_blank">
+				{% include image.html src="/assets/images/homepage/hacking/hacking2.png" alt="Logic Bomb" noresize=true nolink=true %}
+			</a></div>
+			<div class="card screenshot depth-level-3"><a href="/hacking/" target="_blank">
+				{% include image.html src="/assets/images/homepage/hacking/hacking3.png" alt="Logic Bomb" noresize=true nolink=true %}
+			</a></div>
+			<div class="card screenshot depth-level-2"><a href="/hacking/" target="_blank">
+				{% include image.html src="/assets/images/homepage/hacking/hacking4.png" alt="Logic Bomb" noresize=true nolink=true %}
+			</a></div>
+		</div>
+	</div>
 </div>
+<div class="container eduandtravel fade-dots">
+
+	<div class="education inner-content-wrapper">
+		<div class="details-wrapper">
+			<div class="details">
+				<h1>Education</h1>
+				<p>I graduated from the <a href="https://www.southampton.ac.uk/" _target="blank">University of Southampton</a> in 2018, achieving First Class Honours in their <a href="https://www.southampton.ac.uk/courses/computer-science-degree-meng" _target="blank">MEng Computer Science</a> programme.</p>
+				<p>Four years is a long time, so naturally there were ups and downs in there, but overall it was a good experience for me.</p>
+				<p>My favourite thing was taking part in Hackathons and writing goofy code with my friends.</p>
+				<p>
+				<p><a href="/streasm/">> Read about my favourite assignment</a></p>
+			</div>
+		</div>
+		<div class="showcase">
+			<div class="graduation">
+				<div class="nogown annotation">
+					{% include arrow.html width="60" height="110" %}
+					<p class="handwritten">Graduation day! I didn't want to attend the ceremony so didn't get to wear a gown like my friends.</p>
+				</div>
+				{% include image.html src="/assets/images/homepage/graduation.jpg" alt="Jet graduating from University with three of his friends. Notably, Jet is not wearing a graduate gown." noresize=true nolink=true %}
+			</div>
+			<div class="hackathon">
+				{% include image.html src="/assets/images/homepage/hackathon.jpg" alt="Jet graduating from University with three of his friends. Notably, Jet is not wearing a graduate gown." noresize=true nolink=true %}
+				<div class="hackathon-comment annotation">
+					{% include arrow.html width="60" height="110" style=1 %}
+					<p class="handwritten">Here I am competing in a Hackathon with my friends.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="sinewave-seperator lazy" data-bg="/assets/images/homepage/sinewave-loopable.png">
+	</div>
+	<div class="travel inner-content-wrapper">
+		<div class="details-wrapper">
+			<div class="details">
+				<h1>Travel</h1>
+				<p>After graduating University, the first thing I did was boldly take my first steps into exploring the world!</p>
+				<p>Actually, that's a total lie. I actually spent three months working on a research paper with my professors, then a further four months developing synth modules. But after all that, I took my first steps to exploring the world!</p>
+				<p>Travelling alone was an exhilarating experience. I didn't have a set itinerary, so I never knew what I'd be doing on a given date.</p>
+				<p><a href="/travel/">> Read my travel articles</a></p>
+				<p><a href="/trips/">> View a map of my travels</a></p>
+			</div>
+		</div>
+		<div class="showcase">
+			<div class="card"><a href="/zdravo-zagreb/" target="_blank">
+				{% include image.html src="/assets/images/homepage/postcards/croatia-postcard-0.jpg" alt="Explore History In Croatia, The Home Of Legends fake post card." noresize=true nolink=true %}
+			</a></div>
+			<div class="card"><a href="/loi-krathong/" target="_blank">
+				{% include image.html src="/assets/images/homepage/postcards/chiangmai-postcard-0.jpg" alt="Celebrate Yi Peng In Chiang Mai fake post card." noresize=true nolink=true %}
+			</a></div>
+			<div class="card"><a href="/kuala-lumpur-sightseeing/" target="_blank">
+				{% include image.html src="/assets/images/homepage/postcards/kl-postcard-0.jpg" alt="See Kuala Lumpur fake post card." noresize=true nolink=true %}
+			</a></div>
+			<div class="card"><a href="/climbing-the-bali-mountains/" target="_blank">
+				{% include image.html src="/assets/images/homepage/postcards/bali-postcard-0.jpg" alt="Visit Mount Batur In Scenic Bali, Indonesia fake post card." noresize=true nolink=true %}
+			</a></div>
+			<div class="postcard-comment annotation">
+				{% include arrow.html width="60" height="110" style=2 %}
+				<p class="handwritten">I made these rad imitation post cards about some of the locations I visited. Click them to read an associated article!</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container blog">
+	<div class="inner-content-wrapper">
+		<div>
+			<h1>Articles</h1>
+			<p>I run a blog that I update sporadically. I write about <a href="/travel/">my travels</a>, <a href="/projects">my projects</a>, and occasionally <a href="/tutorials/">tutorials</a> about things I have learned.</p>
+			<p><a href="/archive/">> You can read the full list of posts here.</a></p>
+		</div>
+	</div>
+</div>
+<div class="container other-stuff fade-splash">
+	<div class="inner-content-wrapper">
+		<div class="misc-stuff">
+			<h1>Other Stuff</h1>
+			<p>Here's a few things that didn't deserve their own section.</p>
+
+			<div class="misc-row">
+				<div>
+					<h2>Social Media</h2>
+
+					<p><a href="https://www.instagram.com/jetroidmakes/">> Instagram (posts about my travels)</a></p>
+					<p><a href="https://twitter.com/JetroidMakes">> Twitter (posts about tech, life, thoughts)</a></p>
+					<p><a href="https://github.com/Jetroid">> GitHub (code, obviously)</a></p>
+				</div>
+				<div>
+					<h2>Misc. Projects</h2>
+					<p><a href="https://github.com/Jetroid/bigtext.js">> bigtext.js</a></p>
+					<p><a href="https://github.com/Jetroid/textfill.js">> textfill.js</a></p>
+					<small>...yes, both of those libraries are about resizing text. I have an interest, okay!</small>
+				</div>
+			</div>
+			<div id="model">
+				<h1 >Bonus: My Short-Lived Modeling Career</h1>
+				<p>Out of the blue one day, my girlfriend asked me if I wanted to be a model. She told me that her friend needed a subject to advertise her textiles business, and my foreigner status made me a perfect candidate.</p>
+				<p>I wasn't very good at being a model; in most of the photos I had a stupid expression or posture, but here are a couple of the good ones:</p>
+				<div class="model-image-container">
+				{% include image.html src="/assets/images/homepage/endek1.jpg" alt="Visit Mount Batur In Scenic Bali, Indonesia fake post card." noresize=true nolink=true %}
+				{% include image.html src="/assets/images/homepage/endek2.jpg" alt="Visit Mount Batur In Scenic Bali, Indonesia fake post card." noresize=true nolink=true %}
+				{% include image.html src="/assets/images/homepage/endek3.jpg" alt="Visit Mount Batur In Scenic Bali, Indonesia fake post card." noresize=true nolink=true %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+var scene = document.getElementById('scene');
+var parallaxInstance = new Parallax(scene, {
+  invertX: false,
+  invertY: false,
+  hoverOnly: true,
+});
+</script>

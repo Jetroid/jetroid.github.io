@@ -5,130 +5,140 @@ title: RobCo Terminal
 favicon: hacking-favicon.ico
 summary: Fallout Terminal Hacking Minigame
 background: robco-revisited-beauty.png
+nobackground: true
 category: "project"
 nopresets: true
-custom_style_includes:
+inline_css:
 - hacking
-- simple-scrollbar
 custom_js:
-- /assets/js/hacking.min.js
-custom_js_includes:
-- simple-scrollbar
+- /assets/js/hacking.js
 custom_preconnect:
 - jetroid-hacking.herokuapp.com
 ---
-<div id="effects1">
-	<div id="effects2">
-		<div id="information">
-			<div id="information-header">
-				<span id="information-expand-shrink" class="chevron" onclick="maximiseInfo();"></span>
-				<span id="information-mute-unmute" class="speaker-container" onclick="mute();">
-					<span class="speaker"></span>
-				</span>
-				<a id="information-anchor" href="https://twitter.com/JetroidMakes/">
-					<div id="information-image-container" class="image-container">
-						<div id="information-image-color" class="image-color">
-							<img id="information-image" style="background-image: url('/assets/images/rsz_me.png')">
-						</div>
-					</div>
-					<p id="information-by">by <em id="information-em">Jet Holt</em></p>
-				</a>
-				<span id="information-hide" class="close" onclick="hideInfo();"></span>
-			</div>
-			<div id="information-text">
-				<p>
-				<span itemprop=”description”>Fallout Terminal Hacking Minigame by Jet Holt.</span>
-				Successfully completing the minigame reveals the posts from my <a href="https://jetholt.com/">website</a>.
-				I'm not in any way affiliated with Bethesda or Zenimax. I can be contacted
-				<script type="text/javascript" language="javascript">
-					ML="hl/j< air\"@ocemf:=>.t";
-					MI="46508=?A9>671D;@0=11;:3=D0;1DC<;>9B0=8=426B";
-					OT="";
-					for(j=0;j<MI.length;j++){
-					OT+=ML.charAt(MI.charCodeAt(j)-48);
-					}document.write(OT);
-				</script> if there are any issues.
-				</p>
-				<div class="social-links">
-					<a href="https://twitter.com/JetroidMakes">{% include twitter.html %}</a>
-					<a href="https://www.instagram.com/jetroidmakes/">{% include instagram.html %}</a>
-					<a href="https://github.com/Jetroid/">{% include github.html %}</a>
+<img id="terminal" src="/assets/images/svg/terminal.svg">
+<div id="information">
+	<div id="information-header">
+		<span id="information-expand-shrink" class="chevron" onclick="maximiseInfo();"></span>
+		<span id="information-mute-unmute" class="speaker-container" onclick="mute();">
+			<span class="speaker"></span>
+		</span>
+		<a id="information-anchor" href="https://twitter.com/JetroidMakes/">
+			<div id="information-image-container" class="image-container">
+				<div id="information-image-color" class="image-color">
+					<img id="information-image" style="background-image: url('/assets/images/rsz_me.png')">
 				</div>
 			</div>
+			<p id="information-by">by <em id="information-em">Jet Holt</em></p>
+		</a>
+		<span id="information-hide" class="close" onclick="hideInfo();"></span>
+	</div>
+	<div id="information-text">
+		<p>
+		<span itemprop=”description”>Fallout Terminal Hacking Minigame by Jet Holt.</span>
+		Successfully completing the minigame reveals the posts from my <a href="https://jetholt.com/">website</a>.
+		I'm not in any way affiliated with Bethesda or Zenimax. I can be contacted
+		<script type="text/javascript" language="javascript">
+			ML="hl/j< air\"@ocemf:=>.t";
+			MI="46508=?A9>671D;@0=11;:3=D0;1DC<;>9B0=8=426B";
+			OT="";
+			for(j=0;j<MI.length;j++){
+			OT+=ML.charAt(MI.charCodeAt(j)-48);
+			}document.write(OT);
+		</script> if there are any issues.
+		</p>
+		<div class="social-links">
+			<a href="https://twitter.com/JetroidMakes">{% include logos/twitter.html %}</a>
+			<a href="https://www.instagram.com/jetroidmakes/">{% include logos/instagram.html %}</a>
+			<a href="https://github.com/Jetroid/">{% include logos/github.html %}</a>
 		</div>
-		<div id="please-rotate" class="portrait" style="display:none">
-			<p>Please rotate your device or resize your browser!<br/>This application only works in landscape.</p>
-		</div>
-		<div id="click-to-start" class="landscape" onclick="turnOn();">
-			<p>Begin</p>
-		</div>
-		<div id="loading" class="post landscape" style="display:none">
-			<p class="activeCommandPrompt"></p><!-- Dummy p element - each p below needs to refer to a previousSibling :) !-->
-			<p id="loading-welcome" class="cp"></p>
-			<p id="loading-firsttype" class="cp"></p>
-			<p id="loading-terminalmodel" class="cp"></p>
-			<p id="loading-secondtype" class="cp"></p>
-			<p id="loading-thirdtype" class="cp"></p>
-			<p id="loading-information" class="cp"></p>
-			<p id="loading-fourthtype" class="cp"></p>
+	</div>
+</div>
+<div id="effects-wrapper">
+	<div id="effects1">
+		<div id="effects2">
+			<div id="please-rotate" class="portrait">
+				<p>Note: This application looks nicer in landscape.</p>
+				<p>Begin</p>
+			</div>
+			<div id="click-to-start" class="landscape">
+				<p>Begin</p>
+			</div>
+			<div id="loading" class="landscape hidden">
+				<p class="activeCommandPrompt"></p><!-- Dummy p element - each p below needs to refer to a previousSibling :)
 
-			<span id="cp-cursor" class="cursor-off">█</span>
-		</div>
-		<div id="hacking" class="landscape" style="display:none">
-			<div>
-				<p id="termlink">​</p>	<!-- There are zero-width spaces here !-->
-				<p id="message">​</p>	<!-- So that they remain one line high !-->
-				<p><br></p>
-				<p id="attemptsleft">​​</p>
+				Lots of comments here because:
+				https://stackoverflow.com/a/5078297/6822172
+				!--><p id="loading-welcome" class="cp"></p><!--
+				!--><p id="loading-firsttype" class="cp"></p><!--
+				!--><p id="loading-terminalmodel" class="cp"></p><!--
+				!--><p id="loading-secondtype" class="cp"></p><!--
+				!--><p id="loading-thirdtype" class="cp"></p><!--
+				!--><p id="loading-information" class="cp"></p><!--
+				!--><p id="loading-fourthtype" class="cp"></p><!--
+				!--><span id="cp-cursor" class="cursor-off">█</span>
 			</div>
-			<div id="rest">
-				<div id="leftptr" class="pointers content"><p id="leftpointers"></p></div>
-				<div id="leftsymb" class="symbols content"><p id="leftsymbols" onmouseout="clearEntry()"></p></div>
-				<div id="rightptr" class="pointers content"><p id="rightpointers"></p></div>
-				<div id="rightsymb" class="symbols content"><p id="rightsymbols" onmouseout="clearEntry()"></p></div>
-				<div class="results content">
-					<p id="feedback"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
-					<p><br></p>
-					<p id="minigame-prompt" style="display:none;">><span id="entry"></span><span id="hack-cursor" class="cursor-flash">█</span></p>
+			<div id="hacking" class="landscape hidden">
+				<div>
+					<p id="termlink" class="activeCommandPrompt"> ​</p><!--
+					!--><p id="message" class="activeCommandPrompt"> ​</p><!--
+					!--><p class="activeCommandPrompt">​​<span id="attemptstext"></span><span id="attemptsblocks"></span><span id="attemptsnewline"></p><!--
+					!--><span id="hack-cursor1" class="cursor-off">█</span>
+				</div>
+				<div id="rest">
+					<p id="hacking-symbols" onmouseout="clearEntry()"></p><div class="results content">
+						<p id="feedback"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+						<p><br></p>
+						<p id="minigame-prompt" class="hidden">><span id="entry"></span><span id="hack-cursor2" class="cursor-flash">█</span></p>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div id="terminal-sounds">
-			<audio id="login" src="/assets/sounds/hacking/login.wav"></audio>
-			<audio id="incorrect" src="/assets/sounds/hacking/incorrect.wav"></audio>
-			<audio id="correct" src="/assets/sounds/hacking/correct.wav"></audio>
-			<audio id="enter" src="/assets/sounds/hacking/enter1.wav"></audio>
-			<audio id="locked" src="/assets/sounds/hacking/locked.wav"></audio>
-			<audio id="key1" src="/assets/sounds/hacking/key1.wav"></audio>
-			<audio id="key2" src="/assets/sounds/hacking/key2.wav"></audio>
-			<audio id="key3" src="/assets/sounds/hacking/key3.wav"></audio>
-			<audio id="key4" src="/assets/sounds/hacking/key4.wav"></audio>
-			<audio id="key5" src="/assets/sounds/hacking/key5.wav"></audio>
-			<audio id="key6" src="/assets/sounds/hacking/key6.wav"></audio>
-			<audio id="key7" src="/assets/sounds/hacking/key7.wav"></audio>
-			<audio id="tick" src="/assets/sounds/hacking/click.wav"></audio>
-			<audio id="hum1" src="/assets/sounds/hacking/hum1.wav"></audio>
-			<audio id="hum2" src="/assets/sounds/hacking/hum2.wav"></audio>
-			<audio id="print" src="/assets/sounds/hacking/print.wav"></audio>
-		</div>
-		<div id="loggedin"  class="landscape" style="display:none;">
-			<div id="os-header">
-				<p>ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM</p>
-				<p>COPYRIGHT 2075-2077 ROBCO INDUSTRIES</p>
-				<p>-Server 4-</p>
-				<p id="welcome"><br>Overseer Holt's Private Terminal - *STRICTLY CONFIDENTIAL*</p>
-				<div id="divider"></div>
-			</div>
-			<div id="blog-content" ss-container>
-				<div id="post-titles-container">
-				{% for post in site.posts %}
-					<div class="post-title"><p class="post-title-p" onclick="viewPost('{{post.url}}')" onmouseover="tickNoise();">
-						>&nbsp;&nbsp;{{post.date | date: "%Y" | plus: 60 }}{{post.date | date: "/%m/%d" }} - {{ post.title }}
-					</p></div>
-				{% endfor %}
+			<div id="loggedin"  class="landscape hidden">
+				<div id="os-header">
+					<p>ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM</p>
+					<p>COPYRIGHT 2075-2077 ROBCO INDUSTRIES</p>
+					<p>-Server 4-</p>
+					<p id="welcome"><br>Today's Date: <span id="todays-date"></span></p>
+					<div id="divider"></div>
 				</div>
-				<article id="post-container" class="post" onclick="exitPost(event)" style="display:none;" ss-container><!-- Content inserted by JS !--></article>
+				<div id="blog-posts">
+					<!-- Content inserted by JS !-->
+				</div>
+				<article id="post-container" class="post hidden">
+					<!-- Content inserted by JS !-->
+				</article>
+				<div id="loggedin-prompt">
+					> <span id="loggedin-prompt-text">Password Accepted.</span><span id="loggedin-prompt-cursor" class="cursor-flash">█</span>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<div id="terminal-sounds">
+	<audio id="login" src="/assets/sounds/hacking/login.wav"></audio>
+	<audio id="incorrect" src="/assets/sounds/hacking/incorrect.wav"></audio>
+	<audio id="correct" src="/assets/sounds/hacking/correct.wav"></audio>
+	<audio id="enter" src="/assets/sounds/hacking/enter1.wav"></audio>
+	<audio id="locked" src="/assets/sounds/hacking/locked.wav"></audio>
+	<audio id="key1" src="/assets/sounds/hacking/key1.wav"></audio>
+	<audio id="key2" src="/assets/sounds/hacking/key2.wav"></audio>
+	<audio id="key3" src="/assets/sounds/hacking/key3.wav"></audio>
+	<audio id="key4" src="/assets/sounds/hacking/key4.wav"></audio>
+	<audio id="key5" src="/assets/sounds/hacking/key5.wav"></audio>
+	<audio id="key6" src="/assets/sounds/hacking/key6.wav"></audio>
+	<audio id="key7" src="/assets/sounds/hacking/key7.wav"></audio>
+	<audio id="tick" src="/assets/sounds/hacking/click.wav"></audio>
+	<audio id="hum1" src="/assets/sounds/hacking/hum1.wav"></audio>
+	<audio id="hum2" src="/assets/sounds/hacking/hum2.wav"></audio>
+	<audio id="print" src="/assets/sounds/hacking/print.wav"></audio>
+</div>
+<script>
+var posts = [
+{% for post in site.posts %}
+  {
+    title: "{{ post.title }}",
+    date: '{{ post.date | date: "%Y" | plus: 60 }}{{ post.date | date: "-%m-%d" }}',
+    url: "{{ post.url }}"
+  },
+{% endfor %}
+];
+</script>

@@ -1,0 +1,167 @@
+:root {
+  --scene-total-width: min(1024px, 90vw);
+}
+.hero-container-wrapper {
+  overflow-y: visible;
+  position: relative;
+  background: #DCDBDA;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.hero-container-wrapper * {
+  z-index: 50;
+}
+
+.hero-container {
+  width: 100%;
+  position: relative;
+}
+.scene {
+  margin: 0;
+  padding: 0;
+}
+.scene > div {
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.scene > div:first-child {
+  position: relative;
+}
+.scene div img {
+	display: block;
+	z-index: 50;
+  position: relative;
+}
+.hero-stamp a {
+  display: block;
+  position: absolute;
+  pointer-events: all;
+}
+.hero-links-wrapper {
+  position: relative;
+  transform: rotate(-3.75deg) skew(-3.75deg);
+  font-weight: 1000;
+  z-index: 51;
+  pointer-events: all;
+}
+.hero-links-wrapper a {
+  position: relative;
+  text-shadow: 2px 1px #373731;
+}
+@media (orientation: landscape) {
+  :root {
+    --scene-pixel-ratio: calc(var(--scene-total-width) / 2300);
+    --scene-padding: calc((100vw - var(--scene-total-width)) / 2);
+  }
+  .hero-container-wrapper, .hero-container, .scene {
+    height: calc(1400 * var(--scene-pixel-ratio));
+  }
+  .hero-far img {
+    width: calc(var(--scene-pixel-ratio) * 1920);
+    left: calc(var(--scene-pixel-ratio) * 200 + var(--scene-padding));
+    top:  calc(var(--scene-pixel-ratio) * 230);
+  }
+  .hero-middle img {
+    width: calc(var(--scene-pixel-ratio) * 1900);
+    left: calc(var(--scene-pixel-ratio) * 220 + var(--scene-padding));
+    top:  calc(var(--scene-pixel-ratio) * 50);
+  }
+  .hero-close img {
+    width: calc(var(--scene-pixel-ratio) * 1920);
+    left: calc(var(--scene-pixel-ratio) * 200 + var(--scene-padding));
+    top:  0;
+  }
+  .hero-stamp a {
+    left: calc(var(--scene-pixel-ratio) * 668 + var(--scene-padding));
+    top:  calc(var(--scene-pixel-ratio) * 1060);
+  }
+  .hero-stamp img {
+    width: calc(var(--scene-pixel-ratio) * 415);
+  }
+  .hero-photo img {
+    width: calc(var(--scene-pixel-ratio) * 1200);
+    left: calc(var(--scene-pixel-ratio) * 1100 + var(--scene-padding));
+    top:  calc(var(--scene-pixel-ratio) * 300);
+  }
+  .hero-name img {
+    width: calc(var(--scene-pixel-ratio) * 1275);
+    left: calc(var(--scene-pixel-ratio) * 300 + var(--scene-padding));
+    top:  calc(var(--scene-pixel-ratio) * 120);
+  }
+  .hero-links-wrapper {
+    left: calc(1275 * var(--scene-pixel-ratio) + var(--scene-padding));
+    top: calc(1150 * var(--scene-pixel-ratio));
+    --font-ratio: 0.5; /* Calculate by dividing the height of a single character by it's width - caution... only works for monospaced fonts! */
+    --number-chars: 22; /* Number of chars in "Projects Blog Email Me" inc spaces */
+    --target-width: calc(700 * var(--scene-pixel-ratio));
+    --transform-manipulation: 1.136; /* Our rotate and skew messes with our values */
+    font-size: calc(var(--target-width) / (var(--number-chars) * var(--font-ratio) * var(--transform-manipulation)));
+    width: calc(var(--target-width) * 1.2) /* Keep a little room for error */
+  }
+  .hero-links-wrapper a:nth-child(2) {
+    top: calc(70 * var(--scene-pixel-ratio));
+  }
+  .hero-links-wrapper a:nth-child(3) {
+    top: calc(140 * var(--scene-pixel-ratio));
+  }
+}
+@media (orientation: portrait) {
+  :root {
+    --scene-pixel-ratio: calc(var(--scene-total-width) / 1500);
+  }
+  .hero-container-wrapper, .hero-container, .scene {
+    height: calc(2050 * var(--scene-pixel-ratio));
+  }
+  .hero-far img {
+    width: calc(var(--scene-pixel-ratio) * 1450);
+    left: calc(var(--scene-pixel-ratio) * 25);
+    top:  calc(var(--scene-pixel-ratio) * 225);
+  }
+  .hero-middle img {
+    width: calc(var(--scene-pixel-ratio) * 1350);
+    left: calc(var(--scene-pixel-ratio) * 75);
+    top:  calc(var(--scene-pixel-ratio) * 50);
+  }
+  .hero-close img {
+    width: calc(var(--scene-pixel-ratio) * 1450);
+    left: calc(var(--scene-pixel-ratio) * 25);
+    top:  0;
+  }
+  .hero-stamp a {
+    left: calc(var(--scene-pixel-ratio) * 175);
+    top:  calc(var(--scene-pixel-ratio) * 1300);
+  }
+  .hero-stamp img {
+    width: calc(var(--scene-pixel-ratio) * 415);
+  }
+  .hero-photo img {
+    width: 100vw;
+    left: calc(var(--scene-pixel-ratio) * 225);
+    top:  calc(var(--scene-pixel-ratio) * 825);
+  }
+  .hero-name img {
+    width: calc(var(--scene-pixel-ratio) * 1200);
+    left: calc(var(--scene-pixel-ratio) * 125);
+    top:  calc(var(--scene-pixel-ratio) * 250);
+  }
+  .hero-links-wrapper {
+    left: calc(475 * var(--scene-pixel-ratio));
+    top: calc(1700 * var(--scene-pixel-ratio));
+    --font-ratio: 0.5; /* Calculate by dividing the height of a single character by it's width - caution... only works for monospaced fonts! */
+    --number-chars: 22; /* Number of chars in "Projects Blog Email Me" inc spaces */
+    --target-width: calc(775 * var(--scene-pixel-ratio));
+    --transform-manipulation: 1.136; /* Our rotate and skew messes with our values */
+    font-size: calc(var(--target-width) / (var(--number-chars) * var(--font-ratio) * var(--transform-manipulation)));
+    width: calc(var(--target-width) * 1.2) /* Keep a little room for error */
+  }
+  .hero-links-wrapper a:nth-child(2) {
+    top: calc(70 * var(--scene-pixel-ratio));
+  }
+  .hero-links-wrapper a:nth-child(3) {
+    top: calc(140 * var(--scene-pixel-ratio));
+  }
+}
+
+

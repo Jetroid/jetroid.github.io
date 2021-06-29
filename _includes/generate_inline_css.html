@@ -1,0 +1,13 @@
+{%- assign page_css = include.pagecss | default: empty_array %}
+{%- assign layout_css = include.layoutcss | default: empty_array %}
+{%- assign inline_css = page_css | concat: layout_css | uniq %}
+{%- if inline_css.size > 0 -%}
+{%- capture include_to_scssify -%}
+	{% for style_include in inline_css %}
+		{% include_cached inlinecss/{{ style_include }}.scss %}
+	{% endfor %}
+{%- endcapture -%}
+<style>
+{{ include_to_scssify | scssify }}
+</style>
+{%- endif -%}

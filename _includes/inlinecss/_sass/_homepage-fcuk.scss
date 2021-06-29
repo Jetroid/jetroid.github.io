@@ -1,0 +1,542 @@
+.frequencycentral {
+  background:  var(--gray);
+  width: 100%;
+
+  .details-wrapper {
+    width: 100%;
+  }
+  @media(min-width: 1150px) {
+    .details-wrapper {
+      width: calc(100% - 300px);
+    }
+    .details {
+      padding-right: 10%;
+    }
+    .details.module-details {
+      padding-right: 4%;
+    }
+  }
+  .details {
+    max-width: 100%;
+  }
+
+
+
+  .module-details-text {
+    height: 216px;
+    margin: 20px 0;
+  }
+
+  /* Break out the links to below the carousel */
+  .module-links {
+    position: absolute;
+    bottom: 10px;
+    right: -300px;
+    width: 300px;
+    text-align: center;
+  }
+
+  .image-container {
+    display: flex;
+    margin-top: 20px;
+
+    & > div {
+      width: 50%;
+    }
+
+    .image:nth-child(1), .youtube:nth-child(1) {
+      transform: rotate(1deg);
+    }
+
+    .image:nth-child(2), .youtube:nth-child(2) {
+      transform: rotate(-1deg);
+    }
+
+    a.img {
+      display: block;
+      width: 320px;
+      margin: auto;
+    }
+
+    img {
+      display: block;
+      width: 320px;
+      box-sizing: border-box;
+      height: 180px;
+      border-radius: 5px;
+      object-fit: cover;
+    }
+
+    .youtube {
+      width: 320px;
+
+      /* Triangle Shape */
+      &.thumbnail:before {
+        --triangle-width: 12px;
+        content: "";
+        position: absolute;
+        left: calc(50% - 0.9 * var(--triangle-width));
+        top: calc(50% - var(--triangle-width));
+        width: 0;
+        height: 0;
+        border-top: var(--triangle-width) solid transparent;
+        border-left: calc(var(--triangle-width) * 2) solid white;
+        border-bottom: var(--triangle-width) solid transparent;
+        pointer-events: none;
+      }
+
+      /* Circle Shape */
+      &.thumbnail:after {
+        --circle-diameter: 60px;
+        --circle-thickness: 4px;
+        content: "";
+        position: absolute;
+        left: calc(50% - 0.5 * var(--circle-diameter));
+        top: calc(50% - 0.5 * var(--circle-diameter));
+        width: var(--circle-diameter);
+        height: var(--circle-diameter);
+        border: var(--circle-thickness) solid white;
+        border-radius: 50%;
+        box-sizing: border-box;
+        pointer-events: none;
+      }
+
+      iframe {
+        border: none;
+        width: 320px;
+        height: 180px;
+        border-radius: 5px;
+      }
+    }
+
+    em {
+      display: block;
+      text-align: center;
+      font-size: large;
+    }
+  }
+}
+  .microcontroller-hint {
+    position: absolute;
+    width: 500px;
+    height: 0px;
+
+    svg {
+      top: -225px;
+      left: 84px;
+      transform: scaleX(-1);
+    }
+
+    p {
+      top: -337px;
+      left: 147px;
+      transform: rotate(1deg);
+    }
+  }
+
+.modules-hint {
+  position: absolute;
+  width: 200px;
+  height: 0px;
+
+  p {
+    top: -84px;
+    left: -240px;
+    transform: rotate(-8deg) skewX(-10deg);
+  }
+
+  svg {
+    top: 35px;
+    left: -140px;
+    transform: scaleY(-1) rotate(15deg);
+  }
+}
+
+.assembly-hint {
+  height: 0px;
+
+  p {
+    top: -95px;
+    transform: rotate(2deg);
+  }
+
+  svg {
+    top: -21px;
+    left: 162px;
+    transform: scaleX(0.5) scaleY(-0.5);
+  }
+}
+@media(max-width: 1150px) {
+  .image-container {
+    margin-bottom: 70px;
+  }
+  .assembly-hint {
+    position: relative;
+    left: 200px;
+  }
+}
+@media(max-width: 1000px) {
+  .assembly-hint {
+    position: relative;
+    left: 100px;
+  }
+  .modules-hint p {
+    top: 330px;
+    left: 40px;
+    transform: rotate(1deg) skewX(-10deg);
+  }
+  .modules-hint svg {
+    top: 360px;
+    left: -20px;
+    transform: scale(-1, -1) rotate(-247deg);
+  }
+}
+@media(max-width: 750px) {
+  .frequencycentral .image-container {
+    display: block;
+    margin-top: 50px;
+  }
+}
+
+
+.frequencycentral-carousel,
+.frequencycentral-carousel .carousel__list {
+  width: 300px;
+  height: 400px;
+}
+
+
+/* CSS transitions to make switching between module details more "fluid" */
+@keyframes fadeInFromLeft {
+  0% {display:none; opacity:0; left: -100px; }
+  1% {display:block; opacity:0; left: -100px; }
+  100% {display:block; opacity:1; left: 0px; }
+}
+@keyframes fadeInFromRight {
+  0% {display:none; opacity:0; right: -100px; }
+  1% {display:block; opacity:0; right: -100px; }
+  100% {display:block; opacity:1; right: 0px; }
+}
+.appear-left {
+  animation: fadeInFromLeft 0.5s ease-out 1;
+  position: relative;
+}
+.appear-right {
+  animation: fadeInFromRight 0.5s ease-out 1;
+  position: relative;
+}
+
+:root {
+  --carousel-height: 300px;
+}
+
+.carousel {
+  height: 550px;
+  padding-top: 100px;
+  margin: auto;
+}
+
+.carousel.active .carousel__interactivity-wrapper {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.carousel__list {
+  list-style: none;
+  position: absolute;
+  height: var(--carousel-height);
+}
+
+.carousel__interactivity-wrapper {
+
+  .carousel__interactivity-indicator {
+    transform: rotate(-3deg);
+    transition: all 0.3s ease-in;
+    height: 0px;
+
+    & p {
+      font-size: x-large;
+      top: -104px;
+      left: 40px;
+    }
+
+    & svg {
+      top: -139px;
+      left: 120px;
+    }
+  }
+}
+
+.carousel__navigation {
+  position: relative;
+  width: 300px;
+  height: 40px;
+  bottom: -100%;
+  margin-top: -50px;
+
+  button, img {
+    border: none;
+    background: none;
+    position: absolute;
+  }
+
+  button:nth-child(1) {
+    left: 0px;
+    width: 87.75px;
+    height: 40px;
+  }
+
+  button:nth-child(2) {
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    width: 50px;
+    height: 40px;
+  }
+
+  button:nth-child(3) {
+    right: 0px;
+    width: 85px;
+    height: 40px;
+  }
+
+  img {
+    height: 40px;
+    left: 0px;
+    top: 0px;
+
+    &:hover {
+      -webkit-filter: url(#lightblue-to-pink);
+      filter: url(#lightblue-to-pink);
+    }
+  }
+
+}
+
+.carousel__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 2px 8px 0px rgba(50, 50, 50, 0.5);
+  position: absolute;
+  transition: all 0.3s ease-in;
+
+  background: var(--lightblue);
+  border-radius: 5px;
+  --scaled-width: calc((var(--module-width) + 4px)* var(--scale));
+  /*
+  width: var(--scaled-width);
+  --scaled-height: calc(314px * var(--scale));
+  height: var(--scaled-height);
+  */
+
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+
+  &:hover {
+    border-color: var(--pink);
+  }
+}
+
+.carousel__list {
+  display: flex;
+
+  .carousel__item {
+
+    img {
+      padding: 7px;
+      height: calc(300px * var(--scale));
+      transition: all 0.3s ease-in;
+    }
+
+    &[data-pos] {
+      opacity: 0;
+      filter: blur(3px) grayscale(30%);
+      z-index: 1;
+      --scale: 0.7;
+      pointer-events: none;
+      top: 0px;
+      transform: rotate(0deg) translateY(0px);
+      left: calc(50% - var(--scaled-width)/2);
+    }
+
+    &[data-pos="0"],
+    &[data-pos="1"],
+    &[data-pos="2"],
+    &[data-pos="3"],
+    &[data-pos="4"],
+    &[data-pos="5"],
+    &[data-pos="6"], {
+      display: block;
+      pointer-events: auto;
+    }
+
+    &[data-pos="3"] {
+      opacity: 1.0;
+      filter: blur(0px) grayscale(0%);
+      z-index: 6;
+      --scale: 1.0;
+    }
+
+    &[data-pos="2"],
+    &[data-pos="4"] {
+      opacity: 0.7;
+      filter: blur(1px) grayscale(10%);
+      z-index: 5;
+      --scale: 0.9;
+    }
+
+    &[data-pos="1"],
+    &[data-pos="5"] {
+      opacity: 0.4;
+      filter: blur(2px) grayscale(20%);
+      z-index: 4;
+      --scale: 0.8;
+    }
+
+    &[data-pos="0"] {
+      left: 15%;
+    }
+
+    &[data-pos="1"] {
+      left: 0%;
+    }
+
+    &[data-pos="2"] {
+      left: 15%;
+    }
+
+    &[data-pos="3"] {
+      left: calc(50% - var(--scaled-width)/2);
+    }
+
+    &[data-pos="4"] {
+      left: calc(85% - var(--scaled-width));
+    }
+
+    &[data-pos="5"] {
+      left: calc(100% - var(--scaled-width));
+    }
+
+    &[data-pos="6"] {
+      left: calc(85% - var(--scaled-width));
+    }
+  }
+}
+
+.carousel:not(.active) {
+  .carousel__item {
+    opacity: 0 !important;
+    --scale: 1.0;
+    filter: grayscale(20%);
+    transition: all 0.3s ease-in;
+    transform: rotate(var(--rotate)) translateY(0px);
+    top: 60px;
+    left: 20px;
+    z-index: 1;
+
+    &:hover {
+      z-index: 6;
+      filter: grayscale(0%);
+      transform: rotate(0deg) translateY(-30px);
+    }
+  }
+
+  .carousel__navigation {
+    opacity: 0 !important;
+    pointer-events: none;
+  }
+
+  .carousel__item {
+    display: none;
+  }
+
+  .bartos-flur_module,
+  .chronograf_module,
+  .little-melody_module,
+  .polygraf_module {
+    opacity: 1.0 !important;
+    pointer-events: all;
+    display: block;
+  }
+
+  .bartos-flur_module {
+    left: 40px;
+    top: -20px;
+    --rotate: -2deg;
+    --scale: 1.3;
+    z-index: 5;
+  }
+
+  .chronograf_module {
+    left: -40px;
+    top: 5px;
+    --rotate: -4deg;
+    --scale: 1.2;
+    z-index: 4;
+  }
+
+  .little-melody_module {
+    left: 80px;
+    top: 60px;
+    --rotate: 5deg;
+    --scale: 1.2;
+    z-index: 3;
+  }
+
+  .polygraf_module {
+    left: 205px;
+    top: 0px;
+    --rotate: 3deg;
+    --scale: 1.2;
+    z-index: 2;
+  }
+
+}
+
+.active {
+  &[data-pos="7"], &[data-pos="8"], &[data-pos="9"] {
+    display: none;
+  }
+}
+
+/* Images and module widths */
+.bartos-flur_module {
+  --module-width: calc(var(--carousel-height) * (141 / 300));
+}
+
+.chronograf_module {
+  --module-width: calc(var(--carousel-height) * (118 / 300));
+}
+
+.deep-thought_module {
+  --module-width: calc(var(--carousel-height) * (118 / 300));
+}
+
+.high-towers_module {
+  --module-width: calc(var(--carousel-height) * (117 / 300));
+}
+
+.little-melody_module {
+  --module-width: calc(var(--carousel-height) * (141 / 300));
+}
+
+.logic-bomb_module {
+  --module-width: calc(var(--carousel-height) * (70 / 300));
+}
+
+.polygraf_module {
+  --module-width: calc(var(--carousel-height) * (117 / 300));
+}
+
+.reset-simulation_module {
+  --module-width: calc(var(--carousel-height) * (70 / 300));
+}
+
+.seismograf_module {
+  --module-width: calc(var(--carousel-height) * (45 / 300));
+}
+
+.tempograf_module {
+  --module-width: calc(var(--carousel-height) * (47 / 300));
+}

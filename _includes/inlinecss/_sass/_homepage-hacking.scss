@@ -1,0 +1,98 @@
+:root {
+	--hacking-terminal-width: 300px;
+	--hacking-terminal-height: calc(var(--hacking-terminal-width) * (892/980));
+	--svg-ratio: calc(var(--hacking-terminal-width) / 980);
+	--svg-screen-ratio: calc(455/980); /* Width of screen (within SVG) compared to SVG width */
+	--screen-width: calc(var(--svg-screen-ratio) * var(--hacking-terminal-width));
+}
+.hacking {
+	color: var(--gray);
+	background: #E3F6F6;
+}
+@media(max-width: 1150px) {
+	.hacking .showcase {
+		width: 680px;
+		height: 500px;
+		margin: auto;
+		margin-top: 100px;
+	}
+	.hacking {
+		padding-bottom: 130px;
+	}
+}
+@media(max-width: 600px) {
+	.hacking .showcase{
+		margin-left: -10%;
+	}
+}
+.hacking-terminal {
+	position: relative;
+
+	img {
+		position: absolute;
+		width: var(--hacking-terminal-width);
+	}
+
+	video {
+		position: absolute;
+		width: var(--screen-width);
+		left: calc((var(--svg-ratio) * 275));
+		top: calc((var(--svg-ratio) * 147.2));
+	}
+}
+.hacking .card {
+	position: absolute;
+}
+.hacking .screenshot {
+	border-radius: 10%;
+}
+.hacking .screenshot img {
+	width: calc(334px * 1.5);
+	height: calc(256px * 1.5);
+
+}
+.hacking .card:first-of-type {
+	position: relative;
+	left: 100px;
+	z-index: 10;
+}
+.hacking .card:first-of-type:hover {
+	transform: translateY(-16px)
+}
+.hacking .card:nth-child(2) {
+    top: -100px;
+    left: -30px;
+    transform: rotate(-3deg) scale(0.85);
+}
+.hacking .card:nth-child(2):hover {
+    transform: scale(0.85) translateY(-16px);
+    z-index: 11;
+}
+.hacking .card:nth-child(3) {
+    left: 250px;
+    top: -80px;
+    transform: rotate(1deg) scale(0.7);
+}
+.hacking .card:nth-child(3):hover {
+    transform: scale(0.7) translateY(-16px);
+    z-index: 11;
+}
+.hacking .card:nth-child(4) {
+    left: 30px;
+    top: 170px;
+    transform: rotate(1deg) scale(0.7);
+}
+.hacking .card:nth-child(4):hover {
+    transform: scale(0.7) translateY(-16px);
+    z-index: 11;
+}
+.hacking .card:nth-child(5) {
+    top: 120px;
+    left: 170px;
+    z-index: 4;
+    transform: rotate(-3deg) scale(0.55);
+}
+.hacking .card:nth-child(5):hover {
+    transform: scale(0.55) translateY(-16px);
+    z-index: 11;
+}

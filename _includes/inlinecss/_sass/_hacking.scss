@@ -1,0 +1,546 @@
+/* Positioning and text sizing/spacing calculation: */
+:root {
+	/* Constants */
+	--svg-screen-ratio: calc(455/980); /* Width of screen (within SVG) compared to SVG width */
+	--screen-width-height-ratio: calc(455/350); /* Width of screen compared to height of screen */
+
+	/* Calculate putting the screen in the terminal */
+
+	/* Width of the screen should be either 1024px, 90vw, or whatever size we'd be with height at 90vh. We use whichever is smallest. */
+	--screen-width: min(1024px, 90vw, calc(90vh * var(--screen-width-height-ratio)));
+	--screen-height: calc(var(--screen-width) / var(--screen-width-height-ratio));
+
+	/* Determine the width of the terminal based on screen size */
+	--terminal-result-width: calc(var(--screen-width) / var(--svg-screen-ratio));
+	--svg-ratio: calc(var(--terminal-result-width) / 980); /* Constant to convert between browser px and svg px) */
+
+	/* X offset of screen and terminal based on screen width */
+	--screen-x: calc((100vw - var(--screen-width))/2);
+	--terminal-x: calc(var(--screen-x) - (var(--svg-ratio) * 273.5));
+
+	/* Y offset of screen and terminal based on screen height relative to window */
+	--screen-y: min(calc(var(--svg-ratio) * 147.2), (100vh - var(--screen-height))/2);
+	--terminal-y: calc(var(--screen-y) - (var(--svg-ratio) * 147.2));
+
+	--screen-border-radius-x: calc(100% * (43 / 455));
+	--screen-border-radius-y: calc(100% * (43 / 350));
+
+	--padding: calc(7%);
+
+	/* Calculate the font-size, line-height, and letter-spacing */
+	--inner-width: calc(var(--screen-width) - var(--padding) * 2);
+	--inner-height: calc(var(--screen-height) - var(--padding) * 2);
+	--num-rows: calc(17 + 3 + 2); /* 17 main content, 3 text at top, 2 empty spaces */
+	--num-cols: calc(12 * 2 + 6 * 2 + 13 + 4 + 6); /* 2 symbols, 2 pointers, results, 4 spaces + 6 for I dont know why */
+	--character-scale: calc(20/24); /* We want to go from calculated font size to real font size at this ratio */
+	--character-ratio: calc(1.65);
+	--character-max-width: calc((var(--inner-width) / var(--num-cols)) * var(--character-ratio));
+	--character-max-height: calc((var(--inner-height) / var(--num-rows)) * var(--character-scale));
+	--font-size: min(var(--character-max-width), var(--character-max-height));
+	--character-width: calc(var(--font-size) / var(--character-ratio));
+	--character-height: calc(var(--font-size) / var(--character-scale));
+	--occupied-width: calc(var(--num-cols) * var(--character-width));
+	--occupied-height: calc(var(--num-rows) * var(--character-height));
+	--letter-spacing: calc((var(--inner-width) - var(--occupied-width)) / (var(--num-cols) + 3));
+	--line-extra: calc((var(--inner-height) - var(--occupied-height)) / var(--num-rows));
+	--line-height: calc(var(--font-size) + var(--line-extra));
+
+}
+html, body {
+	width:100vw;
+	height:100vh;
+	margin:0;
+	padding:0;
+	cursor: default;
+	overflow: hidden;
+}
+#terminal {
+	filter: brightness(0.2);
+    width: var(--terminal-result-width);
+    position: relative;
+    left: var(--terminal-x);
+    top: var(--terminal-y);
+}
+#effects-wrapper {
+	position: absolute;
+	width: calc(var(--screen-width));
+	height: calc(var(--screen-height));
+	top: calc(var(--screen-y));
+	left: calc(var(--screen-x));
+	border-radius: var(--screen-border-radius-x) /var(--screen-border-radius-y);
+	background-size: 100% 100%;
+	background-image: url("/assets/images/greenscreen.png");
+}
+#effects2,#effects1{
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+}
+#effects1:before {
+    content: '';
+    width : 100%;
+    height : 100%;
+    position : absolute;
+    top : 0px;
+    left : 0px;
+	border-radius: var(--screen-border-radius-x) var(--screen-border-radius-y);
+    background: linear-gradient(#375 50%, #111 50%);
+    background-size: 100% 6px;
+    animation: pulse 5s linear infinite;
+    mix-blend-mode: darken;
+    pointer-events: none;
+    z-index: 10000;
+}
+#effects1 {
+	overflow-x: hidden;
+	overflow-y: hidden;
+	position: absolute;
+}
+#effects2 {
+	padding: calc(var(--padding));
+	font-size: var(--font-size);
+	letter-spacing: var(--letter-spacing);
+	line-height: var(--line-height);
+}
+#hacking {
+	width: calc(var(--inner-width));
+	height: calc(var(--inner-height));
+}
+#hacking-symbols {
+	display: inline-block;
+}
+.terminal-off {
+	background-image: url("/assets/images/grayscreen.png");
+}
+#click-to-start, #please-rotate {
+	width: 100%;
+	height: 100%;
+}
+#click-to-start p, #please-rotate p {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+.terminal-off #effects1:before {
+	animation: initial;
+	opacity: 0.14;
+}
+.activeCommandPrompt {
+	display: inline;
+}
+#loading {
+	line-height: 0px;	/* Why the fuck is this necessary? CSS is so shit! */
+}
+#loading > p {
+	white-space: pre;
+}
+.cp {
+	line-height: normal;
+	padding: 0 0 2% 0 !important;
+}
+.cp:empty {
+	display: none !important;
+}
+
+p, a, .post *, #cp-cursor, #hack-cursor1, #loggedin-prompt {
+	margin: 0;
+	color: #4F5;
+	text-shadow: 0em 0em 0.5em #23824C;
+	font-family: monospace;
+	font-weight: bold;
+}
+.highlight, .bracketpair, #click-to-start p, #please-rotate p, .post-title-p:hover{
+	color: #062414;
+	text-shadow: 0em 0em 1em #23824C;
+	background: #4F5;
+}
+/* Preventing anything from overflowing */
+#rest {
+	width: 100vw;
+}
+.content {
+	margin: 0;
+	vertical-align:top;
+	display: inline-block;
+	white-space:nowrap;
+}
+/* Remove spacing between the blocks of the attempts */
+#attemptsblocks{
+	letter-spacing: -0.1px;
+}
+
+
+.results {
+	height: 100%;
+	display: inline-block;
+}
+#entry {
+	bottom: 0;
+}
+@keyframes flash {
+	0% { opacity: 0.0; }
+	50% { opacity: 1.0; }
+	100% { opacity: 0.0; }
+}
+@-webkit-keyframes flash {
+	0% { opacity: 0.0; }
+	50% { opacity: 1.0; }
+	100% { opacity: 0.0; }
+}
+@keyframes pulse {
+  0%   {transform: scale(1.001);  opacity: .14; }
+  8%   {transform: scale(1.000);  opacity: .13; }
+  15%  {transform: scale(1.004);  opacity: .14; }
+  30%  {transform: scale(1.002);  opacity: .11; }
+  100% {transform: scale(1.000);  opacity: .14; }
+}
+@-webkit-keyframes pulse {
+  0%   {transform: scale(1.001);  opacity: .14; }
+  8%   {transform: scale(1.000);  opacity: .13; }
+  15%  {transform: scale(1.004);  opacity: .14; }
+  30%  {transform: scale(1.002);  opacity: .11; }
+  100% {transform: scale(1.000);  opacity: .14; }
+}
+#command-prompt, #cp-cursor{
+	display: inline;
+}
+.cursor-on{
+
+}
+.cursor-off{
+	display: none !important;
+}
+.cursor-flash{
+	animation: flash 0.5s step-start 0s infinite;
+	-webkit-animation: flash 0.5s step-start 0s infinite;
+}
+.blinker {
+	animation: flash 1s step-start 0s infinite;
+	-webkit-animation: flash 1s step-start 0s infinite;
+}
+#splashpage {
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+}
+#divider {
+	height: 0.5vh;
+	background: #4F5;
+	width: 80%;
+	box-shadow: 0em 0em 0.5em #23824C;
+	margin: 0 0 0 10%;
+}
+.post, .post-title {
+	text-align: left;
+}
+.post p {
+	clear: both;
+	padding-bottom: 1em;
+}
+#post-titles-container {
+	padding-top: 15px;
+	padding-bottom: 45px;
+}
+#loading, #command-prompt {
+	height: 100%;
+}
+#loggedin {
+	display: block;
+	height: 100%;
+	padding-bottom: var(--character-height);
+}
+#os-header {
+	text-align: center;
+	padding-bottom: 2%;
+}
+#post-container div {
+	height: 100%;
+}
+#loggedin-prompt {
+	position: absolute;
+	top: calc(100% - 1.5 * var(--padding));
+}
+img:not(#terminal) {
+	max-width: 100%;
+	display: block;
+	filter: contrast(1000%) grayscale(100%);
+ 	mix-blend-mode: darken;
+ 	background: #4F5;
+ 	background-blend-mode: normal;
+ 	object-position: -99999px 99999px;
+ 	border-radius: 25px;
+ 	background-size: cover;
+}
+#loggedin img {
+	height: 0px;
+}
+.image-color {
+	float: left;
+	box-shadow: 0em 0em 2em #4F5;
+ 	background-color: #4F5;
+ 	border-radius: 25px;
+ 	mix-blend-mode: lighten;
+}
+.image-container{
+	margin: 0 auto;
+	display: table;
+	background: #224422;
+	border-radius: 25px;
+}
+/* In case our post contains a hr, hide it */
+hr {
+	display: none;
+}
+.emoji-container{
+	display: none !important;
+}
+.image-container + em {
+	font-size: 1.7vw !important;
+	display: block;
+	text-align: center;
+}
+.portrait {
+	display: none;
+}
+/* Encourage user to use in landscape */
+@media (orientation: portrait) {
+      .portrait{display: block;}
+      .landscape{display:none;}
+      body{background: #111;}
+}
+/* YouTube stuff */
+.youtube {
+	position: relative;
+	padding-top: 25px;
+	height: 100%;
+	box-shadow: 0em 0em 2em #4F5;
+    background-color: #4F5;
+}
+.youtube iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+	mix-blend-mode: luminosity;
+}
+@-moz-document url-prefix() {
+    img {
+        width: 100%;
+    }
+}
+/* Everything to do with the bottom right corner 'information' box goes below */
+#information {
+	display: none;
+	position: absolute;
+	z-index: 1000000000;
+	bottom: 0;
+	right: 0;
+	padding: 5px;
+	padding-bottom: 0px;
+	border-radius: 7px 0 0 0;
+	border: 1px solid #000;
+	border-bottom-width: 0px;
+	border-right-width: 0px;
+	opacity: 1;
+	transition: opacity 0.5s ease-in-out;
+	background-color: #373731;
+}
+#information.hide {
+	opacity: 0;
+}
+#information.hide:hover {
+	opacity: 0.5;
+}
+/* Display information only on non-mobiles */
+@media only screen and (min-width: 1000px) {
+    #information {
+    	display: block;
+    }
+}
+#information-by {
+	font-size: 15px;
+}
+#information-em {
+	font-size: 17px;
+}
+#information-anchor {
+	display: inline-flex;
+	align-items: center;
+	text-decoration: none;
+}
+#information-anchor.open{
+	position: relative;
+	left:27px;
+}
+#information-image-container {
+	padding-right: 5px;
+}
+#information-image-color {
+	border-radius: 100%;
+	box-shadow: 0em 0em 5px #4F5;
+}
+#information-image {
+	width: 30px;
+	height: 30px;
+	border-radius: 100%;
+}
+#information-text p {
+	font-size: 12px;
+	width: 300px;
+	padding-bottom: 2px;
+}
+#information-text {
+	display: none;
+}
+#information-text.open{
+	display: block;
+}
+#information-text p a {
+	font-size: 12px;
+}
+.close {
+	width: 20px;
+	height: 30px;
+	margin-left: 2px;
+	position: relative;
+	display: inline-block;
+}
+.close.open {
+	left: 68.8px;
+}
+.close:hover {
+	background: #4F5;
+}
+.close:hover:before, .close:hover:after {
+	background: #062414;
+}
+.close:before, .close:after {
+	position: absolute;
+	right: 9px;
+	content: ' ';
+	height: 15px;
+	width: 3px;
+	top: 9px;
+	background: #4F5;
+}
+.close:before {
+	transform: rotate(45deg);
+}
+.close:after {
+	transform: rotate(-45deg);
+}
+.hide .close:before{
+	transform: rotate(0deg);
+}
+.hide .close:after {
+	transform: rotate(90deg);
+}
+
+/* Chevron thanks to https://codepen.io/jonneal/ */
+.chevron {
+	padding: 6px;
+	padding-bottom: 7px;
+	bottom: 11px;
+	position: relative;
+}
+.chevron:hover {
+	background: #4F5;
+}
+.chevron:hover:before, .chevron:hover:after {
+	border-color: #062414;
+}
+.chevron:before {
+	border-color: #4F5;
+	border-style: solid;
+	border-width: 0.25em 0.25em 0 0;
+	content: '';
+	display: inline-block;
+	height: 0.45em;
+	position: relative;
+	top: 24px;
+	transform: rotate(-45deg);
+	vertical-align: top;
+	width: 0.45em;
+}
+.chevron.open:before {
+	top: 19px;
+	transform: rotate(135deg);
+}
+/* End Chevron */
+
+/* Mute thanks to https://codepen.io/MarvinVK/ */
+.speaker-container {
+	height: 30px;
+	width: 30px;
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+}
+.speaker {
+	display: block;
+	width: 8px;
+	height: 8px;
+	background: #4F5;
+	margin: 11px 0 0 2px;
+}
+.speaker-container:hover {
+	background: #4F5;
+}
+.speaker-container:hover .speaker {
+	background: #062414;
+}
+.speaker-container:hover .speaker:after {
+	border-color: transparent #062414 transparent transparent;
+}
+
+.speaker-container:hover .speaker:before {
+	border-color: #062414;
+}
+.speaker:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent #4F5 transparent transparent;
+  border-width: 10px 14px 10px 15px;
+  left: -13px;
+  top: 5px;
+}
+.speaker:before {
+  transform: rotate(45deg);
+  border-radius: 0 50px 0 0;
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-style: double;
+  border-color: #4F5;
+  border-width: 7px 7px 0 0;
+  left: 18px;
+  top: 9px;
+  transition: all 0.2s ease-out;
+}
+.speaker-container.mute .speaker:before {
+  transform: scale(0.5) translate(-15px, 0) rotate(36deg);
+  opacity: 0;
+}
+.social-links {
+	text-align: center;
+}
+.social-links a {
+	text-decoration: none;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.social-links svg {
+	fill: #4F5;
+	font-size: 13px;
+}

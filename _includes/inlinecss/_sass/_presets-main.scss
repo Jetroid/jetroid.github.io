@@ -1,0 +1,24 @@
+:root {
+	--white: #cfcfc9;
+	--grey: #373731;
+	--gray: #373731;
+	--pink: #d05d5d;
+	--lightblue: #94cbc4;
+}
+body{
+  font-family: monospace;
+  color: #cfcfc9;
+}
+a, .clickable {
+	text-decoration: none;
+	color: #d05d5d;
+}
+a:hover,
+.clickable:hover {
+	text-shadow:0.08em -0.08em #373731;
+	cursor:pointer;
+	text-decoration:underline;
+}
+.handwritten {
+  font-family: Caveat Brush, cursive !important;
+}

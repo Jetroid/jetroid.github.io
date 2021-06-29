@@ -20,6 +20,8 @@ collections:
   micro:
     output: true
     permalink: micro/:title/
+  projects:
+    output: false
 
 defaults:
   -
@@ -49,6 +51,7 @@ compress_html:
   ignore:
     envs: ["development"]
 sass:
+  sass_dir: /_includes/inlinecss/_sass
   style: compressed
 
 #Jekyll Sitemap must come after any gems which generate content
@@ -58,13 +61,15 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-redirect-from
+  - jekyll-include-cache
 
-# Style settings - will be used in css
+# Style settings - not actually used but good for ease of reference
 style:
-    text: "#cfcfc9"
-    highlight: "#d05d5d"
-    background-rgb: "55, 55, 49,"
-    background-hex: "#373731"
+    white-text: "#cfcfc9"
+    pink-text: "#d05d5d"
+    cyan-paint: "#94cbc4"
+    grey-rgb: "55, 55, 49,"
+    grey-hex: "#373731"
 
 #Do not index oldstuff
 exclude:
@@ -73,3 +78,8 @@ exclude:
   - assets/images/content/compressed.md
   - assets/images/backgrounds/compressed.md
   - assets/images/compressed.md
+  - Gemfile
+  - Gemfile.lock
+  - optimimage.py
+  - Rakefile
+  - .gitignore

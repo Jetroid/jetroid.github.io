@@ -4,4 +4,8 @@ images:
 - grayscreen.png
 - rsz_me.png
 - me.png
+- wall-sample.jpg
+- me_hero.png
+- greenscreen.png
+- hero.png
 ---

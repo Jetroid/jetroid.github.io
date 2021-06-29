@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.nobr	{
+	white-space:nowrap;
+}
+.hidden {
+	display: none !important;
+}
+.hidden-opacity {
+	opacity: 0;
+	pointer-events: none;
+}
+.sr-only {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+img:not([src]):not([srcset]) {
+  visibility: hidden;
+}

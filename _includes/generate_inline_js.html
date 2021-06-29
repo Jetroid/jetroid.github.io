@@ -1,0 +1,13 @@
+{% assign page_custom_js_includes = include.inlinepagejs | default: empty_array %}
+{% assign layout_custom_js_includes = include.inlinelayoutjs | default: empty_array %}
+{% assign custom_js_includes = page_custom_js_includes | concat: layout_custom_js_includes | uniq %}
+<script>
+{% include inlinejs/analytics.min.js %}
+</script>
+{% for script in custom_js_includes %}
+<script>
+	{% include inlinejs/{{ script }}.min.js %}
+</script>
+{% endfor %}
+
+
