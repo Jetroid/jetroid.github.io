@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>cat Flanger.txt</title>
+<style>
+	body{background:#000;color:#00B200;text-shadow: 1px 1px 6px #00CC00;font-family:Monospace;text-align:justify;padding:10px;font-size:20px;}
+	a:link {color:#00B200;text-shadow: 1px 1px 6px #00CC00;background-color:transparent}
+	a:visited {color:#00B200;text-shadow: 1px 1px 6px #00CC00; background-color:transparent}
+	a:hover {color:#00B200;text-shadow: 1px 1px 6px #00CC00; background-color:transparent;}
+	a:active {color:#00B200;text-shadow: 1px 1px 6px #00CC00; background-color:transparent}
+</style> 
+
+<style type="text/css">
+.blink_text {
+    animation-name: underscore_blink;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    -webkit-animation-name: underscore_blink;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+}
+@-moz-keyframes underscore_blink {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes underscore_blink {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes underscore_blink {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+ </style>
+</head>
+<body>
+	-jetroid@eleanor:~$ cd FC_Flanger<br>
+	-jetroid@eleanor:~$ cat Flanger.txt<br>
+Flanger<p> 
+    &nbsp;The Flanger is, at the time of writing (25/10/14), an incomplete project I am still working on.<p>
+  &nbsp;Flanging is a musical effect where a delayed signal is mixed with the real signal. The amount of delay on the delayed signal oscillates.<p>
+  &nbsp;This project has been one of the most challenging programming projects I have ever worked on. I have estimated that the frequency that the Flanger will need to work at to be around 45kHz. This is so that it can correctly sample and playback the original signal. (Nyquists theorem.) To achieve this 45kHz speed, I have calculated that I can only execute 111 instructions on the PIC I am using at the frequency it is running at. To put this in perspective, an analogue-to-digital read takes my PIC 72 instructions, and communicating with the memory chip I am using takes 40 instructions, both ways. Luckily, I can execute some other instructions whilst the ADC module reads, or whilst the SPI port sends data. As such, one of the only things I have to do for this project before I can test it is to figure out the best order to run the instructions.<p>
+	-jetroid@eleanor:~$ <a href="/old-terminal/" style="text-decoration:none;"><span class="blink_text">cd ..</span></a><br>
+</body>
+
+</html>

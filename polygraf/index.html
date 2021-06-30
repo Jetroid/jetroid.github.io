@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html lang="en" Itemscope=”Blog”>
+	<head>
+	<link rel="dns-prefetch" href="//www.google-analytics.com" />
+	<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+
+	<!-- Custom Preconnects - use custom_preconnect in YAML front matter !-->
+	
+    
+    
+	
+
+	<title itemprop=”name”>Polygraf - Jet Holt</title>
+<meta name="description" content="The story of the development of Polygraf, which went through many iterations and required several new skills." />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHiAiACAhocHbnaJSFNehKdARFTkCgcI+wYDBfsFAwbkFRQepycnOUgBAAAHDQoSAAAAAAAAAAAAenx1AICKlgCAiZQYf4eQkneAj+5SXof/SlBk/w8MDv8GBAb/BQMF/woHCv8OCg/uExEakjY6ShgmJjEAMkR9AIaVqgCGl6wYhJChsX2Il/9kb4L/PUVi/zA0Qv8NCQz/CAUH/wcEBv8GAwX/CQQH/xcWH/9KUGOxZm+DGFtjeACMmasGiZirkoqZrf9/jaH/T1dl/xENEP8IBQf/CQUH/woGCP8JBgf/BwQF/wcEBv8ZFx//XWBv/2hte5JlbH0GoaawSZ+lsO2jqLL/qK65/4aJkv8SDxD/CAUG/woGCP8LBgf/CgUH/wkFB/8MBwn/Hh0k/36BjP+AhpPtdHqJSbe2uKe3trj/uLa4/7q4uv+RjZD/Ew4Q/woFB/8OCg//Hh0t/xQQGP8NCAn/DgkK/y4rMP+mqK3/ub3C/6mutqfGxsbjxsXF/8TExP/ExMX/rKys/ywnJ/8LBQX/Gxwr/zM/a/8tNlb/DwsP/xEMDv9qamz/wsPD/6yusP9dX2Tjy8fG+8rHxv/Jxsf/yMfJ/8jIyv+cmp3/QTw+/yImOP82TID/SWqk/zQ4SP9tZ2b/wLq4/9PLyf+5s7P/cGpq+8C9wPvFv7//zMTD/9DIxv/Uzcv/1tDP/5+fqv9BS3H/TG+q/1d9tf95eYL/1MjD/93SzP/azsj/18zH/8/Gwvu/u7Ljw7yw/8bAtP/Kw7j/xL+2/7+8tP+EhJb/RVCI/2CAv/9IaaL/V1hj/8a+tP/Nxbv/zMS7/87Hwf/MxsHjx7ulp8O3of/BtZ//xbqk/7+0nf+1q5T/aWdy/0dPff9PX43/NERo/3Z3eP++tZz/wrqi/8a/qv/IxLP/y8i8p8m5oUnJuqLtxraf/8GxmP+/rZP/u6qP/2BbXf85Plr/OkZm/zE/WP+LjIz/yLmi/8a4of/Jv6r/ycGv7czHt0nCspkGyLmlkse5pv++r5r/v7CZ/8W1nf99dnD/LjE9/zU+Uf9WYHL/rqWa/8a2ov/EtaD/xLak/8G0opLMxbkG3trTANrUyxjj49yx5ubh/+bn4//m5+P/3+De/7e7vf+0u8D/0dXX/+Tm4v/j5eH/4uXg/9zd2LHEvLAYysW8APr+/gDu8u0A7vPuGPD08JLy9fDu8vXv//P28P/1+PL/9fjy//T38P/z9u7/8vbv7vH38ZLy+vgY8Pj1AP///wAAAAAAAAAAAPPz5wDz8+YH9fXqSPf476f3+O/k+Pft+/j36/v49+vk9/frp/b360j19uoH9fbrAAAAAAAAAAAA4AcAAMADAACAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAADAAwAA4AcAAA==" />
+
+<meta name="author" content="Jet Holt" />
+<meta property="og:title" content="Polygraf" />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:description" content="The story of the development of Polygraf, which went through many iterations and required several new skills." />
+<meta property="og:url" content="https://jetholt.com/polygraf/" />
+<meta property="og:site_name" content="Jet Holt" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://jetholt.com/assets/images/backgrounds/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name=”twitter:url” content=”https://jetholt.com/polygraf/”>
+<meta name="twitter:title" content="Polygraf - Jetroid" />
+<meta name="twitter:description" content="The story of the development of Polygraf, which went through many iterations and required several new skills." />
+<meta name="twitter:creator" content="@jetroidmakes" />
+<meta name="twitter:site" content="@jetroidmakes" />
+
+
+<meta property="og:image" content="https://jetholt.com/assets/images/backgrounds/polygraf-in-development.jpg" />
+<meta name="twitter:image" content="https://jetholt.com/assets/images/backgrounds/polygraf-in-development.jpg" />
+
+<script type="application/ld+json">
+{"sameAs":["https://twitter.com/JetroidMakes","https://www.instagram.com/jetroidmakes/","https://www.facebook.com/Jetroid"],"@type":"WebSite","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://jetholt.com/assets/images/jetroid-logo-miami.png"},"name":"Jetroid"},"url":"https://jetholt.com/","name":"Jetroid","author":{"@type":"Person","name":"Jet Holt"},"image":"https://jetholt.com/assets/images/jetroid-logo-miami.png","headline":"Jetroid","description":"Jet 'Jetroid' Holt. Maker, programmer, and Computer Science graduate.","@context":"http://schema.org"}</script>
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Main Posts RSS Feed" href="/feed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Micro RSS Feed" href="/microfeed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Everything RSS Feed" href="/all.xml" />
+
+
+	<meta name="google-site-verification" content="9pNs8vHQ1C9hsyUgQ6tFQDPzNH_ANAd8kB9GcnBARYc" />
+
+	
+
+	<script>
+		window.lazyLoadOptions = {
+			threshold: 250
+		};
+		window.addEventListener(
+			"LazyLoad::Initialized",
+			function (event) {
+				window.lazyLoadInstance = event.detail.instance;
+			},
+			false
+		);
+	</script>
+	<!-- Custom CSS
+			Seperate file - use css in YAML front matter
+			Inline - use inline_css in YAML front matter !-->
+
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}.nobr{white-space:nowrap}.hidden{display:none !important}.hidden-opacity{opacity:0;pointer-events:none}.sr-only{position:absolute;white-space:nowrap;width:1px;height:1px;overflow:hidden;border:0;padding:0;clip:rect(0 0 0 0);clip-path:inset(50%);margin:-1px}img:not([src]):not([srcset]){visibility:hidden}:root{--white: #cfcfc9;--grey: #373731;--gray: #373731;--pink: #d05d5d;--lightblue: #94cbc4}body{font-family:monospace;color:#cfcfc9}.main-wrapper{overflow-x:hidden;width:100vw}a,.clickable{text-decoration:none;color:#d05d5d}a:hover,.clickable:hover{text-shadow:0.08em -0.08em #373731;cursor:pointer;text-decoration:underline}.handwritten{font-family:Caveat Brush, cursive !important}body{font-family:monospace}code.highlighter-rouge{background:#373731;white-space:pre-wrap}#page-header{width:100%;text-align:center;position:relative;height:20vh}.post #page-header{height:100vh}#title-stuff{position:absolute;width:100%;top:50%;left:50%;transform:translate(-50%, -50%)}.micro #page-header{height:auto}.micro #title-stuff{padding-top:5vh;position:static;transform:none}th,td,table{box-sizing:border-box;border:1px solid #373731;border-collapse:collapse}table{width:100%}.table-container{width:100%;overflow-x:auto;margin-bottom:1em}th,td{padding-left:10px;padding-right:10px}td{text-align:right}#page-title{color:#d05d5d;font-family:"Roboto",Helvetica,sans-serif;font-weight:100;margin-bottom:5px;font-weight:bold;text-shadow:2px 2px #373731;font-size:10vw}#page-subtitle{margin:0;font-weight:bold;text-shadow:0px 1px #373731, 0px -1px #373731, 1px 0px #373731, -1px 0px #373731, 2px 2px #373731}.divider{width:100%;height:0.3vh;background:#cfcfc9;display:block;box-sizing:border-box}#post-content>h1:first-child,#post-content>h2:first-child{padding-top:20px}#post-content,#calltoaction,#page-subtitle{font-size:5vw}#post-content h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:0}#post-content h1{font-size:7.5vw}#post-content h2{font-size:7.25vw}#post-content h3{font-size:7vw}#post-content h4{font-size:6.75vw}#post-content h5{font-size:6.5vw}#post-content h6{font-size:6.25vw}.post-date{margin-top:0;margin-bottom:0;font-size:5vw}.post-container,#navigation{padding-top:20px;padding-bottom:20px}.post-container img{display:block;max-width:100%;max-height:600px;margin:0 auto;border-radius:5px}.post-container a>img.lazy{height:1px}a.img+a.img,img+img,em+a.img,em+img{margin-top:10px !important;display:block}.post-container img.loaded{height:auto !important}img.emoji{display:inline;height:1em;width:1em}#post-content>p:first-child{margin-top:1vh}a.img+em,img+em{display:block;text-align:center}blockquote{background:rgba(55,55,49,0.3);border:2px solid #d05d5d;border-style:none none none solid;margin:1em 0}@media (min-width: 500px){blockquote{margin:1em 1em}}blockquote p{margin:0 0 0 1em}pre,code{border:1px solid #d05d5d}pre{white-space:pre;overflow:auto;background-color:#474741;padding:15px}pre code{border:none;font-size:smaller}p code{word-break:break-all}#post-content small{font-size:smaller}#post-content small *{font-size:1em}@media (min-width: 500px){#post-content>p{text-align:justify}}#navigation{margin:0;font-size:4vw;display:block;width:auto;overflow:hidden}#navigation .divider{margin-bottom:20px}#navigation a,#navigation p{margin:0;display:block;width:100%;margin:5px 0}#navigation #next-post{text-align:right}@media (min-width: 500px){#navigation a,#navigation p{width:50%;float:left;margin:0}}.youtube{position:relative;padding-bottom:56.25%;padding-top:25px;height:0;margin-bottom:25px}.youtube iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}#post-content>p:last-child>a:not(.img):not(.no-cta):only-child::before,#post-content a.cta::before{content:"► "}#post-content>p:last-child>a:not(.img):not(.no-cta):only-child,#post-content a.cta{font-size:larger}.spoiler:hover{color:#cfcfc9;background:transparent}.spoiler{color:#d05d5d;background:#d05d5d}.spoiler::before{content:"Spoiler";position:relative;color:#cfcfc9;margin:auto}.spoiler:hover::before{display:none}.visually-hidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap}@media (min-width: 500px){#page-title{font-size:5vw}#post-content,#calltoaction,#page-subtitle{font-size:1.4vw}#post-content h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:0}#post-content h1{font-size:3.5vw}#post-content h2{font-size:3.25vw}#post-content h3{font-size:3vw}#post-content h4{font-size:2.75vw}#post-content h5{font-size:2.5vw}#post-content h6{font-size:2.25vw}.post-date{font-size:1.5vw}#navigation{font-size:2.2vw}}@media (min-width: 1440px){#page-title{font-size:72px}#post-content,#calltoaction,#page-subtitle{font-size:20px}#post-content h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:0}#post-content h1{font-size:3.5vw}#post-content h2{font-size:3.25vw}#post-content h3{font-size:3vw}#post-content h4{font-size:2.75vw}#post-content h5{font-size:2.5vw}#post-content h6{font-size:2.25vw}.post-date{font-size:1.5vw}#navigation{font-size:2.2vw}}.borders{padding-left:9vw;padding-right:9vw}@media (min-width: 500px){.borders{padding-left:6vw;padding-right:6vw}}@media (min-width: 800px){.borders{padding-left:12vw;padding-right:12vw}}@media (min-width: 1000px){.borders{padding-left:18vw;padding-right:18vw}}body{background-position:center center;background-size:cover;background-repeat:no-repeat;background-attachment:fixed}.background{background:rgba(55,55,49,0.9)}@media (min-width: 500px){#mailchimp-text{font-size:2.5vh}.mailchimp-entry{width:30%}#mailchimp-submit{width:29%}}@media (max-width: 500px){#mailchimp-signup form input{width:100%;margin:0 auto;padding:15px 15px}}#mailchimp-submit{background:#d05d5d;color:black;-webkit-box-shadow:inset 0 5px rgba(255,255,255,0.2);-moz-box-shadow:inset 0 5px rgba(255,255,255,0.2);box-shadow:inset 0 5px rgba(255,255,255,0.2)}#mailchimp-signup form input{font-size:3vh;padding:10px 15px;border:none;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}#mailchimp-signup{text-align:center}#mailchimp-signup form{margin:0 auto;width:100%;padding-top:20px}#linkback,#linkback img{width:300px;z-index:50000;position:relative}@media (max-width: 500px){#linkback img{width:50%}}#linkback a img{position:absolute;left:0}
+
+</style><!-- Custom Stylesheets - use custom_css in YAML front matter !-->
+
+
+
+<!-- Google Fonts
+			Linking as a stylesheet directly from their API.
+			- use google_font in YAML front matter.
+			- Just include the name (as it would appear in a URL)
+			for example "Nanum+Pen+Script"
+		!--><!-- Custom Google Fonts - use google_font in YAML front matter !-->
+
+
+
+
+
+<!-- Set Canonical URLS for latest and latestmicro !-->
+	
+		<link rel="canonical" href="https://jetholt.com/polygraf/" />
+	
+
+	</head>
+	<body class="lazy" data-bg="/assets/images/backgrounds/polygraf-in-development.jpg">
+		<div class="main-wrapper">
+		
+		<nav id="linkback"><a href="/"><img src="/assets/images/jetroid-logo-miami.png" /></a></nav>
+		
+
+		<div id="inside" class="post">
+
+<header id="page-header">
+	<nav id="linkback"><a href="/"><img src="/assets/images/jetroid-logo-miami.png" /></a></nav>
+	<div id="title-stuff">
+		<h1 id="page-title" class="borders">Polygraf</h1>
+		<p id="page-subtitle" class="borders">The story of the development of Polygraf, which went through many iterations and required several new skills.</p>
+	</div>
+</header>
+<div class="background  borders">
+	<article class="post-container">
+		<time class="post-date">2015/12/29</time>
+		<hr class="divider"/>
+		<div id="post-content"><p><strong>Polygraf is a Eurorack module that was in development hell for a long time. The original version was designed in the summer of 2014, and it went through many iterations, being revisited in 2015, 2018, and 2019. The original version of this post was authored in 2015, and I’ve made edits to it since then as things developed. This is the story of Polygraf, from conception, to release.</strong></p>
+
+<p>Polygraf has had several names and forms.</p>
+
+<p>The story behind how Polygraf came about is quite a humorous one.
+After having completed my work on <a href="/bartos-flur/">Bartos Flur</a>,
+I was looking at some existing modules by other manufacturers for
+inspiration, as I wanted something to work on for fun and for the experience.
+I wasn’t actually interacting with any of the modules, so I just had my interpretations of what a module <em>might</em> do to go on.</p>
+
+<p>I decided to attempt to replicate a specific module that I had seen. If my interpretation was correct, I would make something similar to something that I knew customers already enjoyed. If I got it wrong, I might make something esoteric that is potentially interesting too.</p>
+
+<p>I had no idea what the module that I saw actually did -
+I never touched it, played with it, nor analysed its functions.
+I simply looked at the front panel - and not <em>particularly</em> hard either! It was more that I had a vague memory of looking at it.</p>
+
+<p>As can be expected from all this build up,
+my assumptions about how that module operated were <strong>completely wrong</strong>. The module was <strong>completely different</strong> from what I had assumed it was. It did not do <strong>anything</strong> that I thought it did. I even confused low-profile potentiometers for tactile switches.</p>
+
+<hr />
+
+<h1 id="grid-machine">Grid Machine</h1>
+
+<p>The circuit I designed after looking at the aforementioned module acted a bit like a drum machine crossed with a grid editor. I had never heard of a drum machine nor a grid editor at the time. We dubbed this design as the ‘Grid Machine’.</p>
+
+<p>You could program in sequences which the PIC remembered in it’s EEPROM,
+and you could then play them back at any time.
+The Grid Machine was able to support 16 sequences with 16 steps of 8 binary outputs.</p>
+
+<p><img src="https://jetholt.com/assets/images/content/polygraf-grid-machine.jpg" alt="Grid Machine Prototype" />
+<em>Grid Machine Prototype</em></p>
+
+<p>The design and programming of Grid Machine was really fun to do.
+I was somewhat familiar with Assembly thanks to my work on the <a href="/bartos-flur/">Bartos Flur</a>, but the project was still quite challenging and I learned a lot about storage mediums and different PIC hardware modules.</p>
+
+<h2 id="filesystem">Filesystem</h2>
+
+<p>The main software challenge for designing Grid Machine was to figure out how to store the data, and format it appropriately.
+I knew nothing about filesystems at this time,
+and essentially rolled my own very simple one whilst designing it. When I later learned about how File Allocation Tables worked, I marvelled at how the Grid Machine ‘filesystem’ was remarkably similar - albeit simplified.</p>
+
+<p>I solved the challenge by working through the data I needed to store on paper and seeing what I would need. My thought process went a little like this:</p>
+
+<p><em>For each step, I need to store the state of 8 binary outputs…
+Okay, I can store that really easily in a byte,
+with each bit representing a specific output being <code class="language-plaintext highlighter-rouge">on</code> or <code class="language-plaintext highlighter-rouge">off</code>.
+Each sequence can have 16 steps, so let’s allocate 16 bytes to each sequence for the actual pattern.
+But if we want a sequence to be able to terminate early, and perhaps be a shorter number of steps, then we need to have another piece of data that represents the sequence length.
+Let’s give each sequence an byte to denote which step it should stop at.</em></p>
+
+<p>Very quickly the storage method materialised.
+One byte stored the length of the sequence, and it was followed by 16 bytes which contain the data for the outputs.</p>
+
+<p>The PIC I was using had 256 EEPROM bytes, and as each sequence used 17 bytes,
+it was easy to see that I could have 15 sequences.
+I opted to hard-code an extra sequence in there to round it out to 16 sequences,
+as 16 is a much nicer number to work with.</p>
+
+<h2 id="in-reality">In Reality…</h2>
+
+<p>I was really happy with the Grid Machine.
+I could encode/record different binary sequences into different storage locations on to the PIC, and it would play them back to me. I had a lot of fun recording and playing back patterns of blinking lights.</p>
+
+<p>Triumphantly, I showed my prototype to my father, but he wasn’t as pleased with it as I was. The problem with the Grid Machine, he told me, was that the interface was not intuitive. If he couldn’t figure out how to use it from looking at it, it needs some work.</p>
+
+<p>I tried explaining it to him, a music technology veteran, and he just looked at me blankly. He told me that I had designed a device that only I knew how to use,
+and that you would have to have a good understanding of binary to even
+attempt to understand it.</p>
+
+<p>I thought these comments were unfair, but accepted that the interface could use improvement. And frankly, if you have to explain how something works, it’s probably not intuitive enough. Nobody needs to be taught how to use a smart phone, for example.</p>
+
+<p>The project was discarded, despite being fully functional, and I forgot about it, for now.</p>
+
+<h1 id="redesign">Redesign</h1>
+
+<p>The next spring brought many changes.
+Frequency Central had decided that there was merit to the idea and had ideas about how to improve the interface.</p>
+
+<p>If we outfit the project with a dual seven segment display, then you do not need to understand binary to use it. We could also represent other information to the user by flashing information onto the display. This would require sacrificing 4 of the outputs, as the PIC didn’t have enough I/O pins to support both seven segment displays and digital outputs. We also briefly renamed the project to ‘Event Horizon’ before switching to ‘Polygraf’.</p>
+
+<p><img src="https://jetholt.com/assets/images/content/polygraf-prototype.jpg" alt="Polygraf Prototype Board" />
+<em>Polygraf Prototype Board</em></p>
+
+<p>These changes revolutionised the project.</p>
+
+<p>The interface would be much more usable, and by having only, we
+could now store 30 sequences in our EEPROM, as each slot for a previous sequence now represented two sequences. We could also have two pre-programmed sequences to make the number round out to an even 32.</p>
+
+<p><img src="https://jetholt.com/assets/images/content/polygraf-in-development.jpg" alt="Polygraf in development" />
+<em>Polygraf in development</em></p>
+
+<p>The plan for the module also changed.
+Rather than recording beats and outputting these through drum modules,
+the four outputs would be connected to a CD4514 4-to-16-line decoder.</p>
+
+<p>Each of these 16 lines would then be connected to potentiometers,
+such that each line has its own voltage value, which would then be mixed together to create a voltage that could be used to control a synthesiser to produce tunes and melodies.
+As such, the module was now intended to produces notes, rather than just control drums. It would essentially be a funky analogue sequencer.</p>
+
+<p>This circuitry didn’t bother me too much, as it wasn’t something I wasn’t too concerned about this extra circuit,
+as it did not require any additional programming -
+the core PIC would remain the same.</p>
+
+<p>I had a certain level of fondness for the original idea as a drum-machine
+(ie, without the extra circuit),
+but Frequency Central thought strongly that the extra circuit
+made a much more desirable product… okay then.</p>
+
+<h1 id="polygraf">Polygraf</h1>
+
+<p>I worked on and off on the Polygraf
+for a long time. I made significant progress during Summer 2015,
+but external factors such as my Degree and Internship prevented me from completing it.</p>
+
+<p>I decided during my winter break
+(when I should probably have been revising for my exams!)
+that I would complete the project before I went back to University.</p>
+
+<p>My Father was amazed with the completed project. We hadn’t built the CD4514 circuit yet, so we connected the digital outputs to some TipTop Audio drum modules. He loved how simple the seven segments made the module to use,
+and he happily spent some time programming new sequences into it from artists he liked, or from the top of his head as the mood struck him.</p>
+
+<p>To my delight, he even decided that the Polygraf functioned well enough as a drum machine sequencer to sell it as a stand-alone module, rather than insisting on making it an analogue sequencer with the additional circuit I described earlier. We decided to make that it’s own module - which became the <a href="https://frequencycentral.co.uk/product/cryptograf/">Cryptograf</a> - because it could feasibly be used with another module, like a clock divider, or just any four gate sources.</p>
+
+<p><img src="https://jetholt.com/assets/images/content/polygraf-panel-mockup.jpg" alt="Polygraf Mockup" />
+<em>Polygraf Mockup</em></p>
+
+<p>We made a visualisation of what the module could look like and got to work converting my prototype into a final product.</p>
+
+<h1 id="production-prototypes">Production Prototypes</h1>
+
+<p>By mid 2016, we had a panel and PCBs assembled. I only have a picture of the panel of this iteration for some reason.</p>
+
+<p><img src="https://jetholt.com/assets/images/content/polygraf-panel.jpg" alt="Polygraf Panel" />
+<em>Polygraf Panel</em></p>
+
+<p>Unfortunately, this was one of the first PCB projects that Johnson Dunn (our ‘resident’ PCB designer) made, and everything didn’t quite fit together correctly as he misjudged the width of the 7 segment displays. He also didn’t follow best practices (that he went on to learn later), so he had to re-engineer it from scratch to release the project and thus the project didn’t see release for another long period.</p>
+
+<h1 id="pre-programmed-patterns">Pre-Programmed Patterns</h1>
+
+<p>In Summer 2018, it was time to determine which pre-programmed patterns and sequences should be present in Polygraf. We contacted a few musicians that we knew, who gracefully provided us with a few beats. We also included some beats taken from popular 80s songs, and a few that we wrote ourself. We even included a couple of easter egg patterns.</p>
+
+<p>By this time, we had a prototype of Cryptograf and so were able to test our sequences in Cryptograf too. We realised that whilst drum modules needed triggers, something like Cryptograf needs gates. Cryptograf can’t work with triggers because it would only briefly go to the correct state before reverting to state 1. Drum modules can’t work with gates, because they wouldn’t re-trigger when the same output should be on twice in a row. It was clear that we needed a Triggers/Gates switch, something that was missing from the original prototype.</p>
+
+<p>I also later invented the ‘Triggate’ concept, which is a hybrid of a trigger and a gate. It’s like an inverse trigger - a trigger that idles at high like a gate, and goes low for a very short duration. The Triggate activates a drum module because there is a rising edge, and because it spends most of the time in the high state, it works well enough for something like Cryptograf too - the time spent in state 1 is imperceptible. We changed our Triggers/Gates switch to be a three position Gates/Triggates/Triggers switch, and it works well to allow Polygraf to control drum modules (like <a href="/seismograf/">Seismograf</a>) at the same time as you control Cryptograf, without needing two separate Polygrafs.</p>
+
+<p>We recorded this demo of Polygraf controlling Cryptograf at around this point in the development process. It’s pretty cool, though admittedly the focus is on Cryptograf’s features, not Polygraf:</p>
+
+<div class="youtube">
+    <iframe src="https://www.youtube.com/embed/A1jhSlYtV2M" allowfullscreen=""></iframe>
+</div>
+
+<h1 id="sequence-chaining">Sequence Chaining</h1>
+
+<p>Whilst developing <a href="/neograf/">Neograf</a> - a module based on Polygraf that outputs notes rather than drum triggers - we realised that it was really important to be able to naturally chain sequences to be 32 step, or 64 steps long. A melody is unlikely to be completed within just 16 notes, after all. So we developed a switch for Neograf that allowed it to play 16, 32, or 64 step long sequences. So what does this have to do with Polygraf?</p>
+
+<p>Well, initially nothing. We didn’t see a way to make this code work for Polygraf, as Polygraf didn’t have any remaining inputs. It was only after we developed Neograf further that we realised the ‘State/Note’ input (for both modules) was only used during Record mode, and not during Play mode. Therefore we can multiplex the purpose of the State input. For Neograf, this meant that we could use it for adding Bias. For Polygraf, this meant that we could add sequence chaining. We realised this after we had already taken orders for it, so I had to act quickly!</p>
+
+<p>In Polygraf, sequence chaining is changed by rotating the State knob whilst in play mode. We added the 16, 32, and 64 step modes found in Neograf, and an additional mode, “4th pattern change”, where it plays the same pattern three times whilst changing for the fourth, which can be used to add an interesting twang to the beat.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p><a href="https://frequencycentral.co.uk/product/polygraf/">Polygraf</a> was released (along with <a href="https://frequencycentral.co.uk/product/chronograf/">Chronograf</a>, <a href="https://frequencycentral.co.uk/product/cryptograf/">Cryptograf</a>, and <a href="https://frequencycentral.co.uk/product/seismograf-bd/">both</a> <a href="https://frequencycentral.co.uk/product/seismograf-sd/">versions</a> of Seismograf) when we launched the new Frequency Central website in mid-November, 2019. It’s too early to see what the user reaction will be, but I’m hoping that people will really enjoy the module. After 5 years in development, hopefully it will have been worth the wait.</p>
+
+<p><img src="https://jetholt.com/assets/images/content/polygraf-production.jpg" alt="Polygraf Production Model" />
+<em>Polygraf Production Model</em></p>
+
+<p>I’m really happy with Polygraf, as it was collaboratively developed along the whole process, and grew naturally from idea to idea. It took a long time to release, but I’m glad we waited because every additional period improved the product. It aged like wine in a barrel. :)</p>
+
+<p><a href="/neograf/">We later made a gate/pitch version of Polygraf called Neograf…</a></p>
+
+</div>
+		
+		<p id="calltoaction"><em>P.S. I'm late to the party, but I recently got <a href='https://twitter.com/JetroidMakes'>a twitter account</a> that you can follow <a href='https://twitter.com/intent/user?screen_name=JetroidMakes'>here</a>.</em></p>
+		
+	</article>
+	<hr class="divider"/>
+	
+	<div id="mailchimp-signup">
+<h2 id="mailchimp-text">Receive an email whenever I post. <span class="nobr">No spam, no ads,</span> <a class="nobr" href="http://us17.campaign-archive.com/home/?u=5c7e4e051f07ca709dea5942a&id=027962a690">just notifications</a></h2>
+<form action="https://jetholt.us17.list-manage.com/subscribe/post?u=5c7e4e051f07ca709dea5942a&amp;id=027962a690" method="post" target="_blank">
+	<input class="mailchimp-entry" type="text" name="FNAME" placeholder="Name" required>
+	<input class="mailchimp-entry" type="email" name="EMAIL" placeholder="Email" required>
+	<!-- real people should not fill this next one in and expect good things - do not remove this or risk form bot signups !-->
+	<input type="text" name="b_5c7e4e051f07ca709dea5942a_027962a690" tabindex="-1" value="" hidden>
+	<input id="mailchimp-submit" type="submit" value="Subscribe" name="subscribe" class="button">
+</form>
+</div>
+
+	<hr class="divider"/>
+	
+	<footer id="navigation">
+		
+			<a id="prev-post" href="/bartos-flur/">&lsaquo;Bartos Flur</a>
+		
+		
+			<a id="next-post" href="/chronograf/">Chronograf&rsaquo;</a>
+		
+	</footer>
+</div>
+</div>
+
+		<!-- Custom JS
+			Seperate file - use js in YAML front matter
+			Inline - use inline_js in YAML front matter !--><!-- Custom JS (as seperate file) - use custom_js in YAML front matter !-->
+
+
+
+
+
+
+<script>
+
+</script>
+
+
+
+<script
+		  async
+		  src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.4.0/dist/lazyload.min.js"
+		></script>
+		</div>
+	</body>
+</html>
+

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html lang="en" Itemscope=”Blog”>
+	<head>
+	<link rel="dns-prefetch" href="//www.google-analytics.com" />
+	<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+
+	<!-- Custom Preconnects - use custom_preconnect in YAML front matter !-->
+	
+    
+    
+	
+
+	<title itemprop=”name”>Recreating My First HTML Project - Jet Holt</title>
+<meta name="description" content="My first attempt at HTML was a fairly-cool but terribly coded 'terminal simulator' web page. What can I do now, five years later?" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHiAiACAhocHbnaJSFNehKdARFTkCgcI+wYDBfsFAwbkFRQepycnOUgBAAAHDQoSAAAAAAAAAAAAenx1AICKlgCAiZQYf4eQkneAj+5SXof/SlBk/w8MDv8GBAb/BQMF/woHCv8OCg/uExEakjY6ShgmJjEAMkR9AIaVqgCGl6wYhJChsX2Il/9kb4L/PUVi/zA0Qv8NCQz/CAUH/wcEBv8GAwX/CQQH/xcWH/9KUGOxZm+DGFtjeACMmasGiZirkoqZrf9/jaH/T1dl/xENEP8IBQf/CQUH/woGCP8JBgf/BwQF/wcEBv8ZFx//XWBv/2hte5JlbH0GoaawSZ+lsO2jqLL/qK65/4aJkv8SDxD/CAUG/woGCP8LBgf/CgUH/wkFB/8MBwn/Hh0k/36BjP+AhpPtdHqJSbe2uKe3trj/uLa4/7q4uv+RjZD/Ew4Q/woFB/8OCg//Hh0t/xQQGP8NCAn/DgkK/y4rMP+mqK3/ub3C/6mutqfGxsbjxsXF/8TExP/ExMX/rKys/ywnJ/8LBQX/Gxwr/zM/a/8tNlb/DwsP/xEMDv9qamz/wsPD/6yusP9dX2Tjy8fG+8rHxv/Jxsf/yMfJ/8jIyv+cmp3/QTw+/yImOP82TID/SWqk/zQ4SP9tZ2b/wLq4/9PLyf+5s7P/cGpq+8C9wPvFv7//zMTD/9DIxv/Uzcv/1tDP/5+fqv9BS3H/TG+q/1d9tf95eYL/1MjD/93SzP/azsj/18zH/8/Gwvu/u7Ljw7yw/8bAtP/Kw7j/xL+2/7+8tP+EhJb/RVCI/2CAv/9IaaL/V1hj/8a+tP/Nxbv/zMS7/87Hwf/MxsHjx7ulp8O3of/BtZ//xbqk/7+0nf+1q5T/aWdy/0dPff9PX43/NERo/3Z3eP++tZz/wrqi/8a/qv/IxLP/y8i8p8m5oUnJuqLtxraf/8GxmP+/rZP/u6qP/2BbXf85Plr/OkZm/zE/WP+LjIz/yLmi/8a4of/Jv6r/ycGv7czHt0nCspkGyLmlkse5pv++r5r/v7CZ/8W1nf99dnD/LjE9/zU+Uf9WYHL/rqWa/8a2ov/EtaD/xLak/8G0opLMxbkG3trTANrUyxjj49yx5ubh/+bn4//m5+P/3+De/7e7vf+0u8D/0dXX/+Tm4v/j5eH/4uXg/9zd2LHEvLAYysW8APr+/gDu8u0A7vPuGPD08JLy9fDu8vXv//P28P/1+PL/9fjy//T38P/z9u7/8vbv7vH38ZLy+vgY8Pj1AP///wAAAAAAAAAAAPPz5wDz8+YH9fXqSPf476f3+O/k+Pft+/j36/v49+vk9/frp/b360j19uoH9fbrAAAAAAAAAAAA4AcAAMADAACAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAADAAwAA4AcAAA==" />
+
+<meta name="author" content="Jet Holt" />
+<meta property="og:title" content="Recreating My First HTML Project" />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:description" content="My first attempt at HTML was a fairly-cool but terribly coded 'terminal simulator' web page. What can I do now, five years later?" />
+<meta property="og:url" content="https://jetholt.com/recreating-my-first-html-project/" />
+<meta property="og:site_name" content="Jet Holt" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://jetholt.com/assets/images/backgrounds/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name=”twitter:url” content=”https://jetholt.com/recreating-my-first-html-project/”>
+<meta name="twitter:title" content="Recreating My First HTML Project - Jetroid" />
+<meta name="twitter:description" content="My first attempt at HTML was a fairly-cool but terribly coded 'terminal simulator' web page. What can I do now, five years later?" />
+<meta name="twitter:creator" content="@jetroidmakes" />
+<meta name="twitter:site" content="@jetroidmakes" />
+
+
+<meta property="og:image" content="https://jetholt.com/assets/images/backgrounds/terminal-background.gif" />
+<meta name="twitter:image" content="https://jetholt.com/assets/images/backgrounds/terminal-background.gif" />
+
+<script type="application/ld+json">
+{"sameAs":["https://twitter.com/JetroidMakes","https://www.instagram.com/jetroidmakes/","https://www.facebook.com/Jetroid"],"@type":"WebSite","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://jetholt.com/assets/images/jetroid-logo-miami.png"},"name":"Jetroid"},"url":"https://jetholt.com/","name":"Jetroid","author":{"@type":"Person","name":"Jet Holt"},"image":"https://jetholt.com/assets/images/jetroid-logo-miami.png","headline":"Jetroid","description":"Jet 'Jetroid' Holt. Maker, programmer, and Computer Science graduate.","@context":"http://schema.org"}</script>
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Main Posts RSS Feed" href="/feed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Micro RSS Feed" href="/microfeed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Everything RSS Feed" href="/all.xml" />
+
+
+	<meta name="google-site-verification" content="9pNs8vHQ1C9hsyUgQ6tFQDPzNH_ANAd8kB9GcnBARYc" />
+
+	
+		<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+	
+
+	<script>
+		window.lazyLoadOptions = {
+			threshold: 250
+		};
+		window.addEventListener(
+			"LazyLoad::Initialized",
+			function (event) {
+				window.lazyLoadInstance = event.detail.instance;
+			},
+			false
+		);
+	</script>
+	<!-- Custom CSS
+			Seperate file - use css in YAML front matter
+			Inline - use inline_css in YAML front matter !-->
+
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}.nobr{white-space:nowrap}.hidden{display:none !important}.hidden-opacity{opacity:0;pointer-events:none}.sr-only{position:absolute;white-space:nowrap;width:1px;height:1px;overflow:hidden;border:0;padding:0;clip:rect(0 0 0 0);clip-path:inset(50%);margin:-1px}img:not([src]):not([srcset]){visibility:hidden}:root{--white: #cfcfc9;--grey: #373731;--gray: #373731;--pink: #d05d5d;--lightblue: #94cbc4}body{font-family:monospace;color:#cfcfc9}.main-wrapper{overflow-x:hidden;width:100vw}a,.clickable{text-decoration:none;color:#d05d5d}a:hover,.clickable:hover{text-shadow:0.08em -0.08em #373731;cursor:pointer;text-decoration:underline}.handwritten{font-family:Caveat Brush, cursive !important}body{font-family:monospace}code.highlighter-rouge{background:#373731;white-space:pre-wrap}#page-header{width:100%;text-align:center;position:relative;height:20vh}.post #page-header{height:100vh}#title-stuff{position:absolute;width:100%;top:50%;left:50%;transform:translate(-50%, -50%)}.micro #page-header{height:auto}.micro #title-stuff{padding-top:5vh;position:static;transform:none}th,td,table{box-sizing:border-box;border:1px solid #373731;border-collapse:collapse}table{width:100%}.table-container{width:100%;overflow-x:auto;margin-bottom:1em}th,td{padding-left:10px;padding-right:10px}td{text-align:right}#page-title{color:#d05d5d;font-family:"Roboto",Helvetica,sans-serif;font-weight:100;margin-bottom:5px;font-weight:bold;text-shadow:2px 2px #373731;font-size:10vw}#page-subtitle{margin:0;font-weight:bold;text-shadow:0px 1px #373731, 0px -1px #373731, 1px 0px #373731, -1px 0px #373731, 2px 2px #373731}.divider{width:100%;height:0.3vh;background:#cfcfc9;display:block;box-sizing:border-box}#post-content>h1:first-child,#post-content>h2:first-child{padding-top:20px}#post-content,#calltoaction,#page-subtitle{font-size:5vw}#post-content h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:0}#post-content h1{font-size:7.5vw}#post-content h2{font-size:7.25vw}#post-content h3{font-size:7vw}#post-content h4{font-size:6.75vw}#post-content h5{font-size:6.5vw}#post-content h6{font-size:6.25vw}.post-date{margin-top:0;margin-bottom:0;font-size:5vw}.post-container,#navigation{padding-top:20px;padding-bottom:20px}.post-container img{display:block;max-width:100%;max-height:600px;margin:0 auto;border-radius:5px}.post-container a>img.lazy{height:1px}a.img+a.img,img+img,em+a.img,em+img{margin-top:10px !important;display:block}.post-container img.loaded{height:auto !important}img.emoji{display:inline;height:1em;width:1em}#post-content>p:first-child{margin-top:1vh}a.img+em,img+em{display:block;text-align:center}blockquote{background:rgba(55,55,49,0.3);border:2px solid #d05d5d;border-style:none none none solid;margin:1em 0}@media (min-width: 500px){blockquote{margin:1em 1em}}blockquote p{margin:0 0 0 1em}pre,code{border:1px solid #d05d5d}pre{white-space:pre;overflow:auto;background-color:#474741;padding:15px}pre code{border:none;font-size:smaller}p code{word-break:break-all}#post-content small{font-size:smaller}#post-content small *{font-size:1em}@media (min-width: 500px){#post-content>p{text-align:justify}}#navigation{margin:0;font-size:4vw;display:block;width:auto;overflow:hidden}#navigation .divider{margin-bottom:20px}#navigation a,#navigation p{margin:0;display:block;width:100%;margin:5px 0}#navigation #next-post{text-align:right}@media (min-width: 500px){#navigation a,#navigation p{width:50%;float:left;margin:0}}.youtube{position:relative;padding-bottom:56.25%;padding-top:25px;height:0;margin-bottom:25px}.youtube iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}#post-content>p:last-child>a:not(.img):not(.no-cta):only-child::before,#post-content a.cta::before{content:"► "}#post-content>p:last-child>a:not(.img):not(.no-cta):only-child,#post-content a.cta{font-size:larger}.spoiler:hover{color:#cfcfc9;background:transparent}.spoiler{color:#d05d5d;background:#d05d5d}.spoiler::before{content:"Spoiler";position:relative;color:#cfcfc9;margin:auto}.spoiler:hover::before{display:none}.visually-hidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap}@media (min-width: 500px){#page-title{font-size:5vw}#post-content,#calltoaction,#page-subtitle{font-size:1.4vw}#post-content h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:0}#post-content h1{font-size:3.5vw}#post-content h2{font-size:3.25vw}#post-content h3{font-size:3vw}#post-content h4{font-size:2.75vw}#post-content h5{font-size:2.5vw}#post-content h6{font-size:2.25vw}.post-date{font-size:1.5vw}#navigation{font-size:2.2vw}}@media (min-width: 1440px){#page-title{font-size:72px}#post-content,#calltoaction,#page-subtitle{font-size:20px}#post-content h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:0}#post-content h1{font-size:3.5vw}#post-content h2{font-size:3.25vw}#post-content h3{font-size:3vw}#post-content h4{font-size:2.75vw}#post-content h5{font-size:2.5vw}#post-content h6{font-size:2.25vw}.post-date{font-size:1.5vw}#navigation{font-size:2.2vw}}.borders{padding-left:9vw;padding-right:9vw}@media (min-width: 500px){.borders{padding-left:6vw;padding-right:6vw}}@media (min-width: 800px){.borders{padding-left:12vw;padding-right:12vw}}@media (min-width: 1000px){.borders{padding-left:18vw;padding-right:18vw}}body{background-position:center center;background-size:cover;background-repeat:no-repeat;background-attachment:fixed}.background{background:rgba(55,55,49,0.9)}@media (min-width: 500px){#mailchimp-text{font-size:2.5vh}.mailchimp-entry{width:30%}#mailchimp-submit{width:29%}}@media (max-width: 500px){#mailchimp-signup form input{width:100%;margin:0 auto;padding:15px 15px}}#mailchimp-submit{background:#d05d5d;color:black;-webkit-box-shadow:inset 0 5px rgba(255,255,255,0.2);-moz-box-shadow:inset 0 5px rgba(255,255,255,0.2);box-shadow:inset 0 5px rgba(255,255,255,0.2)}#mailchimp-signup form input{font-size:3vh;padding:10px 15px;border:none;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}#mailchimp-signup{text-align:center}#mailchimp-signup form{margin:0 auto;width:100%;padding-top:20px}#linkback,#linkback img{width:300px;z-index:50000;position:relative}@media (max-width: 500px){#linkback img{width:50%}}#linkback a img{position:absolute;left:0}
+
+</style><!-- Custom Stylesheets - use custom_css in YAML front matter !-->
+
+
+
+<!-- Google Fonts
+			Linking as a stylesheet directly from their API.
+			- use google_font in YAML front matter.
+			- Just include the name (as it would appear in a URL)
+			for example "Nanum+Pen+Script"
+		!--><!-- Custom Google Fonts - use google_font in YAML front matter !-->
+
+
+
+
+
+<!-- Set Canonical URLS for latest and latestmicro !-->
+	
+		<link rel="canonical" href="https://jetholt.com/recreating-my-first-html-project/" />
+	
+
+	</head>
+	<body class="lazy" data-bg="/assets/images/backgrounds/terminal-background.gif">
+		<div class="main-wrapper">
+		
+		<nav id="linkback"><a href="/"><img src="/assets/images/jetroid-logo-miami.png" /></a></nav>
+		
+
+		<div id="inside" class="post">
+
+<header id="page-header">
+	<nav id="linkback"><a href="/"><img src="/assets/images/jetroid-logo-miami.png" /></a></nav>
+	<div id="title-stuff">
+		<h1 id="page-title" class="borders">Recreating My First HTML Project</h1>
+		<p id="page-subtitle" class="borders">My first attempt at HTML was a fairly-cool but terribly coded 'terminal simulator' web page. What can I do now, five years later?</p>
+	</div>
+</header>
+<div class="background  borders">
+	<article class="post-container">
+		<time class="post-date">2019/02/16</time>
+		<hr class="divider"/>
+		<div id="post-content"><p><strong>Back in 2014, before I had even started University proper, I had discovered Linux in the form of Ubuntu in the computer science laboratory. I instantly liked it, and became a little obsessed. I was eager to start a blog of some kind, but hadn’t used HTML, CSS, or JavaScript before. I wanted to combine my newfound passion for Linux with the blog, and I ended up creating <a href="/old-terminal/">this monstrosity</a>. Whilst I appreciate the creativity, it wasn’t well implemented and would be difficult to maintain, so I quickly stopped using it.</strong></p>
+
+<p><strong>I have always wanted to revisit the idea as I felt like it could be super cool to have an emulated terminal in the browser, with my blogposts simply part of the filesystem. This week, <a href="https://coderstory.io">Coder Story</a> asked to interview me, and one of the questions asks me to talk about how I learned programming and how I develop my projects. I pride myself on the fact that I revisit old projects to improve them, and realised I never did for this one. I felt that it was the perfect time to go back, and that the process could be very valuable for CoderStory readers to see. I decided to spend a few days taking the time to <a href="/terminal/">recreate the project</a> with my current skills and <a href="https://twitter.com/JetroidMakes/status/1094534029964062720">tweet about it the whole time</a>.</strong></p>
+
+<p>I started with tweets announcing what I was going to be doing, and describing the old concept and the plan:</p>
+
+<blockquote class="twitter-tweet tw-align-center" data-theme="dark" data-dnt="true" data-link-color="#d05d5d"><p lang="en" dir="ltr">The project I&#39;m going to be revisiting was actually my first attempt at HTML, written just before I started University 🎓 in 2014. <br /><br />I had just gotten into Linux 🐧, and wanted to play with HTML, so created an amateurish terminal-themed &#39;blog&#39;: <a href="https://t.co/91e6ATTNwT">https://t.co/91e6ATTNwT</a> <a href="https://t.co/Qts3jSsd2L">pic.twitter.com/Qts3jSsd2L</a></p>&mdash; Jetroid (@JetroidMakes) <a href="https://twitter.com/JetroidMakes/status/1094534039669600256?ref_src=twsrc%5Etfw">February 10, 2019</a></blockquote>
+
+<p>I think it’s generally a good idea to draw some sketches of your idea. It gives you something to compare against. Some people go through painstaking detail to draw their interface in design software and ensure their site matches it pixel-perfect, but that isn’t my style. When I’m building something complicated, I sketch out the architecture of what I’m building in a block diagram format. I also like to sketch out the database tables to reduce problems later.</p>
+
+<p>In this case, I have a good idea of what I will be building, and I have the perfect reference image in the form of my terminal which I can open at any time. This project was so small that it was hard to go wrong with the plan, but I still wanted to sketch out some ideas so that my mind would think about how I was going to implement things. The problem here was that the project could go on forever (there is almost unlimited possibilities for command line programs to implement!) and I could keep adding ‘one last feature’. The plan for me served more to limit the scope than to clarify the idea.</p>
+
+<blockquote class="twitter-tweet tw-align-center" data-conversation="none" data-dnt="true" data-theme="dark" data-link-color="#d05d5d"><p lang="en" dir="ltr">I&#39;d like the new version to be more interactive - there should be a handful of &#39;programs&#39; ⚙️ (functions) the user can &#39;execute&#39; and a &#39;filesystem&#39; 💾 (just json) that they can navigate.<br /><br />This is a small project so doesn&#39;t need much preparation, but I sketched my ideas on paper: <a href="https://t.co/Wn4xnEblvT">pic.twitter.com/Wn4xnEblvT</a></p>&mdash; Jetroid (@JetroidMakes) <a href="https://twitter.com/JetroidMakes/status/1094534061891059712?ref_src=twsrc%5Etfw">February 10, 2019</a></blockquote>
+
+<p>It’s quite neat that the sketch of how my filesystem would work turned out to be very similar to the actual implementation (though I did end up switching to an object-oriented style of declaration to reduce repetition and avoid typos).</p>
+
+<blockquote class="twitter-tweet tw-align-center" data-conversation="none" data-dnt="true" data-theme="dark" data-link-color="#d05d5d"><p lang="en" dir="ltr">I have some of my &#39;filesystem&#39; 💽 in my HTML file and some in my JS file. The stuff in the HTML file lets me use Jekyll to &#39;pull in&#39; the metadata about my blog posts when the page generates. I&#39;ll be adding more here later, this is just a proof of concept. <a href="https://t.co/oWxYWhMpbb">pic.twitter.com/oWxYWhMpbb</a></p>&mdash; Jetroid (@JetroidMakes) <a href="https://twitter.com/JetroidMakes/status/1094568612541521920?ref_src=twsrc%5Etfw">February 10, 2019</a></blockquote>
+
+<p>My first step is usually to create something that I can build from. In the case of this project, it was a basic, ugly command prompt that I didn’t put any effort into CSS styling. I decided that the layout of my real command prompt would be the layout I would use for the prompt in the website. My command prompt layout is custom and has a lot of information, so gives some visual interest. I then built methods like <code class="language-plaintext highlighter-rouge">print()</code> that a command could run to write to the output, and an <code class="language-plaintext highlighter-rouge">enablePrompt()</code> function that indicates that the command is done, that the prompt should be shown, and that the user can start typing again.</p>
+
+<p>(At some point I went back and modified <code class="language-plaintext highlighter-rouge">print()</code> to escape HTML entities (eg convert <code class="language-plaintext highlighter-rouge">&lt;</code> into <code class="language-plaintext highlighter-rouge">&amp;lt;</code>) in the user input so that typing something like <code class="language-plaintext highlighter-rouge">&lt;script&gt;alert(0);&lt;/script&gt;</code> doesn’t get parsed as HTML and then executed, instead printing <code class="language-plaintext highlighter-rouge">&amp;lt;script&amp;gt;alert(1)&amp;lt;/script&amp;gt;</code> which is visually identical but is parsed differently. I sometimes needed to add HTML of my own in the print, so created a <code class="language-plaintext highlighter-rouge">printUnsafe()</code> which doesn’t do it for you, and expects you to escape any user input that you use. In a real site, this would be referred to as “protecting against Cross Site Scripting (XSS)”, and is very important to protecting your users. Often you want to escape HTML entities <strong><em>AS SOON AS THE DATA ENTERS YOUR SYSTEM</em></strong>. Here, XSS isn’t important at all as a user cannot change the state of the page for future users, but I did it anyway so that my more nerdy friends wouldn’t make fun of me.)</p>
+
+<blockquote class="twitter-tweet tw-align-center" data-dnt="true" data-theme="dark" data-link-color="#d05d5d"><p lang="en" dir="ltr">First step is to set things up so that we can print to the console when the user hits enter. It&#39;s a simple first step but a necessary one. I wanted to use the DOM&#39;s cloneNode(true) but it would have created duplicate id&#39;s. 🙅‍♀️<br /><br />Next step: Parsing input and executing it. ✌ <a href="https://t.co/xH4Zrnfdx9">pic.twitter.com/xH4Zrnfdx9</a></p>&mdash; Jetroid (@JetroidMakes) <a href="https://twitter.com/JetroidMakes/status/1094542702476111872?ref_src=twsrc%5Etfw">February 10, 2019</a></blockquote>
+
+<p>To expand on the <code class="language-plaintext highlighter-rouge">cloneNode</code> comment from the previous tweet: <code class="language-plaintext highlighter-rouge">cloneNode(true)</code> makes a deep copy of the DOM elements, which would be useful as I wouldn’t have to ‘recreate’ the prompt when I add it to the history after the user presses the enter key (return key). However, cloneNode makes a truly accurate copy, meaning the ‘id’ property will be duplicated, the event handlers will be duplicated, etc. We don’t want any of that, which means we can’t really use cloneNode, and we have to do it from scratch ourself.</p>
+
+<p>After I had programmed the file system (mentioned earlier), I made a few helper functions to convert objects to paths, and paths to objects. If a user specified any path with any valid format like:</p>
+
+<p><code class="language-plaintext highlighter-rouge">myfile.txt</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">path/to/myfile.txt</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">~/myfile.txt</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">~/path/to/myfile.txt</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">/path/to/myfile.txt</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">../path/to/myfile.txt</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">./path/to/myfile.txt</code></p>
+
+<p>…then I can return the filesystem JSON object that represents it. Useful!</p>
+
+<blockquote class="twitter-tweet tw-align-center" data-lang="en" data-dnt="true" data-theme="dark" data-link-color="#d05d5d"><p lang="en" dir="ltr">Wrote a function to do the opposite of the above. <br /><br />Looks simple, but I had a bug in my while loop for a while and I kept infinitely looping and crashing my browser. 🧐 🤔 <a href="https://t.co/6TZ5DOZ4G8">pic.twitter.com/6TZ5DOZ4G8</a></p>&mdash; Jetroid (@JetroidMakes) <a href="https://twitter.com/JetroidMakes/status/1094614725902557184?ref_src=twsrc%5Etfw">February 10, 2019</a></blockquote>
+
+<p>This meant that when a command referred to a file or a directory, I could easily access the file. Likewise, it meant that I could easily add the working directory to the command prompt. <code class="language-plaintext highlighter-rouge">cd</code> and <code class="language-plaintext highlighter-rouge">ls</code>, two commands that involve interacting with files, were also easy to implement with minimal code.</p>
+
+<blockquote class="twitter-tweet tw-align-center" data-conversation="none" data-lang="en" data-dnt="true" data-theme="dark" data-link-color="#d05d5d"><p lang="en" dir="ltr">Those functions worked to implement `cd` and (the most basic version of) `ls`! 🎉<br /><br />Just for fun, let&#39;s do wget next! 😄 <a href="https://t.co/eXPjSnRq5W">pic.twitter.com/eXPjSnRq5W</a></p>&mdash; Jetroid (@JetroidMakes) <a href="https://twitter.com/JetroidMakes/status/1094622218716205056?ref_src=twsrc%5Etfw">February 10, 2019</a></blockquote>
+
+<p>I wanted some way for users to create files (but wasn’t prepared to implement a more complicated program like <code class="language-plaintext highlighter-rouge">nano</code> or <code class="language-plaintext highlighter-rouge">vim</code> for this sprint), so I decided to create <code class="language-plaintext highlighter-rouge">wget</code>, which would actually just be a AJAX call to a specified website.</p>
+
+<p>I ended up having problems with CORS. CORS is a security policy which prevents sites from making requests to servers on a different origin. The browser refuses to connect to a service which has CORS headers in the response. I don’t think CORS is a very sensible mechanism, as it does not prevent the request from being made, it merely relies on the browser not making the request. <code class="language-plaintext highlighter-rouge">wget</code> or <code class="language-plaintext highlighter-rouge">curl</code> do not resepct CORS (hence CORS is not a valid mechanism to protect from server-to-server requests), so my implementation of <code class="language-plaintext highlighter-rouge">wget</code> should not obey CORS. Setting up a server between the resource we want to request and the browser would allow us to proxy the request back to the browser without the CORS response headers, hence circumventing the CORS protections - hence why I think CORS is a pointless protection! <a href="https://github.com/Rob--W/cors-anywhere">CORS Anywhere</a> already lets you do this, so I deployed it on Heroku, changed my code to proxy through the dyno, and just like that, my <code class="language-plaintext highlighter-rouge">wget</code> command worked.</p>
+
+<blockquote class="twitter-tweet tw-align-center" data-lang="en" data-dnt="true" data-theme="dark" data-link-color="#d05d5d"><p lang="en" dir="ltr">Hurray! `wget` is now working too! 🙌 (Or at least, the most basic functionality is working - I still need to update the text and check for bugs.) <br /><br />I&#39;m able to download files from both <a href="https://t.co/SU3VrtBYfn">https://t.co/SU3VrtBYfn</a> and <a href="https://t.co/KHW5t0jzzF">https://t.co/KHW5t0jzzF</a> (the two links I tested). 😊 <a href="https://t.co/uISasPCsSh">pic.twitter.com/uISasPCsSh</a></p>&mdash; Jetroid (@JetroidMakes) <a href="https://twitter.com/JetroidMakes/status/1094649363677077504?ref_src=twsrc%5Etfw">February 10, 2019</a></blockquote>
+
+<p>In the morning, I updated the CSS to move away from the horrible white background and black text towards a colour scheme that matched my real terminal. I remembered how some servers have <a href="https://github.com/AbhishekGhosh/HP-Cloud-ASCII-Logo">ascii art in the header after you log in, along with warnings about monitoring users</a>. I also remembered how in the media, a 1337 h4ckz0r might have their online alias in ascii on their personal terminal or server. I decided to write ‘Jetroid’ in the style of <a href="/assets/images/jetroid-logo-miami.png">my logo</a> in ascii art, and I think it turned out pretty well!</p>
+
+<blockquote class="twitter-tweet tw-align-center" data-conversation="none" data-lang="en" data-dnt="true" data-theme="dark" data-link-color="#d05d5d"><p lang="en" dir="ltr">Added some fluff to make it look more like you just logged into a neckbeard-admin&#39;s server. 😅<br /><br />Obviously today I&#39;ve broken protocol by focusing on front end visual rather than functionality, but the white background was giving me eye strain. 😳 <a href="https://t.co/lFQN3kshB9">pic.twitter.com/lFQN3kshB9</a></p>&mdash; Jetroid (@JetroidMakes) <a href="https://twitter.com/JetroidMakes/status/1094890396298047489?ref_src=twsrc%5Etfw">February 11, 2019</a></blockquote>
+
+<p>I then implemented ‘animated’ commands - commands that initially give out a little output, but then add more quickly as data is loaded or processes complete. I did <code class="language-plaintext highlighter-rouge">wget</code> and <code class="language-plaintext highlighter-rouge">shutdown</code>. I’m a big fan of <code class="language-plaintext highlighter-rouge">shutdown</code> because I added jokes playing on the <code class="language-plaintext highlighter-rouge">Stopping &lt;daemon x&gt;</code> and <code class="language-plaintext highlighter-rouge">Shutting down &lt;process y&gt;</code> - it may initially look normal because the first few are ones you’d expect to see, but then it devolves into being entirely jokes. My favourite is <code class="language-plaintext highlighter-rouge">Shutting down the-us-government</code>, and both my friend and I simultaneously came up with it at the same time. I think the end result is very authentic whilst also being funny.</p>
+
+<blockquote class="twitter-tweet tw-align-center" data-lang="en" data-dnt="true" data-theme="dark" data-link-color="#d05d5d"><p lang="en" dir="ltr">Back again after eating 🍜 and I&#39;ve implemented a `shutdown` command. <br /><br />I wasn&#39;t able to find anywhere to copy some of the shutdown text so I had to write my own from memory. To bulk it up I added plenty of jokes. 😅 <a href="https://t.co/foIsD3UgHB">pic.twitter.com/foIsD3UgHB</a></p>&mdash; Jetroid (@JetroidMakes) <a href="https://twitter.com/JetroidMakes/status/1094960034935500801?ref_src=twsrc%5Etfw">February 11, 2019</a></blockquote>
+
+<p>In the morning, I implemented <code class="language-plaintext highlighter-rouge">cat</code> for my blogposts. To save memory and decrease page load times, the content of a blog post isn’t stored in full in the content of the /terminal/ page. Instead, I request the file from the server when needed using an AJAX call.</p>
+
+<blockquote class="twitter-tweet tw-align-center" data-conversation="none" data-lang="en" data-dnt="true" data-theme="dark" data-link-color="#d05d5d"><p lang="en" dir="ltr">But first, some quick code to make sure I can `cat` the HTML of one of my blog posts. <a href="https://t.co/oH6Xj7tLb5">pic.twitter.com/oH6Xj7tLb5</a></p>&mdash; Jetroid (@JetroidMakes) <a href="https://twitter.com/JetroidMakes/status/1095190269283074048?ref_src=twsrc%5Etfw">February 12, 2019</a></blockquote>
+
+<p>For the benefit of <a href="https://coderstory.io/">CoderStory</a>’s readers, I discussed the UNIX permission system. I was trying to show that you can combine knowledge you have with content to try to gain new information. I also wanted to show how I had questions about the UNIX permission system, and that by writing them out, I could find answers. This is a big part of learning to code, so I thought it important to mention, even if the example is not the best.</p>
+
+<blockquote class="twitter-tweet tw-align-center" data-lang="en" data-dnt="true" data-theme="dark" data-link-color="#d05d5d"><p lang="en" dir="ltr">The nice thing about writing out what you need to know like this is that these are basically questions I can throw into google... <br /><br />Sure enough:<br /><br />16:57:44 jetroid@netricsa:0~/projects/jetroid.github.io$ groups<br />power wheel input storage users <a href="https://t.co/guDHqCPrDT">pic.twitter.com/guDHqCPrDT</a></p>&mdash; Jetroid (@JetroidMakes) <a href="https://twitter.com/JetroidMakes/status/1095245765469859840?ref_src=twsrc%5Etfw">February 12, 2019</a></blockquote>
+
+<p>I used this information to implement read/write permissions for commands like <code class="language-plaintext highlighter-rouge">cat</code>, <code class="language-plaintext highlighter-rouge">wget</code>, <code class="language-plaintext highlighter-rouge">rm</code>, and others.</p>
+
+<blockquote class="twitter-tweet tw-align-center" data-conversation="none" data-lang="en" data-dnt="true" data-theme="dark" data-link-color="#d05d5d"><p lang="en" dir="ltr">I also implemented read/write permissions for use with cat, wget, and others (when I implement them!).<br /><br />`jetroid` can&#39;t read /etc/shadow nor write to / 🙅‍♂️, but root can do both ✅.<br /><br />You&#39;ll see the precedence described at <a href="https://t.co/DhFKgxYdHn">https://t.co/DhFKgxYdHn</a> quite clearly in lines 212-217. 😁 <a href="https://t.co/19HJ3jyNie">pic.twitter.com/19HJ3jyNie</a></p>&mdash; Jetroid (@JetroidMakes) <a href="https://twitter.com/JetroidMakes/status/1095722971442757632?ref_src=twsrc%5Etfw">February 13, 2019</a></blockquote>
+
+<p>I implemented functionality for superusers and <code class="language-plaintext highlighter-rouge">sudo</code>. <code class="language-plaintext highlighter-rouge">sudo</code> simply sets a variable to indicate that we are in <code class="language-plaintext highlighter-rouge">sudo</code>, whilst superusers have an <code class="language-plaintext highlighter-rouge">isSuperUser</code> property. I modified the commands to first check for <code class="language-plaintext highlighter-rouge">sudo</code> or <code class="language-plaintext highlighter-rouge">user.isSuperUser</code> to bypass checking permissions. I then implemented <code class="language-plaintext highlighter-rouge">su</code>, which pushes the current user to a stack (so that we can return to it when we run <code class="language-plaintext highlighter-rouge">exit</code>), and then changes to the desired user. <code class="language-plaintext highlighter-rouge">sudo</code> is kind of neat because it just recursively calls <code class="language-plaintext highlighter-rouge">determineCommand</code> and has no problems.</p>
+
+<p>I then went ahead and implemented a whole bunch of other fairly simple (&lt; 5 lines each) commands that either interact with the filesystem permissions and user system (like <code class="language-plaintext highlighter-rouge">chown</code>, <code class="language-plaintext highlighter-rouge">chgrp</code>, <code class="language-plaintext highlighter-rouge">who</code>, and <code class="language-plaintext highlighter-rouge">whoami</code>) and ones that were simple to implement (<code class="language-plaintext highlighter-rouge">logout</code> and <code class="language-plaintext highlighter-rouge">exit</code>).</p>
+
+<blockquote class="twitter-tweet tw-align-center" data-lang="en" data-dnt="true" data-theme="dark" data-link-color="#d05d5d"><p lang="en" dir="ltr">Here&#39;s a little demo of sudo and su, as well as a few of the other commands.<br /><br />Note that as `jetroid` chown was denied, but it was allowed as both a `sudo` command (using !!), and with `root`.<br /><br />It looks so much like my terminal right now that I keep trying to use my shortcuts. 🤐 <a href="https://t.co/dYeAQUCReB">pic.twitter.com/dYeAQUCReB</a></p>&mdash; Jetroid (@JetroidMakes) <a href="https://twitter.com/JetroidMakes/status/1095374408330309632?ref_src=twsrc%5Etfw">February 12, 2019</a></blockquote>
+
+<p>When I encountered a bug in my code, I wrote about it and my debugging process:</p>
+
+<blockquote class="twitter-tweet tw-align-center" data-lang="en" data-dnt="true" data-theme="dark" data-link-color="#d05d5d"><p lang="en" dir="ltr">I was confused, so added logs to the `rm` function (blue circle), then reran my command. I saw that `rm` was being called as if I had first specified the root `/` (green) by writing blank (orange). <br /><br />I suspected multiple-spaces in the middle of a command, so I tested it (red). <a href="https://t.co/q6comUAB6F">pic.twitter.com/q6comUAB6F</a></p>&mdash; Jetroid (@JetroidMakes) <a href="https://twitter.com/JetroidMakes/status/1095927287675940864?ref_src=twsrc%5Etfw">February 14, 2019</a></blockquote>
+
+<blockquote class="twitter-tweet tw-align-center" data-lang="en" data-dnt="true" data-theme="dark" data-link-color="#d05d5d"><p lang="en" dir="ltr">We can solve that first point pretty easily by sanitising our input a little better, and replacing repeated spaces with a single space, then trimming off all whitespace to the left or right of what the user wrote.<br /><br />It&#39;s a pretty simple fix, all things considered. 👍 <a href="https://t.co/8OOpzkuD1y">pic.twitter.com/8OOpzkuD1y</a></p>&mdash; Jetroid (@JetroidMakes) <a href="https://twitter.com/JetroidMakes/status/1095927298547605504?ref_src=twsrc%5Etfw">February 14, 2019</a></blockquote>
+
+<blockquote class="twitter-tweet tw-align-center" data-lang="en" data-dnt="true" data-theme="dark" data-conversation="none" data-link-color="#d05d5d"><p lang="en" dir="ltr">But there was also a second &#39;bug&#39; - did you notice it? <br /><br />The natural whitespace collapsing is affecting the &#39;past terminal entry&#39; in an undesired way! Multiple spaces got represented as a single space! 🤦‍♂️<br /><br />To fix this, we can wrap it in a &lt;pre&gt; tag or use CSS white-space:pre; <a href="https://t.co/758f2xMOdj">pic.twitter.com/758f2xMOdj</a></p>&mdash; Jetroid (@JetroidMakes) <a href="https://twitter.com/JetroidMakes/status/1095927310753005568?ref_src=twsrc%5Etfw">February 14, 2019</a></blockquote>
+
+<p>I was approaching the end of the project, so I decided (for fun) to implement a very simple command that converts the styling to be more like <a href="/old-terminal/">the original iteration</a>.</p>
+
+<blockquote class="twitter-tweet tw-align-center" data-lang="en" data-dnt="true" data-theme="dark" data-link-color="#d05d5d"><p lang="und" dir="ltr">😍 <a href="https://t.co/GF6BArua9L">pic.twitter.com/GF6BArua9L</a></p>&mdash; Jetroid (@JetroidMakes) <a href="https://twitter.com/JetroidMakes/status/1096114734770774016?ref_src=twsrc%5Etfw">February 14, 2019</a></blockquote>
+
+<p>The biggest feature that I had been dreading was making the typing look correct, aesthetically. Up until this point, the page used a boring text box and a button for input. I wanted to change that so that it was indistinguishable for typing on a normal terminal. When I had worked on the <a href="/old-terminal/">old version</a>, I tried everything I could to make the <code class="language-plaintext highlighter-rouge">&lt;input /&gt;</code> or <code class="language-plaintext highlighter-rouge">&lt;textarea /&gt;</code> tags flow to cover the rest of the page, but I wasn’t able to and it was still quite noticeable what I was doing.</p>
+
+<p>I wanted to avoid that, so figured that I would try to do some fancy <code class="language-plaintext highlighter-rouge">onkeyup</code> / <code class="language-plaintext highlighter-rouge">onkeypress</code> / <code class="language-plaintext highlighter-rouge">onkeydown</code> stuff.</p>
+
+<p>This was a BAD IDEA.</p>
+
+<p>As it turns out, without a library to help you, the <code class="language-plaintext highlighter-rouge">e.which</code> library is fairly messy to determine which key you are using. Different keys on the keyboard are bound to each of the <code class="language-plaintext highlighter-rouge">onkeypress</code> and <code class="language-plaintext highlighter-rouge">onkeydown</code> etc functions without any rhyme or reason that I could see. And you manually have to keep track of which modifying keys (like Ctrl, Alt, etc) are being pressed.</p>
+
+<p>I actually got something that ALMOST worked, but if I typed too quickly, the characters would appear in the <strong>WRONG ORDER</strong>. <strong><em>UNACCEPTABLE</em></strong>.</p>
+
+<p>In the end, I decided to resort to a much more simple method:</p>
+
+<blockquote class="twitter-tweet tw-align-center" data-dnt="true" data-theme="dark" data-link-color="#d05d5d"><p lang="en" dir="ltr">Then all it takes is a little function to take the data from that input tag and display it where I want, which I call onkeyup and oninput. A final onclick to the whole body to autofocus on the 1px by 1px text input completes the illusion. 🧙‍♂️<br /><br />And it works really well! 😄 <a href="https://t.co/0W2AjaOaJF">pic.twitter.com/0W2AjaOaJF</a></p>&mdash; Jetroid (@JetroidMakes) <a href="https://twitter.com/JetroidMakes/status/1096119914119671808?ref_src=twsrc%5Etfw">February 14, 2019</a></blockquote>
+
+<p>After this, I considered the project “done”. Obviously, I could extend it almost infinitely and implement things like bash file parsing or whatever, but there has to be limits or you’ll just waste your whole life.</p>
+
+<p>I added a few finishing touches and signed off…</p>
+
+<blockquote class="twitter-tweet tw-align-center" data-lang="en" data-dnt="true" data-theme="dark" data-link-color="#d05d5d"><p lang="en" dir="ltr">Some final statistics:<br /><br />🕖 25 hours (how many composing tweets? 😝)<br />⌨ 1223 lines of code<br />🐦 60 tweets (including this one)<br />💾 15 git commits<br />🤖 18 commands<br />🤪 Too many emojis...<br /><br />Crazy ride! Thanks for following along!</p>&mdash; Jetroid (@JetroidMakes) <a href="https://twitter.com/JetroidMakes/status/1096129230931353600?ref_src=twsrc%5Etfw">February 14, 2019</a></blockquote>
+
+<p><strong><em>You can view the completed project <a href="/terminal/">here</a>, the project that inspired this one <a href="/old-terminal/">here</a>, or view the entire tweet thread <a href="https://twitter.com/JetroidMakes/status/1094534029964062720">here</a>.</em></strong></p>
+
+</div>
+		
+		<p id="calltoaction"><em>P.S. I'm late to the party, but I recently got <a href='https://twitter.com/JetroidMakes'>a twitter account</a> that you can follow <a href='https://twitter.com/intent/user?screen_name=JetroidMakes'>here</a>.</em></p>
+		
+	</article>
+	<hr class="divider"/>
+	
+	<div id="mailchimp-signup">
+<h2 id="mailchimp-text">Receive an email whenever I post. <span class="nobr">No spam, no ads,</span> <a class="nobr" href="http://us17.campaign-archive.com/home/?u=5c7e4e051f07ca709dea5942a&id=027962a690">just notifications</a></h2>
+<form action="https://jetholt.us17.list-manage.com/subscribe/post?u=5c7e4e051f07ca709dea5942a&amp;id=027962a690" method="post" target="_blank">
+	<input class="mailchimp-entry" type="text" name="FNAME" placeholder="Name" required>
+	<input class="mailchimp-entry" type="email" name="EMAIL" placeholder="Email" required>
+	<!-- real people should not fill this next one in and expect good things - do not remove this or risk form bot signups !-->
+	<input type="text" name="b_5c7e4e051f07ca709dea5942a_027962a690" tabindex="-1" value="" hidden>
+	<input id="mailchimp-submit" type="submit" value="Subscribe" name="subscribe" class="button">
+</form>
+</div>
+
+	<hr class="divider"/>
+	
+	<footer id="navigation">
+		
+			<a id="prev-post" href="/mapping-my-movements/">&lsaquo;Mapping My Movements</a>
+		
+		
+			<a id="next-post" href="/kuala-lumpur-sightseeing/">Kuala Lumpur Sightseeing&rsaquo;</a>
+		
+	</footer>
+</div>
+</div>
+
+		<!-- Custom JS
+			Seperate file - use js in YAML front matter
+			Inline - use inline_js in YAML front matter !--><!-- Custom JS (as seperate file) - use custom_js in YAML front matter !-->
+
+
+
+
+
+
+<script>
+
+</script>
+
+
+
+<script
+		  async
+		  src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.4.0/dist/lazyload.min.js"
+		></script>
+		</div>
+	</body>
+</html>
+

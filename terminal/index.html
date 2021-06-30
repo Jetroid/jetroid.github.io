@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html lang="en" Itemscope=”Blog”>
+	<head>
+	<link rel="dns-prefetch" href="//www.google-analytics.com" />
+	<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+
+	<!-- Custom Preconnects - use custom_preconnect in YAML front matter !-->
+	
+    
+    
+	
+
+	<title itemprop=”name”>jetroid@netricsa - Jet Holt</title>
+<meta name="description" content="An interactive UNIX terminal simulator by Jetroid." />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="shortcut icon" type="image/x-icon" href="/assets/images/terminal-favicon.ico">
+
+<meta name="author" content="Jet Holt" />
+<meta property="og:title" content="jetroid@netricsa" />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:description" content="An interactive UNIX terminal simulator by Jetroid." />
+<meta property="og:url" content="https://jetholt.com/terminal/" />
+<meta property="og:site_name" content="Jet Holt" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://jetholt.com/assets/images/backgrounds/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name=”twitter:url” content=”https://jetholt.com/terminal/”>
+<meta name="twitter:title" content="jetroid@netricsa - Jetroid" />
+<meta name="twitter:description" content="An interactive UNIX terminal simulator by Jetroid." />
+<meta name="twitter:creator" content="@jetroidmakes" />
+<meta name="twitter:site" content="@jetroidmakes" />
+
+
+<meta property="og:image" content="https://jetholt.com/assets/images/backgrounds/terminal-square.png" />
+<meta name="twitter:image" content="https://jetholt.com/assets/images/backgrounds/terminal-square.png" />
+
+<script type="application/ld+json">
+{"sameAs":["https://twitter.com/JetroidMakes","https://www.instagram.com/jetroidmakes/","https://www.facebook.com/Jetroid"],"@type":"WebSite","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://jetholt.com/assets/images/jetroid-logo-miami.png"},"name":"Jetroid"},"url":"https://jetholt.com/","name":"Jetroid","author":{"@type":"Person","name":"Jet Holt"},"image":"https://jetholt.com/assets/images/jetroid-logo-miami.png","headline":"Jetroid","description":"Jet 'Jetroid' Holt. Maker, programmer, and Computer Science graduate.","@context":"http://schema.org"}</script>
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Main Posts RSS Feed" href="/feed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Micro RSS Feed" href="/microfeed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Everything RSS Feed" href="/all.xml" />
+
+
+	<meta name="google-site-verification" content="9pNs8vHQ1C9hsyUgQ6tFQDPzNH_ANAd8kB9GcnBARYc" />
+
+	
+
+	<script>
+		window.lazyLoadOptions = {
+			threshold: 250
+		};
+		window.addEventListener(
+			"LazyLoad::Initialized",
+			function (event) {
+				window.lazyLoadInstance = event.detail.instance;
+			},
+			false
+		);
+	</script>
+	<!-- Custom CSS
+			Seperate file - use css in YAML front matter
+			Inline - use inline_css in YAML front matter !-->
+
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}.nobr{white-space:nowrap}.hidden{display:none !important}.hidden-opacity{opacity:0;pointer-events:none}.sr-only{position:absolute;white-space:nowrap;width:1px;height:1px;overflow:hidden;border:0;padding:0;clip:rect(0 0 0 0);clip-path:inset(50%);margin:-1px}img:not([src]):not([srcset]){visibility:hidden}:root{--white: #cfcfc9;--grey: #373731;--gray: #373731;--pink: #d05d5d;--lightblue: #94cbc4}body{font-family:monospace;color:#cfcfc9}.main-wrapper{overflow-x:hidden;width:100vw}a,.clickable{text-decoration:none;color:#d05d5d}a:hover,.clickable:hover{text-shadow:0.08em -0.08em #373731;cursor:pointer;text-decoration:underline}.handwritten{font-family:Caveat Brush, cursive !important}body{font-family:monospace;color:#dcdccc;background-color:#3f3f3f;overflow-wrap:break-word;width:100vw;height:100vh;overflow-x:hidden;margin:0px;padding:10px;box-sizing:border-box}p,pre{margin:0}a:focus{outline:none !important}#input{white-space:pre-wrap}#blink{white-space:pre;animation:flash 1s step-start 0s infinite;-webkit-animation:flash 1s step-start 0s infinite}@keyframes flash{0%{background:#3f3f3f;color:#dcdccc}50%{background:#dcdccc;color:#3f3f3f}100%{background:#3f3f3f;color:#dcdccc}}@-webkit-keyframes flash{0%{background:#3f3f3f;color:#dcdccc}50%{background:#dcdccc;color:#3f3f3f}100%{background:#3f3f3f;color:#dcdccc}}#data{box-sizing:border-box;position:fixed;top:0;left:0;width:1px;height:1px;border:0;margin:0;padding:0;outline:none;background:#3f3f3f;color:#3f3f3f}.cat{white-space:pre-wrap}.ls{display:inline}.lsdir{color:#3f3fff;font-weight:bold}.pink{color:#ff5f5f;font-weight:bold}.hugright{display:block;float:right}.off{background-color:#000}.blogpost p{margin:1em 0}.blogpost a{color:#fff}img{margin:0 auto;display:block}img+em{display:block;text-align:center}body.hacker,.hacker .pink{background:#000;color:#00B200;text-shadow:1px 1px 6px #0C0}.hacker a{color:#1919FF;text-shadow:1px 1px 6px #3333FF}.hacker .lsdir{text-shadow:1px 1px 6px #34F}.hacker #data{background:#000;color:#000}.hacker #blink{animation:hackerflash 1s step-start 0s infinite;-webkit-animation:hackerflash 1s step-start 0s infinite}@keyframes hackerflash{0%{background:#000;color:#00B200}50%{background:#00B200;color:#000;text-shadow:0px 0px 15px #0C0}100%{background:#000;color:#00B200}}@-webkit-keyframes hackerflash{0%{background:#000;color:#00B200}50%{background:#00B200;color:#000;text-shadow:0px 0px 15px #0C0}100%{background:#000;color:#00B200}}#information{display:none;position:fixed;z-index:1000000000;bottom:0;right:0;padding:5px;padding-bottom:0px;border-radius:7px 0 0 0;border:1px solid #000;border-bottom-width:0px;border-right-width:0px;opacity:1;transition:opacity 0.5s ease-in-out;background-color:#373731}#information.hide{opacity:0}#information.hide:hover{opacity:0.5}@media only screen and (min-width: 1000px){#information{display:block}}#information-by{font-size:15px}#information-em{font-size:17px}#information a{color:#d05d5d}#information-anchor{display:inline-flex;align-items:center;text-decoration:none}#information-anchor.open{position:relative;left:40px}#information-image-container{padding-right:5px}#information-image-color{border-radius:100%}#information-image{width:30px;height:30px;border-radius:100%}#information-text p{font-size:12px;width:300px;padding-bottom:2px}#information-text{display:none}#information-text.open{display:block}#information-text p a{font-size:12px}.social-links{text-align:center}.social-links a{text-decoration:none;padding-left:10px;padding-right:10px}.social-links svg{fill:#dcdccc;font-size:13px}.close{width:20px;height:30px;margin-left:2px;position:relative;display:inline-block}.close.open{left:97.3px}.close:hover{background:#dcdccc}.close:hover:before,.close:hover:after{background:#062414}.close:before,.close:after{position:absolute;right:9px;content:' ';height:15px;width:3px;top:9px;background:#dcdccc}.close:before{transform:rotate(45deg)}.close:after{transform:rotate(-45deg)}.hide .close:before{transform:rotate(0deg)}.hide .close:after{transform:rotate(90deg)}.chevron{padding:6px;padding-bottom:7px;bottom:11px;position:relative}.chevron:hover{background:#dcdccc}.chevron:hover:before,.chevron:hover:after{border-color:#062414}.chevron:before{border-color:#dcdccc;border-style:solid;border-width:0.25em 0.25em 0 0;content:'';display:inline-block;height:0.45em;position:relative;top:24px;transform:rotate(-45deg);vertical-align:top;width:0.45em}.chevron.open:before{top:19px;transform:rotate(135deg)}
+
+</style><!-- Custom Stylesheets - use custom_css in YAML front matter !-->
+
+
+
+<!-- Google Fonts
+			Linking as a stylesheet directly from their API.
+			- use google_font in YAML front matter.
+			- Just include the name (as it would appear in a URL)
+			for example "Nanum+Pen+Script"
+		!--><!-- Custom Google Fonts - use google_font in YAML front matter !-->
+
+
+
+
+
+<!-- Set Canonical URLS for latest and latestmicro !-->
+	
+		<link rel="canonical" href="https://jetholt.com/terminal/" />
+	
+
+	</head>
+	<body >
+		<div class="main-wrapper">
+		
+
+		<script>
+var FilesystemObject = function(name,type,protections,owner,group,date,parent) {
+	this.name = name ;
+	this.type = type;
+	this.protections = protections;
+	this.owner = owner;
+	this.group = group;
+	this.date = date || new Date();
+	this.content = {};
+	this.content[".."] = parent || this;
+	this.content["."] = this;
+};
+var blogposts = new FilesystemObject("blog","directory","755","jetroid","users",
+	new Date(Date.parse("2020-06-30 17:23:06 +0000")));blogposts.content["2020-06-30-june-2020-microposts.html"] = new FilesystemObject("2020-06-30-june-2020-microposts.html","file","755","jetroid","users", new Date(Date.parse("2020-06-30 17:23:06 +0000")), blogposts);
+blogposts.content["2020-06-30-june-2020-microposts.html"].content["text"] = "blogurl(/june-2020-microposts/)";blogposts.content["2020-06-08-climbing-the-bali-mountains.html"] = new FilesystemObject("2020-06-08-climbing-the-bali-mountains.html","file","755","jetroid","users", new Date(Date.parse("2020-06-08 16:06:58 +0000")), blogposts);
+blogposts.content["2020-06-08-climbing-the-bali-mountains.html"].content["text"] = "blogurl(/climbing-the-bali-mountains/)";blogposts.content["2020-05-08-may-2020-microblogs.html"] = new FilesystemObject("2020-05-08-may-2020-microblogs.html","file","755","jetroid","users", new Date(Date.parse("2020-05-08 18:38:06 +0000")), blogposts);
+blogposts.content["2020-05-08-may-2020-microblogs.html"].content["text"] = "blogurl(/may-2020-microblogs/)";blogposts.content["2020-04-04-repatriated.html"] = new FilesystemObject("2020-04-04-repatriated.html","file","755","jetroid","users", new Date(Date.parse("2020-04-04 20:57:20 +0000")), blogposts);
+blogposts.content["2020-04-04-repatriated.html"].content["text"] = "blogurl(/repatriated/)";blogposts.content["2020-03-10-4x4x48.html"] = new FilesystemObject("2020-03-10-4x4x48.html","file","755","jetroid","users", new Date(Date.parse("2020-03-10 03:05:23 +0000")), blogposts);
+blogposts.content["2020-03-10-4x4x48.html"].content["text"] = "blogurl(/4x4x48/)";blogposts.content["2020-02-03-wav-files.html"] = new FilesystemObject("2020-02-03-wav-files.html","file","755","jetroid","users", new Date(Date.parse("2020-02-03 04:58:10 +0000")), blogposts);
+blogposts.content["2020-02-03-wav-files.html"].content["text"] = "blogurl(/wav-files/)";blogposts.content["2019-12-28-neograf.html"] = new FilesystemObject("2019-12-28-neograf.html","file","755","jetroid","users", new Date(Date.parse("2019-12-28 07:37:00 +0000")), blogposts);
+blogposts.content["2019-12-28-neograf.html"].content["text"] = "blogurl(/neograf/)";blogposts.content["2019-12-28-quash.html"] = new FilesystemObject("2019-12-28-quash.html","file","755","jetroid","users", new Date(Date.parse("2019-12-28 07:36:00 +0000")), blogposts);
+blogposts.content["2019-12-28-quash.html"].content["text"] = "blogurl(/quash/)";blogposts.content["2019-12-28-little-melody.html"] = new FilesystemObject("2019-12-28-little-melody.html","file","755","jetroid","users", new Date(Date.parse("2019-12-28 07:35:00 +0000")), blogposts);
+blogposts.content["2019-12-28-little-melody.html"].content["text"] = "blogurl(/little-melody/)";blogposts.content["2019-12-25-new-frequency-central-website.html"] = new FilesystemObject("2019-12-25-new-frequency-central-website.html","file","755","jetroid","users", new Date(Date.parse("2019-12-25 11:03:38 +0000")), blogposts);
+blogposts.content["2019-12-25-new-frequency-central-website.html"].content["text"] = "blogurl(/new-frequency-central-website/)";blogposts.content["2019-12-25-logic-bomb.html"] = new FilesystemObject("2019-12-25-logic-bomb.html","file","755","jetroid","users", new Date(Date.parse("2019-12-25 07:31:28 +0000")), blogposts);
+blogposts.content["2019-12-25-logic-bomb.html"].content["text"] = "blogurl(/logic-bomb/)";blogposts.content["2019-12-24-seismograf-bug.html"] = new FilesystemObject("2019-12-24-seismograf-bug.html","file","755","jetroid","users", new Date(Date.parse("2019-12-24 15:09:31 +0000")), blogposts);
+blogposts.content["2019-12-24-seismograf-bug.html"].content["text"] = "blogurl(/seismograf-bug/)";blogposts.content["2019-12-12-woocommerce-discontinued-products.html"] = new FilesystemObject("2019-12-12-woocommerce-discontinued-products.html","file","755","jetroid","users", new Date(Date.parse("2019-12-12 09:44:58 +0000")), blogposts);
+blogposts.content["2019-12-12-woocommerce-discontinued-products.html"].content["text"] = "blogurl(/woocommerce-discontinued-products/)";blogposts.content["2019-08-23-bangkok-again.html"] = new FilesystemObject("2019-08-23-bangkok-again.html","file","755","jetroid","users", new Date(Date.parse("2019-08-23 00:54:13 +0000")), blogposts);
+blogposts.content["2019-08-23-bangkok-again.html"].content["text"] = "blogurl(/bangkok-again/)";blogposts.content["2019-06-07-text-resizing-libraries.html"] = new FilesystemObject("2019-06-07-text-resizing-libraries.html","file","755","jetroid","users", new Date(Date.parse("2019-06-07 08:45:24 +0000")), blogposts);
+blogposts.content["2019-06-07-text-resizing-libraries.html"].content["text"] = "blogurl(/text-resizing-libraries/)";blogposts.content["2019-06-01-samsung-maximum-fingerprints.html"] = new FilesystemObject("2019-06-01-samsung-maximum-fingerprints.html","file","755","jetroid","users", new Date(Date.parse("2019-06-01 06:57:34 +0000")), blogposts);
+blogposts.content["2019-06-01-samsung-maximum-fingerprints.html"].content["text"] = "blogurl(/samsung-maximum-fingerprints/)";blogposts.content["2019-05-30-kuala-lumpur-kinda-lousy.html"] = new FilesystemObject("2019-05-30-kuala-lumpur-kinda-lousy.html","file","755","jetroid","users", new Date(Date.parse("2019-05-30 07:24:00 +0000")), blogposts);
+blogposts.content["2019-05-30-kuala-lumpur-kinda-lousy.html"].content["text"] = "blogurl(/kuala-lumpur-kinda-lousy/)";blogposts.content["2019-05-27-i-hate-reading-big-text.html"] = new FilesystemObject("2019-05-27-i-hate-reading-big-text.html","file","755","jetroid","users", new Date(Date.parse("2019-05-27 05:56:13 +0000")), blogposts);
+blogposts.content["2019-05-27-i-hate-reading-big-text.html"].content["text"] = "blogurl(/i-hate-reading-big-text/)";blogposts.content["2019-04-23-latest-posts.html"] = new FilesystemObject("2019-04-23-latest-posts.html","file","755","jetroid","users", new Date(Date.parse("2019-04-23 11:57:32 +0000")), blogposts);
+blogposts.content["2019-04-23-latest-posts.html"].content["text"] = "blogurl(/latest-posts/)";blogposts.content["2019-04-20-thank-you-danke.html"] = new FilesystemObject("2019-04-20-thank-you-danke.html","file","755","jetroid","users", new Date(Date.parse("2019-04-20 13:47:26 +0000")), blogposts);
+blogposts.content["2019-04-20-thank-you-danke.html"].content["text"] = "blogurl(/thank-you-danke/)";blogposts.content["2019-03-31-run-till-you-drop.html"] = new FilesystemObject("2019-03-31-run-till-you-drop.html","file","755","jetroid","users", new Date(Date.parse("2019-03-31 09:02:46 +0000")), blogposts);
+blogposts.content["2019-03-31-run-till-you-drop.html"].content["text"] = "blogurl(/run-till-you-drop/)";blogposts.content["2019-03-28-bali-visa-extension.html"] = new FilesystemObject("2019-03-28-bali-visa-extension.html","file","755","jetroid","users", new Date(Date.parse("2019-03-28 10:22:22 +0000")), blogposts);
+blogposts.content["2019-03-28-bali-visa-extension.html"].content["text"] = "blogurl(/bali-visa-extension/)";blogposts.content["2019-03-26-whats-the-matra.html"] = new FilesystemObject("2019-03-26-whats-the-matra.html","file","755","jetroid","users", new Date(Date.parse("2019-03-26 01:43:12 +0000")), blogposts);
+blogposts.content["2019-03-26-whats-the-matra.html"].content["text"] = "blogurl(/whats-the-matra/)";blogposts.content["2019-03-14-gwk.html"] = new FilesystemObject("2019-03-14-gwk.html","file","755","jetroid","users", new Date(Date.parse("2019-03-14 04:07:03 +0000")), blogposts);
+blogposts.content["2019-03-14-gwk.html"].content["text"] = "blogurl(/gwk/)";blogposts.content["2019-03-08-coderstory-interview.html"] = new FilesystemObject("2019-03-08-coderstory-interview.html","file","755","jetroid","users", new Date(Date.parse("2019-03-08 08:19:43 +0000")), blogposts);
+blogposts.content["2019-03-08-coderstory-interview.html"].content["text"] = "blogurl(/coderstory-interview/)";blogposts.content["2019-03-07-nyepi.html"] = new FilesystemObject("2019-03-07-nyepi.html","file","755","jetroid","users", new Date(Date.parse("2019-03-07 06:09:48 +0000")), blogposts);
+blogposts.content["2019-03-07-nyepi.html"].content["text"] = "blogurl(/nyepi/)";blogposts.content["2019-02-17-kuala-lumpur-sightseeing.html"] = new FilesystemObject("2019-02-17-kuala-lumpur-sightseeing.html","file","755","jetroid","users", new Date(Date.parse("2019-02-17 02:01:37 +0000")), blogposts);
+blogposts.content["2019-02-17-kuala-lumpur-sightseeing.html"].content["text"] = "blogurl(/kuala-lumpur-sightseeing/)";blogposts.content["2019-02-16-recreating-my-first-html-project.html"] = new FilesystemObject("2019-02-16-recreating-my-first-html-project.html","file","755","jetroid","users", new Date(Date.parse("2019-02-16 11:41:21 +0000")), blogposts);
+blogposts.content["2019-02-16-recreating-my-first-html-project.html"].content["text"] = "blogurl(/recreating-my-first-html-project/)";blogposts.content["2019-02-08-mapping-my-movements.html"] = new FilesystemObject("2019-02-08-mapping-my-movements.html","file","755","jetroid","users", new Date(Date.parse("2019-02-08 11:41:21 +0000")), blogposts);
+blogposts.content["2019-02-08-mapping-my-movements.html"].content["text"] = "blogurl(/mapping-my-movements/)";blogposts.content["2019-02-04-twenty-three-and-me.html"] = new FilesystemObject("2019-02-04-twenty-three-and-me.html","file","755","jetroid","users", new Date(Date.parse("2019-02-04 15:23:23 +0000")), blogposts);
+blogposts.content["2019-02-04-twenty-three-and-me.html"].content["text"] = "blogurl(/twenty-three-and-me/)";blogposts.content["2019-01-19-living-kuala-lumpur.html"] = new FilesystemObject("2019-01-19-living-kuala-lumpur.html","file","755","jetroid","users", new Date(Date.parse("2019-01-19 10:46:34 +0000")), blogposts);
+blogposts.content["2019-01-19-living-kuala-lumpur.html"].content["text"] = "blogurl(/living-kuala-lumpur/)";blogposts.content["2019-01-15-camping-out.html"] = new FilesystemObject("2019-01-15-camping-out.html","file","755","jetroid","users", new Date(Date.parse("2019-01-15 10:27:52 +0000")), blogposts);
+blogposts.content["2019-01-15-camping-out.html"].content["text"] = "blogurl(/camping-out/)";blogposts.content["2019-01-07-hiking-new-year.html"] = new FilesystemObject("2019-01-07-hiking-new-year.html","file","755","jetroid","users", new Date(Date.parse("2019-01-07 06:42:30 +0000")), blogposts);
+blogposts.content["2019-01-07-hiking-new-year.html"].content["text"] = "blogurl(/hiking-new-year/)";blogposts.content["2019-01-05-jekyll-responsive-images.html"] = new FilesystemObject("2019-01-05-jekyll-responsive-images.html","file","755","jetroid","users", new Date(Date.parse("2019-01-05 10:58:29 +0000")), blogposts);
+blogposts.content["2019-01-05-jekyll-responsive-images.html"].content["text"] = "blogurl(/jekyll-responsive-images/)";blogposts.content["2018-12-27-old-shoes.html"] = new FilesystemObject("2018-12-27-old-shoes.html","file","755","jetroid","users", new Date(Date.parse("2018-12-27 05:24:45 +0000")), blogposts);
+blogposts.content["2018-12-27-old-shoes.html"].content["text"] = "blogurl(/old-shoes/)";blogposts.content["2018-12-26-a-tradition-broken.html"] = new FilesystemObject("2018-12-26-a-tradition-broken.html","file","755","jetroid","users", new Date(Date.parse("2018-12-26 16:25:44 +0000")), blogposts);
+blogposts.content["2018-12-26-a-tradition-broken.html"].content["text"] = "blogurl(/a-tradition-broken/)";blogposts.content["2018-12-21-chilling-in-chiang-mai.html"] = new FilesystemObject("2018-12-21-chilling-in-chiang-mai.html","file","755","jetroid","users", new Date(Date.parse("2018-12-21 08:18:32 +0000")), blogposts);
+blogposts.content["2018-12-21-chilling-in-chiang-mai.html"].content["text"] = "blogurl(/chilling-in-chiang-mai/)";blogposts.content["2018-11-23-loi-krathong.html"] = new FilesystemObject("2018-11-23-loi-krathong.html","file","755","jetroid","users", new Date(Date.parse("2018-11-23 06:30:35 +0000")), blogposts);
+blogposts.content["2018-11-23-loi-krathong.html"].content["text"] = "blogurl(/loi-krathong/)";blogposts.content["2018-11-20-exploring-bangkok.html"] = new FilesystemObject("2018-11-20-exploring-bangkok.html","file","755","jetroid","users", new Date(Date.parse("2018-11-20 08:07:33 +0000")), blogposts);
+blogposts.content["2018-11-20-exploring-bangkok.html"].content["text"] = "blogurl(/exploring-bangkok/)";blogposts.content["2018-11-19-from-croatia-to-asia.html"] = new FilesystemObject("2018-11-19-from-croatia-to-asia.html","file","755","jetroid","users", new Date(Date.parse("2018-11-19 10:09:06 +0000")), blogposts);
+blogposts.content["2018-11-19-from-croatia-to-asia.html"].content["text"] = "blogurl(/from-croatia-to-asia/)";blogposts.content["2018-11-11-robco-revisited.html"] = new FilesystemObject("2018-11-11-robco-revisited.html","file","755","jetroid","users", new Date(Date.parse("2018-11-11 12:34:34 +0000")), blogposts);
+blogposts.content["2018-11-11-robco-revisited.html"].content["text"] = "blogurl(/robco-revisited/)";blogposts.content["2018-11-10-meeting-matej.html"] = new FilesystemObject("2018-11-10-meeting-matej.html","file","755","jetroid","users", new Date(Date.parse("2018-11-10 08:12:57 +0000")), blogposts);
+blogposts.content["2018-11-10-meeting-matej.html"].content["text"] = "blogurl(/meeting-matej/)";blogposts.content["2018-10-31-my-backpack-is-my-home.html"] = new FilesystemObject("2018-10-31-my-backpack-is-my-home.html","file","755","jetroid","users", new Date(Date.parse("2018-10-31 08:07:33 +0000")), blogposts);
+blogposts.content["2018-10-31-my-backpack-is-my-home.html"].content["text"] = "blogurl(/my-backpack-is-my-home/)";blogposts.content["2018-10-28-zdravo-zagreb.html"] = new FilesystemObject("2018-10-28-zdravo-zagreb.html","file","755","jetroid","users", new Date(Date.parse("2018-10-28 22:30:07 +0000")), blogposts);
+blogposts.content["2018-10-28-zdravo-zagreb.html"].content["text"] = "blogurl(/zdravo-zagreb/)";blogposts.content["2018-10-24-the-adventure-begins.html"] = new FilesystemObject("2018-10-24-the-adventure-begins.html","file","755","jetroid","users", new Date(Date.parse("2018-10-24 20:56:31 +0000")), blogposts);
+blogposts.content["2018-10-24-the-adventure-begins.html"].content["text"] = "blogurl(/the-adventure-begins/)";blogposts.content["2018-10-22-seismograf.html"] = new FilesystemObject("2018-10-22-seismograf.html","file","755","jetroid","users", new Date(Date.parse("2018-10-22 21:52:08 +0000")), blogposts);
+blogposts.content["2018-10-22-seismograf.html"].content["text"] = "blogurl(/seismograf/)";blogposts.content["2018-10-03-chronograf-its-about-time.html"] = new FilesystemObject("2018-10-03-chronograf-its-about-time.html","file","755","jetroid","users", new Date(Date.parse("2018-10-03 12:55:38 +0000")), blogposts);
+blogposts.content["2018-10-03-chronograf-its-about-time.html"].content["text"] = "blogurl(/chronograf-its-about-time/)";blogposts.content["2018-07-19-best-of-both-worlds.html"] = new FilesystemObject("2018-07-19-best-of-both-worlds.html","file","755","jetroid","users", new Date(Date.parse("2018-07-19 09:24:37 +0000")), blogposts);
+blogposts.content["2018-07-19-best-of-both-worlds.html"].content["text"] = "blogurl(/best-of-both-worlds/)";blogposts.content["2018-07-01-all-of-school.html"] = new FilesystemObject("2018-07-01-all-of-school.html","file","755","jetroid","users", new Date(Date.parse("2018-07-01 10:06:48 +0000")), blogposts);
+blogposts.content["2018-07-01-all-of-school.html"].content["text"] = "blogurl(/all-of-school/)";blogposts.content["2018-03-25-licenses-over-http.html"] = new FilesystemObject("2018-03-25-licenses-over-http.html","file","755","jetroid","users", new Date(Date.parse("2018-03-25 19:32:35 +0000")), blogposts);
+blogposts.content["2018-03-25-licenses-over-http.html"].content["text"] = "blogurl(/licenses-over-http/)";blogposts.content["2018-03-15-let-it-happen.html"] = new FilesystemObject("2018-03-15-let-it-happen.html","file","755","jetroid","users", new Date(Date.parse("2018-03-15 03:36:38 +0000")), blogposts);
+blogposts.content["2018-03-15-let-it-happen.html"].content["text"] = "blogurl(/let-it-happen/)";blogposts.content["2018-03-02-streasm.html"] = new FilesystemObject("2018-03-02-streasm.html","file","755","jetroid","users", new Date(Date.parse("2018-03-02 20:31:52 +0000")), blogposts);
+blogposts.content["2018-03-02-streasm.html"].content["text"] = "blogurl(/streasm/)";blogposts.content["2018-02-26-logomania.html"] = new FilesystemObject("2018-02-26-logomania.html","file","755","jetroid","users", new Date(Date.parse("2018-02-26 13:44:32 +0000")), blogposts);
+blogposts.content["2018-02-26-logomania.html"].content["text"] = "blogurl(/logomania/)";blogposts.content["2018-01-28-finding-meaning.html"] = new FilesystemObject("2018-01-28-finding-meaning.html","file","755","jetroid","users", new Date(Date.parse("2018-01-28 15:51:08 +0000")), blogposts);
+blogposts.content["2018-01-28-finding-meaning.html"].content["text"] = "blogurl(/finding-meaning/)";blogposts.content["2017-10-24-automatic-image-optimisation.html"] = new FilesystemObject("2017-10-24-automatic-image-optimisation.html","file","755","jetroid","users", new Date(Date.parse("2017-10-24 15:42:11 +0000")), blogposts);
+blogposts.content["2017-10-24-automatic-image-optimisation.html"].content["text"] = "blogurl(/automatic-image-optimisation/)";blogposts.content["2017-10-18-other-wanderers-will-follow.html"] = new FilesystemObject("2017-10-18-other-wanderers-will-follow.html","file","755","jetroid","users", new Date(Date.parse("2017-10-18 19:01:39 +0000")), blogposts);
+blogposts.content["2017-10-18-other-wanderers-will-follow.html"].content["text"] = "blogurl(/other-wanderers-will-follow/)";blogposts.content["2017-10-11-the-race-for-space.html"] = new FilesystemObject("2017-10-11-the-race-for-space.html","file","755","jetroid","users", new Date(Date.parse("2017-10-11 12:48:09 +0000")), blogposts);
+blogposts.content["2017-10-11-the-race-for-space.html"].content["text"] = "blogurl(/the-race-for-space/)";blogposts.content["2017-10-01-towards-what.html"] = new FilesystemObject("2017-10-01-towards-what.html","file","755","jetroid","users", new Date(Date.parse("2017-10-01 19:48:53 +0000")), blogposts);
+blogposts.content["2017-10-01-towards-what.html"].content["text"] = "blogurl(/towards-what/)";blogposts.content["2017-08-05-the-grip-of-depression.html"] = new FilesystemObject("2017-08-05-the-grip-of-depression.html","file","755","jetroid","users", new Date(Date.parse("2017-08-05 14:39:43 +0000")), blogposts);
+blogposts.content["2017-08-05-the-grip-of-depression.html"].content["text"] = "blogurl(/the-grip-of-depression/)";blogposts.content["2016-10-18-changed-times.html"] = new FilesystemObject("2016-10-18-changed-times.html","file","755","jetroid","users", new Date(Date.parse("2016-10-18 20:12:29 +0000")), blogposts);
+blogposts.content["2016-10-18-changed-times.html"].content["text"] = "blogurl(/changed-times/)";blogposts.content["2016-09-09-connected-minds.html"] = new FilesystemObject("2016-09-09-connected-minds.html","file","755","jetroid","users", new Date(Date.parse("2016-09-09 00:54:30 +0000")), blogposts);
+blogposts.content["2016-09-09-connected-minds.html"].content["text"] = "blogurl(/connected-minds/)";blogposts.content["2016-09-06-designed-and-refined.html"] = new FilesystemObject("2016-09-06-designed-and-refined.html","file","755","jetroid","users", new Date(Date.parse("2016-09-06 16:56:23 +0000")), blogposts);
+blogposts.content["2016-09-06-designed-and-refined.html"].content["text"] = "blogurl(/designed-and-refined/)";blogposts.content["2016-08-12-the-pursuit-of-speed.html"] = new FilesystemObject("2016-08-12-the-pursuit-of-speed.html","file","755","jetroid","users", new Date(Date.parse("2016-08-12 12:36:48 +0000")), blogposts);
+blogposts.content["2016-08-12-the-pursuit-of-speed.html"].content["text"] = "blogurl(/the-pursuit-of-speed/)";blogposts.content["2016-08-12-caption-contest.html"] = new FilesystemObject("2016-08-12-caption-contest.html","file","755","jetroid","users", new Date(Date.parse("2016-08-12 10:37:33 +0000")), blogposts);
+blogposts.content["2016-08-12-caption-contest.html"].content["text"] = "blogurl(/caption-contest/)";blogposts.content["2016-07-30-meeting-dr-jekyll.html"] = new FilesystemObject("2016-07-30-meeting-dr-jekyll.html","file","755","jetroid","users", new Date(Date.parse("2016-07-30 12:53:45 +0000")), blogposts);
+blogposts.content["2016-07-30-meeting-dr-jekyll.html"].content["text"] = "blogurl(/meeting-dr-jekyll/)";blogposts.content["2016-07-16-blog-hacking.html"] = new FilesystemObject("2016-07-16-blog-hacking.html","file","755","jetroid","users", new Date(Date.parse("2016-07-16 15:42:25 +0000")), blogposts);
+blogposts.content["2016-07-16-blog-hacking.html"].content["text"] = "blogurl(/blog-hacking/)";blogposts.content["2016-04-03-deep-thought.html"] = new FilesystemObject("2016-04-03-deep-thought.html","file","755","jetroid","users", new Date(Date.parse("2016-04-03 19:00:00 +0000")), blogposts);
+blogposts.content["2016-04-03-deep-thought.html"].content["text"] = "blogurl(/deep-thought/)";blogposts.content["2016-04-02-chronograf.html"] = new FilesystemObject("2016-04-02-chronograf.html","file","755","jetroid","users", new Date(Date.parse("2016-04-02 19:00:00 +0000")), blogposts);
+blogposts.content["2016-04-02-chronograf.html"].content["text"] = "blogurl(/chronograf/)";blogposts.content["2015-12-29-polygraf.html"] = new FilesystemObject("2015-12-29-polygraf.html","file","755","jetroid","users", new Date(Date.parse("2015-12-29 19:00:00 +0000")), blogposts);
+blogposts.content["2015-12-29-polygraf.html"].content["text"] = "blogurl(/polygraf/)";blogposts.content["2015-03-10-bartos-flur.html"] = new FilesystemObject("2015-03-10-bartos-flur.html","file","755","jetroid","users", new Date(Date.parse("2015-03-10 19:00:00 +0000")), blogposts);
+blogposts.content["2015-03-10-bartos-flur.html"].content["text"] = "blogurl(/bartos-flur/)";</script>
+<div id="container">
+	<div id="terminal-container">
+		<div id="history">
+		</div>
+		<div id="prompt" style="display: none;">
+			<p>
+				<span class="pink"><span id="time">17:39:32</span> <span id="user">jetroid</span>@netricsa</span>:<span id="error-code">0</span><span id="path">~</span>$ <span id="input"></span>
+				<input id="data" type="text" autocapitalize="none" spellcheck="false"/>
+			</p>
+		</div>
+		<div id="recommendations" style="display: none;">
+		</div>
+	</div>
+	<div id="shutdown-container" style="display: none;"></div>
+</div>
+<div id="information">
+	<div id="information-header">
+		<span id="information-expand-shrink" class="chevron" onclick="maximiseInfo();"></span>
+		<a id="information-anchor" href="https://twitter.com/JetroidMakes/">
+			<div id="information-image-container" class="image-container">
+				<div id="information-image-color" class="image-color">
+					<img id="information-image" src="/assets/images/rsz_me.png">
+				</div>
+			</div>
+			<p id="information-by">by <em id="information-em">Jet Holt</em></p>
+		</a>
+		<span id="information-hide" class="close" onclick="hideInfo();"></span>
+	</div>
+	<div id="information-text">
+		<p>
+		<span itemprop=”description”>UNIX Terminal simulator by Jetroid.</span>
+		Created as part of a <a href="https://twitter.com/JetroidMakes/status/1094534029964062720">live tweet session</a>. Inspired by a <a href="/old-terminal/">much older version</a> that I made to get to grips with HTML, CSS, and JavaScript. I can be contacted
+		<script type="text/javascript" language="javascript">
+			ML="hl/j< air\"@ocemf:=>.t";
+			MI="46508=?A9>671D;@0=11;:3=D0;1DC<;>9B0=8=426B";
+			OT="";
+			for(j=0;j<MI.length;j++){
+			OT+=ML.charAt(MI.charCodeAt(j)-48);
+			}document.write(OT);
+		</script>.
+		</p>
+		<div class="social-links">
+			<a href="https://twitter.com/JetroidMakes"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"  viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></svg></a>
+			<a href="https://www.instagram.com/jetroidmakes/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+			<a href="https://github.com/Jetroid/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+		</div>
+	</div>
+</div>
+
+
+		<!-- Custom JS
+			Seperate file - use js in YAML front matter
+			Inline - use inline_js in YAML front matter !--><!-- Custom JS (as seperate file) - use custom_js in YAML front matter !-->
+
+
+
+
+	<script src='/assets/js/terminal.js' type="text/javascript"></script>
+
+
+
+<script>
+
+</script>
+
+
+
+<script
+		  async
+		  src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.4.0/dist/lazyload.min.js"
+		></script>
+		</div>
+	</body>
+</html>
+

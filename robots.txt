@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /old-terminal/
+
+Sitemap: https://jetholt.com/sitemap.xml

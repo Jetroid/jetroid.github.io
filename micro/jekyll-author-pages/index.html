@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html lang="en" Itemscope=”Blog”>
+	<head>
+	<link rel="dns-prefetch" href="//www.google-analytics.com" />
+	<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+
+	<!-- Custom Preconnects - use custom_preconnect in YAML front matter !-->
+	
+    
+    
+	
+
+	<title itemprop=”name”>Jekyll Author Pages - Jet Holt</title>
+<meta name="description" content="A tutorial for how to add author metadata to your Jekyll posts." />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHiAiACAhocHbnaJSFNehKdARFTkCgcI+wYDBfsFAwbkFRQepycnOUgBAAAHDQoSAAAAAAAAAAAAenx1AICKlgCAiZQYf4eQkneAj+5SXof/SlBk/w8MDv8GBAb/BQMF/woHCv8OCg/uExEakjY6ShgmJjEAMkR9AIaVqgCGl6wYhJChsX2Il/9kb4L/PUVi/zA0Qv8NCQz/CAUH/wcEBv8GAwX/CQQH/xcWH/9KUGOxZm+DGFtjeACMmasGiZirkoqZrf9/jaH/T1dl/xENEP8IBQf/CQUH/woGCP8JBgf/BwQF/wcEBv8ZFx//XWBv/2hte5JlbH0GoaawSZ+lsO2jqLL/qK65/4aJkv8SDxD/CAUG/woGCP8LBgf/CgUH/wkFB/8MBwn/Hh0k/36BjP+AhpPtdHqJSbe2uKe3trj/uLa4/7q4uv+RjZD/Ew4Q/woFB/8OCg//Hh0t/xQQGP8NCAn/DgkK/y4rMP+mqK3/ub3C/6mutqfGxsbjxsXF/8TExP/ExMX/rKys/ywnJ/8LBQX/Gxwr/zM/a/8tNlb/DwsP/xEMDv9qamz/wsPD/6yusP9dX2Tjy8fG+8rHxv/Jxsf/yMfJ/8jIyv+cmp3/QTw+/yImOP82TID/SWqk/zQ4SP9tZ2b/wLq4/9PLyf+5s7P/cGpq+8C9wPvFv7//zMTD/9DIxv/Uzcv/1tDP/5+fqv9BS3H/TG+q/1d9tf95eYL/1MjD/93SzP/azsj/18zH/8/Gwvu/u7Ljw7yw/8bAtP/Kw7j/xL+2/7+8tP+EhJb/RVCI/2CAv/9IaaL/V1hj/8a+tP/Nxbv/zMS7/87Hwf/MxsHjx7ulp8O3of/BtZ//xbqk/7+0nf+1q5T/aWdy/0dPff9PX43/NERo/3Z3eP++tZz/wrqi/8a/qv/IxLP/y8i8p8m5oUnJuqLtxraf/8GxmP+/rZP/u6qP/2BbXf85Plr/OkZm/zE/WP+LjIz/yLmi/8a4of/Jv6r/ycGv7czHt0nCspkGyLmlkse5pv++r5r/v7CZ/8W1nf99dnD/LjE9/zU+Uf9WYHL/rqWa/8a2ov/EtaD/xLak/8G0opLMxbkG3trTANrUyxjj49yx5ubh/+bn4//m5+P/3+De/7e7vf+0u8D/0dXX/+Tm4v/j5eH/4uXg/9zd2LHEvLAYysW8APr+/gDu8u0A7vPuGPD08JLy9fDu8vXv//P28P/1+PL/9fjy//T38P/z9u7/8vbv7vH38ZLy+vgY8Pj1AP///wAAAAAAAAAAAPPz5wDz8+YH9fXqSPf476f3+O/k+Pft+/j36/v49+vk9/frp/b360j19uoH9fbrAAAAAAAAAAAA4AcAAMADAACAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAADAAwAA4AcAAA==" />
+
+<meta name="author" content="Jet Holt" />
+<meta property="og:title" content="Jekyll Author Pages" />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:description" content="A tutorial for how to add author metadata to your Jekyll posts." />
+<meta property="og:url" content="https://jetholt.com/micro/jekyll-author-pages/" />
+<meta property="og:site_name" content="Jet Holt" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://jetholt.com/assets/images/backgrounds/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name=”twitter:url” content=”https://jetholt.com/micro/jekyll-author-pages/”>
+<meta name="twitter:title" content="Jekyll Author Pages - Jetroid" />
+<meta name="twitter:description" content="A tutorial for how to add author metadata to your Jekyll posts." />
+<meta name="twitter:creator" content="@jetroidmakes" />
+<meta name="twitter:site" content="@jetroidmakes" />
+
+
+<meta property="og:image" content="https://jetholt.com/assets/images/backgrounds/background-blog.jpg" />
+<meta name="twitter:image" content="https://jetholt.com/assets/images/backgrounds/background-blog.jpg" />
+
+<script type="application/ld+json">
+{"sameAs":["https://twitter.com/JetroidMakes","https://www.instagram.com/jetroidmakes/","https://www.facebook.com/Jetroid"],"@type":"WebSite","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://jetholt.com/assets/images/jetroid-logo-miami.png"},"name":"Jetroid"},"url":"https://jetholt.com/","name":"Jetroid","author":{"@type":"Person","name":"Jet Holt"},"image":"https://jetholt.com/assets/images/jetroid-logo-miami.png","headline":"Jetroid","description":"Jet 'Jetroid' Holt. Maker, programmer, and Computer Science graduate.","@context":"http://schema.org"}</script>
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Main Posts RSS Feed" href="/feed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Micro RSS Feed" href="/microfeed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Everything RSS Feed" href="/all.xml" />
+
+
+	<meta name="google-site-verification" content="9pNs8vHQ1C9hsyUgQ6tFQDPzNH_ANAd8kB9GcnBARYc" />
+
+	
+
+	<script>
+		window.lazyLoadOptions = {
+			threshold: 250
+		};
+		window.addEventListener(
+			"LazyLoad::Initialized",
+			function (event) {
+				window.lazyLoadInstance = event.detail.instance;
+			},
+			false
+		);
+	</script>
+	<!-- Custom CSS
+			Seperate file - use css in YAML front matter
+			Inline - use inline_css in YAML front matter !-->
+
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}.nobr{white-space:nowrap}.hidden{display:none !important}.hidden-opacity{opacity:0;pointer-events:none}.sr-only{position:absolute;white-space:nowrap;width:1px;height:1px;overflow:hidden;border:0;padding:0;clip:rect(0 0 0 0);clip-path:inset(50%);margin:-1px}img:not([src]):not([srcset]){visibility:hidden}:root{--white: #cfcfc9;--grey: #373731;--gray: #373731;--pink: #d05d5d;--lightblue: #94cbc4}body{font-family:monospace;color:#cfcfc9}.main-wrapper{overflow-x:hidden;width:100vw}a,.clickable{text-decoration:none;color:#d05d5d}a:hover,.clickable:hover{text-shadow:0.08em -0.08em #373731;cursor:pointer;text-decoration:underline}.handwritten{font-family:Caveat Brush, cursive !important}body{font-family:monospace}code.highlighter-rouge{background:#373731;white-space:pre-wrap}#page-header{width:100%;text-align:center;position:relative;height:20vh}.post #page-header{height:100vh}#title-stuff{position:absolute;width:100%;top:50%;left:50%;transform:translate(-50%, -50%)}.micro #page-header{height:auto}.micro #title-stuff{padding-top:5vh;position:static;transform:none}th,td,table{box-sizing:border-box;border:1px solid #373731;border-collapse:collapse}table{width:100%}.table-container{width:100%;overflow-x:auto;margin-bottom:1em}th,td{padding-left:10px;padding-right:10px}td{text-align:right}#page-title{color:#d05d5d;font-family:"Roboto",Helvetica,sans-serif;font-weight:100;margin-bottom:5px;font-weight:bold;text-shadow:2px 2px #373731;font-size:10vw}#page-subtitle{margin:0;font-weight:bold;text-shadow:0px 1px #373731, 0px -1px #373731, 1px 0px #373731, -1px 0px #373731, 2px 2px #373731}.divider{width:100%;height:0.3vh;background:#cfcfc9;display:block;box-sizing:border-box}#post-content>h1:first-child,#post-content>h2:first-child{padding-top:20px}#post-content,#calltoaction,#page-subtitle{font-size:5vw}#post-content h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:0}#post-content h1{font-size:7.5vw}#post-content h2{font-size:7.25vw}#post-content h3{font-size:7vw}#post-content h4{font-size:6.75vw}#post-content h5{font-size:6.5vw}#post-content h6{font-size:6.25vw}.post-date{margin-top:0;margin-bottom:0;font-size:5vw}.post-container,#navigation{padding-top:20px;padding-bottom:20px}.post-container img{display:block;max-width:100%;max-height:600px;margin:0 auto;border-radius:5px}.post-container a>img.lazy{height:1px}a.img+a.img,img+img,em+a.img,em+img{margin-top:10px !important;display:block}.post-container img.loaded{height:auto !important}img.emoji{display:inline;height:1em;width:1em}#post-content>p:first-child{margin-top:1vh}a.img+em,img+em{display:block;text-align:center}blockquote{background:rgba(55,55,49,0.3);border:2px solid #d05d5d;border-style:none none none solid;margin:1em 0}@media (min-width: 500px){blockquote{margin:1em 1em}}blockquote p{margin:0 0 0 1em}pre,code{border:1px solid #d05d5d}pre{white-space:pre;overflow:auto;background-color:#474741;padding:15px}pre code{border:none;font-size:smaller}p code{word-break:break-all}#post-content small{font-size:smaller}#post-content small *{font-size:1em}@media (min-width: 500px){#post-content>p{text-align:justify}}#navigation{margin:0;font-size:4vw;display:block;width:auto;overflow:hidden}#navigation .divider{margin-bottom:20px}#navigation a,#navigation p{margin:0;display:block;width:100%;margin:5px 0}#navigation #next-post{text-align:right}@media (min-width: 500px){#navigation a,#navigation p{width:50%;float:left;margin:0}}.youtube{position:relative;padding-bottom:56.25%;padding-top:25px;height:0;margin-bottom:25px}.youtube iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}#post-content>p:last-child>a:not(.img):not(.no-cta):only-child::before,#post-content a.cta::before{content:"► "}#post-content>p:last-child>a:not(.img):not(.no-cta):only-child,#post-content a.cta{font-size:larger}.spoiler:hover{color:#cfcfc9;background:transparent}.spoiler{color:#d05d5d;background:#d05d5d}.spoiler::before{content:"Spoiler";position:relative;color:#cfcfc9;margin:auto}.spoiler:hover::before{display:none}.visually-hidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap}@media (min-width: 500px){#page-title{font-size:5vw}#post-content,#calltoaction,#page-subtitle{font-size:1.4vw}#post-content h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:0}#post-content h1{font-size:3.5vw}#post-content h2{font-size:3.25vw}#post-content h3{font-size:3vw}#post-content h4{font-size:2.75vw}#post-content h5{font-size:2.5vw}#post-content h6{font-size:2.25vw}.post-date{font-size:1.5vw}#navigation{font-size:2.2vw}}@media (min-width: 1440px){#page-title{font-size:72px}#post-content,#calltoaction,#page-subtitle{font-size:20px}#post-content h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:0}#post-content h1{font-size:3.5vw}#post-content h2{font-size:3.25vw}#post-content h3{font-size:3vw}#post-content h4{font-size:2.75vw}#post-content h5{font-size:2.5vw}#post-content h6{font-size:2.25vw}.post-date{font-size:1.5vw}#navigation{font-size:2.2vw}}.borders{padding-left:9vw;padding-right:9vw}@media (min-width: 500px){.borders{padding-left:6vw;padding-right:6vw}}@media (min-width: 800px){.borders{padding-left:12vw;padding-right:12vw}}@media (min-width: 1000px){.borders{padding-left:18vw;padding-right:18vw}}body{background-position:center center;background-size:cover;background-repeat:no-repeat;background-attachment:fixed}.background{background:rgba(55,55,49,0.9)}@media (min-width: 500px){#mailchimp-text{font-size:2.5vh}.mailchimp-entry{width:30%}#mailchimp-submit{width:29%}}@media (max-width: 500px){#mailchimp-signup form input{width:100%;margin:0 auto;padding:15px 15px}}#mailchimp-submit{background:#d05d5d;color:black;-webkit-box-shadow:inset 0 5px rgba(255,255,255,0.2);-moz-box-shadow:inset 0 5px rgba(255,255,255,0.2);box-shadow:inset 0 5px rgba(255,255,255,0.2)}#mailchimp-signup form input{font-size:3vh;padding:10px 15px;border:none;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}#mailchimp-signup{text-align:center}#mailchimp-signup form{margin:0 auto;width:100%;padding-top:20px}#linkback,#linkback img{width:300px;z-index:50000;position:relative}@media (max-width: 500px){#linkback img{width:50%}}#linkback a img{position:absolute;left:0}
+
+</style><!-- Custom Stylesheets - use custom_css in YAML front matter !-->
+
+
+
+<!-- Google Fonts
+			Linking as a stylesheet directly from their API.
+			- use google_font in YAML front matter.
+			- Just include the name (as it would appear in a URL)
+			for example "Nanum+Pen+Script"
+		!--><!-- Custom Google Fonts - use google_font in YAML front matter !-->
+
+
+
+
+
+<!-- Set Canonical URLS for latest and latestmicro !-->
+	
+		<link rel="canonical" href="https://jetholt.com/micro/jekyll-author-pages/" />
+	
+
+	</head>
+	<body class="lazy" data-bg="background-blog.jpg">
+		<div class="main-wrapper">
+		
+		<nav id="linkback"><a href="/"><img src="/assets/images/jetroid-logo-miami.png" /></a></nav>
+		
+
+		<div id="inside" class="micro">
+
+<header id="page-header">
+	<nav id="linkback"><a href="/"><img src="/assets/images/jetroid-logo-miami.png" /></a></nav>
+	<div id="title-stuff">
+		<h1 id="page-title" class="borders">Jekyll Author Pages</h1>
+		<p id="page-subtitle" class="borders">A tutorial for how to add author metadata to your Jekyll posts.</p>
+	</div>
+</header>
+<div class="background  borders">
+	<article class="post-container">
+		<time class="post-date">2020/05/10</time>
+		<hr class="divider"/>
+		<div id="post-content"><p>In this tutorial, I will instruct you about how to create a page to show all of an author’s posts, without using any plugins.</p>
+
+<p>This post was inspired by the <a href="http://jekyllthemes.org/themes/jasper2/">Jasper2</a> theme, which is a port of <a href="https://ghost.org">Ghost</a>’s Casper theme. In that theme, the <a href="https://jekyller.github.io/jasper2/author/ghost/">author pages</a> are generated by <a href="https://github.com/jekyller/jasper2/blob/master/_plugins/jekyll-autgenerator.rb">a plugin</a>, which can be inconvenient.</p>
+
+<p>This guide will walk you through how to setup an equivalent system without using a plugin.</p>
+
+<h1 id="setup">Setup</h1>
+
+<p>This guide takes advantage of Jekyll’s <a href="https://jekyllrb.com/docs/collections/">Collections</a> feature, and the fact that every item in a collection can be made to output a page.</p>
+
+<h6 id="config">Config</h6>
+
+<p>Open your <code class="language-plaintext highlighter-rouge">_config.yml</code> and add the following:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>collections:
+  authors:
+    output: true
+    permalink: author/:title/
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: authors
+    values:
+      layout: author
+
+
+</code></pre></div></div>
+
+<p>The first block (<code class="language-plaintext highlighter-rouge">collections</code>) defines <code class="language-plaintext highlighter-rouge">authors</code> as a new collection. It says that the files should be output (meaning that all files in the <code class="language-plaintext highlighter-rouge">_authors/</code> directory map to pages on your site), and that the url for those pages should be <code class="language-plaintext highlighter-rouge">your.website.url/author/title-of-your-file/</code></p>
+
+<p>The second block (<code class="language-plaintext highlighter-rouge">defaults</code>) says that all posts with the type <code class="language-plaintext highlighter-rouge">authors</code> (ie, anything in the <code class="language-plaintext highlighter-rouge">authors</code> collection) should use the <code class="language-plaintext highlighter-rouge">author</code> layout.</p>
+
+<h6 id="author-files">Author Files</h6>
+
+<p>Now, let’s create a file in our collection that tells Jekyll about one of our authors.</p>
+
+<p>Create the <code class="language-plaintext highlighter-rouge">_authors</code> directory, and create a new file in that directory <code class="language-plaintext highlighter-rouge">username.md</code>, where <code class="language-plaintext highlighter-rouge">username</code> is the name that will be used in the url. I want my url to be <code class="language-plaintext highlighter-rouge">/author/jetroid/</code>, so I’m going to create <code class="language-plaintext highlighter-rouge">jetroid.md</code>.</p>
+
+<p>Now, the specifics of what you want to put in this file will vary depending on what you want to display on your author’s pages. Here’s the setup that I’m using, which includes real names, location, personal sites URL, a short bio, a path to a picture, and social media usernames. Don’t feel restricted by what to include here; use whatever your site needs!</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+username: jetroid
+name: Jet A. Holt
+location: Earth 🌏
+url_full: https://jetholt.com/
+url_short: jetholt.com
+bio: I'm Jet, a CS graduate who enjoys working on his own projects. I'm known for my Eurorack synth modules.
+picture: assets/images/jet.jpg
+facebook: Jetroid
+twitter: jetroidmakes
+instagram: jetroidmakes
+---
+</code></pre></div></div>
+
+<p>You’ll need to create a file like this for every author on your site. Remember to create new files when adding new authors!</p>
+
+<h6 id="specify-author-of-posts">Specify Author Of Posts</h6>
+
+<p>This bit is simple!</p>
+
+<p>Simply add <code class="language-plaintext highlighter-rouge">authors: jetroid</code> to the front matter of your post. Be sure to replace <code class="language-plaintext highlighter-rouge">jetroid</code> with the username of your author. If you have more than one author, you can create an array like this:</p>
+
+<p><code class="language-plaintext highlighter-rouge">authors: [jetroid, jekyll, hyde]</code></p>
+
+<p>Once done, your front matter might look something like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: post
+title: Jekyll Author Pages
+date: 2020-05-10 22:41:40 +0100
+authors: jetroid
+---
+</code></pre></div></div>
+
+<p>TIP: You can add the following to your <code class="language-plaintext highlighter-rouge">_config.yml</code>’s <code class="language-plaintext highlighter-rouge">defaults</code> section to have your posts default to a specific author. (You can still use a different author in individual posts using the <code class="language-plaintext highlighter-rouge">authors</code> front matter variable.)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  -
+    scope:
+      path: ""
+      type: post
+    values:
+      author: jetroid
+</code></pre></div></div>
+
+<p>Be sure to replace <code class="language-plaintext highlighter-rouge">jetroid</code> with the username of your author!</p>
+
+<h1 id="edit-templates">Edit Templates</h1>
+
+<p>By now, we’re set up, and Jekyll knows information about our authors, and who authored which posts.</p>
+
+<p>We need to display that information in the HTML of our site!</p>
+
+<h3 id="post-written-by">Post Written By</h3>
+
+<p>Let’s start by editing the template used for our posts. On my site, posts use the <code class="language-plaintext highlighter-rouge">post.html</code> layout (in the <code class="language-plaintext highlighter-rouge">_layouts/</code> directory), so I’ll be editing that.</p>
+
+<p>Everyone’s <code class="language-plaintext highlighter-rouge">post.html</code> layout will be different, so I can only provide some code here.</p>
+
+<p>Modify these snippets and include them wherever you want to link to the author of a post. This will probably be in <code class="language-plaintext highlighter-rouge">post.html</code> layout, and perhaps even somewhere in your <code class="language-plaintext highlighter-rouge">index.html</code> to.</p>
+
+<p><strong>NB: You may have to change <code class="language-plaintext highlighter-rouge">post</code> to <code class="language-plaintext highlighter-rouge">page</code> to get these snippets to work!</strong></p>
+
+<h6 id="simple-snippet">Simple Snippet</h6>
+
+<p>This first simple snippet simply writes each author’s names (as hyperlinks to their author pages) to new lines, similar to the below:</p>
+
+<p><a href="https://example.com/author/jetroid/">Jet A. Holt</a></p>
+
+<p><a href="https://example.com/author/jekyll/">Dr. Jekyll</a></p>
+
+<p><a href="https://example.com/author/hyde/">Mr. Hyde</a></p>
+
+<p>This simpler example is easier for you to modify to add your own customisations, like a personal image for each author.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% for author in site.authors %}
+	{% if post.authors contains author.username or author.username == post.authors %}
+	    &lt;a href="{{ site.url }}{{ site.baseurl }}/author/{{ author.username }}"&gt;{{ author.name }}&lt;/a&gt;
+	{% endif %}
+{% endfor %}
+</code></pre></div></div>
+
+<p>It simply iterates through every author that jekyll knows about, and if they were one of the authors of our post, creates a new link to them.</p>
+
+<h6 id="complex-snippet">Complex Snippet</h6>
+
+<p>This more complex snippet writes <code class="language-plaintext highlighter-rouge">Written by Jet A Holt, Dr. Jekyll, and Mr. Hyde</code>, where each name is a hyperlink to that author’s page.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign authordata = '' | split:'@' %}
+{% for author in site.authors %}
+    {% if post.authors contains author.username or author.username == post.authors %}
+        {% capture data %}
+        	&lt;a href="{{ site.url }}{{ site.baseurl }}/author/{{ author.username }}"&gt;{{ author.name }}&lt;/a&gt;
+        {% endcapture %}
+        {% assign authordata = authordata | push: data %}
+    {% endif %}
+{% endfor %}
+&lt;p&gt;Written by {{ authordata | array_to_sentence_string }}&lt;/p&gt;
+</code></pre></div></div>
+
+<p>It does much the same as the first snippet, but creates an array and pushes our data into it. In this case, the data is our author’s name and the hyperlink. At the end, we print the contents of the array as a ‘sentence string’, which adds punctuation (and the word ‘and’) to it as necessary.</p>
+
+<h3 id="author-template">Author Template</h3>
+
+<p>Next, we want to create the template for our author pages. This will be the template that is rendered when we go to the <code class="language-plaintext highlighter-rouge">/author/jetroid/</code> URL.</p>
+
+<p>Again, this will vary drastically from site to site, so I will just be including some useful snippets.</p>
+
+<p>Note that all of the fields you created in your <code class="language-plaintext highlighter-rouge">_authors/username.md</code> file are accessible here using the <code class="language-plaintext highlighter-rouge">page</code> variable. For example, <code class="language-plaintext highlighter-rouge">jetroid</code>’s <code class="language-plaintext highlighter-rouge">page.name</code> is <code class="language-plaintext highlighter-rouge">Jet A. Holt</code>.</p>
+
+<h6 id="header-photo-bio">Header, Photo, Bio</h6>
+
+<p>We’ll start with something easy, simply pasting their photo, name, and bio to the page:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if page.picture %}
+    &lt;img class="author-profile-image" src="/{{ page.picture }}" alt="{{ page.name }}" /&gt;
+{% endif %}
+&lt;h1 class="site-title"&gt;{{ page.name }}&lt;/h1&gt;
+{% if page.bio %}
+    &lt;h2 class="author-bio"&gt;{{ page.bio }}&lt;/h2&gt;
+{% endif %}
+{% if page.location %}
+    &lt;div class="author-location"&gt;{{ page.location }}&lt;/div&gt;
+{% endif %}
+</code></pre></div></div>
+
+<h6 id="links-to-all-of-their-posts">Links to all of their posts</h6>
+
+<p>We might want to create a list of all of their posts.</p>
+
+<p>This snippet filters all the posts to just include the ones written by the author, and includes a link to the post.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% for post in site.posts %}
+	{% if post.authors contains page.username or page.username == post.authors %}
+		&lt;a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}"&gt;{{ post.title }}&lt;/a&gt;
+	{% endif %}
+{% endfor %}
+</code></pre></div></div>
+
+<p>NB: I tried to do a more elegant solution using where_exp, but ran into <a href="https://stackoverflow.com/questions/42722902/and-or-on-a-where-exp-expression-on-jekyll">a weird bug</a>. Sad.</p>
+
+<h6 id="how-many-posts-they-wrote">How Many Posts They Wrote</h6>
+
+<p>In your header for this author, you might want to include some data about how many posts they have contributed to the site. This can be seen below. It writes ‘No posts’ if they haven’t posted.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign number_of_posts = 0 %}
+{% for post in site.posts %}
+    {% if post.authors contains page.username or page.username == post.authors %}
+        {% assign number_of_posts = number_of_posts | plus: 1 %}
+    {% endif %}
+{% endfor %}
+{% if number_of_posts == 0 %}No posts{% elsif number_of_posts == 1 %}1 post{% else %}{{ number_of_posts }} posts{% endif %}
+</code></pre></div></div>
+
+<h6 id="link-to-their-website">Link To Their Website</h6>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if page.url_short and page.url_full %}
+&lt;a href="{{ page.url_full }}" target="_blank" rel="noopener"&gt;{{ page.url_short }}&lt;/a&gt;
+{% endif %}
+</code></pre></div></div>
+
+<h6 id="link-to-their-social-media">Link To Their Social Media</h6>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if page.twitter %}
+    &lt;a href="https://twitter.com/{{ page.twitter }}" target="_blank" rel="noopener"&gt;
+    	&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"&gt;&lt;path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/&gt;&lt;/svg&gt;
+    &lt;/a&gt;
+{% endif %}
+{% if page.facebook %}
+    &lt;a href="https://facebook.com/{{ page.facebook }}" target="_blank" rel="noopener"&gt;
+    	&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"&gt;&lt;path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/&gt;&lt;/svg&gt;
+    &lt;/a&gt;
+{% endif %}
+{% if page.instagram %}
+    &lt;a href="https://instagram.com/{{ page.instagram }}" target="_blank" rel="noopener"&gt;
+    	&lt;svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"&gt;&lt;path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/&gt;&lt;/svg&gt;
+    &lt;/a&gt;
+{% endif %}
+</code></pre></div></div>
+
+<p>The following CSS might help:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>svg {
+	height: 1.8rem;
+	color: white;
+}
+svg path {
+	stroke: white;
+}
+</code></pre></div></div>
+
+</div>
+		
+		<p id="calltoaction"><em>P.S. I'm late to the party, but I recently got <a href='https://twitter.com/JetroidMakes'>a twitter account</a> that you can follow <a href='https://twitter.com/intent/user?screen_name=JetroidMakes'>here</a>.</em></p>
+		
+	</article>
+	<hr class="divider"/>
+	
+	<footer id="navigation">
+		
+			<a id="prev-post" href="/micro/this-website/">&lsaquo;This Website</a>
+		
+		
+			<a id="next-post" href="/micro/jekyll-tags-and-categories/">Jekyll Tags and Categories&rsaquo;</a>
+		
+	</footer>
+</div>
+</div>
+
+		<!-- Custom JS
+			Seperate file - use js in YAML front matter
+			Inline - use inline_js in YAML front matter !--><!-- Custom JS (as seperate file) - use custom_js in YAML front matter !-->
+
+
+
+
+
+
+<script>
+
+</script>
+
+
+
+<script
+		  async
+		  src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.4.0/dist/lazyload.min.js"
+		></script>
+		</div>
+	</body>
+</html>
+

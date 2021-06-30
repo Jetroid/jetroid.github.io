@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html lang="en" Itemscope=”Blog”>
+	<head>
+	<link rel="dns-prefetch" href="//www.google-analytics.com" />
+	<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+
+	<!-- Custom Preconnects - use custom_preconnect in YAML front matter !-->
+	
+    
+    
+	
+
+	<title itemprop=”name”>StreASM Retrospective - Jet Holt</title>
+<meta name="description" content="A look back at the 'stream processing language for the criminally insane'." />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHiAiACAhocHbnaJSFNehKdARFTkCgcI+wYDBfsFAwbkFRQepycnOUgBAAAHDQoSAAAAAAAAAAAAenx1AICKlgCAiZQYf4eQkneAj+5SXof/SlBk/w8MDv8GBAb/BQMF/woHCv8OCg/uExEakjY6ShgmJjEAMkR9AIaVqgCGl6wYhJChsX2Il/9kb4L/PUVi/zA0Qv8NCQz/CAUH/wcEBv8GAwX/CQQH/xcWH/9KUGOxZm+DGFtjeACMmasGiZirkoqZrf9/jaH/T1dl/xENEP8IBQf/CQUH/woGCP8JBgf/BwQF/wcEBv8ZFx//XWBv/2hte5JlbH0GoaawSZ+lsO2jqLL/qK65/4aJkv8SDxD/CAUG/woGCP8LBgf/CgUH/wkFB/8MBwn/Hh0k/36BjP+AhpPtdHqJSbe2uKe3trj/uLa4/7q4uv+RjZD/Ew4Q/woFB/8OCg//Hh0t/xQQGP8NCAn/DgkK/y4rMP+mqK3/ub3C/6mutqfGxsbjxsXF/8TExP/ExMX/rKys/ywnJ/8LBQX/Gxwr/zM/a/8tNlb/DwsP/xEMDv9qamz/wsPD/6yusP9dX2Tjy8fG+8rHxv/Jxsf/yMfJ/8jIyv+cmp3/QTw+/yImOP82TID/SWqk/zQ4SP9tZ2b/wLq4/9PLyf+5s7P/cGpq+8C9wPvFv7//zMTD/9DIxv/Uzcv/1tDP/5+fqv9BS3H/TG+q/1d9tf95eYL/1MjD/93SzP/azsj/18zH/8/Gwvu/u7Ljw7yw/8bAtP/Kw7j/xL+2/7+8tP+EhJb/RVCI/2CAv/9IaaL/V1hj/8a+tP/Nxbv/zMS7/87Hwf/MxsHjx7ulp8O3of/BtZ//xbqk/7+0nf+1q5T/aWdy/0dPff9PX43/NERo/3Z3eP++tZz/wrqi/8a/qv/IxLP/y8i8p8m5oUnJuqLtxraf/8GxmP+/rZP/u6qP/2BbXf85Plr/OkZm/zE/WP+LjIz/yLmi/8a4of/Jv6r/ycGv7czHt0nCspkGyLmlkse5pv++r5r/v7CZ/8W1nf99dnD/LjE9/zU+Uf9WYHL/rqWa/8a2ov/EtaD/xLak/8G0opLMxbkG3trTANrUyxjj49yx5ubh/+bn4//m5+P/3+De/7e7vf+0u8D/0dXX/+Tm4v/j5eH/4uXg/9zd2LHEvLAYysW8APr+/gDu8u0A7vPuGPD08JLy9fDu8vXv//P28P/1+PL/9fjy//T38P/z9u7/8vbv7vH38ZLy+vgY8Pj1AP///wAAAAAAAAAAAPPz5wDz8+YH9fXqSPf476f3+O/k+Pft+/j36/v49+vk9/frp/b360j19uoH9fbrAAAAAAAAAAAA4AcAAMADAACAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAADAAwAA4AcAAA==" />
+
+<meta name="author" content="Jet Holt" />
+<meta property="og:title" content="StreASM Retrospective" />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:description" content="A look back at the 'stream processing language for the criminally insane'." />
+<meta property="og:url" content="https://jetholt.com/streasm/" />
+<meta property="og:site_name" content="Jet Holt" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://jetholt.com/assets/images/backgrounds/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name=”twitter:url” content=”https://jetholt.com/streasm/”>
+<meta name="twitter:title" content="StreASM Retrospective - Jetroid" />
+<meta name="twitter:description" content="A look back at the 'stream processing language for the criminally insane'." />
+<meta name="twitter:creator" content="@jetroidmakes" />
+<meta name="twitter:site" content="@jetroidmakes" />
+
+
+<meta property="og:image" content="https://jetholt.com/assets/images/backgrounds/streasm-beauty.jpg" />
+<meta name="twitter:image" content="https://jetholt.com/assets/images/backgrounds/streasm-beauty.jpg" />
+
+<script type="application/ld+json">
+{"sameAs":["https://twitter.com/JetroidMakes","https://www.instagram.com/jetroidmakes/","https://www.facebook.com/Jetroid"],"@type":"WebSite","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://jetholt.com/assets/images/jetroid-logo-miami.png"},"name":"Jetroid"},"url":"https://jetholt.com/","name":"Jetroid","author":{"@type":"Person","name":"Jet Holt"},"image":"https://jetholt.com/assets/images/jetroid-logo-miami.png","headline":"Jetroid","description":"Jet 'Jetroid' Holt. Maker, programmer, and Computer Science graduate.","@context":"http://schema.org"}</script>
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Main Posts RSS Feed" href="/feed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Micro RSS Feed" href="/microfeed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Everything RSS Feed" href="/all.xml" />
+
+
+	<meta name="google-site-verification" content="9pNs8vHQ1C9hsyUgQ6tFQDPzNH_ANAd8kB9GcnBARYc" />
+
+	
+
+	<script>
+		window.lazyLoadOptions = {
+			threshold: 250
+		};
+		window.addEventListener(
+			"LazyLoad::Initialized",
+			function (event) {
+				window.lazyLoadInstance = event.detail.instance;
+			},
+			false
+		);
+	</script>
+	<!-- Custom CSS
+			Seperate file - use css in YAML front matter
+			Inline - use inline_css in YAML front matter !-->
+
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}.nobr{white-space:nowrap}.hidden{display:none !important}.hidden-opacity{opacity:0;pointer-events:none}.sr-only{position:absolute;white-space:nowrap;width:1px;height:1px;overflow:hidden;border:0;padding:0;clip:rect(0 0 0 0);clip-path:inset(50%);margin:-1px}img:not([src]):not([srcset]){visibility:hidden}:root{--white: #cfcfc9;--grey: #373731;--gray: #373731;--pink: #d05d5d;--lightblue: #94cbc4}body{font-family:monospace;color:#cfcfc9}.main-wrapper{overflow-x:hidden;width:100vw}a,.clickable{text-decoration:none;color:#d05d5d}a:hover,.clickable:hover{text-shadow:0.08em -0.08em #373731;cursor:pointer;text-decoration:underline}.handwritten{font-family:Caveat Brush, cursive !important}body{font-family:monospace}code.highlighter-rouge{background:#373731;white-space:pre-wrap}#page-header{width:100%;text-align:center;position:relative;height:20vh}.post #page-header{height:100vh}#title-stuff{position:absolute;width:100%;top:50%;left:50%;transform:translate(-50%, -50%)}.micro #page-header{height:auto}.micro #title-stuff{padding-top:5vh;position:static;transform:none}th,td,table{box-sizing:border-box;border:1px solid #373731;border-collapse:collapse}table{width:100%}.table-container{width:100%;overflow-x:auto;margin-bottom:1em}th,td{padding-left:10px;padding-right:10px}td{text-align:right}#page-title{color:#d05d5d;font-family:"Roboto",Helvetica,sans-serif;font-weight:100;margin-bottom:5px;font-weight:bold;text-shadow:2px 2px #373731;font-size:10vw}#page-subtitle{margin:0;font-weight:bold;text-shadow:0px 1px #373731, 0px -1px #373731, 1px 0px #373731, -1px 0px #373731, 2px 2px #373731}.divider{width:100%;height:0.3vh;background:#cfcfc9;display:block;box-sizing:border-box}#post-content>h1:first-child,#post-content>h2:first-child{padding-top:20px}#post-content,#calltoaction,#page-subtitle{font-size:5vw}#post-content h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:0}#post-content h1{font-size:7.5vw}#post-content h2{font-size:7.25vw}#post-content h3{font-size:7vw}#post-content h4{font-size:6.75vw}#post-content h5{font-size:6.5vw}#post-content h6{font-size:6.25vw}.post-date{margin-top:0;margin-bottom:0;font-size:5vw}.post-container,#navigation{padding-top:20px;padding-bottom:20px}.post-container img{display:block;max-width:100%;max-height:600px;margin:0 auto;border-radius:5px}.post-container a>img.lazy{height:1px}a.img+a.img,img+img,em+a.img,em+img{margin-top:10px !important;display:block}.post-container img.loaded{height:auto !important}img.emoji{display:inline;height:1em;width:1em}#post-content>p:first-child{margin-top:1vh}a.img+em,img+em{display:block;text-align:center}blockquote{background:rgba(55,55,49,0.3);border:2px solid #d05d5d;border-style:none none none solid;margin:1em 0}@media (min-width: 500px){blockquote{margin:1em 1em}}blockquote p{margin:0 0 0 1em}pre,code{border:1px solid #d05d5d}pre{white-space:pre;overflow:auto;background-color:#474741;padding:15px}pre code{border:none;font-size:smaller}p code{word-break:break-all}#post-content small{font-size:smaller}#post-content small *{font-size:1em}@media (min-width: 500px){#post-content>p{text-align:justify}}#navigation{margin:0;font-size:4vw;display:block;width:auto;overflow:hidden}#navigation .divider{margin-bottom:20px}#navigation a,#navigation p{margin:0;display:block;width:100%;margin:5px 0}#navigation #next-post{text-align:right}@media (min-width: 500px){#navigation a,#navigation p{width:50%;float:left;margin:0}}.youtube{position:relative;padding-bottom:56.25%;padding-top:25px;height:0;margin-bottom:25px}.youtube iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}#post-content>p:last-child>a:not(.img):not(.no-cta):only-child::before,#post-content a.cta::before{content:"► "}#post-content>p:last-child>a:not(.img):not(.no-cta):only-child,#post-content a.cta{font-size:larger}.spoiler:hover{color:#cfcfc9;background:transparent}.spoiler{color:#d05d5d;background:#d05d5d}.spoiler::before{content:"Spoiler";position:relative;color:#cfcfc9;margin:auto}.spoiler:hover::before{display:none}.visually-hidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap}@media (min-width: 500px){#page-title{font-size:5vw}#post-content,#calltoaction,#page-subtitle{font-size:1.4vw}#post-content h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:0}#post-content h1{font-size:3.5vw}#post-content h2{font-size:3.25vw}#post-content h3{font-size:3vw}#post-content h4{font-size:2.75vw}#post-content h5{font-size:2.5vw}#post-content h6{font-size:2.25vw}.post-date{font-size:1.5vw}#navigation{font-size:2.2vw}}@media (min-width: 1440px){#page-title{font-size:72px}#post-content,#calltoaction,#page-subtitle{font-size:20px}#post-content h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:0}#post-content h1{font-size:3.5vw}#post-content h2{font-size:3.25vw}#post-content h3{font-size:3vw}#post-content h4{font-size:2.75vw}#post-content h5{font-size:2.5vw}#post-content h6{font-size:2.25vw}.post-date{font-size:1.5vw}#navigation{font-size:2.2vw}}.borders{padding-left:9vw;padding-right:9vw}@media (min-width: 500px){.borders{padding-left:6vw;padding-right:6vw}}@media (min-width: 800px){.borders{padding-left:12vw;padding-right:12vw}}@media (min-width: 1000px){.borders{padding-left:18vw;padding-right:18vw}}body{background-position:center center;background-size:cover;background-repeat:no-repeat;background-attachment:fixed}.background{background:rgba(55,55,49,0.9)}@media (min-width: 500px){#mailchimp-text{font-size:2.5vh}.mailchimp-entry{width:30%}#mailchimp-submit{width:29%}}@media (max-width: 500px){#mailchimp-signup form input{width:100%;margin:0 auto;padding:15px 15px}}#mailchimp-submit{background:#d05d5d;color:black;-webkit-box-shadow:inset 0 5px rgba(255,255,255,0.2);-moz-box-shadow:inset 0 5px rgba(255,255,255,0.2);box-shadow:inset 0 5px rgba(255,255,255,0.2)}#mailchimp-signup form input{font-size:3vh;padding:10px 15px;border:none;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}#mailchimp-signup{text-align:center}#mailchimp-signup form{margin:0 auto;width:100%;padding-top:20px}#linkback,#linkback img{width:300px;z-index:50000;position:relative}@media (max-width: 500px){#linkback img{width:50%}}#linkback a img{position:absolute;left:0}
+
+</style><!-- Custom Stylesheets - use custom_css in YAML front matter !-->
+
+
+
+<!-- Google Fonts
+			Linking as a stylesheet directly from their API.
+			- use google_font in YAML front matter.
+			- Just include the name (as it would appear in a URL)
+			for example "Nanum+Pen+Script"
+		!--><!-- Custom Google Fonts - use google_font in YAML front matter !-->
+
+
+
+
+
+<!-- Set Canonical URLS for latest and latestmicro !-->
+	
+		<link rel="canonical" href="https://jetholt.com/streasm/" />
+	
+
+	</head>
+	<body class="lazy" data-bg="/assets/images/backgrounds/streasm-beauty.jpg">
+		<div class="main-wrapper">
+		
+		<nav id="linkback"><a href="/"><img src="/assets/images/jetroid-logo-miami.png" /></a></nav>
+		
+
+		<div id="inside" class="post">
+
+<header id="page-header">
+	<nav id="linkback"><a href="/"><img src="/assets/images/jetroid-logo-miami.png" /></a></nav>
+	<div id="title-stuff">
+		<h1 id="page-title" class="borders">StreASM Retrospective</h1>
+		<p id="page-subtitle" class="borders">A look back at the 'stream processing language for the criminally insane'.</p>
+	</div>
+</header>
+<div class="background  borders">
+	<article class="post-container">
+		<time class="post-date">2018/03/02</time>
+		<hr class="divider"/>
+		<div id="post-content"><p>There haven’t been many projects that I enjoyed doing whilst at university, and I enjoyed even fewer that were pair or group working tasks. Most university projects are some brand of tedious, and often for pair/group projects, you can’t choose your team members - I usually end up doing the lion’s share of the work. :(</p>
+
+<p>StreASM was completed as part of my Programming Language Concepts module in the second semester of my second year (Spring 2016),
+and I really enjoyed it. I worked on it with <a href="https://daniellockyer.com">Daniel Lockyer</a>, and we worked well to create a programming language that I’m still very proud of. You can see Lockyer’s writeup about it <a href="https://daniellockyer.com/streasm">here</a>, read the report/user manual <a href="https://github.com/neosilky/StreASM/blob/master/docs/StreASMDocumentation.pdf">here</a>, or browse the implementation code <a href="https://github.com/neosilky/StreASM">here</a>.</p>
+
+<p>The <a href="https://github.com/neosilky/StreASM/blob/master/docs/spec1516.pdf">specification</a> required us to create a programming language that would operate on streams of numbers. We were given 5 problems (eg: sum two streams of numbers, prefix a stream with zero, convert one stream into two copies) that our programming language must be able to solve. A further 5 problems would be given to solve with our programming language after it had been designed and submitted. The catch, which made things particularly interesting, was that if we needed to adapt our programming language to solve those additional problems, we’d lose 25% of the marks. This meant that we had to design a robust language that could solve any stream problem that we could think of, and that the interpreter for that language had to work properly in all cases.</p>
+
+<h2 id="streasm-concept">StreASM concept</h2>
+
+<p>We strategically decided to design our language to be similar to Assembly programming, for various reasons:</p>
+
+<ol>
+  <li>
+    <p>Assembly is a very simple language and the concept of streams as described in the specification was a simple domain - they were a natural fit.</p>
+  </li>
+  <li>
+    <p>Assembly doesn’t worry about things like scoping - everything is global. Designing a language that requires accurate scoping rules such as parameterised function calls, variables which reuse the same names, etc, would have greatly increased the complexity of the interpreter.</p>
+  </li>
+  <li>
+    <p>A rich instruction set of Assembly is able to compute anything that a high-level programming language is able to compute. This meant that if the second set of problems were much more complex than the first, we would theoretically be able to implement them, even if we didn’t have language specific features to support them.</p>
+  </li>
+  <li>
+    <p>The simplicity of Assembly would allow us to easily keep our grammar unambiguous, ensuring that our programs would run deterministically.</p>
+  </li>
+  <li>
+    <p>The simplicity of Assembly would also save us time, allowing us to implement things faster and spend longer debugging.</p>
+  </li>
+  <li>
+    <p>Assembly and stream processing could be used to make a nifty name, ‘StreASM’, a portmanteau of ‘Stream’ and ‘ASM’ (the common abbreviation for Assembly).</p>
+  </li>
+  <li>
+    <p>Most importantly - I was <em>very passionate</em> about Assembly from my work with <a href="https://jetholt.com/frequency-central/">Frequency Central</a>. Lockyer thought Assembly was cool too.</p>
+  </li>
+</ol>
+
+<h2 id="assembly-features-in-streasm">Assembly features in StreASM</h2>
+
+<p>We implemented a set of 25 standard assembly instructions, allowing mathematical operations such as addition and subtraction; bitwise instructions such as bit setting/clearing, AND, XOR, and complement; conditional branching such as test if zero, test if one register is greater than another, test if two registers are equal; as well as unconditional jumping, and jump and return.</p>
+
+<p>Our control flow commands use labels as in regular assembly. We also implemented the <code class="language-plaintext highlighter-rouge">@NEXT</code> and <code class="language-plaintext highlighter-rouge">@END</code> labels, which jump to the next instruction and the end of the program, respectively. On reflection, a flaw here is that we don’t allow arbitrary jumping based on the instruction pointer. Eg: <code class="language-plaintext highlighter-rouge">JMP $-2</code> to jump two instructions backwards isn’t possible.</p>
+
+<p>We also implemented features for programmer convenience. We allowed the programmer to add aliases (we called them ‘Nice Names’ at the time) to registers (eg: <code class="language-plaintext highlighter-rouge">#DEF count r0</code> to allow you to write <code class="language-plaintext highlighter-rouge">MOV count, 1</code> instead of <code class="language-plaintext highlighter-rouge">MOV r0, 1</code>. We also added commenting! - for such an easy feature to implement, this seemed like a rarity among our class!</p>
+
+<h2 id="streasm-special-features">StreASM special features</h2>
+
+<p>As we were designing a language to be interpreted, and not something which would convert directly to machine code, we were able to implement some convenience features that are not present in regular assembly. For example, if <code class="language-plaintext highlighter-rouge">r0</code> is a register containing the value <code class="language-plaintext highlighter-rouge">22</code>, and <code class="language-plaintext highlighter-rouge">r22</code> is a register containing the value <code class="language-plaintext highlighter-rouge">64</code>, you can indirectly refer to register <code class="language-plaintext highlighter-rouge">r22</code> with the syntax <code class="language-plaintext highlighter-rouge">r[r0]</code>, which, when evaluated, has the value of <code class="language-plaintext highlighter-rouge">64</code>. Programmers should recognise that our ‘registers’ are also essentially arrays.</p>
+
+<p>Our language needed to be able to read from stdin and write to stdout, so we created the <code class="language-plaintext highlighter-rouge">NXT</code> instruction, which can be used to read or write the next value of each stream to or from a specified identifier (representing a block of registers). As multiple streams can be input or output at once, the zeroth register in the identifier (again, think arrays) notes how many streams there are, whilst the first register contains the value from the first stream, and so on. So for example, if the incoming streams has <code class="language-plaintext highlighter-rouge">21</code> as the first value for the first stream and <code class="language-plaintext highlighter-rouge">74</code> for the second stream, running <code class="language-plaintext highlighter-rouge">NXT i, stdin</code> will fill <code class="language-plaintext highlighter-rouge">i0</code> with 2 (because there are two streams), <code class="language-plaintext highlighter-rouge">i1</code> with <code class="language-plaintext highlighter-rouge">21</code>, and <code class="language-plaintext highlighter-rouge">i2</code> with <code class="language-plaintext highlighter-rouge">74</code>.</p>
+
+<p>I feel like these two design features neatly filled the gap between the range of Assembly and the domain of stream processing.</p>
+
+<h2 id="implementation">Implementation</h2>
+
+<p>Lockyer and I are both skilled programmers, and we worked together to solve the problems, so we didn’t have too many problems (though I remember hating the OCaml syntax!). We sat side by side in the <a href="http://id.southampton.ac.uk/building/59">ECS labs</a> pair-programming. At the time, we didn’t expect our repository to become public-facing, so there are some <a href="https://github.com/neosilky/StreASM/commits/master">interesting commit messages</a> among the jumble.</p>
+
+<p>As we were implementing quite a simple language (as Lockyer notes in his write up, our language was a total of only 377 lines of code), we finished well in advance of the deadline. We used our remaining time to harden our language, test for bugs, and thought about the types of problems we might have difficulty solving.</p>
+
+<p>It turned out to be a shrewd decision to designed a simple language, as some of our more competent coursemates had engineered highly complex languages leading them to overrun the deadline when they encountered problems (Losing a total of 10% every day past the deadline!). Some teams cut their losses and submitted code that didn’t fully work, and had to forfeit the 25% marks for adapting their programming language during the second half.</p>
+
+<h2 id="assessment">Assessment</h2>
+
+<p>The second set of problems were quite trivial compared to some of the problems we had been expecting, and I was able to implement solutions for them using StreASM within two hours. It turned out, implementing the bitwise operations was completely unnecessary! We didn’t use them!</p>
+
+<p>Our lecturer had this to say about StreASM:</p>
+
+<blockquote>
+  <p>StreASM — an assembler. Amazing! I can’t say that assembler programming was what I had in mind, but full marks for originality. The manual is very nicely done. Obviously “programmer convenience” is something alien to any real assembler programmer, but comments were a nice touch. Great work. <br />
+You get 25/30 for the qualitative aspects (don’t tell anyone, otherwise people will spit at me at programming language conferences). <br />
+Your total coursework mark is 95/100 — well done! <br />
+– <cite>Dr. Pawel Sobocinski</cite></p>
+</blockquote>
+
+<p>Sorry Pawel, but I think I just leaked that to the internet! I hope the consequences aren’t too severe!</p>
+
+<h2 id="what-made-this-coursework-fun">What made this coursework fun</h2>
+
+<p>As I mentioned at the start of this post, I generally dislike University courseworks.</p>
+
+<p>This one wasn’t like that. This coursework was actually fun; it was a notable coursework that I can reflect on and am still proud of the work I produced.</p>
+
+<p>Most University projects give you a specification for what you must achieve and essentially lays out exactly what you must do, without any room for creativity - sometimes, creativity is outright punished. Specific implementations may be different but everyone will produce pretty much the same thing. This project wasn’t like that. The inputs and outputs were described, but everything else was left to the student. This let us have creativity to solve the problem, and a lot of the teams put in a lot of effort. Every team produced unique works, and I’m sure most are proud of what they made. One team used strange keywords for their language, so their programs were like some kind of tribal war chant, which I thought was particularly cool.</p>
+
+<p>The fact that the work we produced in the first part would have an effect on our ability to complete the second part gave a reason to try to create something that worked well and that could solve the problems posed. Often coursework is some kind of pointless throw away project that doesn’t really matter how well it works or how functional it is, as long as the ‘learning objectives’ are met.</p>
+
+<p>The examiner (Dr. Pawel Sobocinski) showed that he had actually examined our works with his specific comments - some feedback I have received in different courseworks from different lecturers could easily have been sent to a different team and still have made sense, because they’re often woefully unspecific. This extra attention makes it feel like the special effort you put in mattered.</p>
+
+<p>The very nature of everyone doing their own thing made it really fun to see what other teams were doing, and how they were solving the problems. Similarly, because everyone was doing their own thing, I’m sure plagiarism was very easy to detect and didn’t really occur much.</p>
+
+<p>Doing your own thing means that you produce a unique work that you can be proud of later - I’m pretty much doing that now, writing this post two years on. The end result wasn’t just another student apartments booking website that is near identical to that produced by your peers.</p>
+
+<h2 id="example-streasm-code">Example StreASM code</h2>
+
+<pre><code class="language-assembly">;Stream arithmetic
+;Take two sequences a1 a2 a3 a4
+;               and b1 b2 b3 b4
+; and produce the single sequence
+; a1 + 3b1
+; a2 + 3b2
+; a3 + 3b3
+; a4 + 3b4
+
+main:
+	NXT i, stdin		;Get the two streams
+	TSTE i0, 2, @NEXT, @END	;Check we had two streams, otherwise terminate
+	MUL r2, i2, 3		;Multiply the second stream value by 3
+	ADD r3, i1, r2		;Add the first stream value and the multiplied value
+	MOV o1, r3		;Output the calculated value
+	NXT stdout, o
+	JMP main		;Loop
+</code></pre>
+
+<pre><code class="language-assembly">;Natural Numbers
+;Take a sequence a1 a2 a3 a4 a5 ... as an input
+;and output 
+;a1
+;2a1 + a2
+;3a1 + 2a2 + a3
+;4a1 + 3a2 + 2a3 + a4
+;5a1 + 4a2 + 3a3 + 2a4 + a5
+
+	MOV r0, 0		;This is the current overall total
+	MOV r1, 0		;This is the sum of a1, a2, a3, ...
+main:
+	NXT i, stdin		;Get the input
+	TSTZ i0, @END, @NEXT	;Test if we reached the end of the stream, if so terminate
+	ADD r1, r1, i1		;Add the new value to the sum of 1 of each values
+	ADD r0, r0, r1		;Add the sum to the current total
+	MOV o1, r0		;Output the new total
+	NXT stdout, o
+	JMP main		;Loop
+</code></pre>
+
+<pre><code class="language-assembly">;Reverse Single Finite Stream
+;Take a sequence a1 a2 a3 a4 a5 as an input
+;and output      a5 a4 a3 a2 a1
+
+	MOV r0, 0		;Counter of total number of values
+collect:
+	NXT i, stdin		;Get the input
+	TSTZ i0, reverse, @NEXT	;If we reached the end of the stream, reverse it
+	INCR r0			;Increment counter
+	MOV r[r0], i1		;Move the new stream value to it's own register
+	JMP collect		;Loop until we reach end of stream
+reverse:
+	TSTZ r0, @END, @NEXT	;Terminate if we outputted everything
+	MOV o1m r[r0]		;Output the current latest value
+	NXT stdout, o
+	DECR r0			;Decrease the counter to previous value in sequence
+	JMP reverse		;Loop until we outputted everything
+</code></pre>
+
+</div>
+		
+		<p id="calltoaction"><em>P.S. I'm late to the party, but I recently got <a href='https://twitter.com/JetroidMakes'>a twitter account</a> that you can follow <a href='https://twitter.com/intent/user?screen_name=JetroidMakes'>here</a>.</em></p>
+		
+	</article>
+	<hr class="divider"/>
+	
+	<div id="mailchimp-signup">
+<h2 id="mailchimp-text">Receive an email whenever I post. <span class="nobr">No spam, no ads,</span> <a class="nobr" href="http://us17.campaign-archive.com/home/?u=5c7e4e051f07ca709dea5942a&id=027962a690">just notifications</a></h2>
+<form action="https://jetholt.us17.list-manage.com/subscribe/post?u=5c7e4e051f07ca709dea5942a&amp;id=027962a690" method="post" target="_blank">
+	<input class="mailchimp-entry" type="text" name="FNAME" placeholder="Name" required>
+	<input class="mailchimp-entry" type="email" name="EMAIL" placeholder="Email" required>
+	<!-- real people should not fill this next one in and expect good things - do not remove this or risk form bot signups !-->
+	<input type="text" name="b_5c7e4e051f07ca709dea5942a_027962a690" tabindex="-1" value="" hidden>
+	<input id="mailchimp-submit" type="submit" value="Subscribe" name="subscribe" class="button">
+</form>
+</div>
+
+	<hr class="divider"/>
+	
+	<footer id="navigation">
+		
+			<a id="prev-post" href="/logomania/">&lsaquo;Logomania</a>
+		
+		
+			<a id="next-post" href="/let-it-happen/">Let It Happen&rsaquo;</a>
+		
+	</footer>
+</div>
+</div>
+
+		<!-- Custom JS
+			Seperate file - use js in YAML front matter
+			Inline - use inline_js in YAML front matter !--><!-- Custom JS (as seperate file) - use custom_js in YAML front matter !-->
+
+
+
+
+
+
+<script>
+
+</script>
+
+
+
+<script
+		  async
+		  src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.4.0/dist/lazyload.min.js"
+		></script>
+		</div>
+	</body>
+</html>
+

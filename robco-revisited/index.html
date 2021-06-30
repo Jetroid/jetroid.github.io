@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html lang="en" Itemscope=”Blog”>
+	<head>
+	<link rel="dns-prefetch" href="//www.google-analytics.com" />
+	<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+
+	<!-- Custom Preconnects - use custom_preconnect in YAML front matter !-->
+	
+    
+    
+	
+
+	<title itemprop=”name”>RobCo Revisited - Jet Holt</title>
+<meta name="description" content="In anticipation of Fallout 76, I reworked the issues with my take on the Hacking Minigame. Was it worth the effort?" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHiAiACAhocHbnaJSFNehKdARFTkCgcI+wYDBfsFAwbkFRQepycnOUgBAAAHDQoSAAAAAAAAAAAAenx1AICKlgCAiZQYf4eQkneAj+5SXof/SlBk/w8MDv8GBAb/BQMF/woHCv8OCg/uExEakjY6ShgmJjEAMkR9AIaVqgCGl6wYhJChsX2Il/9kb4L/PUVi/zA0Qv8NCQz/CAUH/wcEBv8GAwX/CQQH/xcWH/9KUGOxZm+DGFtjeACMmasGiZirkoqZrf9/jaH/T1dl/xENEP8IBQf/CQUH/woGCP8JBgf/BwQF/wcEBv8ZFx//XWBv/2hte5JlbH0GoaawSZ+lsO2jqLL/qK65/4aJkv8SDxD/CAUG/woGCP8LBgf/CgUH/wkFB/8MBwn/Hh0k/36BjP+AhpPtdHqJSbe2uKe3trj/uLa4/7q4uv+RjZD/Ew4Q/woFB/8OCg//Hh0t/xQQGP8NCAn/DgkK/y4rMP+mqK3/ub3C/6mutqfGxsbjxsXF/8TExP/ExMX/rKys/ywnJ/8LBQX/Gxwr/zM/a/8tNlb/DwsP/xEMDv9qamz/wsPD/6yusP9dX2Tjy8fG+8rHxv/Jxsf/yMfJ/8jIyv+cmp3/QTw+/yImOP82TID/SWqk/zQ4SP9tZ2b/wLq4/9PLyf+5s7P/cGpq+8C9wPvFv7//zMTD/9DIxv/Uzcv/1tDP/5+fqv9BS3H/TG+q/1d9tf95eYL/1MjD/93SzP/azsj/18zH/8/Gwvu/u7Ljw7yw/8bAtP/Kw7j/xL+2/7+8tP+EhJb/RVCI/2CAv/9IaaL/V1hj/8a+tP/Nxbv/zMS7/87Hwf/MxsHjx7ulp8O3of/BtZ//xbqk/7+0nf+1q5T/aWdy/0dPff9PX43/NERo/3Z3eP++tZz/wrqi/8a/qv/IxLP/y8i8p8m5oUnJuqLtxraf/8GxmP+/rZP/u6qP/2BbXf85Plr/OkZm/zE/WP+LjIz/yLmi/8a4of/Jv6r/ycGv7czHt0nCspkGyLmlkse5pv++r5r/v7CZ/8W1nf99dnD/LjE9/zU+Uf9WYHL/rqWa/8a2ov/EtaD/xLak/8G0opLMxbkG3trTANrUyxjj49yx5ubh/+bn4//m5+P/3+De/7e7vf+0u8D/0dXX/+Tm4v/j5eH/4uXg/9zd2LHEvLAYysW8APr+/gDu8u0A7vPuGPD08JLy9fDu8vXv//P28P/1+PL/9fjy//T38P/z9u7/8vbv7vH38ZLy+vgY8Pj1AP///wAAAAAAAAAAAPPz5wDz8+YH9fXqSPf476f3+O/k+Pft+/j36/v49+vk9/frp/b360j19uoH9fbrAAAAAAAAAAAA4AcAAMADAACAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAADAAwAA4AcAAA==" />
+
+<meta name="author" content="Jet Holt" />
+<meta property="og:title" content="RobCo Revisited" />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:description" content="In anticipation of Fallout 76, I reworked the issues with my take on the Hacking Minigame. Was it worth the effort?" />
+<meta property="og:url" content="https://jetholt.com/robco-revisited/" />
+<meta property="og:site_name" content="Jet Holt" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://jetholt.com/assets/images/backgrounds/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name=”twitter:url” content=”https://jetholt.com/robco-revisited/”>
+<meta name="twitter:title" content="RobCo Revisited - Jetroid" />
+<meta name="twitter:description" content="In anticipation of Fallout 76, I reworked the issues with my take on the Hacking Minigame. Was it worth the effort?" />
+<meta name="twitter:creator" content="@jetroidmakes" />
+<meta name="twitter:site" content="@jetroidmakes" />
+
+
+<meta property="og:image" content="https://jetholt.com/assets/images/backgrounds/robco-revisited-beauty.png" />
+<meta name="twitter:image" content="https://jetholt.com/assets/images/backgrounds/robco-revisited-beauty.png" />
+
+<script type="application/ld+json">
+{"sameAs":["https://twitter.com/JetroidMakes","https://www.instagram.com/jetroidmakes/","https://www.facebook.com/Jetroid"],"@type":"WebSite","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://jetholt.com/assets/images/jetroid-logo-miami.png"},"name":"Jetroid"},"url":"https://jetholt.com/","name":"Jetroid","author":{"@type":"Person","name":"Jet Holt"},"image":"https://jetholt.com/assets/images/jetroid-logo-miami.png","headline":"Jetroid","description":"Jet 'Jetroid' Holt. Maker, programmer, and Computer Science graduate.","@context":"http://schema.org"}</script>
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Main Posts RSS Feed" href="/feed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Micro RSS Feed" href="/microfeed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Everything RSS Feed" href="/all.xml" />
+
+
+	<meta name="google-site-verification" content="9pNs8vHQ1C9hsyUgQ6tFQDPzNH_ANAd8kB9GcnBARYc" />
+
+	
+
+	<script>
+		window.lazyLoadOptions = {
+			threshold: 250
+		};
+		window.addEventListener(
+			"LazyLoad::Initialized",
+			function (event) {
+				window.lazyLoadInstance = event.detail.instance;
+			},
+			false
+		);
+	</script>
+	<!-- Custom CSS
+			Seperate file - use css in YAML front matter
+			Inline - use inline_css in YAML front matter !-->
+
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}.nobr{white-space:nowrap}.hidden{display:none !important}.hidden-opacity{opacity:0;pointer-events:none}.sr-only{position:absolute;white-space:nowrap;width:1px;height:1px;overflow:hidden;border:0;padding:0;clip:rect(0 0 0 0);clip-path:inset(50%);margin:-1px}img:not([src]):not([srcset]){visibility:hidden}:root{--white: #cfcfc9;--grey: #373731;--gray: #373731;--pink: #d05d5d;--lightblue: #94cbc4}body{font-family:monospace;color:#cfcfc9}.main-wrapper{overflow-x:hidden;width:100vw}a,.clickable{text-decoration:none;color:#d05d5d}a:hover,.clickable:hover{text-shadow:0.08em -0.08em #373731;cursor:pointer;text-decoration:underline}.handwritten{font-family:Caveat Brush, cursive !important}body{font-family:monospace}code.highlighter-rouge{background:#373731;white-space:pre-wrap}#page-header{width:100%;text-align:center;position:relative;height:20vh}.post #page-header{height:100vh}#title-stuff{position:absolute;width:100%;top:50%;left:50%;transform:translate(-50%, -50%)}.micro #page-header{height:auto}.micro #title-stuff{padding-top:5vh;position:static;transform:none}th,td,table{box-sizing:border-box;border:1px solid #373731;border-collapse:collapse}table{width:100%}.table-container{width:100%;overflow-x:auto;margin-bottom:1em}th,td{padding-left:10px;padding-right:10px}td{text-align:right}#page-title{color:#d05d5d;font-family:"Roboto",Helvetica,sans-serif;font-weight:100;margin-bottom:5px;font-weight:bold;text-shadow:2px 2px #373731;font-size:10vw}#page-subtitle{margin:0;font-weight:bold;text-shadow:0px 1px #373731, 0px -1px #373731, 1px 0px #373731, -1px 0px #373731, 2px 2px #373731}.divider{width:100%;height:0.3vh;background:#cfcfc9;display:block;box-sizing:border-box}#post-content>h1:first-child,#post-content>h2:first-child{padding-top:20px}#post-content,#calltoaction,#page-subtitle{font-size:5vw}#post-content h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:0}#post-content h1{font-size:7.5vw}#post-content h2{font-size:7.25vw}#post-content h3{font-size:7vw}#post-content h4{font-size:6.75vw}#post-content h5{font-size:6.5vw}#post-content h6{font-size:6.25vw}.post-date{margin-top:0;margin-bottom:0;font-size:5vw}.post-container,#navigation{padding-top:20px;padding-bottom:20px}.post-container img{display:block;max-width:100%;max-height:600px;margin:0 auto;border-radius:5px}.post-container a>img.lazy{height:1px}a.img+a.img,img+img,em+a.img,em+img{margin-top:10px !important;display:block}.post-container img.loaded{height:auto !important}img.emoji{display:inline;height:1em;width:1em}#post-content>p:first-child{margin-top:1vh}a.img+em,img+em{display:block;text-align:center}blockquote{background:rgba(55,55,49,0.3);border:2px solid #d05d5d;border-style:none none none solid;margin:1em 0}@media (min-width: 500px){blockquote{margin:1em 1em}}blockquote p{margin:0 0 0 1em}pre,code{border:1px solid #d05d5d}pre{white-space:pre;overflow:auto;background-color:#474741;padding:15px}pre code{border:none;font-size:smaller}p code{word-break:break-all}#post-content small{font-size:smaller}#post-content small *{font-size:1em}@media (min-width: 500px){#post-content>p{text-align:justify}}#navigation{margin:0;font-size:4vw;display:block;width:auto;overflow:hidden}#navigation .divider{margin-bottom:20px}#navigation a,#navigation p{margin:0;display:block;width:100%;margin:5px 0}#navigation #next-post{text-align:right}@media (min-width: 500px){#navigation a,#navigation p{width:50%;float:left;margin:0}}.youtube{position:relative;padding-bottom:56.25%;padding-top:25px;height:0;margin-bottom:25px}.youtube iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}#post-content>p:last-child>a:not(.img):not(.no-cta):only-child::before,#post-content a.cta::before{content:"► "}#post-content>p:last-child>a:not(.img):not(.no-cta):only-child,#post-content a.cta{font-size:larger}.spoiler:hover{color:#cfcfc9;background:transparent}.spoiler{color:#d05d5d;background:#d05d5d}.spoiler::before{content:"Spoiler";position:relative;color:#cfcfc9;margin:auto}.spoiler:hover::before{display:none}.visually-hidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap}@media (min-width: 500px){#page-title{font-size:5vw}#post-content,#calltoaction,#page-subtitle{font-size:1.4vw}#post-content h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:0}#post-content h1{font-size:3.5vw}#post-content h2{font-size:3.25vw}#post-content h3{font-size:3vw}#post-content h4{font-size:2.75vw}#post-content h5{font-size:2.5vw}#post-content h6{font-size:2.25vw}.post-date{font-size:1.5vw}#navigation{font-size:2.2vw}}@media (min-width: 1440px){#page-title{font-size:72px}#post-content,#calltoaction,#page-subtitle{font-size:20px}#post-content h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:0}#post-content h1{font-size:3.5vw}#post-content h2{font-size:3.25vw}#post-content h3{font-size:3vw}#post-content h4{font-size:2.75vw}#post-content h5{font-size:2.5vw}#post-content h6{font-size:2.25vw}.post-date{font-size:1.5vw}#navigation{font-size:2.2vw}}.borders{padding-left:9vw;padding-right:9vw}@media (min-width: 500px){.borders{padding-left:6vw;padding-right:6vw}}@media (min-width: 800px){.borders{padding-left:12vw;padding-right:12vw}}@media (min-width: 1000px){.borders{padding-left:18vw;padding-right:18vw}}body{background-position:center center;background-size:cover;background-repeat:no-repeat;background-attachment:fixed}.background{background:rgba(55,55,49,0.9)}@media (min-width: 500px){#mailchimp-text{font-size:2.5vh}.mailchimp-entry{width:30%}#mailchimp-submit{width:29%}}@media (max-width: 500px){#mailchimp-signup form input{width:100%;margin:0 auto;padding:15px 15px}}#mailchimp-submit{background:#d05d5d;color:black;-webkit-box-shadow:inset 0 5px rgba(255,255,255,0.2);-moz-box-shadow:inset 0 5px rgba(255,255,255,0.2);box-shadow:inset 0 5px rgba(255,255,255,0.2)}#mailchimp-signup form input{font-size:3vh;padding:10px 15px;border:none;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}#mailchimp-signup{text-align:center}#mailchimp-signup form{margin:0 auto;width:100%;padding-top:20px}#linkback,#linkback img{width:300px;z-index:50000;position:relative}@media (max-width: 500px){#linkback img{width:50%}}#linkback a img{position:absolute;left:0}
+
+</style><!-- Custom Stylesheets - use custom_css in YAML front matter !-->
+
+
+
+<!-- Google Fonts
+			Linking as a stylesheet directly from their API.
+			- use google_font in YAML front matter.
+			- Just include the name (as it would appear in a URL)
+			for example "Nanum+Pen+Script"
+		!--><!-- Custom Google Fonts - use google_font in YAML front matter !-->
+
+
+
+
+
+<!-- Set Canonical URLS for latest and latestmicro !-->
+	
+		<link rel="canonical" href="https://jetholt.com/robco-revisited/" />
+	
+
+	</head>
+	<body class="lazy" data-bg="/assets/images/backgrounds/robco-revisited-beauty.png">
+		<div class="main-wrapper">
+		
+		<nav id="linkback"><a href="/"><img src="/assets/images/jetroid-logo-miami.png" /></a></nav>
+		
+
+		<div id="inside" class="post">
+
+<header id="page-header">
+	<nav id="linkback"><a href="/"><img src="/assets/images/jetroid-logo-miami.png" /></a></nav>
+	<div id="title-stuff">
+		<h1 id="page-title" class="borders">RobCo Revisited</h1>
+		<p id="page-subtitle" class="borders">In anticipation of Fallout 76, I reworked the issues with my take on the Hacking Minigame. Was it worth the effort?</p>
+	</div>
+</header>
+<div class="background  borders">
+	<article class="post-container">
+		<time class="post-date">2018/11/11</time>
+		<hr class="divider"/>
+		<div id="post-content"><p><strong><a href="/blog-hacking/">Two years ago</a>, in an effort to learn HTML, CSS, and JavaScript, I <a href="/hacking/">created the hacking minigame</a> from the 3D Fallout games. I needed something to show when the player successfully ‘wins’ the game, so I created my blog for that purpose. I was very proud of the end result, but always felt I could do better. In anticipation of the release of Fallout 76, I decided to make those improvements.</strong></p>
+
+<p>That version of the Hacking minigame was one of my first attempts at anything web based, so there were many flaws. I simply didn’t know how to do things the way I do now, and StackOverflow’s suggested solutions are often written with horrible hacks. For example, when I added new DOM elements, I did so like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>javascript
+mydiv.innerHTML = "&lt;span class=\"symbol"&gt;ALPHA&lt;/span&gt;";
+</code></pre></div></div>
+
+<p>These ‘newbie’ approaches caused a lot of ‘bad code smell’, generally made things slower, and were not very maintainable.</p>
+
+<p><img src="https://jetholt.com/assets/images/content/hacking-minigame-game.png" alt="Image of the hacking minigame in Fallout 3" />
+<em>Image of how the minigame looked in 2016</em></p>
+
+<h1 id="the-problems">The Problems</h1>
+
+<p>The main problems were these:</p>
+
+<ol>
+  <li>
+    <p>Some horrible ‘code smell’ things, as mentioned above. In particular, this made the game feel a little ‘laggy’ or ‘janky’, as the user scrolls around.</p>
+  </li>
+  <li>
+    <p>Words for the Minigame were downloaded in a huge 12,000 line long script file, that was something like <code class="language-plaintext highlighter-rouge">var words = ["ABRAM", "ARRAY", ...];</code>. This was really slow to download and parse (causing a several second delay before the minigame did anything) and limited me to puzzles with just 5-letter words. I didn’t do much to make these words similar, either, I just picked random ones from the list. This meant that most guessed would have a 0/5 success, which wasn’t very fun.</p>
+  </li>
+  <li>
+    <p>My blog posts were all statically in the HTML downloaded as part of the main file (including the images), and the terminal code just hid/displayed the correct ones at the right times. This really wouldn’t scale as I made more posts, and users would have to download all this content even if they weren’t looking at it!</p>
+  </li>
+  <li>
+    <p>Lack of effects - there are lines all over the screen in Fallout 3 that are meant to enhance the idea that it’s a CRT monitor, as well as a hum sound; I didn’t have either. Additionally, although I had made some provision for terminal-ifying images (ie making them greeeeen), it wasn’t faithful to the game, and I hadn’t considered video at all so those displayed in full colour.</p>
+  </li>
+  <li>
+    <p>Lack of the ‘opening crawl’ that is meant to simulate the player character typing commands into a command prompt. The original version just had a blank screen until the game loaded. Additionally, in the <em>Fallout</em> series, the terminal doesn’t just paste everything to the screen at once, but instead it loads it character by character along with a nice little ‘blipblipblip’ sound.</p>
+  </li>
+  <li>
+    <p>The game was straight-up broken on mobile. It showed as a tiny thing in the corner of the screen and it was impossible to click anything.</p>
+  </li>
+  <li>
+    <p>There was no information about it. If someone found it through Google (which is possible as I tend to be ~5th position for ‘RobCo Terminal’), it would only be when they won that they discover it goes to my blog posts, which might not be expected. A random person finding my game probably has no idea who wrote the posts, and the post-minigame screens don’t tell you much.</p>
+  </li>
+  <li>
+    <p>Lack of favicon, meta tags, etc. Basically all those nice little things no tutorial covers.</p>
+  </li>
+</ol>
+
+<h1 id="addressing-the-issues">Addressing The Issues</h1>
+
+<p>I’ve decided (a number of times since I first made it, actually) to go back and address these issues. I’ve had to go over a handful of times to add support for things I started using on my main website, for example when I started using headers.</p>
+
+<p>As such, consider issue 1.) as having been resolved throughout the whole process.</p>
+
+<h2 id="ajax-cleans-things-up">AJAX Cleans Things Up</h2>
+
+<p>A year after I originally made the game in November 2017, I had learned about what AJAX is and how to use it. AJAX is a way of requesting information from other places on the web from the client side of a website.</p>
+
+<p>Shortly after creating the hacking minigame, I created my <a href="https://jetholt.com">main website</a>. This meant that my blog posts were now hosted at a URL, so I could request them via AJAX. This meant that I didn’t need to embed my post content into the hacking minigame, and could download it only when needed, reducing bandwidth usage for the user and downloading faster. This resolves issue 3.)</p>
+
+<p>Similarly, rather than embedding a list of 12,000 words into the minigame, I could request words from somewhere. I considered requesting from one of the many websites that has word lists, but I decided to play things a little more smart.</p>
+
+<p><a href="https://www.heroku.com/">Heroku</a> hosts a platform-as-a-service, which allows you to run little bits of code online. I’ve used them for a handful of projects, which gave me the idea of having a Heroku Dyno that knows lists of 5 to 10 letter words, and sends back a handful. As I was developing it, I realised that I could do some processing to give back better words. Picking random words isn’t very interesting, so what if we send back words that are similar to the goal word?</p>
+
+<p>The Fallout Hacking Minigame uses the concept of a <a href="https://en.wikipedia.org/wiki/Hamming_distance">Hamming Distance</a> to calculate how many characters are correct. For example, a hamming distance of 4 means that 4 characters are incorrect. The code I have developed to select words picks a random word length (for example, 7 letters), and then searches through it’s list of 7-letter words. For every word it picks, it records the hamming distance. It tries to get four words with a hamming distance of 7 (ie all characters are wrong), four words with a hamming distance of 6 (ie only one correct character), four words with a hamming distance of 5, etc.</p>
+
+<p>You can check out an example of the words my Heroku code gives back by clicking <a href="https://jetroid-hacking.herokuapp.com/">here</a>. You should see that the words go from being completely different, to quite similar! All the terminal hacking code has to do is request that page, parse it, and then insert the words. Great! Again, much faster, reduced bandwidth usage, resolving issue 2.).</p>
+
+<p><img src="https://jetholt.com/assets/images/content/robco-revisited-words.png" alt="A list of words generated by my Heroku Dyno" />
+<em>A list of words generated by my Heroku Dyno</em></p>
+
+<p>The use of AJAX to resolve these issues caused an additional problem - what happens if the network connection isn’t great, and the AJAX request fails? I didn’t address this at the time I added the AJAX, so now we had a new issue.</p>
+
+<ol start="9">
+  <li>When AJAX fails (ie due to a poor connection, or because my site is down, etc). then the minigame enters a position where it can't do anything and hangs, which doesn't lead to a good user experience.</li>
+</ol>
+
+<h2 id="ajax-fallbacks">AJAX fallbacks</h2>
+
+<p>Resolving the ‘new’ issue 9.) was my first priority when I started working on this again two weeks ago, as it is the most clearly a programming ‘bug’ when compared to other things.</p>
+
+<p>When AJAX fails (ie when the XML HTTP Request completes but is not successful), I now have a set of fallback words for the Hacking Minigame, which allows it to continue working as if there was no problem.</p>
+
+<p>Solving the AJAX fail on loading a post would require a little more creativity. I can’t just have a ‘fallback’ post to show, it doesn’t make sense. Instead, I’m calling on the fact that these terminals in the Fallout universe have been through an apocalypse to be my saviour. Many terminals in the Fallout series will have little sections that just <a href="http://fallout.wikia.com/wiki/Factory_terminal_entries">spit some garbage at you and complain about data corruption</a> or something similar. There’s no reason I can’t mask my network issue as a data corruption issue!</p>
+
+<p>A created a script that gives random characters mixed with a (small) selection of ‘pre-corrupted’ words. My corruption errors aren’t “intended” to be seen, so I didn’t want to spend too much time on engineering them and making them complex. I like the effect!</p>
+
+<p><img src="https://jetholt.com/assets/images/content/robco-revisited-corruption.png" alt="A sample of the corruption error" />
+<em>A sample of the corruption error</em></p>
+
+<h2 id="set-terminalinquire">SET TERMINAL/INQUIRE</h2>
+
+<p>The next part I wanted to work on is the opening crawl. I reckon a lot of players might not remember this, as you’ll very quickly get in the habit of double clicking to skip it completely. That said, I think it’s a really cool part of the whole terminal experience, and I really wanted to add it to resolve 5.).</p>
+
+<p>I have to admit that the way I have chosen to implement this isn’t the best one. JavaScript contains a setTimeout function, where you can give it a snippet of code to execute, and a delay amount, and it will execute that code after the time has elapsed. Great! All solutions will probably use this.</p>
+
+<p>Where my solution has gone wrong is that I decided to chain these together, rather than going back to some common code. This means that in my solution, the browser has to keep track of several hundred function calls that I have chained together. This is another piece of technical debt that I should solve, but realistically I’m not going to as it isn’t causing any problems.</p>
+
+<p><img src="https://jetholt.com/assets/images/content/robco-revisited-crawl.png" alt="The opening crawl" />
+<em>The opening crawl</em></p>
+
+<p>I have a set of objects which have the different lines of the opening crawl, indications of if it should place a typing noise or a machine noise, and the duration of the delay between the different characters.</p>
+
+<p>I later had some issues with the opening crawl on Mobile, as in some places I was using double line breaks to position lines more accurately, but for some reason mobile browsers freak out when you do this and mess with the line spacing. Addressing this has made the final solution a lot more complicated than I described here, and more complicated than I would like. It isn’t really worth explaining, though, without being able to see the problem.</p>
+
+<h2 id="making-it-prettier">Making It Prettier</h2>
+
+<p>My original version of the hacking minigame had some honestly quite dull colours. I had tried hard to get the colours to match Fallout 3 exactly, but I didn’t quite manage it.</p>
+
+<p>I decided that whilst reworking this, I’d move away from complete faithfulness to Fallout 3 and embrace Fallout 4 a little more. Fallout 4 has very lime-green text against a fully-black background, which makes it bright and easy to read. I decided to go for a colour scheme that is a cross between Fallout 3 and 4, with a much brighter colour, but also with the greenish background that 3 had.</p>
+
+<p>At the same time, I added CRT-like lines across the screen. I can’t remember where I got the inspiration for how I implemented this effect, but it uses the before pseudo-element of a DIV. Unfortunately, adding this effect really made the game lag massively on Firefox and Mobile Browsers. It took me a few days to figure out that these browsers didn’t like the box-shadow property (that I was using to create a darker gradient at the edges of the screen) when combined with the ‘pulsing’ of the CRT-like lines. (Presumably because there is a lot of Math involved to calculate the box-shadow, and it has to be recalculated every time the opacity changes of the lines.) I ended up swapping the box-shadow for a image that I created of the same thing. The effect isn’t quite the same, as I couldn’t get mix-blend-mode to work how I wanted, but it’s much faster and that’s what matters.</p>
+
+<p>Because I was playing with mixing colours, I decided to look back on how I was treating images. When I first created the hacking minigame’s blog portion, I had thought there were no terminals in the Fallout series with images. I knew the PipBoy had them, but I had forgotten that the Overseer’s Terminal has two pictures right back in Vault 101 in the intro of Fallout 3. The effect I had didn’t look right at all. The effect in the game had some real distortion and quality changes, rather than just changing the hue.</p>
+
+<p><img src="https://jetholt.com/assets/images/content/robco-revisited-images.jpg" alt="Megaton Images, in Fallout 3, and in my old and new attempts." />
+<em>Megaton Images, in Fallout 3, and in my old and new attempts. Please note that blur in Fallout 3 image is only there because I scaled up a small-resolution screencapture.</em></p>
+
+<p>One of the pictures on the Overseer’s Terminal is of Megaton. I found a similar picture online and experimented with different image manipulations until I got something I liked. By applying a filter to increase the contrast and make the image monochrome, then applying blend modes with both my background colour and my text colour, I was able to get an effect similar to the game. Note that in the image above, the one from Fallout 3 appears blurred, but that is an artifact of how I generated that image. The image ingame is not blurred.</p>
+
+<p>My updated effects resolved issue 4.)</p>
+
+<h2 id="mobile-malfunctions">Mobile Malfunctions</h2>
+
+<p>My first idea to resolve the mobile issue would be to force the screen to rotate into landscape. After some searching, I couldn’t find a way to do this, so I went with the next best thing, which would be to request the user do it, and prevent them from using the application if they don’t. We can do this pretty easily with <a href="https://www.w3schools.com/css/css_rwd_mediaqueries.asp">Media Queries</a>.</p>
+
+<p><img src="https://jetholt.com/assets/images/content/robco-revisited-mobile.jpg" alt="Mobile rotate request" />
+<em>Mobile rotate request.</em></p>
+
+<p>Unfortunately, I had another problem. Mobile browsers choose to hide the address bar when the page scrolls down. Sadly, my application’s layout seemed to always “believe” that the address bar wasn’t there, whilst the background seemed to “believe” that the address bar was always there. This meant that when the address bar was present, you couldn’t see all of the content, and while the address bar was absent, the background looked awful.</p>
+
+<p>I didn’t properly solve this, not really. Instead, I force the user into fullscreen mode, which “solves” the problem (as both layout and background know that the address bar isn’t there), but the problems are back as soon as the user leaves fullscreen mode. If there is a proper solution to this, I couldn’t figure it out. But I feel like 6.) is resolved enough, as the game is usable on mobile now.</p>
+
+<h2 id="final-touches">Final Touches</h2>
+
+<p>One of the last things I did was add a little dialog in the bottom right, saying that it is by me. I was inspired by <a href="https://levels.io/">Levels</a> and <a href="https://daniellockyer.com">Daniel</a>, who have similar tags on some of <a href="https://gofuckingdoit.com/">their</a> <a href="https://upgradeyourphp.com/">projects</a>. In this instance, I styled mine in the same way as the terminal.</p>
+
+<p><img src="https://jetholt.com/assets/images/content/robco-revisited-dialog.jpg" alt="By Jetroid Dialog" />
+<em>By Jetroid Dialog.</em></p>
+
+<p>I decided that I would make it so that the dialog can be expanded to give more information and background. I also made sure that it can be clicked away from, so that it doesn’t spoil the experience. Whilst I was there, I decided to give it a way to mute the terminal sound effects. This neatly resolved issue 7.) without having to create an about page. The fact that the dialog is usable from within the minigame means that I reckon people are more likely to look at it.</p>
+
+<p><img src="https://jetholt.com/assets/images/content/robco-revisited-dialog-expanded.jpg" alt="Expanded Dialog" />
+<em>Expanded Dialog.</em></p>
+
+<p>Finally, I went and added all of the appropriate meta tags (so that it looks correct when shared on social media), resolving issue 8.). <a href="http://www.iacquire.com/blog/18-meta-tags-every-webpage-should-have-in-2013">This site</a> is pretty comprehensive about these, if you don’t know about them.</p>
+
+<h1 id="reflection">Reflection</h1>
+
+<p>I’ve always really like the Fallout Hacking Minigame, especially conceptually. The minigame is styled to look like a hex dump. The hex pointers to the left of the symbols (where the words are) increases by decimal(12) each time, and there are decimal(12) characters per line, so the pointers clearly refer to the memory address of the different symbols, which I like. The whole concept of the minigame is based around the fact that sometimes passwords can be found plaintext in a dump file from when a program crashes, and that attention to detail is great. It isn’t just some abstract concept that doesn’t make sense!</p>
+
+<p>I’ve had a lot of compliments about the minigame from friends I showed it to over the years. It’s hard to show off some of my other projects in a way that somebody can appreciate, especially my stuff for <a href="/frequency-central/">Frequency Central</a>. To anyone who knows Fallout, they’ll recognise it instantly and often say how cool it is, and even if they don’t know Fallout I often get a comment like “I have no idea what is going on, but damn this is cool!”.</p>
+
+<p><img src="https://jetholt.com/assets/images/content/robco-revisited-ivan.jpg" alt="My friend Ivan looking at the game in a coffee shop" />
+<em>My friend Ivan looking at the game in a coffee shop</em></p>
+
+<p>My improvements definitely feel worthwhile. The new version feels so much more vibrant and alive. Check out the difference in these two pictures, below:</p>
+
+<p><img src="https://jetholt.com/assets/images/content/hacking-minigame-game.png" alt="" />
+<img src="https://jetholt.com/assets/images/content/robco-revisited-beauty.png" alt="" /></p>
+
+<p>The new version is just so much more vibrant - my eyes want to look at it more!</p>
+
+<p>I feel like my take on the minigame is one of the most faithful that exists, which I am very proud of as I have put a lot of care and attention into it. I really like many of the other versions, but because I know so much about the minigame at this point, their flaws really stand out to me!</p>
+
+<p>For example, the <a href="http://mitchellthompson.net/demos/terminal/">famous version by Mitchell Thompson</a>’s pointers don’t make sense, the ‘bracket pairs’ can be highlighted from the closing pair (and always have a fixed width), and the bracket pairs sometimes can cross over multiple lines. The way the characters load on to the screen is also slightly wrong. Don’t get me wrong, I love it (particularly the UI), it only bothers me because I am a super nerd!</p>
+
+<p><a href="https://github.com/euclio/robco-term">Euclio</a>’s version is cool for what it is, but (as he/she admits), most words end up having little in common, which is a shame, and the lack of a dedicated graphical interface is sad, but it does look excellent when combined with <a href="https://github.com/Swordfish90/cool-retro-term">cool retro term</a>.</p>
+
+<p>I’ve really learned a lot about front-end web development from this project, and I always encourage others to attempt similar projects. It gives you something cool to show off that people can get passionate about.</p>
+
+</div>
+		
+		<p id="calltoaction"><em>P.S. I'm late to the party, but I recently got <a href='https://twitter.com/JetroidMakes'>a twitter account</a> that you can follow <a href='https://twitter.com/intent/user?screen_name=JetroidMakes'>here</a>.</em></p>
+		
+	</article>
+	<hr class="divider"/>
+	
+	<div id="mailchimp-signup">
+<h2 id="mailchimp-text">Receive an email whenever I post. <span class="nobr">No spam, no ads,</span> <a class="nobr" href="http://us17.campaign-archive.com/home/?u=5c7e4e051f07ca709dea5942a&id=027962a690">just notifications</a></h2>
+<form action="https://jetholt.us17.list-manage.com/subscribe/post?u=5c7e4e051f07ca709dea5942a&amp;id=027962a690" method="post" target="_blank">
+	<input class="mailchimp-entry" type="text" name="FNAME" placeholder="Name" required>
+	<input class="mailchimp-entry" type="email" name="EMAIL" placeholder="Email" required>
+	<!-- real people should not fill this next one in and expect good things - do not remove this or risk form bot signups !-->
+	<input type="text" name="b_5c7e4e051f07ca709dea5942a_027962a690" tabindex="-1" value="" hidden>
+	<input id="mailchimp-submit" type="submit" value="Subscribe" name="subscribe" class="button">
+</form>
+</div>
+
+	<hr class="divider"/>
+	
+	<footer id="navigation">
+		
+			<a id="prev-post" href="/meeting-matej/">&lsaquo;Meeting Matej</a>
+		
+		
+			<a id="next-post" href="/from-croatia-to-asia/">From Croatia To Asia&rsaquo;</a>
+		
+	</footer>
+</div>
+</div>
+
+		<!-- Custom JS
+			Seperate file - use js in YAML front matter
+			Inline - use inline_js in YAML front matter !--><!-- Custom JS (as seperate file) - use custom_js in YAML front matter !-->
+
+
+
+
+
+
+<script>
+
+</script>
+
+
+
+<script
+		  async
+		  src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.4.0/dist/lazyload.min.js"
+		></script>
+		</div>
+	</body>
+</html>
+

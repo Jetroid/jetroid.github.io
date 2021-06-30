@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+
+<html lang="en" Itemscope=”Blog”>
+	<head>
+	<link rel="dns-prefetch" href="//www.google-analytics.com" />
+	<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+
+	<!-- Custom Preconnects - use custom_preconnect in YAML front matter !-->
+	
+    
+    
+	
+
+	<title itemprop=”name”>Jet's Trips - Jet Holt</title>
+<meta name="description" content="An interactive look at Jet's trips around the world." />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="shortcut icon" type="image/x-icon" href="/assets/images/trips-favicon.ico">
+
+<meta name="author" content="Jet Holt" />
+<meta property="og:title" content="Jet's Trips" />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:description" content="An interactive look at Jet's trips around the world." />
+<meta property="og:url" content="https://jetholt.com/trips/" />
+<meta property="og:site_name" content="Jet Holt" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://jetholt.com/assets/images/backgrounds/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name=”twitter:url” content=”https://jetholt.com/trips/”>
+<meta name="twitter:title" content="Jet's Trips - Jetroid" />
+<meta name="twitter:description" content="An interactive look at Jet's trips around the world." />
+<meta name="twitter:creator" content="@jetroidmakes" />
+<meta name="twitter:site" content="@jetroidmakes" />
+
+
+<meta property="og:image" content="https://jetholt.com/assets/images/backgrounds/trips.jpg" />
+<meta name="twitter:image" content="https://jetholt.com/assets/images/backgrounds/trips.jpg" />
+
+<script type="application/ld+json">
+{"sameAs":["https://twitter.com/JetroidMakes","https://www.instagram.com/jetroidmakes/","https://www.facebook.com/Jetroid"],"@type":"WebSite","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://jetholt.com/assets/images/jetroid-logo-miami.png"},"name":"Jetroid"},"url":"https://jetholt.com/","name":"Jetroid","author":{"@type":"Person","name":"Jet Holt"},"image":"https://jetholt.com/assets/images/jetroid-logo-miami.png","headline":"Jetroid","description":"Jet 'Jetroid' Holt. Maker, programmer, and Computer Science graduate.","@context":"http://schema.org"}</script>
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Main Posts RSS Feed" href="/feed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Micro RSS Feed" href="/microfeed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Everything RSS Feed" href="/all.xml" />
+
+
+	<meta name="google-site-verification" content="9pNs8vHQ1C9hsyUgQ6tFQDPzNH_ANAd8kB9GcnBARYc" />
+
+	
+
+	<script>
+		window.lazyLoadOptions = {
+			threshold: 250
+		};
+		window.addEventListener(
+			"LazyLoad::Initialized",
+			function (event) {
+				window.lazyLoadInstance = event.detail.instance;
+			},
+			false
+		);
+	</script>
+	<!-- Custom CSS
+			Seperate file - use css in YAML front matter
+			Inline - use inline_css in YAML front matter !-->
+
+
+<style>
+@import url(../assets/js/trips/Cesium/Widgets/widgets.css);*{margin:0;padding:0;box-sizing:border-box}.nobr{white-space:nowrap}.hidden{display:none !important}.hidden-opacity{opacity:0;pointer-events:none}.sr-only{position:absolute;white-space:nowrap;width:1px;height:1px;overflow:hidden;border:0;padding:0;clip:rect(0 0 0 0);clip-path:inset(50%);margin:-1px}img:not([src]):not([srcset]){visibility:hidden}:root{--white: #cfcfc9;--grey: #373731;--gray: #373731;--pink: #d05d5d;--lightblue: #94cbc4}body{font-family:monospace;color:#cfcfc9}.main-wrapper{overflow-x:hidden;width:100vw}a,.clickable{text-decoration:none;color:#d05d5d}a:hover,.clickable:hover{text-shadow:0.08em -0.08em #373731;cursor:pointer;text-decoration:underline}.handwritten{font-family:Caveat Brush, cursive !important}html,body{overflow:none;font-family:monospace;color:#cfcfc9}p{margin:0}h1{margin:0;font-size:1.8em}hr{width:100%;height:1px;background:#373731;display:block}.cesium-credit-logoContainer,.cesium-credit-textContainer{display:none !important}#locationsList{background-color:#373731;padding:10px;box-sizing:border-box}.location{padding-top:5px}#linkback>a>img{width:50%;display:block;margin:auto}@media (orientation: portrait){#cesiumContainer{width:100%;height:60vh;overflow:none}}@media (orientation: landscape) and (max-width: 700px){h1{font-size:1.0em}}@media (orientation: landscape){#trips{content:"";display:table;clear:both;height:100vh;width:100vw;overflow:none}#cesiumContainer{float:right;width:70%;height:100vh;overflow:none}#locationsList{float:left;width:30%;height:100vh;overflow-y:scroll}}
+
+</style><!-- Custom Stylesheets - use custom_css in YAML front matter !-->
+
+
+
+<!-- Google Fonts
+			Linking as a stylesheet directly from their API.
+			- use google_font in YAML front matter.
+			- Just include the name (as it would appear in a URL)
+			for example "Nanum+Pen+Script"
+		!--><!-- Custom Google Fonts - use google_font in YAML front matter !-->
+
+
+
+
+
+<!-- Set Canonical URLS for latest and latestmicro !-->
+	
+		<link rel="canonical" href="https://jetholt.com/trips/" />
+	
+
+	</head>
+	<body >
+		<div class="main-wrapper">
+		
+
+		<div id="trips">
+  <div id="cesiumContainer"></div>
+  <div id="locationsList">
+    <nav id="linkback"><a href="/"><img src="/assets/images/jetroid-logo-miami.png"></a></nav>
+  
+  
+    
+    
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":airplane:" alt=":airplane:" src="https://github.githubassets.com/images/icons/emoji/unicode/2708.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(52.504919, -1.567246, 50000.0)">New Arley</span>, England</h1>
+      <p>2020/03/26 - Unknown</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Hamad International Airport - Manchester Airport</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":airplane:" alt=":airplane:" src="https://github.githubassets.com/images/icons/emoji/unicode/2708.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(25.2608759, 51.611653, 50000.0)">Doha</span>, Qatar</h1>
+      <p>2020/03/26 - 2020/03/26</p>
+      <hr>
+      <p><a href="/repatriated/#airport-rodeo">Two Hour Layover</a></p>
+<hr>
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Kuala Lumpur KLIA1 - Hamad International Airport</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":airplane:" alt=":airplane:" src="https://github.githubassets.com/images/icons/emoji/unicode/2708.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(3.156924,101.712619, 50000.0)">Kuala Lumpur</span>, Malaysia</h1>
+      <p>2020/02/08 - 2020/03/26</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Canggu - Kuala Lumpur KLIA1</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":motor_scooter:" alt=":motor_scooter:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f6f5.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(-8.6535041, 115.1322492, 50000.0)">Canggu, Bali</span>, Indonesia</h1>
+      <p>2020/01/29 - 2020/02/08</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":motor_scooter:" alt=":motor_scooter:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f6f5.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(-8.537059, 115.136067, 50000.0)">Tabanan, Bali</span>, Indonesia</h1>
+      <p>2020/01/19 - 2020/01/29</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":motor_scooter:" alt=":motor_scooter:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f6f5.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(-8.2802077,115.425303, 50000.0)">Mt. Batur, Bali</span>, Indonesia</h1>
+      <p>2020/01/19 - 2020/01/19</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":motor_scooter:" alt=":motor_scooter:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f6f5.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(-8.537059, 115.136067, 50000.0)">Tabanan, Bali</span>, Indonesia</h1>
+      <p>2019/12/14 - 2020/01/19</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":airplane:" alt=":airplane:" src="https://github.githubassets.com/images/icons/emoji/unicode/2708.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(-8.7619445,115.1779803, 50000.0)">Jimbaran, Bali</span>, Indonesia</h1>
+      <p>2019/12/10 - 2019/12/14</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Singapore Changi Airport - Ngurah Rai International Airport</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":airplane:" alt=":airplane:" src="https://github.githubassets.com/images/icons/emoji/unicode/2708.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(1.2884145, 103.8557359, 50000.0)">Singapore</span>, Singapore</h1>
+      <p>2019/12/10 - 2019/12/10</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Düsseldorf International Airport - Singapore Changi Airport</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":airplane:" alt=":airplane:" src="https://github.githubassets.com/images/icons/emoji/unicode/2708.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(51.2876146,6.7646025, 50000.0)">Düsseldorf</span>, Germany</h1>
+      <p>2019/12/10 - 2019/12/10</p>
+      <hr>
+      <p>1 Hour 30 Layover</p>
+<hr>
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Birmingham International Airport - Düsseldorf International Airport</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":airplane:" alt=":airplane:" src="https://github.githubassets.com/images/icons/emoji/unicode/2708.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(52.504919, -1.567246, 50000.0)">New Arley</span>, England</h1>
+      <p>2019/07/23 - 2019/12/10</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Düsseldorf International Airport - Birmingham International Airport</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":airplane:" alt=":airplane:" src="https://github.githubassets.com/images/icons/emoji/unicode/2708.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(51.2876146,6.7646025, 50000.0)">Düsseldorf</span>, Germany</h1>
+      <p>2019/07/23 - 2019/07/23</p>
+      <hr>
+      <p>Four Hour Layover</p>
+<hr>
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Bangkok Suvarnabhumi Airport - Düsseldorf International Airport</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":train2:" alt=":train2:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f686.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(13.743357,100.497369, 50000.0)">Bangkok</span>, Thailand</h1>
+      <p>2019/07/21 - 2019/07/23</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Chiang Mai Railway Station - Bangkok Hua Lamphong Railway Station</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":airplane:" alt=":airplane:" src="https://github.githubassets.com/images/icons/emoji/unicode/2708.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(18.788833,98.985264, 50000.0)">Chiang Mai</span>, Thailand</h1>
+      <p>2019/06/24 - 2019/07/21</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Ngurah Rai International Airport - Chiang Mai International Airport</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":motor_scooter:" alt=":motor_scooter:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f6f5.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(-8.537059, 115.136067, 50000.0)">Tabanan, Bali</span>, Indonesia</h1>
+      <p>2019/06/16 - 2019/06/24</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":motor_scooter:" alt=":motor_scooter:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f6f5.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(-8.5095172,115.2618408, 50000.0)">Ubud, Bali</span>, Indonesia</h1>
+      <p>2019/06/15 - 2019/06/16</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":motor_scooter:" alt=":motor_scooter:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f6f5.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(-8.537059, 115.136067, 50000.0)">Tabanan, Bali</span>, Indonesia</h1>
+      <p>2019/06/08 - 2019/06/15</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":motor_scooter:" alt=":motor_scooter:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f6f5.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(-8.2802077,115.425303, 50000.0)">Mt. Abang, Bali</span>, Indonesia</h1>
+      <p>2019/06/08 - 2019/06/08</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":motor_scooter:" alt=":motor_scooter:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f6f5.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(-8.537059, 115.136067, 50000.0)">Tabanan, Bali</span>, Indonesia</h1>
+      <p>2019/05/28 - 2019/06/08</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Jimbaran - Tabanan</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":airplane:" alt=":airplane:" src="https://github.githubassets.com/images/icons/emoji/unicode/2708.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(-8.7619445,115.1779803, 50000.0)">Jimbaran, Bali</span>, Indonesia</h1>
+      <p>2019/05/26 - 2019/05/28</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Kuala Lumpur KLIA1 - Ngurah Rai International Airport</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":airplane:" alt=":airplane:" src="https://github.githubassets.com/images/icons/emoji/unicode/2708.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(3.156924,101.712619, 50000.0)">Kuala Lumpur</span>, Malaysia</h1>
+      <p>2019/04/20 - 2019/05/26</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Ngurah Rai International Airport - Kuala Lumpur KLIA2</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":motor_scooter:" alt=":motor_scooter:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f6f5.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(-8.537059, 115.136067, 50000.0)">Tabanan, Bali</span>, Indonesia</h1>
+      <p>2019/04/14 - 2019/04/20</p>
+      <hr>
+      <p><a href="/thank-you-danke/">Thank You, Danke</a></p>
+<hr>
+      
+      
+      
+  
+    
+    
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":motor_scooter:" alt=":motor_scooter:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f6f5.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(-8.2873365,114.984325, 50000.0)">Bali Utara</span>, Indonesia</h1>
+      <p>2019/04/13 - 2019/04/14</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":motor_scooter:" alt=":motor_scooter:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f6f5.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(-8.537059, 115.136067, 50000.0)">Tabanan, Bali</span>, Indonesia</h1>
+      <p>2019/04/01 - 2019/04/13</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":motor_scooter:" alt=":motor_scooter:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f6f5.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(-8.801406, 115.229048, 50000.0)">Jimbaran, Bali</span>, Indonesia</h1>
+      <p>2019/03/30 - 2019/04/01</p>
+      <hr>
+      <p><a href="/run-till-you-drop/">Run Till You Drop</a></p>
+<hr>
+      
+      
+      
+  
+    
+    
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":motor_scooter:" alt=":motor_scooter:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f6f5.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(-8.537059, 115.136067, 50000.0)">Tabanan, Bali</span>, Indonesia</h1>
+      <p>2019/03/26 - 2019/03/30</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":motor_scooter:" alt=":motor_scooter:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f6f5.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(-8.783982, 115.187690, 50000.0)">Jimbaran, Bali</span>, Indonesia</h1>
+      <p>2019/03/18 - 2019/03/26</p>
+      <hr>
+      <p><a href="/bali-visa-extension/">A Terrible Visa Extension Experience in Bali</a></p>
+<hr>
+      
+      
+      
+  
+    
+    
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":motor_scooter:" alt=":motor_scooter:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f6f5.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(-8.6535041, 115.1322492, 50000.0)">Canggu, Bali</span>, Indonesia</h1>
+      <p>2019/03/08 - 2019/03/18</p>
+      <hr>
+      <p><a href="/gwk/">Visiting Garuda Wisnu Kencana</a>, 
+<a href="/whats-the-matra/">What’s the Matra?</a></p>
+<hr>
+      
+      
+      
+  
+    
+    
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":motor_scooter:" alt=":motor_scooter:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f6f5.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(-8.435916, 115.084660, 50000.0)">Dalang, Bali</span>, Indonesia</h1>
+      <p>2019/03/06 - 2019/03/08</p>
+      <hr>
+      <p><a href="/nyepi/">The Nyepi Festival</a></p>
+<hr>
+      
+      
+      
+  
+    
+    
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":motor_scooter:" alt=":motor_scooter:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f6f5.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(-8.537059, 115.136067, 50000.0)">Tabanan, Bali</span>, Indonesia</h1>
+      <p>2019/03/05 - 2019/03/06</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":airplane:" alt=":airplane:" src="https://github.githubassets.com/images/icons/emoji/unicode/2708.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(-8.6535041, 115.1322492, 50000.0)">Canggu, Bali</span>, Indonesia</h1>
+      <p>2019/02/20 - 2019/03/05</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Kuala Lumpur KLIA2 - Ngurah Rai International Airport</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":airplane:" alt=":airplane:" src="https://github.githubassets.com/images/icons/emoji/unicode/2708.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(3.156924,101.712619, 50000.0)">Kuala Lumpur</span>, Malaysia</h1>
+      <p>2019/01/17 - 2019/02/20</p>
+      <hr>
+      <p><a href="/living-kuala-lumpur/">Living Kuala Lumpur</a>,
+<a href="/twenty-three-and-me/">Twenty Three And Me</a>,
+<a href="/kuala-lumpur-sightseeing/">Kuala Lumpur Sightseeing</a></p>
+
+<hr>
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Chiang Mai International Airport - Kuala Lumpur KLIA2</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":train2:" alt=":train2:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f686.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(18.788833,98.985264, 50000.0)">Chiang Mai</span>, Thailand</h1>
+      <p>2018/11/21 - 2019/01/17</p>
+      <hr>
+      <p><a href="/camping-out/">C.A.M.P.ing Out</a>,
+<a href="/hiking-new-year/">Hiking New Year</a>,
+<a href="/a-tradition-broken/">A Tradition Broken</a>,
+<a href="/chilling-in-chiang-mai/">Chilling In Chiang Mai</a>,
+<a href="/loi-krathong/">Loi Krathong</a></p>
+<hr>
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Bangkok Hua Lamphong Railway Station - Chiang Mai Railway Station</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":airplane:" alt=":airplane:" src="https://github.githubassets.com/images/icons/emoji/unicode/2708.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(13.746012,100.533749, 50000.0)">Bangkok</span>, Thailand</h1>
+      <p>2018/11/19 - 2018/11/21</p>
+      <hr>
+      <p><a href="/exploring-bangkok/">Exploring Bangkok</a></p>
+<hr>
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Sheremetyevo International Airport - Bangkok Suvarnabhumi Airport</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":airplane:" alt=":airplane:" src="https://github.githubassets.com/images/icons/emoji/unicode/2708.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(55.972778,37.414722, 50000.0)">Moscow</span>, Russia</h1>
+      <p>2018/11/18 - 2018/11/19</p>
+      <hr>
+      <p>Three hour layover, featured in <a href="/from-croatia-to-asia/">From Croatia To Asia</a></p>
+<hr>
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Franjo Tuđman Airport - Sheremetyevo International Airport</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":train2:" alt=":train2:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f686.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(45.813014,15.977936, 50000.0)">Zagreb</span>, Croatia</h1>
+      <p>2018/11/10 - 2018/11/18</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Nova Gradiška Railway Station - Zagreb Glavni Kolodvor</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":train2:" alt=":train2:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f686.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(45.259845,17.380264, 50000.0)">Nova Gradiška</span>, Croatia</h1>
+      <p>2018/11/07 - 2018/11/10</p>
+      <hr>
+      <p><a href="/meeting-matej/">Meeting Matej</a></p>
+<hr>
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Zagreb Glavni Kolodvor - Nova Gradiška Railway Station</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":airplane:" alt=":airplane:" src="https://github.githubassets.com/images/icons/emoji/unicode/2708.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(45.813014,15.977936, 50000.0)">Zagreb</span>, Croatia</h1>
+      <p>2018/10/24 - 2018/11/07</p>
+      <hr>
+      <p><a href="/zdravo-zagreb/">Zdravo Zagreb</a>,
+<a href="/the-adventure-begins/">The Adventure Begins</a></p>
+<hr>
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Brussels Airport - Franjo Tuđman Airport</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":airplane:" alt=":airplane:" src="https://github.githubassets.com/images/icons/emoji/unicode/2708.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(50.901389,4.484444, 50000.0)">Brussels Airport</span>, Belgium</h1>
+      <p>2018/10/24 - 2018/10/24</p>
+      <hr>
+      <p>Five hour layover</p>
+<hr>
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Birmingham International Airport - Brussels Airport</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":car:" alt=":car:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f697.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(52.504919, -1.567246, 50000.0)">New Arley</span>, England</h1>
+      <p>2018/07/22 - 2018/10/24</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Southampton Airport Parkway - New Arley</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":train2:" alt=":train2:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f686.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(50.9507809,-1.3652847, 50000.0)">Southampton</span>, England</h1>
+      <p>December 2016 - 2018/07/22</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">New Arley - Southampton Airport Parkway</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":train2:" alt=":train2:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f686.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(52.504919, -1.567246, 50000.0)">New Arley</span>, England</h1>
+      <p>December 2016 - December 2016</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Southampton Airport Parkway - New Arley</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":train2:" alt=":train2:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f686.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(50.9507809,-1.3652847, 50000.0)">Southampton</span>, England</h1>
+      <p>September 2014 - December 2016</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Nuneaton - Southampton Airport Parkway</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":airplane:" alt=":airplane:" src="https://github.githubassets.com/images/icons/emoji/unicode/2708.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(52.522770,-1.467531, 50000.0)">Nuneaton</span>, England</h1>
+      <p>July 2010 - September 2014</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Paphos International Airport - Manchester Airport</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":airplane:" alt=":airplane:" src="https://github.githubassets.com/images/icons/emoji/unicode/2708.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(34.756518,32.416684, 50000.0)">Paphos</span>, Cyprus</h1>
+      <p>June 2010 - July 2010</p>
+      <hr>
+      <p>purpose: “Family Holiday in Cyprus. Visited Paphos, Kykkos Monastery.”,</p>
+<hr>
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Manchester Airport - Paphos International Airport</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":airplane:" alt=":airplane:" src="https://github.githubassets.com/images/icons/emoji/unicode/2708.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(52.522770,-1.467531, 50000.0)">Nuneaton</span>, England</h1>
+      <p>June 2008 - June 2010</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Dalaman International Airport - Birmingham International Airport</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":airplane:" alt=":airplane:" src="https://github.githubassets.com/images/icons/emoji/unicode/2708.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(36.855275,28.268019, 50000.0)">Marmaris</span>, Turkey</h1>
+      <p>June 2008 - June 2008</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Birmingham International Airport - Dalaman International Airport</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":ship:" alt=":ship:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a2.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(52.522770,-1.467531, 50000.0)">Nuneaton</span>, England</h1>
+      <p>June 2002 - June 2008</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Boulogne-sur-Mer Ferry Port - Dover Ferry Port</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":car:" alt=":car:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f697.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(50.724256, 1.613822, 50000.0)">Boulogne-sur-Mer</span>, France</h1>
+      <p>June 2002 - June 2002</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Giverny - Boulogne-sur-Mer</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":car:" alt=":car:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f697.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(49.075184, 1.528099, 50000.0)">Giverny</span>, France</h1>
+      <p>June 2002 - June 2002</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Boulogne-sur-Mer - Giverny</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":ship:" alt=":ship:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a2.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(50.724256, 1.613822, 50000.0)">Boulogne-sur-Mer</span>, France</h1>
+      <p>June 2002 - June 2002</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Dover Ferry Port - Boulogne-sur-Mer Ferry Port</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":ship:" alt=":ship:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a2.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(52.522770,-1.467531, 50000.0)">Nuneaton</span>, England</h1>
+      <p>June 1999 - June 2002</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Domburg Ferry Terminal - Dover Ferry Port</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":car:" alt=":car:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f697.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(51.563487, 3.496961, 50000.0)">Domburg</span>, Netherlands</h1>
+      <p>June 1999 - June 1999</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Erkelenz - Domburg</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":car:" alt=":car:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f697.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(51.079365, 6.315841, 50000.0)">Erkelenz</span>, Germany</h1>
+      <p>June 1999 - June 1999</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Domburg - Erkelenz</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":ship:" alt=":ship:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a2.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(51.563487, 3.496961, 50000.0)">Domburg</span>, Netherlands</h1>
+      <p>June 1999 - June 1999</p>
+      <hr>
+      
+      
+      
+      
+  
+    
+    
+    
+      <p class="transport">Dover Ferry Port - Domburg Ferry Terminal</p>
+<hr>
+    </div>
+    
+    <div class="location">
+      <h1>
+<img class="emoji" title=":baby:" alt=":baby:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f476.png" height="20" width="20"> <span class="clickable" onclick="globeFocus(52.522770,-1.467531, 50000.0)">Nuneaton</span>, England</h1>
+      <p>1996/02/04 - June 1999</p>
+      <hr>
+      
+      
+      
+      
+  
+      <p class="transport">The Void - George Eliot Hospital Maternity Ward</p>
+<hr>
+    </div>
+  </div>
+</div>
+<script>
+
+var trips = [
+
+  {
+    name: "Nuneaton",
+    location: [52.522770,-1.467531],
+    arrival: "George Eliot Hospital Maternity Ward",
+    arrivalLocation: [52.512556,-1.476983],
+    arrivalDate: new Date("1996-02-04 12:04:00 +0100"),
+    arrivalTransport: "birth",
+    departed: "Dover Ferry Port",
+    departedLocation: [51.125980, 1.331074]
+  },
+
+  {
+    name: "Domburg",
+    location: [51.563487, 3.496961],
+    arrival: "Domburg Ferry Terminal",
+    arrivalLocation: [51.445453, 3.596330],
+    arrivalDate: new Date("1999-06-12 16:00:00 +0100"),
+    arrivalTransport: "boat",
+    departed: "Domburg",
+    departedLocation: [51.563487, 3.496961]
+  },
+
+  {
+    name: "Erkelenz",
+    location: [51.079365, 6.315841],
+    arrival: "Erkelenz",
+    arrivalLocation: [51.079365, 6.315841],
+    arrivalDate: new Date("1999-06-13 16:00:00 +0100"),
+    arrivalTransport: "car",
+    departed: "Erkelenz",
+    departedLocation: [51.079365, 6.315841]
+  },
+
+  {
+    name: "Domburg",
+    location: [51.563487, 3.496961],
+    arrival: "Domburg",
+    arrivalLocation: [51.563487, 3.496961],
+    arrivalDate: new Date("1999-06-19 16:00:00 +0100"),
+    arrivalTransport: "car",
+    departed: "Domburg Ferry Terminal",
+    departedLocation: [51.445453, 3.596330]
+  },
+
+  {
+    name: "Nuneaton",
+    location: [52.522770,-1.467531],
+    arrival: "Dover Ferry Port",
+    arrivalLocation: [51.125980, 1.331074],
+    arrivalDate: new Date("1999-06-19 20:00:00 +0100"),
+    arrivalTransport: "boat",
+    departed: "Dover Ferry Port",
+    departedLocation: [51.125980, 1.331074]
+  },
+
+  {
+    name: "Boulogne-sur-Mer",
+    location: [50.724256, 1.613822],
+    arrival: "Boulogne-sur-Mer Ferry Port",
+    arrivalLocation: [50.726440, 1.593476],
+    arrivalDate: new Date("2002-06-12 16:00:00 +0100"),
+    arrivalTransport: "boat",
+    departed: "Boulogne-sur-Mer",
+    departedLocation: [50.724256, 1.613822]
+  },
+
+  {
+    name: "Giverny",
+    location: [49.075184, 1.528099],
+    arrival: "Giverny",
+    arrivalLocation: [49.075184, 1.528099],
+    arrivalDate: new Date("2002-06-15 16:00:00 +0100"),
+    arrivalTransport: "car",
+    departed: "Giverny",
+    departedLocation: [49.075184, 1.528099]
+  },
+
+  {
+    name: "Boulogne-sur-Mer",
+    location: [50.724256, 1.613822],
+    arrival: "Boulogne-sur-Mer",
+    arrivalLocation: [50.724256, 1.613822],
+    arrivalDate: new Date("2002-06-18 16:00:00 +0100"),
+    arrivalTransport: "car",
+    departed: "Boulogne-sur-Mer Ferry Port",
+    departedLocation: [50.726440, 1.593476]
+  },
+
+  {
+    name: "Nuneaton",
+    location: [52.522770,-1.467531],
+    arrival: "Dover Ferry Port",
+    arrivalLocation: [51.125980, 1.331074],
+    arrivalDate: new Date("2002-06-18 20:00:00 +0100"),
+    arrivalTransport: "boat",
+    departed: "Birmingham International Airport",
+    departedLocation: [52.4524, -1.7435]
+  },
+
+  {
+    name: "Marmaris",
+    location: [36.855275,28.268019],
+    arrival: "Dalaman International Airport",
+    arrivalLocation: [36.7181,28.7933],
+    arrivalDate: new Date("2008-06-14 09:25:00 +0700"),
+    arrivalTransport: "air",
+    departed: "Dalaman International Airport",
+    departedLocation: [36.7181,28.7933]
+  },
+
+  {
+    name: "Nuneaton",
+    location: [52.522770,-1.467531],
+    arrival: "Birmingham International Airport",
+    arrivalLocation: [52.4524, -1.7435],
+    arrivalDate: new Date("2008-06-28 12:04:00 +0100"),
+    arrivalTransport: "air",
+    departed: "Manchester Airport",
+    departedLocation: [53.36506, -2.27298]
+  },
+
+  {
+    name: "Paphos",
+    location: [34.756518,32.416684],
+    arrival: "Paphos International Airport",
+    arrivalLocation: [34.7135,32.4828],
+    arrivalDate: new Date("2010-06-24 09:25:00 +0700"),
+    arrivalTransport: "air",
+    departed: "Paphos International Airport",
+    departedLocation: [34.7135,32.4828]
+  },
+
+  {
+    name: "Nuneaton",
+    location: [52.522770,-1.467531],
+    arrival: "Manchester Airport",
+    arrivalLocation: [53.36506, -2.27298],
+    arrivalDate: new Date("2010-07-01 12:04:00 +0100"),
+    arrivalTransport: "air",
+    departed: "Nuneaton",
+    departedLocation: [52.522770,-1.467531]
+  },
+
+  {
+    name: "Southampton",
+    location: [50.9507809,-1.3652847],
+    arrival: "Southampton Airport Parkway",
+    arrivalLocation: [50.9507809,-1.3652847],
+    arrivalDate: new Date("2014-09-21 09:25:00 +0700"),
+    arrivalTransport: "train",
+    departed: "Southampton Airport Parkway",
+    departedLocation: [50.9507809,-1.3652847]
+  },
+
+  {
+    name: "New Arley",
+    location: [52.504919, -1.567246],
+    arrival: "New Arley",
+    arrivalLocation: [52.504919, -1.567246],
+    arrivalDate: new Date("2016-12-18 09:25:00 +0700"),
+    arrivalTransport: "train",
+    departed: "New Arley",
+    departedLocation: [52.504919,-1.567246]
+  },
+
+  {
+    name: "Southampton",
+    location: [50.9507809,-1.3652847],
+    arrival: "Southampton Airport Parkway",
+    arrivalLocation: [50.9507809,-1.3652847],
+    arrivalDate: new Date("2016-12-29 20:25:00 +0000"),
+    arrivalTransport: "train",
+    departed: "Southampton Airport Parkway",
+    departedLocation: [50.9507809,-1.3652847]
+  },
+
+  {
+    name: "New Arley",
+    location: [52.504919, -1.567246],
+    arrival: "New Arley",
+    arrivalLocation: [52.504919, -1.567246],
+    arrivalDate: new Date("2018-07-22 09:25:00 +0700"),
+    arrivalTransport: "car",
+    departed: "Birmingham International Airport",
+    departedLocation: [52.4524,-1.7435]
+  },
+
+  {
+    name: "Brussels Airport",
+    location: [50.901389,4.484444],
+    arrival: "Brussels Airport",
+    arrivalLocation: [50.901389,4.484444],
+    arrivalDate: new Date("2018-10-24 14:25:00 +0700"),
+    arrivalTransport: "air",
+    departed: "Brussels Airport",
+    departedLocation: [50.901389,4.484444]
+  },
+
+  {
+    name: "Zagreb",
+    location: [45.813014,15.977936],
+    arrival: "Franjo Tuđman Airport",
+    arrivalLocation: [45.743056,16.068889],
+    arrivalDate: new Date("2018-10-24 20:31:56 +0700"),
+    arrivalTransport: "air",
+    departed: "Zagreb Glavni Kolodvor",
+    departedLocation: [45.804722,15.978889]
+  },
+
+  {
+    name: "Nova Gradiška",
+    location: [45.259845,17.380264],
+    arrival: "Nova Gradiška Railway Station",
+    arrivalLocation: [45.253663,17.379334],
+    arrivalDate: new Date("2018-11-07 00:48:07 +0700"),
+    arrivalTransport: "train",
+    departed: "Nova Gradiška Railway Station",
+    departedLocation: [45.253663,17.379334]
+  },
+
+  {
+    name: "Zagreb",
+    location: [45.813014,15.977936],
+    arrival: "Zagreb Glavni Kolodvor",
+    arrivalLocation: [45.804722,15.978889],
+    arrivalDate: new Date("2018-11-10 04:38:00 +0700"),
+    arrivalTransport: "train",
+    departed: "Franjo Tuđman Airport",
+    departedLocation: [45.743056,16.068889]
+  },
+
+  {
+    name: "Moscow",
+    location: [55.972778,37.414722],
+    arrival: "Sheremetyevo International Airport",
+    arrivalLocation: [55.972778,37.414722],
+    arrivalDate: new Date("2018-11-18 21:46:07 +0800"),
+    arrivalTransport: "air",
+    departed: "Sheremetyevo International Airport",
+    departedLocation: [55.972778,37.414722]
+  },
+
+  {
+    name: "Bangkok",
+    location: [13.746012,100.533749],
+    arrival: "Bangkok Suvarnabhumi Airport",
+    arrivalLocation: [13.692180,100.750868],
+    arrivalDate: new Date("2018-11-19 09:25:00 +0700"),
+    arrivalTransport: "air",
+    departed: "Bangkok Hua Lamphong Railway Station",
+    departedLocation: [13.740127, 100.516482]
+  },
+
+  {
+    name: "Chiang Mai",
+    location: [18.788833,98.985264],
+    arrival: "Chiang Mai Railway Station",
+    arrivalLocation: [18.783589,99.016848],
+    arrivalDate: new Date("2018-11-21 13:21:00 +0700"),
+    arrivalTransport: "train",
+    departed: "Chiang Mai International Airport",
+    departedLocation: [18.767913,98.968028]
+  },
+
+  {
+    name: "Kuala Lumpur",
+    location: [3.156924,101.712619],
+    arrival: "Kuala Lumpur KLIA2",
+    arrivalLocation: [2.745392,101.684918],
+    arrivalDate: new Date("2019-01-17 20:00:00 +0800"),
+    arrivalTransport: "air",
+    departed: "Kuala Lumpur KLIA2",
+    departedLocation: [2.745392,101.684918]
+  },
+
+  {
+    name: "Canggu, Bali",
+    location: [-8.6535041, 115.1322492],
+    arrival: "Ngurah Rai International Airport",
+    arrivalLocation: [-8.7449247, 115.1667575],
+    arrivalDate: new Date("2019-02-20 16:06:00 +0800"),
+    arrivalTransport: "air",
+    departed: "Canggu",
+    departedLocation: [-8.6535041, 115.1322492]
+  },
+
+  {
+    name: "Tabanan, Bali",
+    location: [-8.537059, 115.136067],
+    arrival: "Tabanan",
+    arrivalLocation: [-8.537059, 115.136067],
+    arrivalDate: new Date("2019-03-05 18:00:00 +0800"),
+    arrivalTransport: "scooter",
+    departed: "Tabanan",
+    departedLocation: [-8.537059, 115.136067]
+  },
+
+  {
+    name: "Dalang, Bali",
+    location: [-8.435916, 115.084660],
+    arrival: "Dalang",
+    arrivalLocation: [-8.435916, 115.084660],
+    arrivalDate: new Date("2019-03-06 16:00:00 +0800"),
+    arrivalTransport: "scooter",
+    departed: "Dalang",
+    departedLocation: [-8.435916, 115.084660]
+  },
+
+  {
+    name: "Canggu, Bali",
+    location: [-8.6535041, 115.1322492],
+    arrival: "Canggu",
+    arrivalLocation: [-8.6535041, 115.1322492],
+    arrivalDate: new Date("2019-03-08 16:06:00 +0800"),
+    arrivalTransport: "scooter",
+    departed: "Canggu",
+    departedLocation: [-8.6535041, 115.1322492]
+  },
+
+  {
+    name: "Jimbaran, Bali",
+    location: [-8.783982, 115.187690],
+    arrival: "Jimbaran",
+    arrivalLocation: [-8.783982, 115.187690],
+    arrivalDate: new Date("2019-03-18 20:06:00 +0800"),
+    arrivalTransport: "scooter",
+    departed: "Jimbaran",
+    departedLocation: [-8.783982, 115.187690]
+  },
+
+  {
+    name: "Tabanan, Bali",
+    location: [-8.537059, 115.136067],
+    arrival: "Tabanan",
+    arrivalLocation: [-8.537059, 115.136067],
+    arrivalDate: new Date("2019-03-26 18:00:00 +0800"),
+    arrivalTransport: "scooter",
+    departed: "Tabanan",
+    departedLocation: [-8.537059, 115.136067]
+  },
+
+  {
+    name: "Jimbaran, Bali",
+    location: [-8.801406, 115.229048],
+    arrival: "Jimbaran",
+    arrivalLocation: [-8.761932, 115.180116],
+    arrivalDate: new Date("2019-03-30 20:06:00 +0800"),
+    arrivalTransport: "scooter",
+    departed: "Jimbaran",
+    departedLocation: [-8.761932, 115.180116]
+  },
+
+  {
+    name: "Tabanan, Bali",
+    location: [-8.537059, 115.136067],
+    arrival: "Tabanan",
+    arrivalLocation: [-8.537059, 115.136067],
+    arrivalDate: new Date("2019-04-01 18:00:00 +0800"),
+    arrivalTransport: "scooter",
+    departed: "Tabanan",
+    departedLocation: [-8.537059, 115.136067]
+  },
+
+  {
+    name: "Bali Utara",
+    location: [-8.2873365,114.984325],
+    arrival: "Bali Utara",
+    arrivalLocation: [-8.2873365,114.984325],
+    arrivalDate: new Date("2019-04-13 20:00:00 +0800"),
+    arrivalTransport: "scooter",
+    departed: "Bali Utara",
+    departedLocation: [-8.2873365,114.984325]
+  },
+
+  {
+    name: "Tabanan, Bali",
+    location: [-8.537059, 115.136067],
+    arrival: "Tabanan",
+    arrivalLocation: [-8.537059, 115.136067],
+    arrivalDate: new Date("2019-04-14 19:30:00 +0800"),
+    arrivalTransport: "scooter",
+    departed: "Ngurah Rai International Airport",
+    departedLocation: [-8.7449247, 115.1667575]
+  },
+
+  {
+    name: "Kuala Lumpur",
+    location: [3.156924,101.712619],
+    arrival: "Kuala Lumpur KLIA2",
+    arrivalLocation: [2.745392,101.684918],
+    arrivalDate: new Date("2019-04-20 17:35:00 +0800"),
+    arrivalTransport: "air",
+    departed: "Kuala Lumpur KLIA1",
+    departedLocation: [2.745392,101.684918]
+  },
+
+  {
+    name: "Jimbaran, Bali",
+    location: [-8.7619445,115.1779803],
+    arrival: "Ngurah Rai International Airport",
+    arrivalLocation: [-8.7449247, 115.1667575],
+    arrivalDate: new Date("2019-05-26 21:30:00 +0800"),
+    arrivalTransport: "air",
+    departed: "Jimbaran",
+    departedLocation: [-8.7619445,115.1779803]
+  },
+
+  {
+    name: "Tabanan, Bali",
+    location: [-8.537059, 115.136067],
+    arrival: "Tabanan",
+    arrivalLocation: [-8.7449247, 115.1667575],
+    arrivalDate: new Date("2019-05-28 21:30:00 +0800"),
+    arrivalTransport: "scooter",
+    departed: "Tabanan",
+    departedLocation: [-8.537059, 115.136067]
+  },
+
+  {
+    name: "Mt. Abang, Bali",
+    location: [-8.2802077,115.425303],
+    arrival: "Mount Abang",
+    arrivalLocation: [-8.2906065,115.3962268],
+    arrivalDate: new Date("2019-06-08 06:30:00 +0800"),
+    arrivalTransport: "scooter",
+    departed: "Mount Abang",
+    departedLocation: [-8.2906065,115.3962268]
+  },
+
+  {
+    name: "Tabanan, Bali",
+    location: [-8.537059, 115.136067],
+    arrival: "Tabanan",
+    arrivalLocation: [-8.537059, 115.136067],
+    arrivalDate: new Date("2019-06-08 19:00:00 +0800"),
+    arrivalTransport: "scooter",
+    departed: "Tabanan",
+    departedLocation: [-8.537059, 115.136067]
+  },
+
+  {
+    name: "Ubud, Bali",
+    location: [-8.5095172,115.2618408],
+    arrival: "Ubud",
+    arrivalLocation: [-8.5095172,115.2618408],
+    arrivalDate: new Date("2019-06-15 18:00:00 +0800"),
+    arrivalTransport: "scooter",
+    departed: "Ubud",
+    departedLocation: [-8.5095172,115.2618408]
+  },
+
+  {
+    name: "Tabanan, Bali",
+    location: [-8.537059, 115.136067],
+    arrival: "Tabanan",
+    arrivalLocation: [-8.537059, 115.136067],
+    arrivalDate: new Date("2019-06-16 20:00:00 +0800"),
+    arrivalTransport: "scooter",
+    departed: "Ngurah Rai International Airport",
+    departedLocation: [-8.7449247, 115.1667575]
+  },
+
+  {
+    name: "Chiang Mai",
+    location: [18.788833,98.985264],
+    arrival: "Chiang Mai International Airport",
+    arrivalLocation: [18.767913,98.968028],
+    arrivalDate: new Date("2019-06-24 10:30:00 +0700"),
+    arrivalTransport: "air",
+    departed: "Chiang Mai Railway Station",
+    departedLocation: [18.783589,99.016848]
+  },
+
+  {
+    name: "Bangkok",
+    location: [13.743357,100.497369],
+    arrival: "Bangkok Hua Lamphong Railway Station",
+    arrivalLocation: [13.740127, 100.516482],
+    arrivalDate: new Date("2019-07-21 06:55:00 +0700"),
+    arrivalTransport: "train",
+    departed: "Bangkok Suvarnabhumi Airport",
+    departedLocation: [13.692180,100.750868]
+  },
+
+  {
+    name: "Düsseldorf",
+    location: [51.2876146,6.7646025],
+    arrival: "Düsseldorf International Airport",
+    arrivalLocation: [51.2876146,6.7646025],
+    arrivalDate: new Date("2019-07-23 06:05:00 +0200"),
+    arrivalTransport: "air",
+    departed: "Düsseldorf International Airport",
+    departedLocation: [51.2876146,6.7646025]
+  },
+
+  {
+    name: "New Arley",
+    location: [52.504919, -1.567246],
+    arrival: "Birmingham International Airport",
+    arrivalLocation: [52.4524,-1.7435],
+    arrivalDate: new Date("2019-07-23 10:15:00 +0100"),
+    arrivalTransport: "air",
+    departed: "Birmingham International Airport",
+    departedLocation: [52.4524,-1.7435]
+  },
+
+  {
+    name: "Düsseldorf",
+    location: [51.2876146,6.7646025],
+    arrival: "Düsseldorf International Airport",
+    arrivalLocation: [51.2876146,6.7646025],
+    arrivalDate: new Date("2019-12-10 08:34:00 +0000"),
+    arrivalTransport: "air",
+    departed: "Düsseldorf International Airport",
+    departedLocation: [51.2876146,6.7646025]
+  },
+
+  {
+    name: "Singapore",
+    location: [1.2884145, 103.8557359],
+    arrival: "Singapore Changi Airport",
+    arrivalLocation: [1.3635394, 103.9894428,],
+    arrivalDate: new Date("2019-12-10 22:41:00 +0000"),
+    arrivalTransport: "air",
+    departed: "Singapore Changi Airport",
+    departedLocation: [1.3635394, 103.9894428]
+  },
+
+  {
+    name: "Jimbaran, Bali",
+    location: [-8.7619445,115.1779803],
+    arrival: "Ngurah Rai International Airport",
+    arrivalLocation: [-8.7449247, 115.1667575],
+    arrivalDate: new Date("2019-12-11 11:26:00 +0000"),
+    arrivalTransport: "air",
+    departed: "Jimbaran",
+    departedLocation: [-8.7619445,115.1779803]
+  },
+
+  {
+    name: "Tabanan, Bali",
+    location: [-8.537059, 115.136067],
+    arrival: "Tabanan",
+    arrivalLocation: [-8.537059, 115.136067],
+    arrivalDate: new Date("2019-12-14 10:00:00 +0800"),
+    arrivalTransport: "scooter",
+    departed: "Tabanan",
+    departedLocation: [-8.537059, 115.136067]
+  },
+
+  {
+    name: "Mt. Batur, Bali",
+    location: [-8.2802077,115.425303],
+    arrival: "Mount Batur",
+    arrivalLocation: [-8.2906065,115.3962268],
+    arrivalDate: new Date("2020-01-19 06:30:00 +0800"),
+    arrivalTransport: "scooter",
+    departed: "Mount Batur",
+    departedLocation: [-8.2906065,115.3962268]
+  },
+
+  {
+    name: "Tabanan, Bali",
+    location: [-8.537059, 115.136067],
+    arrival: "Tabanan",
+    arrivalLocation: [-8.537059, 115.136067],
+    arrivalDate: new Date("2020-01-19 19:00:00 +0800"),
+    arrivalTransport: "scooter",
+    departed: "Tabanan",
+    departedLocation: [-8.537059, 115.136067]
+  },
+
+  {
+    name: "Canggu, Bali",
+    location: [-8.6535041, 115.1322492],
+    arrival: "Canggu",
+    arrivalLocation: [-8.6535041, 115.1322492],
+    arrivalDate: new Date("2020-01-29 09:00:00 +0800"),
+    arrivalTransport: "scooter",
+    departed: "Canggu",
+    departedLocation: [-8.6535041, 115.1322492]
+  },
+
+  {
+    name: "Kuala Lumpur",
+    location: [3.156924,101.712619],
+    arrival: "Kuala Lumpur KLIA1",
+    arrivalLocation: [2.745392,101.684918],
+    arrivalDate: new Date("2020-02-08 10:10:00 +0000"),
+    arrivalTransport: "air",
+    departed: "Kuala Lumpur KLIA1",
+    departedLocation: [2.745392,101.684918]
+  },
+
+  {
+    name: "Doha",
+    location: [25.2608759, 51.611653],
+    arrival: "Hamad International Airport",
+    arrivalLocation: [25.2608759, 51.611653],
+    arrivalDate: new Date("2020-03-26 01:53:00 +0000"),
+    arrivalTransport: "air",
+    departed: "Hamad International Airport",
+    departedLocation: [25.2608759, 51.611653]
+  },
+
+  {
+    name: "New Arley",
+    location: [52.504919, -1.567246],
+    arrival: "Manchester Airport",
+    arrivalLocation: [53.36506, -2.27298],
+    arrivalDate: new Date("2020-03-26 16:15:00 +0000"),
+    arrivalTransport: "air",
+    departed: "",
+    departedLocation: []
+  },
+
+];
+</script>
+
+
+		<!-- Custom JS
+			Seperate file - use js in YAML front matter
+			Inline - use inline_js in YAML front matter !--><!-- Custom JS (as seperate file) - use custom_js in YAML front matter !-->
+
+
+
+
+	<script src="/assets/js/trips/Cesium/Cesium.js" type="text/javascript"></script>
+
+	<script src="/assets/js/trips.js" type="text/javascript"></script>
+
+
+
+<script>
+
+</script>
+
+
+
+<script async src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.4.0/dist/lazyload.min.js"></script>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></body>
+</html>
+

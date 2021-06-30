@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+
+<html lang="en" Itemscope=”Blog”>
+	<head>
+	<link rel="dns-prefetch" href="//www.google-analytics.com" />
+	<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+
+	<!-- Custom Preconnects - use custom_preconnect in YAML front matter !-->
+	
+    
+    
+	
+
+	<title itemprop=”name”>Automatic Responsive Images on Jekyll without Plugins - Jet Holt</title>
+<meta name="description" content="A tutorial on how to automatically generate responsive images for Jekyll, without using plugins. " />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHiAiACAhocHbnaJSFNehKdARFTkCgcI+wYDBfsFAwbkFRQepycnOUgBAAAHDQoSAAAAAAAAAAAAenx1AICKlgCAiZQYf4eQkneAj+5SXof/SlBk/w8MDv8GBAb/BQMF/woHCv8OCg/uExEakjY6ShgmJjEAMkR9AIaVqgCGl6wYhJChsX2Il/9kb4L/PUVi/zA0Qv8NCQz/CAUH/wcEBv8GAwX/CQQH/xcWH/9KUGOxZm+DGFtjeACMmasGiZirkoqZrf9/jaH/T1dl/xENEP8IBQf/CQUH/woGCP8JBgf/BwQF/wcEBv8ZFx//XWBv/2hte5JlbH0GoaawSZ+lsO2jqLL/qK65/4aJkv8SDxD/CAUG/woGCP8LBgf/CgUH/wkFB/8MBwn/Hh0k/36BjP+AhpPtdHqJSbe2uKe3trj/uLa4/7q4uv+RjZD/Ew4Q/woFB/8OCg//Hh0t/xQQGP8NCAn/DgkK/y4rMP+mqK3/ub3C/6mutqfGxsbjxsXF/8TExP/ExMX/rKys/ywnJ/8LBQX/Gxwr/zM/a/8tNlb/DwsP/xEMDv9qamz/wsPD/6yusP9dX2Tjy8fG+8rHxv/Jxsf/yMfJ/8jIyv+cmp3/QTw+/yImOP82TID/SWqk/zQ4SP9tZ2b/wLq4/9PLyf+5s7P/cGpq+8C9wPvFv7//zMTD/9DIxv/Uzcv/1tDP/5+fqv9BS3H/TG+q/1d9tf95eYL/1MjD/93SzP/azsj/18zH/8/Gwvu/u7Ljw7yw/8bAtP/Kw7j/xL+2/7+8tP+EhJb/RVCI/2CAv/9IaaL/V1hj/8a+tP/Nxbv/zMS7/87Hwf/MxsHjx7ulp8O3of/BtZ//xbqk/7+0nf+1q5T/aWdy/0dPff9PX43/NERo/3Z3eP++tZz/wrqi/8a/qv/IxLP/y8i8p8m5oUnJuqLtxraf/8GxmP+/rZP/u6qP/2BbXf85Plr/OkZm/zE/WP+LjIz/yLmi/8a4of/Jv6r/ycGv7czHt0nCspkGyLmlkse5pv++r5r/v7CZ/8W1nf99dnD/LjE9/zU+Uf9WYHL/rqWa/8a2ov/EtaD/xLak/8G0opLMxbkG3trTANrUyxjj49yx5ubh/+bn4//m5+P/3+De/7e7vf+0u8D/0dXX/+Tm4v/j5eH/4uXg/9zd2LHEvLAYysW8APr+/gDu8u0A7vPuGPD08JLy9fDu8vXv//P28P/1+PL/9fjy//T38P/z9u7/8vbv7vH38ZLy+vgY8Pj1AP///wAAAAAAAAAAAPPz5wDz8+YH9fXqSPf476f3+O/k+Pft+/j36/v49+vk9/frp/b360j19uoH9fbrAAAAAAAAAAAA4AcAAMADAACAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAADAAwAA4AcAAA==" />
+
+<meta name="author" content="Jet Holt" />
+<meta property="og:title" content="Automatic Responsive Images on Jekyll without Plugins" />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:description" content="A tutorial on how to automatically generate responsive images for Jekyll, without using plugins. " />
+<meta property="og:url" content="https://jetholt.com/jekyll-responsive-images/" />
+<meta property="og:site_name" content="Jet Holt" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://jetholt.com/assets/images/backgrounds/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name=”twitter:url” content=”https://jetholt.com/jekyll-responsive-images/”>
+<meta name="twitter:title" content="Automatic Responsive Images on Jekyll without Plugins - Jetroid" />
+<meta name="twitter:description" content="A tutorial on how to automatically generate responsive images for Jekyll, without using plugins. " />
+<meta name="twitter:creator" content="@jetroidmakes" />
+<meta name="twitter:site" content="@jetroidmakes" />
+
+
+<meta property="og:image" content="https://jetholt.com/assets/images/backgrounds/responsive.jpg" />
+<meta name="twitter:image" content="https://jetholt.com/assets/images/backgrounds/responsive.jpg" />
+
+<script type="application/ld+json">
+{"sameAs":["https://twitter.com/JetroidMakes","https://www.instagram.com/jetroidmakes/","https://www.facebook.com/Jetroid"],"@type":"WebSite","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://jetholt.com/assets/images/jetroid-logo-miami.png"},"name":"Jetroid"},"url":"https://jetholt.com/","name":"Jetroid","author":{"@type":"Person","name":"Jet Holt"},"image":"https://jetholt.com/assets/images/jetroid-logo-miami.png","headline":"Jetroid","description":"Jet 'Jetroid' Holt. Maker, programmer, and Computer Science graduate.","@context":"http://schema.org"}</script>
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Main Posts RSS Feed" href="/feed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Micro RSS Feed" href="/microfeed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Everything RSS Feed" href="/all.xml" />
+
+
+	<meta name="google-site-verification" content="9pNs8vHQ1C9hsyUgQ6tFQDPzNH_ANAd8kB9GcnBARYc" />
+
+	
+
+	<script>
+		window.lazyLoadOptions = {
+			threshold: 250
+		};
+		window.addEventListener(
+			"LazyLoad::Initialized",
+			function (event) {
+				window.lazyLoadInstance = event.detail.instance;
+			},
+			false
+		);
+	</script>
+	<!-- Custom CSS
+			Seperate file - use css in YAML front matter
+			Inline - use inline_css in YAML front matter !-->
+
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}.nobr{white-space:nowrap}.hidden{display:none !important}.hidden-opacity{opacity:0;pointer-events:none}.sr-only{position:absolute;white-space:nowrap;width:1px;height:1px;overflow:hidden;border:0;padding:0;clip:rect(0 0 0 0);clip-path:inset(50%);margin:-1px}img:not([src]):not([srcset]){visibility:hidden}:root{--white: #cfcfc9;--grey: #373731;--gray: #373731;--pink: #d05d5d;--lightblue: #94cbc4}body{font-family:monospace;color:#cfcfc9}.main-wrapper{overflow-x:hidden;width:100vw}a,.clickable{text-decoration:none;color:#d05d5d}a:hover,.clickable:hover{text-shadow:0.08em -0.08em #373731;cursor:pointer;text-decoration:underline}.handwritten{font-family:Caveat Brush, cursive !important}body{font-family:monospace}code.highlighter-rouge{background:#373731;white-space:pre-wrap}#page-header{width:100%;text-align:center;position:relative;height:20vh}.post #page-header{height:100vh}#title-stuff{position:absolute;width:100%;top:50%;left:50%;transform:translate(-50%, -50%)}.micro #page-header{height:auto}.micro #title-stuff{padding-top:5vh;position:static;transform:none}th,td,table{box-sizing:border-box;border:1px solid #373731;border-collapse:collapse}table{width:100%}.table-container{width:100%;overflow-x:auto;margin-bottom:1em}th,td{padding-left:10px;padding-right:10px}td{text-align:right}#page-title{color:#d05d5d;font-family:"Roboto",Helvetica,sans-serif;font-weight:100;margin-bottom:5px;font-weight:bold;text-shadow:2px 2px #373731;font-size:10vw}#page-subtitle{margin:0;font-weight:bold;text-shadow:0px 1px #373731, 0px -1px #373731, 1px 0px #373731, -1px 0px #373731, 2px 2px #373731}.divider{width:100%;height:0.3vh;background:#cfcfc9;display:block;box-sizing:border-box}#post-content>h1:first-child,#post-content>h2:first-child{padding-top:20px}#post-content,#calltoaction,#page-subtitle{font-size:5vw}#post-content h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:0}#post-content h1{font-size:7.5vw}#post-content h2{font-size:7.25vw}#post-content h3{font-size:7vw}#post-content h4{font-size:6.75vw}#post-content h5{font-size:6.5vw}#post-content h6{font-size:6.25vw}.post-date{margin-top:0;margin-bottom:0;font-size:5vw}.post-container,#navigation{padding-top:20px;padding-bottom:20px}.post-container img{display:block;max-width:100%;max-height:600px;margin:0 auto;border-radius:5px}.post-container a>img.lazy{height:1px}a.img+a.img,img+img,em+a.img,em+img{margin-top:10px !important;display:block}.post-container img.loaded{height:auto !important}img.emoji{display:inline;height:1em;width:1em}#post-content>p:first-child{margin-top:1vh}a.img+em,img+em{display:block;text-align:center}blockquote{background:rgba(55,55,49,0.3);border:2px solid #d05d5d;border-style:none none none solid;margin:1em 0}@media (min-width: 500px){blockquote{margin:1em 1em}}blockquote p{margin:0 0 0 1em}pre,code{border:1px solid #d05d5d}pre{white-space:pre;overflow:auto;background-color:#474741;padding:15px}pre code{border:none;font-size:smaller}p code{word-break:break-all}#post-content small{font-size:smaller}#post-content small *{font-size:1em}@media (min-width: 500px){#post-content>p{text-align:justify}}#navigation{margin:0;font-size:4vw;display:block;width:auto;overflow:hidden}#navigation .divider{margin-bottom:20px}#navigation a,#navigation p{margin:0;display:block;width:100%;margin:5px 0}#navigation #next-post{text-align:right}@media (min-width: 500px){#navigation a,#navigation p{width:50%;float:left;margin:0}}.youtube{position:relative;padding-bottom:56.25%;padding-top:25px;height:0;margin-bottom:25px}.youtube iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}#post-content>p:last-child>a:not(.img):not(.no-cta):only-child::before,#post-content a.cta::before{content:"► "}#post-content>p:last-child>a:not(.img):not(.no-cta):only-child,#post-content a.cta{font-size:larger}.spoiler:hover{color:#cfcfc9;background:transparent}.spoiler{color:#d05d5d;background:#d05d5d}.spoiler::before{content:"Spoiler";position:relative;color:#cfcfc9;margin:auto}.spoiler:hover::before{display:none}.visually-hidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap}@media (min-width: 500px){#page-title{font-size:5vw}#post-content,#calltoaction,#page-subtitle{font-size:1.4vw}#post-content h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:0}#post-content h1{font-size:3.5vw}#post-content h2{font-size:3.25vw}#post-content h3{font-size:3vw}#post-content h4{font-size:2.75vw}#post-content h5{font-size:2.5vw}#post-content h6{font-size:2.25vw}.post-date{font-size:1.5vw}#navigation{font-size:2.2vw}}@media (min-width: 1440px){#page-title{font-size:72px}#post-content,#calltoaction,#page-subtitle{font-size:20px}#post-content h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:0}#post-content h1{font-size:3.5vw}#post-content h2{font-size:3.25vw}#post-content h3{font-size:3vw}#post-content h4{font-size:2.75vw}#post-content h5{font-size:2.5vw}#post-content h6{font-size:2.25vw}.post-date{font-size:1.5vw}#navigation{font-size:2.2vw}}.borders{padding-left:9vw;padding-right:9vw}@media (min-width: 500px){.borders{padding-left:6vw;padding-right:6vw}}@media (min-width: 800px){.borders{padding-left:12vw;padding-right:12vw}}@media (min-width: 1000px){.borders{padding-left:18vw;padding-right:18vw}}body{background-position:center center;background-size:cover;background-repeat:no-repeat;background-attachment:fixed}.background{background:rgba(55,55,49,0.9)}@media (min-width: 500px){#mailchimp-text{font-size:2.5vh}.mailchimp-entry{width:30%}#mailchimp-submit{width:29%}}@media (max-width: 500px){#mailchimp-signup form input{width:100%;margin:0 auto;padding:15px 15px}}#mailchimp-submit{background:#d05d5d;color:black;-webkit-box-shadow:inset 0 5px rgba(255,255,255,0.2);-moz-box-shadow:inset 0 5px rgba(255,255,255,0.2);box-shadow:inset 0 5px rgba(255,255,255,0.2)}#mailchimp-signup form input{font-size:3vh;padding:10px 15px;border:none;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}#mailchimp-signup{text-align:center}#mailchimp-signup form{margin:0 auto;width:100%;padding-top:20px}#linkback,#linkback img{width:300px;z-index:50000;position:relative}@media (max-width: 500px){#linkback img{width:50%}}#linkback a img{position:absolute;left:0}
+
+</style><!-- Custom Stylesheets - use custom_css in YAML front matter !-->
+
+
+
+<!-- Google Fonts
+			Linking as a stylesheet directly from their API.
+			- use google_font in YAML front matter.
+			- Just include the name (as it would appear in a URL)
+			for example "Nanum+Pen+Script"
+		!--><!-- Custom Google Fonts - use google_font in YAML front matter !-->
+
+
+
+
+
+<!-- Set Canonical URLS for latest and latestmicro !-->
+	
+		<link rel="canonical" href="https://jetholt.com/jekyll-responsive-images/" />
+	
+
+	</head>
+	<body class="lazy" data-bg="/assets/images/backgrounds/responsive.jpg">
+		<div class="main-wrapper">
+		
+		<nav id="linkback"><a href="/"><img src="/assets/images/jetroid-logo-miami.png" /></a></nav>
+		
+
+		<div id="inside" class="post">
+
+<header id="page-header">
+	<nav id="linkback"><a href="/"><img src="/assets/images/jetroid-logo-miami.png" /></a></nav>
+	<div id="title-stuff">
+		<h1 id="page-title" class="borders">Automatic Responsive Images on Jekyll without Plugins</h1>
+		<p id="page-subtitle" class="borders">A tutorial on how to automatically generate responsive images for Jekyll, without using plugins. </p>
+	</div>
+</header>
+<div class="background  borders">
+	<article class="post-container">
+		<time class="post-date">2019/01/05</time>
+		<hr class="divider"/>
+		<div id="post-content"><p><strong>In modern web development, the biggest resources that the client has to load to render a website are typically the images. <a href="https://httparchive.org/reports/state-of-images#bytesImg">HTTP Archive</a> currently shows that 50% of the bytes transferred on a typical site are for images. There are a lot of strategies being employed on the web right now to reduce this cost, like optimising images, forcing all images to a reasonable size, lazily loading images, or making images responsive. As I have been adding more and more images to my website, images have become a bigger and bigger problem for me.</strong></p>
+
+<p>Plugin-based solutions already exist for responsive images and lazy loading, but for many people who use <a href="https://pages.github.com/">GitHub</a> for their site, these solutions are not workable as <a href="https://pages.github.com/versions/">GitHub does not support the plugin(s)</a>. I want to be able to take advantage of Responsive Images and Lazy Loading, so have devised a solution using <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">Git Hooks</a> and clever manipulation of liquid logic.</p>
+
+<p>I already detailed how to <a href="/automatic-image-optimisation/">automatically optimise images without plugins on Jekyll</a>, and this post is going to build upon the process I used there to also create responsively-sizes images for use in resolution switching. I’m also going to be leveraging <a href="https://github.com/verlok/lazyload">this lazy loading library</a> to painlessly lazy load our img tag content too, as our method to alter the markdown-generated img tags to add the resolution-switching makes it easy to add lazy loading too.</p>
+
+<h1 id="what-are-responsive-images">What are Responsive Images?</h1>
+
+<p>If you know what responsive images are, skip to <a href="#new-image-resolution-generation">the next section</a> - otherwise, read on.</p>
+
+<p>To best illustrate what responsive images are, let’s describe a situation where Responsive Images are not used, and identify the problems.</p>
+
+<p>Gary is a web developer working to create a website for a school in Pittsburgh. Let’s say this website needs to have a handful of images, some text, and a few links. The higher ups tell him it needs to look good on large screens as the district governor will be looking at it on a 2560x1440 monitor, but it also needs to look good and work well on a phone or tablet, as that is the medium used by most prospective parents.</p>
+
+<p>Like any good web developer, Gary knows he can offer a slightly different layout to different devices with different screen sizes to offer a better experience. He creates a layout with a 80% width image as a header, and then differing numbers of columns for the body - two column for desktops, laptops, and tablets, and one column on mobile. He calculates that he needs an image of 2048 pixels wide so that the header image looks pixel perfect on the larger monitor, and image widths of 800 pixels for images in the two column layout.</p>
+
+<p>After working tirelessly for a week, Gary looks at his work on his development machine, and was pleased. He pushed it to live and looked at it on his mobile phone, connecting with a slow 3G connection. The site looked great - but the images took a long time to load. Gary realised that this was because he served sizes he selected for the larger desktop screen, and that he had not tailored them to the mobile screen. Assuming his phone screen was a single density 400px width display, he only needed to serve images of 320px for 80% width images on the mobile. Additionally, he notices that some of the details that were so clear in the pictures on the desktop screen are hard to make out on the mobile, as they are rendered much smaller. Gary sees that the layout he designed would have worked better if the image was cropped to accentuate those details.</p>
+
+<p>Responsive Images is the idea that the one-size-fits-all images of the past, where every device regardless of profile must make do with a given image, should be replaced with techniques to situationally load images that are tailored to different screen sizes. The most frequent use case for Responsive Images is <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images#Resolution_switching_Same_size_different_resolutions">resolution switching</a> to serve content optimally for a given device - only serving the resolution of image that can be displayed on a given device, to make the page loads quicker and be less expensive to the end user (and maybe less expensive to the provider too!) Sometimes it is also used to improve the <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images#Art_direction">‘art direction’</a>, ie adjusting the actual picture (not just the resolution) to better highlight the image - this could involve cropping, adding effects, or even serving a different image entirely.</p>
+
+<p>Resolution switching will be the primary focus of this article as it can be automated, whereas art direction requires more of a human eye and designer’s flair. Additionally, we will be adding lazy loading for our img tags, as it will be a cheap, painless, and effective addition.</p>
+
+<h1 id="new-image-resolution-generation">New Image Resolution Generation</h1>
+
+<p>Before we go any further, we need to decide which resolutions we want to generate. <a href="https://medium.com/hceverything/applying-srcset-choosing-the-right-sizes-for-responsive-images-at-different-breakpoints-a0433450a4a3">Empirical evidence by Paolo Mioni</a> suggests that for an image that covers 100% of the width of the screen, the resolutions to generate should have widths of 1920, 1600, 1366, 1024, 768, and 640 pixels. If possible, it’s probably worthwhile trying to run the experiment yourself and seeing which resolutions <em>actually</em> get used, but I’m not in a position to run such an experiment, and Paolo’s reasoning for his different sizes seem reasonable.</p>
+
+<p>My background images cover 100% of the width of the screen, so I’ll be using Paolo’s resolutions for my background images. However, my blog design has borders which take up variable width depending on your screen size, which means that my image content in <code class="language-plaintext highlighter-rouge">&lt;img /&gt;</code> tags don’t take up 100% of the screen. For example, on large screens over 1000px wide, I have borders of 18 percent of the screen width on both sides, meaning the image takes up a total of 64% of the screen. As the 1920 resolution is over the 1000px breakpoint, we need to reduce it to 64% of it’s size. <code class="language-plaintext highlighter-rouge">target_resolution = percent_width_of_image * original_resolution</code>. For me, the calculation looked like this: <code class="language-plaintext highlighter-rouge">0.64*1920 = 1228.8 ≈ 1230</code>. I think it’s definitely worthwhile looking through your media queries and determining what width your image will have at the different break points, then picking the resolution based on that calculation. Additionally, take note of the different percentage widths of the image at these breakpoints - that information will be useful later!</p>
+
+<p>For my img tags and media queries, Paolo’s breakpoints converted to 1230, 1024, 874, 655, 655, and 560 pixels, and the widths of the image at my breakpoints were 64% above 1000px, 76% above 800px, 88% above 500px, and 82% otherwise. Note that the resolution 655px was repeated twice - the actual recalculations for Paolo’s 1024px and 768px resolutions were slightly different, but close enough that it wasn’t worth justifying an extra resolution.</p>
+
+<p>To be able to serve different resolution images, we need to generate them on the backend. If you can use plugins, this is trivial - generate them at compile time using a <a href="https://github.com/wildlyinaccurate/jekyll-responsive-image">plugin</a> or write your own. <a href="https://medium.com/ivo-valchev/jekyll-responsive-images-with-srcset-5da131415d0f">Ivo Valchev wrote a fairly good guide for this.</a></p>
+
+<p>To distinguish between our background images, and our content images, I put them in different directories. I created a <code class="language-plaintext highlighter-rouge">assets/images/backgrounds/</code> directory and a <code class="language-plaintext highlighter-rouge">assets/images/content/</code> directory, and moved the images accordingly. In the cases where I used the same image for both content and a background, I unfortunately had to duplicate it. Images which apply to neither category, I left in the <code class="language-plaintext highlighter-rouge">assets/images/</code> directory. You might have all different kinds of images which need all kinds of different resolution resizings, so create your folders accordingly.</p>
+
+<p>We aren’t going to be using plugins, so we are going to be using <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">Git Hooks</a>. Git Hooks are points in the git process that allow you to run scripts before or after you execute git commands like <code class="language-plaintext highlighter-rouge">git push</code>, <code class="language-plaintext highlighter-rouge">git merge</code>, or <code class="language-plaintext highlighter-rouge">git rebase</code>. The one we are interested in is the <code class="language-plaintext highlighter-rouge">pre-commit</code> hook, which runs just before <code class="language-plaintext highlighter-rouge">git commit</code> is run. A script that is run at this part of the commit pipeline can therefore modify staged files, or stage new files, and have these modifications and additions be added to the commit. Create the file <code class="language-plaintext highlighter-rouge">.git/hooks/pre-commit</code> and add the following content for it to automatically run our script when you commit:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+python responsiveimages.py
+</code></pre></div></div>
+
+<p>Next, we need to actually create our script that will be run by the git hook. I’m basing this on the <a href="/automatic-image-optimisation">script I created to automatically compress images</a>, so it should look familiar if you have seen that. Create the file <code class="language-plaintext highlighter-rouge">responsiveimages.py</code> in the root directory of your jekyll repository and add the following content:</p>
+
+<p>For your convenience, it is also available as a gist <a href="https://gist.githubusercontent.com/Jetroid/c3fa45ffb9a42bd6634799f05a47a853/raw/cfea240a28d2b56b14b6503803dfacb0dc257b90/responsiveimages.py">here</a>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">yaml</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">git</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="n">YAML_FILE</span> <span class="o">=</span> <span class="s">"processed.md"</span>
+<span class="n">FOLDERS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"assets/images/backgrounds/"</span><span class="p">:[</span><span class="mi">1920</span><span class="p">,</span><span class="mi">1600</span><span class="p">,</span><span class="mi">1366</span><span class="p">,</span><span class="mi">1024</span><span class="p">,</span><span class="mi">768</span><span class="p">,</span><span class="mi">640</span><span class="p">],</span>
+    <span class="s">"assets/images/content/"</span><span class="p">:[</span><span class="mi">1230</span><span class="p">,</span><span class="mi">1024</span><span class="p">,</span><span class="mi">874</span><span class="p">,</span><span class="mi">655</span><span class="p">,</span><span class="mi">560</span><span class="p">],</span>
+    <span class="s">"assets/images/"</span><span class="p">:[]</span> <span class="c1">#Do not make any additional sizes
+</span>    <span class="p">}</span>
+
+<span class="c1">#Link git with python
+</span><span class="n">repo</span> <span class="o">=</span> <span class="n">git</span><span class="p">.</span><span class="n">Repo</span><span class="p">()</span>
+<span class="c1">#Get the staged files
+</span><span class="n">diffs</span> <span class="o">=</span> <span class="n">repo</span><span class="p">.</span><span class="n">index</span><span class="p">.</span><span class="n">diff</span><span class="p">(</span><span class="s">'HEAD'</span><span class="p">)</span>
+<span class="n">staged_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">.</span><span class="n">a_blob</span><span class="p">.</span><span class="n">path</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">diffs</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s">'a_blob'</span><span class="p">)</span> <span class="ow">and</span> <span class="n">x</span><span class="p">.</span><span class="n">a_blob</span> <span class="o">!=</span> <span class="bp">None</span> <span class="p">]</span>
+
+<span class="c1">#If not images in staged files, let's quit
+</span><span class="n">has_some_image</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="k">for</span> <span class="nb">file</span> <span class="ow">in</span> <span class="n">staged_files</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">file</span><span class="p">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">".jpg"</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">file</span><span class="p">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">".jpeg"</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">file</span><span class="p">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">".png"</span><span class="p">):</span>
+        <span class="n">has_some_image</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">break</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">has_some_image</span><span class="p">:</span>
+    <span class="n">quit</span><span class="p">()</span>
+
+<span class="c1">#Directory of this file
+</span><span class="nb">dir</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">__file__</span><span class="p">))</span>
+
+<span class="c1">#For each gallery directory, find all files and build the yaml.
+</span><span class="k">for</span> <span class="n">folder</span> <span class="ow">in</span> <span class="n">FOLDERS</span><span class="p">.</span><span class="n">keys</span><span class="p">():</span>
+
+    <span class="c1">#generate the path to the yaml file Jekyll will use
+</span>    <span class="n">folderpath</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="n">folder</span><span class="p">)</span>
+    <span class="n">yamlfile</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">folderpath</span><span class="p">,</span> <span class="n">YAML_FILE</span><span class="p">)</span>
+
+    <span class="c1">#Generate a list of images the yaml file knows about
+</span>    <span class="c1">#These images won't need compressing and resizing as they already are.
+</span>    <span class="n">knownimages</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">exists</span><span class="p">(</span><span class="n">yamlfile</span><span class="p">):</span>
+        <span class="n">stream</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">yamlfile</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">yaml</span><span class="p">.</span><span class="n">load_all</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
+        <span class="n">knownimages</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">data</span><span class="p">)[</span><span class="s">'images'</span><span class="p">]</span> <span class="ow">or</span> <span class="p">[]</span>
+        <span class="n">stream</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="c1">#Generate a list of images that are there right now
+</span>    <span class="n">realimages</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="nb">file</span> <span class="ow">in</span> <span class="n">os</span><span class="p">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">folderpath</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">file</span><span class="p">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">".jpg"</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">file</span><span class="p">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">".jpeg"</span><span class="p">):</span>
+            <span class="n">realimages</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">file</span><span class="p">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">".png"</span><span class="p">):</span>
+            <span class="n">realimages</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+
+    <span class="c1">#Some images may have been removed since the yaml was last updated
+</span>    <span class="c1">#Let's remove those entries
+</span>    <span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">img</span> <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">knownimages</span> <span class="k">if</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">realimages</span><span class="p">]</span>
+
+    <span class="c1">#Now get the images that need compressing and adding to the yaml
+</span>    <span class="n">newimages</span> <span class="o">=</span> <span class="p">[</span><span class="n">img</span> <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">realimages</span> <span class="k">if</span> <span class="n">img</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">knownimages</span><span class="p">]</span>
+
+    <span class="c1">#Compress the image and remember it
+</span>    <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">realimages</span><span class="p">:</span>
+        <span class="n">imagepath</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
+        <span class="n">imagenoext</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">image</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1">#Compress, re-stage, and remember the images
+</span>        <span class="c1">#We also want to create the smaller and larger sized resolutions
+</span>        <span class="k">if</span> <span class="n">imagepath</span> <span class="ow">in</span> <span class="n">staged_files</span><span class="p">:</span>
+
+        	<span class="c1">#Get the width of the image
+</span>        	<span class="n">width</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">subprocess</span><span class="p">.</span><span class="n">check_output</span><span class="p">(</span><span class="s">"identify -format </span><span class="se">\"</span><span class="s">%[w]</span><span class="se">\"</span><span class="s"> "</span> <span class="o">+</span> <span class="n">imagepath</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
+
+            <span class="k">if</span> <span class="n">image</span><span class="p">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">".jpg"</span><span class="p">)</span> <span class="ow">or</span> <span class="n">image</span><span class="p">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">".jpeg"</span><span class="p">):</span>
+                <span class="c1">#Generate all of the resized versions
+</span>                <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="n">FOLDERS</span><span class="p">[</span><span class="n">folder</span><span class="p">]:</span>
+                	<span class="n">newsizeimage</span> <span class="o">=</span> <span class="n">imagenoext</span> <span class="o">+</span> <span class="s">"-"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="o">+</span> <span class="s">".jpg"</span>
+        			<span class="n">newsizeimagepath</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">newsizeimage</span><span class="p">)</span>
+
+                    <span class="c1">#If our image is say 800px wide, but we're asked to make it 1000px,
+</span>                    <span class="c1">#obviously we're upsizing which is bad for storage space.
+</span>                    <span class="c1">#If DONOTUPSIZE is set, we don't do that, simply using the original image
+</span>                    <span class="c1">#Otherwise we upsize.
+</span>                    <span class="k">if</span> <span class="n">size</span> <span class="o">&gt;</span> <span class="n">width</span><span class="p">:</span>
+                        <span class="c1">#Just save the new file as an optimisation of the original
+</span>                        <span class="n">os</span><span class="p">.</span><span class="n">system</span><span class="p">(</span><span class="s">"convert "</span> <span class="o">+</span> <span class="n">imagepath</span> <span class="o">+</span> <span class="s">" -sampling-factor 4:2:0 -strip -quality 85 -interlace JPEG -colorspace RGB "</span> <span class="o">+</span> <span class="n">newsizeimagepath</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">os</span><span class="p">.</span><span class="n">system</span><span class="p">(</span><span class="s">"convert "</span> <span class="o">+</span> <span class="n">imagepath</span> <span class="o">+</span> <span class="s">" -sampling-factor 4:2:0 -strip -resize "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="o">+</span> <span class="s">"x -quality 85 -interlace JPEG -colorspace RGB "</span> <span class="o">+</span> <span class="n">newsizeimagepath</span><span class="p">)</span>
+                    <span class="c1">#Add the resized image
+</span>                	<span class="n">images</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">newsizeimage</span><span class="p">);</span>
+                    <span class="n">repo</span><span class="p">.</span><span class="n">git</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">newsizeimagepath</span><span class="p">)</span>
+                <span class="c1">#Optimise the original
+</span>                <span class="n">os</span><span class="p">.</span><span class="n">system</span><span class="p">(</span><span class="s">"convert "</span> <span class="o">+</span> <span class="n">imagepath</span> <span class="o">+</span> <span class="s">" -sampling-factor 4:2:0 -strip -quality 85 -interlace JPEG -colorspace RGB "</span> <span class="o">+</span> <span class="n">imagepath</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">image</span><span class="p">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">".png"</span><span class="p">):</span>
+                <span class="c1">#Optimise the original
+</span>                <span class="n">os</span><span class="p">.</span><span class="n">system</span><span class="p">(</span><span class="s">"optipng -quiet -o1 -strip all "</span> <span class="o">+</span> <span class="n">imagepath</span><span class="p">);</span>
+
+                <span class="c1">#Generate all of the resized versions
+</span>                <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="n">FOLDERS</span><span class="p">[</span><span class="n">folder</span><span class="p">]:</span>
+                	<span class="n">newsizeimage</span> <span class="o">=</span> <span class="n">imagenoext</span> <span class="o">+</span> <span class="s">"-"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="o">+</span> <span class="s">".png"</span>
+        			<span class="n">newsizeimagepath</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">newsizeimage</span><span class="p">)</span>
+                    <span class="c1">#Convert the image
+</span>                    <span class="k">if</span> <span class="n">size</span> <span class="o">&gt;</span> <span class="n">width</span><span class="p">:</span>
+                        <span class="c1">#Just save the new file as an copy of the original
+</span>                        <span class="n">os</span><span class="p">.</span><span class="n">system</span><span class="p">(</span><span class="s">"cp "</span> <span class="o">+</span> <span class="n">imagepath</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">newsizeimagepath</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1">#Make it smaller
+</span>                        <span class="n">os</span><span class="p">.</span><span class="n">system</span><span class="p">(</span><span class="s">"convert "</span> <span class="o">+</span> <span class="n">imagepath</span> <span class="o">+</span> <span class="s">" -strip -resize "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="o">+</span> <span class="s">"x "</span> <span class="o">+</span> <span class="n">newsizeimagepath</span><span class="p">)</span>
+                        <span class="c1">#Also optimise it
+</span>                        <span class="n">os</span><span class="p">.</span><span class="n">system</span><span class="p">(</span><span class="s">"optipng -quiet -o1 -strip all "</span> <span class="o">+</span> <span class="n">newsizeimagepath</span><span class="p">)</span>
+                    <span class="c1">#Add the resized image
+</span>                	<span class="n">images</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">newsizeimage</span><span class="p">);</span>
+                    <span class="n">repo</span><span class="p">.</span><span class="n">git</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">newsizeimagepath</span><span class="p">)</span>
+            <span class="c1">#Add the optimised original image
+</span>            <span class="n">repo</span><span class="p">.</span><span class="n">git</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">imagepath</span><span class="p">)</span>
+            <span class="c1">#Remember the images
+</span>            <span class="n">images</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+
+    <span class="c1">#Write the new yaml
+</span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">yamlfile</span><span class="p">,</span> <span class="s">'w+'</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+        <span class="n">outfile</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="s">"---</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+        <span class="n">yaml</span><span class="p">.</span><span class="n">dump</span><span class="p">({</span><span class="s">'images'</span><span class="p">:</span><span class="n">images</span><span class="p">},</span> <span class="n">outfile</span><span class="p">,</span> <span class="n">default_flow_style</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="n">outfile</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="s">"---"</span><span class="p">)</span>
+    <span class="n">repo</span><span class="p">.</span><span class="n">git</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">yamlfile</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>A few important notes:</p>
+
+<ul>
+  <li>
+    <p>This script also optimises (read: 85% lossy compression for JPG, lossless for PNG) newly-committed images. If your original images are already optimised and you do not want to optimise them further, then simply comment out or delete the <code class="language-plaintext highlighter-rouge">os.system(...)</code> call beneath the two <code class="language-plaintext highlighter-rouge">#Optimise the original</code> comments.</p>
+  </li>
+  <li>
+    <p>The file specified in YAML_FILE will be created in each of the folders listed in FOLDERS. The purpose of this file is to list all files that have already been processed to ensure that they are not processed a second time. It is probably desirable to commit this to your repository, so that these images are not reprocessed (or worse, have the resized images processed!) when the repository is cloned on a new machine.</p>
+  </li>
+  <li>
+    <p>This script requires <a href="https://pyyaml.org/wiki/PyYAML">PyYAML</a>, <a href="https://readthedocs.org/projects/pygit/">PyGit</a>, <a href="https://www.imagemagick.org/script/index.php">ImageMagick</a>, and <a href="http://optipng.sourceforge.net/">OptiPNG</a>. I’ve only tested the os.system() calls on Linux - not sure how this sort of thing works on Windows and MacOS.</p>
+  </li>
+  <li>
+    <p>Change FOLDERS to correctly point to the folders and resolutions you want to use. If you don’t want to create additional sizes for a folder, just add an empty array and it’ll work fine.</p>
+  </li>
+  <li>
+    <p>This script does NOT upscale images. By this I mean that if an image is 400px wide, and one of your resolutions is 800px, then it will intentionally NOT create an 800px image, simply creating a file with the appropriate name but with the original 400px. The 800px image will have no more quality than the 400px image, and so in my opinion wasteful of resources. However, it’s possible that your design differs to mine and that this decision breaks the layout of your site. If this design decision gives adverse results for you, remove both <code class="language-plaintext highlighter-rouge">if size &gt; width:</code> conditions and just use the <code class="language-plaintext highlighter-rouge">else:</code> clauses.</p>
+  </li>
+</ul>
+
+<h1 id="image-tag-srcset-generation">Image Tag Srcset Generation</h1>
+
+<p>If you followed everything correctly so far, then every time you commit a <code class="language-plaintext highlighter-rouge">.jpg</code> or <code class="language-plaintext highlighter-rouge">.png</code> image, the git hook will trigger and the <code class="language-plaintext highlighter-rouge">responsiveimages.py</code> script will be executed to create a set of resized resolutions. Great! Let’s get to work on displaying them.</p>
+
+<p>I’ve based this solution on the post by my good friend <a href="https://consto.uk/">Matt</a>, who wanted to <a href="https://consto.uk/2018/09/10/lazy-loading-images-the-jekyll-way">add LazyLoading to his Jekyll site</a>. In fact, it was reading his post that made me realise it was possible to do responsive images without plugins at all! Thanks Matt!</p>
+
+<p>Somewhere in your layouts for the posts on your site, you likely have written somewhere (perhaps in multiple places?) <code class="language-plaintext highlighter-rouge">{{ content }}</code> (or perhaps <code class="language-plaintext highlighter-rouge">{{ post.content }}</code> or something similar). Jekyll takes your markdown post, converts it into HTML, and puts it here. Our strategy involves the fact that, at this time, the post is essentially just a string that we can manipulate. And further, because Jekyll converts the markdown in a predictable way, we can manipulate it easily. <strong>Warning: This method MAY NOT WORK if you’re inserting img tags manually into your markdown posts. This ONLY WORKS RELIABLY if you write something like <code class="language-plaintext highlighter-rouge">![My Image Alt Text (Optional)](https://example.com/my-url/)</code>!</strong></p>
+
+<p>Now, I’m going to be providing a version of the code that is intended for lazy loading. If you don’t want to use lazy loading (Why?), then simply delete the <code class="language-plaintext highlighter-rouge">&lt;noscript&gt;</code> tag and remove the <code class="language-plaintext highlighter-rouge">data-</code> prefix from the img tag properties.</p>
+
+<p>Replace your <code class="language-plaintext highlighter-rouge">{{ content }}</code> tag with the following:</p>
+
+<p>For your convenience, it is also available as a gist <a href="https://gist.githubusercontent.com/Jetroid/c127894509b0eca769bade3aa893b3df/raw/800f0a424b8ff6bb2fe62e66a1047c9679bd3e93/Image%2520Tag%2520srcset,%2520sizes,%2520and%2520lazyloading%2520modification">here</a>.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">{%-</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">pieces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">content</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s1">'&lt;img src="'</span><span class="w"> </span><span class="p">-%}</span>
+<span class="p">{%-</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">piece</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">pieces</span><span class="w"> </span><span class="p">-%}</span>
+	<span class="p">{%-</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nb">forloop.first</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">-%}</span>
+		<span class="p">{{</span><span class="w"> </span><span class="nv">piece</span><span class="w"> </span><span class="p">}}</span>
+	<span class="p">{%-</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="p">-%}</span>
+		<span class="p">{%-</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">piece</span><span class="w"> </span><span class="ow">contains</span><span class="w"> </span><span class="s1">'" alt="'</span><span class="w"> </span><span class="p">-%}</span>
+			<span class="p">{%-</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">piece</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s1">'" alt="'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">first</span><span class="w"> </span><span class="p">-%}</span>
+			<span class="p">{%-</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">alt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">piece</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s1">'" alt="'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">shift</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s1">'" alt="'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s1">'"'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">first</span><span class="w"> </span><span class="p">-%}</span>
+			<span class="p">{%-</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">rest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">piece</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s1">'" alt="'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">shift</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s1">'" alt="'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s1">'"'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">shift</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s1">'"'</span><span class="w"> </span><span class="p">-%}</span>
+			<span class="p">{%-</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">url-filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s1">'.'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">pop</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s1">'.'</span><span class="w"> </span><span class="p">-%}</span>
+			<span class="p">{%-</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">url-extension</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s1">'.'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">last</span><span class="w"> </span><span class="p">-%}</span>
+			<span class="p">{%-</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">url-extension</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"gif"</span><span class="w"> </span><span class="p">-%}</span>
+				&lt;noscript&gt;&lt;img src="<span class="p">{{</span><span class="w"> </span><span class="nv">url</span><span class="w"> </span><span class="p">}}</span>" alt=<span class="p">{{</span><span class="nv">alt</span><span class="p">}}</span> /&gt;&lt;/noscript&gt;
+				&lt;img class="lazy" data-src="<span class="p">{{</span><span class="w"> </span><span class="nv">url</span><span class="w"> </span><span class="p">}}</span>" alt=<span class="p">{{</span><span class="nv">alt</span><span class="p">}}{{</span><span class="w"> </span><span class="nv">rest</span><span class="w"> </span><span class="p">}}</span>
+			<span class="p">{%-</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="p">-%}</span>
+			&lt;noscript&gt;&lt;img
+				srcset="<span class="p">{{</span><span class="w"> </span><span class="nv">url-filename</span><span class="w"> </span><span class="p">}}</span>-560.<span class="p">{{</span><span class="w"> </span><span class="nv">url-extension</span><span class="w"> </span><span class="p">}}</span> 560w,
+						<span class="p">{{</span><span class="w"> </span><span class="nv">url-filename</span><span class="w"> </span><span class="p">}}</span>-655.<span class="p">{{</span><span class="w"> </span><span class="nv">url-extension</span><span class="w"> </span><span class="p">}}</span> 655w,
+						<span class="p">{{</span><span class="w"> </span><span class="nv">url-filename</span><span class="w"> </span><span class="p">}}</span>-874.<span class="p">{{</span><span class="w"> </span><span class="nv">url-extension</span><span class="w"> </span><span class="p">}}</span> 874w,
+						<span class="p">{{</span><span class="w"> </span><span class="nv">url-filename</span><span class="w"> </span><span class="p">}}</span>-1024.<span class="p">{{</span><span class="w"> </span><span class="nv">url-extension</span><span class="w"> </span><span class="p">}}</span> 1024w,
+						<span class="p">{{</span><span class="w"> </span><span class="nv">url-filename</span><span class="w"> </span><span class="p">}}</span>-1230.<span class="p">{{</span><span class="w"> </span><span class="nv">url-extension</span><span class="w"> </span><span class="p">}}</span> 1230w"
+				sizes="(max-width:499px) 82vw,
+						(max-width:799px) 88vw,
+						(max-width:999px) 76vw,
+						64vw"
+				src="<span class="p">{{</span><span class="w"> </span><span class="nv">url</span><span class="w"> </span><span class="p">}}</span>" alt="<span class="p">{{</span><span class="w"> </span><span class="nv">alt</span><span class="w"> </span><span class="p">}}</span>" /&gt;&lt;/noscript&gt;
+						&lt;img class="lazy"
+				data-src="<span class="p">{{</span><span class="w"> </span><span class="nv">url</span><span class="w"> </span><span class="p">}}</span>"
+			data-srcset="<span class="p">{{</span><span class="w"> </span><span class="nv">url-filename</span><span class="w"> </span><span class="p">}}</span>-560.<span class="p">{{</span><span class="w"> </span><span class="nv">url-extension</span><span class="w"> </span><span class="p">}}</span> 560w,
+						<span class="p">{{</span><span class="w"> </span><span class="nv">url-filename</span><span class="w"> </span><span class="p">}}</span>-655.<span class="p">{{</span><span class="w"> </span><span class="nv">url-extension</span><span class="w"> </span><span class="p">}}</span> 655w,
+						<span class="p">{{</span><span class="w"> </span><span class="nv">url-filename</span><span class="w"> </span><span class="p">}}</span>-874.<span class="p">{{</span><span class="w"> </span><span class="nv">url-extension</span><span class="w"> </span><span class="p">}}</span> 874w,
+						<span class="p">{{</span><span class="w"> </span><span class="nv">url-filename</span><span class="w"> </span><span class="p">}}</span>-1024.<span class="p">{{</span><span class="w"> </span><span class="nv">url-extension</span><span class="w"> </span><span class="p">}}</span> 1024w,
+						<span class="p">{{</span><span class="w"> </span><span class="nv">url-filename</span><span class="w"> </span><span class="p">}}</span>-1230.<span class="p">{{</span><span class="w"> </span><span class="nv">url-extension</span><span class="w"> </span><span class="p">}}</span> 1230w"
+			data-sizes="82vw,
+						(min-width:500px) 88vw,
+						(min-width:800px) 76vw,
+						(min-width:1000px) 64vw"
+			alt="<span class="p">{{</span><span class="w"> </span><span class="nv">alt</span><span class="w"> </span><span class="p">}}</span>"<span class="p">{{</span><span class="w"> </span><span class="nv">rest</span><span class="w"> </span><span class="p">}}</span>
+			<span class="p">{%-</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">-%}</span>
+		<span class="p">{%-</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="p">-%}</span>
+			<span class="p">{%-</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">piece</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s1">'"'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">first</span><span class="w"> </span><span class="p">-%}</span>
+			<span class="p">{%-</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">rest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">piece</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s1">'"'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">shift</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s1">'"'</span><span class="w"> </span><span class="p">-%}</span>
+			<span class="p">{%-</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">url-filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s1">'.'</span><span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="nf">pop</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s1">'.'</span><span class="w"> </span><span class="p">-%}</span>
+			<span class="p">{%-</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">url-extension</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s1">'.'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">last</span><span class="w"> </span><span class="p">-%}</span>
+			<span class="p">{%-</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">url-extension</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"gif"</span><span class="w"> </span><span class="p">-%}</span>
+				&lt;noscript&gt;&lt;img src="<span class="p">{{</span><span class="w"> </span><span class="nv">url</span><span class="w"> </span><span class="p">}}</span>" /&gt;&lt;/noscript&gt;
+				&lt;img class="lazy" data-src="<span class="p">{{</span><span class="w"> </span><span class="nv">url</span><span class="w"> </span><span class="p">}}</span>"<span class="p">{{</span><span class="w"> </span><span class="nv">rest</span><span class="w"> </span><span class="p">}}</span>
+			<span class="p">{%-</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="p">-%}</span>
+			&lt;noscript&gt;&lt;img
+				srcset="<span class="p">{{</span><span class="w"> </span><span class="nv">url-filename</span><span class="w"> </span><span class="p">}}</span>-560.<span class="p">{{</span><span class="w"> </span><span class="nv">url-extension</span><span class="w"> </span><span class="p">}}</span> 560w,
+						<span class="p">{{</span><span class="w"> </span><span class="nv">url-filename</span><span class="w"> </span><span class="p">}}</span>-655.<span class="p">{{</span><span class="w"> </span><span class="nv">url-extension</span><span class="w"> </span><span class="p">}}</span> 655w,
+						<span class="p">{{</span><span class="w"> </span><span class="nv">url-filename</span><span class="w"> </span><span class="p">}}</span>-874.<span class="p">{{</span><span class="w"> </span><span class="nv">url-extension</span><span class="w"> </span><span class="p">}}</span> 874w,
+						<span class="p">{{</span><span class="w"> </span><span class="nv">url-filename</span><span class="w"> </span><span class="p">}}</span>-1024.<span class="p">{{</span><span class="w"> </span><span class="nv">url-extension</span><span class="w"> </span><span class="p">}}</span> 1024w,
+						<span class="p">{{</span><span class="w"> </span><span class="nv">url-filename</span><span class="w"> </span><span class="p">}}</span>-1230.<span class="p">{{</span><span class="w"> </span><span class="nv">url-extension</span><span class="w"> </span><span class="p">}}</span> 1230w"
+				sizes="(max-width:499px) 82vw,
+						(max-width:799px) 88vw,
+						(max-width:999px) 76vw,
+						64vw"
+				src="<span class="p">{{</span><span class="w"> </span><span class="nv">url</span><span class="w"> </span><span class="p">}}</span>" alt="<span class="p">{{</span><span class="w"> </span><span class="nv">alt</span><span class="w"> </span><span class="p">}}</span>" /&gt;&lt;/noscript&gt;
+						&lt;img class="lazy"
+				data-src="<span class="p">{{</span><span class="w"> </span><span class="nv">url</span><span class="w"> </span><span class="p">}}</span>"
+			data-srcset="<span class="p">{{</span><span class="w"> </span><span class="nv">url-filename</span><span class="w"> </span><span class="p">}}</span>-560.<span class="p">{{</span><span class="w"> </span><span class="nv">url-extension</span><span class="w"> </span><span class="p">}}</span> 560w,
+						<span class="p">{{</span><span class="w"> </span><span class="nv">url-filename</span><span class="w"> </span><span class="p">}}</span>-655.<span class="p">{{</span><span class="w"> </span><span class="nv">url-extension</span><span class="w"> </span><span class="p">}}</span> 655w,
+						<span class="p">{{</span><span class="w"> </span><span class="nv">url-filename</span><span class="w"> </span><span class="p">}}</span>-874.<span class="p">{{</span><span class="w"> </span><span class="nv">url-extension</span><span class="w"> </span><span class="p">}}</span> 874w,
+						<span class="p">{{</span><span class="w"> </span><span class="nv">url-filename</span><span class="w"> </span><span class="p">}}</span>-1024.<span class="p">{{</span><span class="w"> </span><span class="nv">url-extension</span><span class="w"> </span><span class="p">}}</span> 1024w,
+						<span class="p">{{</span><span class="w"> </span><span class="nv">url-filename</span><span class="w"> </span><span class="p">}}</span>-1230.<span class="p">{{</span><span class="w"> </span><span class="nv">url-extension</span><span class="w"> </span><span class="p">}}</span> 1230w"
+			data-sizes="82vw,
+						(min-width:500px) 88vw,
+						(min-width:800px) 76vw,
+						(min-width:1000px) 64vw"<span class="p">{{</span><span class="w"> </span><span class="nv">rest</span><span class="w"> </span><span class="p">}}</span>
+			<span class="p">{%-</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">-%}</span>
+		<span class="p">{%-</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">-%}</span>
+	<span class="p">{%-</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">-%}</span>
+<span class="p">{%-</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">-%}</span>
+
+</code></pre></div></div>
+
+<p>This liquid logic works by taking some HTML - which might look like <code class="language-plaintext highlighter-rouge">&lt;p&gt;Some text here.&lt;/p&gt;&lt;img src="" alt="" /&gt;&lt;h1&gt;Some title here.&lt;/h1&gt;</code>, and then ‘cutting out’ the <code class="language-plaintext highlighter-rouge">&lt;img src="" alt="" </code> part, leaving the HTML as two chunks - <code class="language-plaintext highlighter-rouge">&lt;p&gt;Some text here.&lt;/p&gt;</code> and <code class="language-plaintext highlighter-rouge">/&gt;&lt;h1&gt;Some title here.&lt;/h1&gt;</code>. We harvest the information from both the <code class="language-plaintext highlighter-rouge">src</code> and the <code class="language-plaintext highlighter-rouge">alt</code> properties, and then insert new HTML (to lazily and responsively load the image) between the two chunks of HTML. The end result is that we essentially added additional properties to the img tag, and added an additional <code class="language-plaintext highlighter-rouge">&lt;noscript&gt;&lt;img src="" alt="" /&gt;&lt;/noscript&gt;</code> fallback for if JavaScript is not enabled (so that things continue working as if we hadn’t tried to lazy load it).</p>
+
+<p>It is important that you go through the <code class="language-plaintext highlighter-rouge">srcset</code> and <code class="language-plaintext highlighter-rouge">data-srcset</code> properties and replace the values with those resolutions that you calculated in the previous section (As a reminder, for me these were the sizes 1230, 1024, 874, 655, and 560). <code class="language-plaintext highlighter-rouge">srcset</code> is a way of telling the browser about different sizes of image and what URL they are it without it having to load them, so that it can choose which is best. The <code class="language-plaintext highlighter-rouge">sizes</code> and <code class="language-plaintext highlighter-rouge">data-sizes</code> properties tell the browser what resolution the image will be at different resolution breakpoints to help it determine which of the <code class="language-plaintext highlighter-rouge">srcset</code> images is best to choose. This is where taking a note of your media query breakpoints earlier comes in useful - go through the <code class="language-plaintext highlighter-rouge">sizes</code> and <code class="language-plaintext highlighter-rouge">data-sizes</code> and put your own breakpoints there. It’s okay if you have to create or delete lines to add your <code class="language-plaintext highlighter-rouge">srcset</code> resolutions of <code class="language-plaintext highlighter-rouge">sizes</code> breakpoints - you may have more or less than me - it just depends on your design.</p>
+
+<h1 id="lazy-loading-enable">Lazy Loading Enable</h1>
+
+<p>One final thing before we move on from <code class="language-plaintext highlighter-rouge">img</code> tags - we need to enable lazy loading, or our images won’t show up at all. If you decided you didn’t want to use lazy loading (and therefore deleted the <code class="language-plaintext highlighter-rouge">&lt;noscript&gt;</code> tag and the <code class="language-plaintext highlighter-rouge">data-</code> prefix), then you can skip this section.</p>
+
+<p>Somewhere - probably in the same file as where you replaced <code class="language-plaintext highlighter-rouge">{{ content }}{% raw %}</code> in the previous section - you want to add the script tag that loads the lazy loading library. I decided to use the code they provide to conditionally load the best script for the browser. It’s probably best for you to look at <a href="https://github.com/verlok/lazyload/blob/master/README.md">the ReadMe file yourself</a> to pull the latest conditional load code, but here is the code I got:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">d</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="dl">'</span><span class="s1">body</span><span class="dl">'</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">script</span><span class="dl">"</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">v</span> <span class="o">=</span> <span class="o">!</span><span class="p">(</span><span class="dl">"</span><span class="s2">IntersectionObserver</span><span class="dl">"</span> <span class="k">in</span> <span class="nx">w</span><span class="p">)</span> <span class="p">?</span> <span class="dl">"</span><span class="s2">8.17.0</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">10.19.0</span><span class="dl">"</span><span class="p">;</span>
+    <span class="nx">s</span><span class="p">.</span><span class="k">async</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span> <span class="c1">// This includes the script as async. See the "recipes" section for more information about async loading of LazyLoad.</span>
+    <span class="nx">s</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">https://cdn.jsdelivr.net/npm/vanilla-lazyload@</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">v</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">/dist/lazyload.min.js</span><span class="dl">"</span><span class="p">;</span>
+    <span class="nx">w</span><span class="p">.</span><span class="nx">lazyLoadOptions</span> <span class="o">=</span> <span class="p">{};</span>
+    <span class="nx">b</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
+<span class="p">}(</span><span class="nb">window</span><span class="p">,</span> <span class="nb">document</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p>Just throw this in a script tag as far down in the HTML of your page as you can get away with, and your lazy loading will work, just like that. Boom!</p>
+
+<p>Thanks to everyone who worked on the library!</p>
+
+<h1 id="background-image-media-queries">Background Image Media Queries</h1>
+
+<p>If you’ve looked at my <a href="/">homepage</a> at all, you will see that rather than <code class="language-plaintext highlighter-rouge">img</code> tags, I have a lot of divs with the <code class="language-plaintext highlighter-rouge">background-image</code> property. I think it looks really cool like this - that’s just my personal opinion. I also have a <code class="language-plaintext highlighter-rouge">background-image</code> on every page. If you don’t use <code class="language-plaintext highlighter-rouge">background-image</code> at all in your design, then firstly be grateful, and secondly skip to <a href="#limitations">my summary of the limitations of our approach</a></p>
+
+<p>Unfortunately, <code class="language-plaintext highlighter-rouge">background-image</code> doesn’t have any capabilities to make responsive images nicely. There is no <code class="language-plaintext highlighter-rouge">srcset</code> for <code class="language-plaintext highlighter-rouge">background-image</code>. No <code class="language-plaintext highlighter-rouge">sizes</code>. Hopefully we get something like this <a href="https://drafts.csswg.org/css-images-4/#image-set-notation">one day</a>!</p>
+
+<p>The only solution here we currently have available for <code class="language-plaintext highlighter-rouge">background-image</code> is media queries. <a href="https://ericportis.com/posts/2014/srcset-sizes/">Media Queries are not a good solution to responsive images</a>. It isn’t possible to exhaustively create media queries to perfectly cover every possible screen dimensions and pixel depth, and even if you did, you’d be generating a <em>lot</em> of CSS!</p>
+
+<p>So my solution here is less than ideal, and might even be more hassle than it is worth. I decided to just support 1x screen densities. After adding this solution to my homepage - which includes twelve background images at a time - the majority of the css for my homepage is media queries determining image resolution. In fact, the length of the css just for these media queries is longer than the HTML that creates the post list. So I’m still considering if I want to use this for the post list on my homepage.</p>
+
+<p>I think there is <em>some</em> value in adding this for you to use, so here it is:</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">raw</span><span class="w"> </span><span class="p">%}</span>{% capture background-image %}{% if page.background %}{{ page.background }}{% elsif layout.background %}{{ layout.background }}{% else %}default-background.jpg{% endif %}{% endcapture %}
+{% assign image-extension = background-image | split: '.' | last %}
+{% assign image-name = background-image | split: '.' | pop | join: '.' %}
+
+/* Our cutoffs for backgrounds are at 1920,1600,1366,1024,768,640 */
+/* Default size will be 640 (mobile first) */
+body {
+	background-image: url("/assets/images/backgrounds/{{ image-name }}-640.{{ image-extension }}");
+}
+/* Now what if we're bigger than 640? We want next size up, etc */
+@media (min-width: 641px){
+	body {
+		background-image: url("/assets/images/backgrounds/{{ image-name }}-768.{{ image-extension }}");
+	}
+}
+@media (min-width: 769px){
+	body {
+		background-image: url("/assets/images/backgrounds/{{ image-name }}-1024.{{ image-extension }}");
+	}
+}
+@media (min-width: 1025px){
+	body {
+		background-image: url("/assets/images/backgrounds/{{ image-name }}-1366.{{ image-extension }}");
+	}
+}
+@media (min-width: 1367px){
+	body {
+		background-image: url("/assets/images/backgrounds/{{ image-name }}-1600.{{ image-extension }}");
+	}
+}
+@media (min-width: 1601px){
+	body {
+		background-image: url("/assets/images/backgrounds/{{ image-name }}-1920.{{ image-extension }}");
+	}
+}
+/* Gone past all our breakpoints... show the original image now instead */
+@media (min-width: 1921px){
+	body {
+		background-image: url("/assets/images/backgrounds/{{ image-name }}.{{ image-extension }}");
+	}
+}
+
+</code></pre></div></div>
+
+<p>This code works for 100% width background images, so if your <code class="language-plaintext highlighter-rouge">background-image</code>s are used in a similar way to mine, then it requires no modification.</p>
+
+<h1 id="limitations">Limitations</h1>
+
+<p>This approach isn’t perfect - by far!</p>
+
+<ol>
+  <li>We’re using a lot more filesystem space. My GitHub repository increased from 240MB to 380MB, which is a more than 50% increase. GitHub has a maximum (compressed) repository size of 1GB, so I only have “so much time” until I can’t use it any more. For reference, I have a few dozen posts and around 300 images.</li>
+  <li>The <a href="#image-tag-srcset-generation">image srcset creation</a> and <a href="#background-image-media-queries">background image media queries</a> code is dumb. Sadly, liquid logic gives no access to the filesystem - this would be a huge security hole! This means that if a file is <em>missing</em>,  it doesn’t know not to include it in the <code class="language-plaintext highlighter-rouge">srcset</code>. This has some real disadvantages. It means that our <a href="#new-image-resolution-generation">image generation script</a>, <code class="language-plaintext highlighter-rouge">responsiveimages.py</code>, has to generate files for <em>all sizes</em>, <strong>even if those sizes are larger than the base image!</strong>. I tried to make the <code class="language-plaintext highlighter-rouge">responsiveimages.py</code> script smart-er by generating those ‘larger’ resolution files at the same size as the base image, but it’s not perfect. This means we’re using a lot more filesystem space to store the images than we need to, making problem #1 even worse. (For what it’s worth, I can think of two different workarounds that would avoid this problem, but I don’t think either are worth the time to pursue and implement.)</li>
+  <li>The <a href="#background-image-media-queries">background image media queries</a> are very simplistic - they only support 1x screen densities, which probably isn’t realistic on the modern web. My mobile phone has a higher (hardware) screen resolution than my laptop. So I’m actually making my site look worse by doing this. Oops.</li>
+  <li>I actually didn’t realise this one until I started writing the <a href="#results">results</a> section of this post. You can’t preview your images as you are writing a post, because srcset will point you to one of the resized images, which won’t be generated until you commit. Edit: I figured out that you can actually fix this by wrapping everything the image srcset generation with a <code class="language-plaintext highlighter-rouge">{%- if jekyll.environment == "production" -%}</code> and a <code class="language-plaintext highlighter-rouge">{%- else -%}{{ content }}{%- endif -%}</code>. GitHub Pages automatically has the Jekyll environment set to production, but you probably don’t locally.</li>
+</ol>
+
+<h1 id="results">Results</h1>
+
+<p>I tested my site on <a href="https://gtmetrix.com">GTmetrix</a> before and after I made these changes.</p>
+
+<p>Site Homepage:</p>
+
+<p><img src="https://jetholt.com/assets/images/content/responsive-home-old.jpg" alt="My site homepage before responsive images." />
+<em>My site homepage before responsive images.</em></p>
+
+<p><img src="https://jetholt.com/assets/images/content/responsive-home-new.jpg" alt="My site homepage before responsive images." />
+<em>My site homepage after responsive images. 5x faster and 5x less data transferred.</em></p>
+
+<p>A Blog Post:</p>
+
+<p><img src="https://jetholt.com/assets/images/content/responsive-post-old.jpg" alt="Terrible! A post before responsive images and lazy loading. The images are **really** heavy here." />
+<em>Terrible! A post before responsive images and lazy loading. The images are <strong>really</strong> heavy here.</em></p>
+
+<p><img src="https://jetholt.com/assets/images/content/responsive-post-new.jpg" alt="A post after responsive images and lazy loading. 11x faster and 120x less data. Lazy Loading really helped here." />
+<em>A post after responsive images and lazy loading. 11x faster and 120x less data. Lazy Loading really helped here.</em></p>
+
+<p>I find it interesting that PageSpeed and YSlow can be so high on some of these, despite them having (relatively) much slower speeds than the more responsive and optimised ones.</p>
+
+<p>Altogether, I think the results of this was definitely worth doing. I’m not somebody who takes time cropping images to all be a consistent size (it takes me long enough to add images to my blog posts), so it’s nice to have an automated system to ‘save me’ when I do badly and prevents me from serving 3MB images all over the place.</p>
+
+</div>
+		
+		<p id="calltoaction"><em>P.S. I'm late to the party, but I recently got <a href='https://twitter.com/JetroidMakes'>a twitter account</a> that you can follow <a href='https://twitter.com/intent/user?screen_name=JetroidMakes'>here</a>.</em></p>
+		
+	</article>
+	<hr class="divider"/>
+	
+	<div id="mailchimp-signup">
+<h2 id="mailchimp-text">Receive an email whenever I post. <span class="nobr">No spam, no ads,</span> <a class="nobr" href="http://us17.campaign-archive.com/home/?u=5c7e4e051f07ca709dea5942a&id=027962a690">just notifications</a></h2>
+<form action="https://jetholt.us17.list-manage.com/subscribe/post?u=5c7e4e051f07ca709dea5942a&amp;id=027962a690" method="post" target="_blank">
+	<input class="mailchimp-entry" type="text" name="FNAME" placeholder="Name" required>
+	<input class="mailchimp-entry" type="email" name="EMAIL" placeholder="Email" required>
+	<!-- real people should not fill this next one in and expect good things - do not remove this or risk form bot signups !-->
+	<input type="text" name="b_5c7e4e051f07ca709dea5942a_027962a690" tabindex="-1" value="" hidden>
+	<input id="mailchimp-submit" type="submit" value="Subscribe" name="subscribe" class="button">
+</form>
+</div>
+
+	<hr class="divider"/>
+	
+	<footer id="navigation">
+		
+			<a id="prev-post" href="/old-shoes/">&lsaquo;A Testament To Frugality, Stubbornness, and Perseverance</a>
+		
+		
+			<a id="next-post" href="/hiking-new-year/">Hiking New Year&rsaquo;</a>
+		
+	</footer>
+</div>
+</div>
+
+		<!-- Custom JS
+			Seperate file - use js in YAML front matter
+			Inline - use inline_js in YAML front matter !--><!-- Custom JS (as seperate file) - use custom_js in YAML front matter !-->
+
+
+
+
+
+
+<script>
+
+</script>
+
+
+
+<script
+		  async
+		  src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.4.0/dist/lazyload.min.js"
+		></script>
+		</div>
+	</body>
+</html>
+

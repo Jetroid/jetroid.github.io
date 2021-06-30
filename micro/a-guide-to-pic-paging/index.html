@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+
+<html lang="en" Itemscope=”Blog”>
+	<head>
+	<link rel="dns-prefetch" href="//www.google-analytics.com" />
+	<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+
+	<!-- Custom Preconnects - use custom_preconnect in YAML front matter !-->
+	
+    
+    
+	
+
+	<title itemprop=”name”>A Guide to PIC Microcontroller Paging - Jet Holt</title>
+<meta name="description" content="A comprehensive guide to PIC Microcontroller Paging. What is it, and how can we work around it?" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHiAiACAhocHbnaJSFNehKdARFTkCgcI+wYDBfsFAwbkFRQepycnOUgBAAAHDQoSAAAAAAAAAAAAenx1AICKlgCAiZQYf4eQkneAj+5SXof/SlBk/w8MDv8GBAb/BQMF/woHCv8OCg/uExEakjY6ShgmJjEAMkR9AIaVqgCGl6wYhJChsX2Il/9kb4L/PUVi/zA0Qv8NCQz/CAUH/wcEBv8GAwX/CQQH/xcWH/9KUGOxZm+DGFtjeACMmasGiZirkoqZrf9/jaH/T1dl/xENEP8IBQf/CQUH/woGCP8JBgf/BwQF/wcEBv8ZFx//XWBv/2hte5JlbH0GoaawSZ+lsO2jqLL/qK65/4aJkv8SDxD/CAUG/woGCP8LBgf/CgUH/wkFB/8MBwn/Hh0k/36BjP+AhpPtdHqJSbe2uKe3trj/uLa4/7q4uv+RjZD/Ew4Q/woFB/8OCg//Hh0t/xQQGP8NCAn/DgkK/y4rMP+mqK3/ub3C/6mutqfGxsbjxsXF/8TExP/ExMX/rKys/ywnJ/8LBQX/Gxwr/zM/a/8tNlb/DwsP/xEMDv9qamz/wsPD/6yusP9dX2Tjy8fG+8rHxv/Jxsf/yMfJ/8jIyv+cmp3/QTw+/yImOP82TID/SWqk/zQ4SP9tZ2b/wLq4/9PLyf+5s7P/cGpq+8C9wPvFv7//zMTD/9DIxv/Uzcv/1tDP/5+fqv9BS3H/TG+q/1d9tf95eYL/1MjD/93SzP/azsj/18zH/8/Gwvu/u7Ljw7yw/8bAtP/Kw7j/xL+2/7+8tP+EhJb/RVCI/2CAv/9IaaL/V1hj/8a+tP/Nxbv/zMS7/87Hwf/MxsHjx7ulp8O3of/BtZ//xbqk/7+0nf+1q5T/aWdy/0dPff9PX43/NERo/3Z3eP++tZz/wrqi/8a/qv/IxLP/y8i8p8m5oUnJuqLtxraf/8GxmP+/rZP/u6qP/2BbXf85Plr/OkZm/zE/WP+LjIz/yLmi/8a4of/Jv6r/ycGv7czHt0nCspkGyLmlkse5pv++r5r/v7CZ/8W1nf99dnD/LjE9/zU+Uf9WYHL/rqWa/8a2ov/EtaD/xLak/8G0opLMxbkG3trTANrUyxjj49yx5ubh/+bn4//m5+P/3+De/7e7vf+0u8D/0dXX/+Tm4v/j5eH/4uXg/9zd2LHEvLAYysW8APr+/gDu8u0A7vPuGPD08JLy9fDu8vXv//P28P/1+PL/9fjy//T38P/z9u7/8vbv7vH38ZLy+vgY8Pj1AP///wAAAAAAAAAAAPPz5wDz8+YH9fXqSPf476f3+O/k+Pft+/j36/v49+vk9/frp/b360j19uoH9fbrAAAAAAAAAAAA4AcAAMADAACAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAADAAwAA4AcAAA==" />
+
+<meta name="author" content="Jet Holt" />
+<meta property="og:title" content="A Guide to PIC Microcontroller Paging" />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:description" content="A comprehensive guide to PIC Microcontroller Paging. What is it, and how can we work around it?" />
+<meta property="og:url" content="https://jetholt.com/micro/a-guide-to-pic-paging/" />
+<meta property="og:site_name" content="Jet Holt" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://jetholt.com/assets/images/backgrounds/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name=”twitter:url” content=”https://jetholt.com/micro/a-guide-to-pic-paging/”>
+<meta name="twitter:title" content="A Guide to PIC Microcontroller Paging - Jetroid" />
+<meta name="twitter:description" content="A comprehensive guide to PIC Microcontroller Paging. What is it, and how can we work around it?" />
+<meta name="twitter:creator" content="@jetroidmakes" />
+<meta name="twitter:site" content="@jetroidmakes" />
+
+
+<meta property="og:image" content="https://jetholt.com/assets/images/backgrounds/background-blog.jpg" />
+<meta name="twitter:image" content="https://jetholt.com/assets/images/backgrounds/background-blog.jpg" />
+
+<script type="application/ld+json">
+{"sameAs":["https://twitter.com/JetroidMakes","https://www.instagram.com/jetroidmakes/","https://www.facebook.com/Jetroid"],"@type":"WebSite","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://jetholt.com/assets/images/jetroid-logo-miami.png"},"name":"Jetroid"},"url":"https://jetholt.com/","name":"Jetroid","author":{"@type":"Person","name":"Jet Holt"},"image":"https://jetholt.com/assets/images/jetroid-logo-miami.png","headline":"Jetroid","description":"Jet 'Jetroid' Holt. Maker, programmer, and Computer Science graduate.","@context":"http://schema.org"}</script>
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Main Posts RSS Feed" href="/feed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Micro RSS Feed" href="/microfeed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Jet Holt &raquo; Everything RSS Feed" href="/all.xml" />
+
+
+	<meta name="google-site-verification" content="9pNs8vHQ1C9hsyUgQ6tFQDPzNH_ANAd8kB9GcnBARYc" />
+
+	
+
+	<script>
+		window.lazyLoadOptions = {
+			threshold: 250
+		};
+		window.addEventListener(
+			"LazyLoad::Initialized",
+			function (event) {
+				window.lazyLoadInstance = event.detail.instance;
+			},
+			false
+		);
+	</script>
+	<!-- Custom CSS
+			Seperate file - use css in YAML front matter
+			Inline - use inline_css in YAML front matter !-->
+
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}.nobr{white-space:nowrap}.hidden{display:none !important}.hidden-opacity{opacity:0;pointer-events:none}.sr-only{position:absolute;white-space:nowrap;width:1px;height:1px;overflow:hidden;border:0;padding:0;clip:rect(0 0 0 0);clip-path:inset(50%);margin:-1px}img:not([src]):not([srcset]){visibility:hidden}:root{--white: #cfcfc9;--grey: #373731;--gray: #373731;--pink: #d05d5d;--lightblue: #94cbc4}body{font-family:monospace;color:#cfcfc9}.main-wrapper{overflow-x:hidden;width:100vw}a,.clickable{text-decoration:none;color:#d05d5d}a:hover,.clickable:hover{text-shadow:0.08em -0.08em #373731;cursor:pointer;text-decoration:underline}.handwritten{font-family:Caveat Brush, cursive !important}body{font-family:monospace}code.highlighter-rouge{background:#373731;white-space:pre-wrap}#page-header{width:100%;text-align:center;position:relative;height:20vh}.post #page-header{height:100vh}#title-stuff{position:absolute;width:100%;top:50%;left:50%;transform:translate(-50%, -50%)}.micro #page-header{height:auto}.micro #title-stuff{padding-top:5vh;position:static;transform:none}th,td,table{box-sizing:border-box;border:1px solid #373731;border-collapse:collapse}table{width:100%}.table-container{width:100%;overflow-x:auto;margin-bottom:1em}th,td{padding-left:10px;padding-right:10px}td{text-align:right}#page-title{color:#d05d5d;font-family:"Roboto",Helvetica,sans-serif;font-weight:100;margin-bottom:5px;font-weight:bold;text-shadow:2px 2px #373731;font-size:10vw}#page-subtitle{margin:0;font-weight:bold;text-shadow:0px 1px #373731, 0px -1px #373731, 1px 0px #373731, -1px 0px #373731, 2px 2px #373731}.divider{width:100%;height:0.3vh;background:#cfcfc9;display:block;box-sizing:border-box}#post-content>h1:first-child,#post-content>h2:first-child{padding-top:20px}#post-content,#calltoaction,#page-subtitle{font-size:5vw}#post-content h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:0}#post-content h1{font-size:7.5vw}#post-content h2{font-size:7.25vw}#post-content h3{font-size:7vw}#post-content h4{font-size:6.75vw}#post-content h5{font-size:6.5vw}#post-content h6{font-size:6.25vw}.post-date{margin-top:0;margin-bottom:0;font-size:5vw}.post-container,#navigation{padding-top:20px;padding-bottom:20px}.post-container img{display:block;max-width:100%;max-height:600px;margin:0 auto;border-radius:5px}.post-container a>img.lazy{height:1px}a.img+a.img,img+img,em+a.img,em+img{margin-top:10px !important;display:block}.post-container img.loaded{height:auto !important}img.emoji{display:inline;height:1em;width:1em}#post-content>p:first-child{margin-top:1vh}a.img+em,img+em{display:block;text-align:center}blockquote{background:rgba(55,55,49,0.3);border:2px solid #d05d5d;border-style:none none none solid;margin:1em 0}@media (min-width: 500px){blockquote{margin:1em 1em}}blockquote p{margin:0 0 0 1em}pre,code{border:1px solid #d05d5d}pre{white-space:pre;overflow:auto;background-color:#474741;padding:15px}pre code{border:none;font-size:smaller}p code{word-break:break-all}#post-content small{font-size:smaller}#post-content small *{font-size:1em}@media (min-width: 500px){#post-content>p{text-align:justify}}#navigation{margin:0;font-size:4vw;display:block;width:auto;overflow:hidden}#navigation .divider{margin-bottom:20px}#navigation a,#navigation p{margin:0;display:block;width:100%;margin:5px 0}#navigation #next-post{text-align:right}@media (min-width: 500px){#navigation a,#navigation p{width:50%;float:left;margin:0}}.youtube{position:relative;padding-bottom:56.25%;padding-top:25px;height:0;margin-bottom:25px}.youtube iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}#post-content>p:last-child>a:not(.img):not(.no-cta):only-child::before,#post-content a.cta::before{content:"► "}#post-content>p:last-child>a:not(.img):not(.no-cta):only-child,#post-content a.cta{font-size:larger}.spoiler:hover{color:#cfcfc9;background:transparent}.spoiler{color:#d05d5d;background:#d05d5d}.spoiler::before{content:"Spoiler";position:relative;color:#cfcfc9;margin:auto}.spoiler:hover::before{display:none}.visually-hidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap}@media (min-width: 500px){#page-title{font-size:5vw}#post-content,#calltoaction,#page-subtitle{font-size:1.4vw}#post-content h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:0}#post-content h1{font-size:3.5vw}#post-content h2{font-size:3.25vw}#post-content h3{font-size:3vw}#post-content h4{font-size:2.75vw}#post-content h5{font-size:2.5vw}#post-content h6{font-size:2.25vw}.post-date{font-size:1.5vw}#navigation{font-size:2.2vw}}@media (min-width: 1440px){#page-title{font-size:72px}#post-content,#calltoaction,#page-subtitle{font-size:20px}#post-content h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:0}#post-content h1{font-size:3.5vw}#post-content h2{font-size:3.25vw}#post-content h3{font-size:3vw}#post-content h4{font-size:2.75vw}#post-content h5{font-size:2.5vw}#post-content h6{font-size:2.25vw}.post-date{font-size:1.5vw}#navigation{font-size:2.2vw}}.borders{padding-left:9vw;padding-right:9vw}@media (min-width: 500px){.borders{padding-left:6vw;padding-right:6vw}}@media (min-width: 800px){.borders{padding-left:12vw;padding-right:12vw}}@media (min-width: 1000px){.borders{padding-left:18vw;padding-right:18vw}}body{background-position:center center;background-size:cover;background-repeat:no-repeat;background-attachment:fixed}.background{background:rgba(55,55,49,0.9)}@media (min-width: 500px){#mailchimp-text{font-size:2.5vh}.mailchimp-entry{width:30%}#mailchimp-submit{width:29%}}@media (max-width: 500px){#mailchimp-signup form input{width:100%;margin:0 auto;padding:15px 15px}}#mailchimp-submit{background:#d05d5d;color:black;-webkit-box-shadow:inset 0 5px rgba(255,255,255,0.2);-moz-box-shadow:inset 0 5px rgba(255,255,255,0.2);box-shadow:inset 0 5px rgba(255,255,255,0.2)}#mailchimp-signup form input{font-size:3vh;padding:10px 15px;border:none;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}#mailchimp-signup{text-align:center}#mailchimp-signup form{margin:0 auto;width:100%;padding-top:20px}#linkback,#linkback img{width:300px;z-index:50000;position:relative}@media (max-width: 500px){#linkback img{width:50%}}#linkback a img{position:absolute;left:0}
+
+</style><!-- Custom Stylesheets - use custom_css in YAML front matter !-->
+
+
+
+<!-- Google Fonts
+			Linking as a stylesheet directly from their API.
+			- use google_font in YAML front matter.
+			- Just include the name (as it would appear in a URL)
+			for example "Nanum+Pen+Script"
+		!--><!-- Custom Google Fonts - use google_font in YAML front matter !-->
+
+
+
+
+
+<!-- Set Canonical URLS for latest and latestmicro !-->
+	
+		<link rel="canonical" href="https://jetholt.com/micro/a-guide-to-pic-paging/" />
+	
+
+	</head>
+	<body class="lazy" data-bg="background-blog.jpg">
+		<div class="main-wrapper">
+		
+		<nav id="linkback"><a href="/"><img src="/assets/images/jetroid-logo-miami.png" /></a></nav>
+		
+
+		<div id="inside" class="micro">
+
+<header id="page-header">
+	<nav id="linkback"><a href="/"><img src="/assets/images/jetroid-logo-miami.png" /></a></nav>
+	<div id="title-stuff">
+		<h1 id="page-title" class="borders">A Guide to PIC Microcontroller Paging</h1>
+		<p id="page-subtitle" class="borders">A comprehensive guide to PIC Microcontroller Paging. What is it, and how can we work around it?</p>
+	</div>
+</header>
+<div class="background  borders">
+	<article class="post-container">
+		<time class="post-date">2020/06/12</time>
+		<hr class="divider"/>
+		<div id="post-content"><p>When your program grows long enough on a simple PIC microcontroller, you will eventually reach a point where your code no longer fits on a single page.</p>
+
+<p>I’m writing this to explain the problem and hopefully  What is it, and how can we work around it?help you avoid some of the pitfalls that I experienced when I ran up against this problem for the first time recently.</p>
+
+<h1 id="an-introduction-to-paging">An Introduction to Paging</h1>
+
+<h5 id="what-is-a-page">What is a page?</h5>
+
+<p>So what is a page? Well, an instruction like a <code class="language-plaintext highlighter-rouge">goto</code> or a <code class="language-plaintext highlighter-rouge">call</code> can only hold so many bits of address in it. We use page to refer to all of the instruction addresses that a single <code class="language-plaintext highlighter-rouge">goto</code> or <code class="language-plaintext highlighter-rouge">call</code> can reach without additional helper commands.</p>
+
+<p>For example, 14 bit devices like the PIC16F88 or PIC16F1765’s <code class="language-plaintext highlighter-rouge">goto</code> and <code class="language-plaintext highlighter-rouge">call</code> contain just 11 bits worth of address in their opcode, meaning that the page size is 2^11 (2048) instructions. The 16F88 and 16F1765 have 4096 (2^12) and 8192 (2^13) total addresses, meaning that they have 2 and 4 pages, respectively. 12 bit devices like the PIC10F series have only 9 bits worth of address in their <code class="language-plaintext highlighter-rouge">goto</code>/<code class="language-plaintext highlighter-rouge">call</code> opcodes (512 addresses), but can have up to 1024 instructions.</p>
+
+<p>The specifics of the numbers that I am quoting here may change from device to device, but the general principles of this article should apply. Notably, PIC18 devices and above do not use paging, so this article can be ignored for those devices.</p>
+
+<h5 id="whats-wrong-with-paging">What’s wrong with paging?</h5>
+
+<p>Paging is a problem because when we try to jump to a label that is not on the same code page as us, we instead jump to the equivalent location in our own page, which is decidedly <em>not</em> where we wanted to be.</p>
+
+<p>You can visualise the problem using the table below. Just imagine that the table had 2048 rows. Just lookup the address that you’re trying to jump to, then follow it along and look at the column of the page you’re currently in. This table is correct for 14 bit devices.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Page 0</td>
+      <td>Page 1</td>
+      <td>Page 2</td>
+      <td>Page 3</td>
+    </tr>
+    <tr>
+      <td>0x0000</td>
+      <td>0x0800</td>
+      <td>0x1000</td>
+      <td>0x1800</td>
+    </tr>
+    <tr>
+      <td>0x0001</td>
+      <td>0x0801</td>
+      <td>0x1001</td>
+      <td>0x1801</td>
+    </tr>
+    <tr>
+      <td>0x0002</td>
+      <td>0x0802</td>
+      <td>0x1002</td>
+      <td>0x1802</td>
+    </tr>
+    <tr>
+      <td>…</td>
+      <td>…</td>
+      <td>…</td>
+      <td>…</td>
+    </tr>
+    <tr>
+      <td>0x07FD</td>
+      <td>0x0FFD</td>
+      <td>0x17FD</td>
+      <td>0x1FFD</td>
+    </tr>
+    <tr>
+      <td>0x07FE</td>
+      <td>0x0FFE</td>
+      <td>0x17FE</td>
+      <td>0x1FFE</td>
+    </tr>
+    <tr>
+      <td>0x07FF</td>
+      <td>0x0FFF</td>
+      <td>0x17FF</td>
+      <td>0x1FFF</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For example, if we’re on a 14 bit device and in page 0 (ie we are currently on an instruction between 0x0000 to 0x07FF), then if we try to <code class="language-plaintext highlighter-rouge">goto</code> a label at address 0x0FFD (page 1), we will instead jump to whatever instruction is at 0x7FD instead.</p>
+
+<p>Landing at (and subsequently executing) an instruction of code that you didn’t intend to can be catastrophic for obvious reasons.</p>
+
+<h5 id="page-selection">Page selection</h5>
+
+<p>So how do we use those instructions that aren’t on the same page as us? How do we make sure that we jump to the instruction that we intended to?</p>
+
+<p>Before we explain that, let’s examine what a jump instruction like <code class="language-plaintext highlighter-rouge">goto</code> and <code class="language-plaintext highlighter-rouge">call</code> is really doing.</p>
+
+<p>Really, <code class="language-plaintext highlighter-rouge">goto</code> and <code class="language-plaintext highlighter-rouge">call</code> are just quick and convenient ways of setting the program counter (if we ignore the <code class="language-plaintext highlighter-rouge">return</code> part of <code class="language-plaintext highlighter-rouge">call</code> for a moment). In a PIC, the program counter is split across two bytes; the least significant bits go in <code class="language-plaintext highlighter-rouge">PCL</code>, whilst the most significant bits go to <code class="language-plaintext highlighter-rouge">PCLATH</code>. The <code class="language-plaintext highlighter-rouge">goto</code> and <code class="language-plaintext highlighter-rouge">call</code> instructions write a full byte to <code class="language-plaintext highlighter-rouge">PCL</code> and then a few bits to <code class="language-plaintext highlighter-rouge">PCLATH</code>. The problem is that they do not write all of the bits of the label. the most significant bits.</p>
+
+<p>As an example, I’ll rewrite a <code class="language-plaintext highlighter-rouge">goto</code> instruction in an equivalent using just <code class="language-plaintext highlighter-rouge">movlw</code> and <code class="language-plaintext highlighter-rouge">movwf</code>. I’m not suggesting that we should ever consider using the second block of code, though!</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    goto    label
+
+    org 0x0800      ;label is on page 1
+label:
+    ; some code here
+</code></pre></div></div>
+
+<p>This code could be rewritten as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    movlw   HIGH label  ;this is equivalent to movlw 0x08
+    movwf   PCLATH
+    movlw   LOW label   ;this is equivalent to movlw 0x00
+    movwf   PCL
+
+    org 0x0800      ;label is on page 1
+label:
+    ; some code here
+</code></pre></div></div>
+
+<p>Technically, the second block of code is not 100% equivalent. Why? Well, it uses more instructions (so more memory and also takes longer to execute) but it also sets ALL bits of the Program Counter, not just the ones that a <code class="language-plaintext highlighter-rouge">goto</code> or <code class="language-plaintext highlighter-rouge">call</code> can.</p>
+
+<p>We <em>could</em> use the second block of code to goto to a correct page, but it would be annoying to use in practice because it would mangle the W register.</p>
+
+<p>There’s an easier way to set the upper bits of PCLATH: <code class="language-plaintext highlighter-rouge">pagesel</code>.</p>
+
+<h5 id="pagesel">Pagesel</h5>
+
+<p><code class="language-plaintext highlighter-rouge">pagesel</code> is an assembler directive that automatically generates commands to adjust the upper bits of PCLATH that <code class="language-plaintext highlighter-rouge">goto</code> and <code class="language-plaintext highlighter-rouge">call</code> do not set.</p>
+
+<p>We simply call <code class="language-plaintext highlighter-rouge">pagesel &lt;label&gt;</code> before executing a call or goto.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    pagesel label
+    goto    label
+
+    org 0x0800      ;label is on page 1
+label:
+    ;some code here
+</code></pre></div></div>
+
+<p>If <code class="language-plaintext highlighter-rouge">label</code> was on the second page of a 14 bit microcontroller (ie one where <code class="language-plaintext highlighter-rouge">goto</code> has only 11 bits), then the <code class="language-plaintext highlighter-rouge">pagesel</code> might be translated to this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    bcf     PCLATH,4
+    bsf     PCLATH,3
+    goto    label
+
+    org 0x0800      ;label is on page 1
+label:
+    ;some code here
+</code></pre></div></div>
+
+<p>Obviously, we could write that code ourselves, but it’s usually clearer (and more portable when you want to transfer your code to a new device!) to just use <code class="language-plaintext highlighter-rouge">pagesel</code></p>
+
+<h5 id="when-to-use-pagesel">When to use pagesel</h5>
+
+<p>The reason we have paging is because <code class="language-plaintext highlighter-rouge">goto</code> and <code class="language-plaintext highlighter-rouge">call</code> do not contain the full address of the label that they are trying to return to. So what about <code class="language-plaintext highlighter-rouge">return</code>, <code class="language-plaintext highlighter-rouge">retfie</code>, or <code class="language-plaintext highlighter-rouge">retlw</code>? Do these commands contain the full address?</p>
+
+<p>In short, yes. Pagesel is not needed before these commands because the full address is stored on the stack at the time of the <code class="language-plaintext highlighter-rouge">call</code> or interrupt occurring. We will always return to the correct page and instruction.</p>
+
+<p>However, the <code class="language-plaintext highlighter-rouge">return</code>/<code class="language-plaintext highlighter-rouge">retfie</code>/<code class="language-plaintext highlighter-rouge">retlw</code> do NOT correct the PCLATH to point to the page that we are returning to. This can be useful but it can also be a hindrance.</p>
+
+<p>In the following example, we want to make many calls to routines that are on page 1. Not having the <code class="language-plaintext highlighter-rouge">return</code> change PCLATH is useful here because we don’t have to repeat <code class="language-plaintext highlighter-rouge">pagesel</code> before each <code class="language-plaintext highlighter-rouge">call</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    pagesel label1
+    call    label1
+
+                    ;Because PCLATH isn't altered by the return,
+                    ;we don't need a pagesel here
+    call    label2
+
+                    ;Because PCLATH isn't altered by the return,
+                    ;we don't need a pagesel here
+    call    label3
+
+    org 0x0800      ;label1, label2, and label3 are all on page 1
+label1:
+    ;some code here
+    return
+
+label2:
+    ;some code here
+    return
+
+label3:
+    ;some code here
+    return
+</code></pre></div></div>
+
+<p>In the next example, we make just one call to a routine on page 1 before wanting to goto a routine on page 0. Because <code class="language-plaintext highlighter-rouge">PCLATH</code> was not changed by <code class="language-plaintext highlighter-rouge">return</code>, the <code class="language-plaintext highlighter-rouge">goto foo</code> will fail and instead go to some location in page 1.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    pagesel label
+    call    label
+
+                    ;DANGER! PCLATH is not changed by the return, so
+                    ;a pagesel is needed here to stop the `goto` from
+                    ;putting us somewhere in page 1
+    goto    foo
+
+foo:
+    ;some code here
+
+    org 0x0800      ;label is on page 1
+label:
+    ;some code here
+    return
+</code></pre></div></div>
+
+<p>If we want to be safe, we can always include a <code class="language-plaintext highlighter-rouge">pagesel $</code> instruction after a call. <code class="language-plaintext highlighter-rouge">pagesel $</code> is just a short way of saying “Select the page that we are currently executing”.</p>
+
+<p>The previous examples have been written to use this technique.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    pagesel label1
+    call    label1
+    pagesel $		;This works, but is unnecessary
+
+    pagesel label2
+    call    label2
+    pagesel $		;This works, but is unnecessary
+
+    pagesel label3
+    call    label3
+    pagesel $
+
+    org 0x0800      ;label1, label2, and label3 are all on page 1
+label1:
+    ;some code here
+    return
+
+label2:
+    ;some code here
+    return
+
+label3:
+    ;some code here
+    return
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    pagesel label
+    call    label
+    pagesel $		;Our `goto foo` now goes to the correct place!
+
+    goto    foo
+
+foo:
+    ;some code here
+
+    org 0x0800      ;label is on page 1
+label:
+    ;some code here
+    return
+</code></pre></div></div>
+
+<p>As with many things in assembly, it often comes down to understanding the rules. If you’re unclear, there is a safe but suboptimal way, but if you know what you are doing, you can be much more efficient.</p>
+
+<h1 id="paging-and-interrupts">Paging and Interrupts</h1>
+
+<p>The previous sections have covered everything that you need to know for a PIC micro-controller project that does not use interrupts.</p>
+
+<p>When using interrupts, a few new problems pop up, as will be discussed shortly.</p>
+
+<h5 id="context-saving">Context Saving</h5>
+
+<p>As you are probably aware, when entering an interrupt service routine, your program jumps out of the normal program flow and jumps to a special interrupt service routine. This jump can occur at any point between any two different lines of code in your application. Unfortunately, the instructions in your interrupt service routine can inadvertently disrupt your non-isr code by changing the values of common registers.</p>
+
+<p>Of note here is that one of the registers that we could inadvertently change is the PCLATH register - the upper byte of your program counter. The interrupt doesn’t change this when jumping to the interrupt vector, but you could unwittingly change it in your code. If you did that, then returning from the interrupt and executing a <code class="language-plaintext highlighter-rouge">call</code> or <code class="language-plaintext highlighter-rouge">goto</code> would cause your code to jump to the incorrect page, even if <code class="language-plaintext highlighter-rouge">pagesel</code> had previously been used correctly!</p>
+
+<p>Thankfully, if you’re using a newer device, Microchip has thought of this and implemented a hardware ‘context saving’ feature, so you don’t have to worry. Search for ‘Automatic Context Saving’ in your datasheet to check if you have it.</p>
+
+<p>On older devices, you have to implement this yourself. I use the following block of code for my interrupt service routines. I don’t remember writing this myself so I’ve inevitably stolen it from somewhere, but I consider it to be a pretty standard boilerplate piece of code, so I don’t mind sharing it.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>InterruptEnter:
+    movwf   W_TEMP          ;save W register
+    swapf   STATUS, w       ;swap status to be saved into W (movf alters status)
+    movwf   STATUS_TEMP     ;save STATUS register
+    movfw   PCLATH
+    movwf   PCLATH_TEMP     ;save PCLATH register
+
+    ;Your Interrupt Routine Code Goes Here
+
+    movfw   PCLATH_TEMP     ;restore PCLATH register (correct code page)
+    movwf   PCLATH
+    swapf   STATUS_TEMP, w  ;restore STATUS register
+    movwf   STATUS
+    swapf   W_TEMP, f       ;restore W register
+    swapf   W_TEMP, w
+    retfie
+</code></pre></div></div>
+
+<p>Note that we use swapf because movf alters STATUS bits.</p>
+
+<p>Naturally, if you are sure that you aren’t altering W, STATUS, or PCLATH in your ISR, you don’t need to do some/all of the above.</p>
+
+<h5 id="jumping-during-isr">Jumping during ISR</h5>
+
+<p>The next problem comes once we’ve already saved the context.</p>
+
+<p>The interrupt does not change the PCLATH. That means that if you jumped into the ISR from a different page, any calls or goto’s would point to the wrong pages!</p>
+
+<p>I suggest including a <code class="language-plaintext highlighter-rouge">pagesel $</code> just before the <code class="language-plaintext highlighter-rouge">;Your Interrupt Routine Code Goes Here</code> line in the code snippet above.</p>
+
+<p>Automatic Context Saving does NOT solve this problem, so on a newer device with context saving, your interrupt might look like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>InterruptEnter:
+    pagesel $
+
+    ;Your Interrupt Routine Code Goes Here
+
+    retfie
+</code></pre></div></div>
+
+<h5 id="goto-isr">GOTO ISR</h5>
+
+<p>The main reason I wanted to write this article was to highlight the following issue. Took me a while to get here, I know!</p>
+
+<p>You’ll often see something like this at the top of assembly programs online:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    org 0x0000              ;Reset Vector
+    goto    main
+    org 0x0004              ;Interrupt Vector
+    goto    isr
+    org 0x2100              ;EEPROM Presets
+    de  0x00, 0x01, ...
+</code></pre></div></div>
+
+<p>This is a simple set of vectors telling your application where to go. It’s standard stuff.</p>
+
+<p>Indeed, something similar is used on pages 99/100 of the <a href="http://ww1.microchip.com/downloads/en/DeviceDoc/33014K.pdf">ASSEMBLER/LINKER/LIBRARIAN USER’S GUIDE</a>.</p>
+
+<p>The specific vectors used aren’t important; many won’t have EEPROM, some will have a different vector, whatever.</p>
+
+<p>What IS important here is that <code class="language-plaintext highlighter-rouge">goto isr</code> line. If you’ve been paying attention so far, that should be shouting and screaming to you!</p>
+
+<p>We know that:</p>
+
+<ul>
+  <li>An interrupt can be triggered from any line of code of any page</li>
+  <li>The ISR does not change PCLATH</li>
+  <li><code class="language-plaintext highlighter-rouge">goto</code> can not guarantee that we go to the correct page</li>
+</ul>
+
+<p>What happens if our ISR is triggered whilst we are on a different page to the <code class="language-plaintext highlighter-rouge">isr</code> label?</p>
+
+<p>It doesn’t go to the ISR, that’s what!</p>
+
+<p>I had a real problem with this over the last few days. It’s such an innocuous line of code that you don’t even think about, but it can cause mayhem for you!</p>
+
+<p>Instead, I suggest moving your whole ISR code to be directly below the <code class="language-plaintext highlighter-rouge">org 0x0004</code> instruction. You can re-order the other vectors, it doesn’t matter. In every chip I have examined, program memory begins at 0x0005, so I don’t think that there are any problems doing this. I’d check the ‘PROGRAM MEMORY MAP’ in your datasheet to be sure, though.</p>
+
+<p>Example follows:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    org 0x0000              ;Reset Vector
+    goto    main
+    org 0x2100              ;EEPROM Presets
+    de  0x00, 0x01, ...
+    org 0x0004              ;Interrupt Vector
+    movwf   W_TEMP          ;save W register
+    swapf   STATUS, w       ;swap status to be saved into W (movf alters status)
+    movwf   STATUS_TEMP     ;save STATUS register
+    movfw   PCLATH
+    movwf   PCLATH_TEMP     ;save PCLATH register
+
+    pagesel $
+    ;Your Interrupt Routine Code Goes Here
+
+    ;... you get the idea
+</code></pre></div></div>
+
+</div>
+		
+		<p id="calltoaction"><em>P.S. I'm late to the party, but I recently got <a href='https://twitter.com/JetroidMakes'>a twitter account</a> that you can follow <a href='https://twitter.com/intent/user?screen_name=JetroidMakes'>here</a>.</em></p>
+		
+	</article>
+	<hr class="divider"/>
+	
+	<footer id="navigation">
+		
+			<a id="prev-post" href="/micro/doing-something-that-you-put-off/">&lsaquo;Doing Something That You Put Off</a>
+		
+		
+			<a id="next-post" href="/micro/hacker-news-front-page/">Hacker News Front Page&rsaquo;</a>
+		
+	</footer>
+</div>
+</div>
+
+		<!-- Custom JS
+			Seperate file - use js in YAML front matter
+			Inline - use inline_js in YAML front matter !--><!-- Custom JS (as seperate file) - use custom_js in YAML front matter !-->
+
+
+
+
+
+
+<script>
+
+</script>
+
+
+
+<script
+		  async
+		  src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.4.0/dist/lazyload.min.js"
+		></script>
+		</div>
+	</body>
+</html>
+
