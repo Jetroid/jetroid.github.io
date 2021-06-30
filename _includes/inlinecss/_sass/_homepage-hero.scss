@@ -147,8 +147,8 @@
     top:  calc(var(--scene-pixel-ratio) * 250);
   }
   .hero-links-wrapper {
-    left: calc(475 * var(--scene-pixel-ratio));
-    top: calc(1700 * var(--scene-pixel-ratio));
+    left: calc(620 * var(--scene-pixel-ratio));
+    top: calc(1850 * var(--scene-pixel-ratio));
     --font-ratio: 0.5; /* Calculate by dividing the height of a single character by it's width - caution... only works for monospaced fonts! */
     --number-chars: 22; /* Number of chars in "Projects Blog Email Me" inc spaces */
     --target-width: calc(775 * var(--scene-pixel-ratio));

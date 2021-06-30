@@ -9,6 +9,10 @@ body{
   font-family: monospace;
   color: #cfcfc9;
 }
+.main-wrapper {
+	overflow-x: hidden;
+	width: 100vw;
+}
 a, .clickable {
 	text-decoration: none;
 	color: #d05d5d;

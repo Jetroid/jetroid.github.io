@@ -66,6 +66,7 @@ layout: compress
 
 	</head>
 	<body {% unless page.nobackground or layout.nobackground %}{% if page.background %}class="lazy" data-bg="/assets/images/backgrounds/{{ page.background }}"{% else if layout.background %}class="lazy" data-bg="{{ layout.background }}"{% endif %}{% endunless %}>
+		<div class="main-wrapper">
 		{% unless page.donotlinkback %}
 		<nav id="linkback"><a href="/"><img src="/assets/images/jetroid-logo-miami.png" /></a></nav>
 		{% endunless %}
@@ -81,5 +82,6 @@ layout: compress
 		  async
 		  src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.4.0/dist/lazyload.min.js"
 		></script>
+		</div>
 	</body>
 </html>
