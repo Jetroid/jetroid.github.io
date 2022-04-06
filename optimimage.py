@@ -40,7 +40,7 @@ for folder in FOLDERS.keys():
     knownimages = []
     if os.path.exists(yamlfile):
         stream = open(yamlfile, 'r')
-        data = yaml.load_all(stream)
+        data = yaml.load_all(stream, Loader=yaml.CLoader)
         knownimages = next(data)['images'] or []
         stream.close()
 
