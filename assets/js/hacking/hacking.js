@@ -49,10 +49,10 @@ var commandPromptText = [
 var minigameText = [
 	{text:"ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL", isMachine:true, delay:10, targetId:"termlink", cursorId:"hack-cursor1"},
 	{text:"ENTER PASSWORD NOW", isMachine:true, delay:10, targetId:"message", cursorId:"hack-cursor1"},
-	{text:"<br> ​", "isBreak":true, "isSilent":true, delay:0, targetId:"message", cursorId:"hack-cursor1"},
+	{text:"<br><br>", "isBreak":true, "isSilent":true, delay:0, targetId:"message", cursorId:"hack-cursor1"},
 	{text:"4 Attempt(s) Left:", isMachine:true, delay:10, targetId:"attemptstext", cursorId:"hack-cursor1"},
 	{text:" ██ ██ ██ ██", isMachine:true, delay:0, targetId:"attemptsblocks", cursorId:"hack-cursor1"},
-	{text:"<br> ​", "isBreak":true, "isSilent":true, delay:0, targetId:"attemptsnewline", cursorId:"hack-cursor1"},
+	{text:"<br><br>", "isBreak":true, "isSilent":true, delay:0, targetId:"attemptsnewline", cursorId:"hack-cursor1"},
 ];
 //Prerendered left and right pointers and symbols columns
 var ptrleft = "";
@@ -551,7 +551,7 @@ var viewPost = function(postURL) {
 var addFeedback = function(feedback){
 	var feedbackContent = document.getElementById("feedback").innerHTML;
 	feedbackContent = feedbackContent.replace(/^.*?<br>/, "");
-	feedbackContent += feedback + "<br>";
+	feedbackContent += "&nbsp;" + feedback + "<br>";
 	document.getElementById("feedback").innerHTML = feedbackContent;
 }
 var clearEntry = function() {
@@ -591,7 +591,7 @@ var setAttempts = function(){
 	document.getElementById("attemptsblocks").innerHTML = blocks;
 
 	if(attempts <= 1){
-		document.getElementById("message").innerHTML = "!!! WARNING: LOCKOUT IMMINENT !!!<br> ​";
+		document.getElementById("message").innerHTML = "!!! WARNING: LOCKOUT IMMINENT !!!<br><br>";
 		document.getElementById("message").className = "blinker";
 	}
 	if(attempts == 0){
@@ -709,7 +709,7 @@ var addWord = function(symbolSpans, word){
 		newspan.onmouseenter = (function(newspan){ return function(){hover(newspan);};})(newspan);
 		newspan.attributes["data-shouldbe"] = word.charAt(i);
 		newspan.attributes["data-charpos"] = i;
-		newspan.textContent = ""; //There's a zero width space here!
+		newspan.textContent = "";
 		symbolSpans.push(newspan);
 	}
 }
@@ -902,12 +902,12 @@ var generatePointerColumn = function(ptrSpans, value, isRight) {
 	do{
 		var newspan = document.createElement("SPAN");
 		newspan.className = "pointer";
-		newspan.textContent = ""; //There's a zero width space here!
+		newspan.textContent = "";
 		var leadingSpace = "";
 		if(isRight) {
 			leadingSpace = " ";
 		}
-		newspan.attributes["data-shouldbe"] = leadingSpace + convertToHex(value) + " ​";  //There's a zero width space here!
+		newspan.attributes["data-shouldbe"] = leadingSpace + convertToHex(value) + " ";
 		ptrSpans.push(newspan);
 		value += 12;
 		count++;
@@ -929,7 +929,7 @@ var generateSymbolColumn = function(symbolSpans) {
 		newspan.onmouseleave = (function(newspan){return function(){unhover(newspan);};})(newspan);
 		newspan.onclick = (function(newspan){return function(){clicked(newspan);};})(newspan);
 		newspan.attributes["data-shouldbe"] = symbols[generateRandomInt(0,symbols.length)];
-		newspan.textContent = "";	//There's a zero width space here!
+		newspan.textContent = "";
 		symbolSpans.push(newspan);
 		numsymbols++;
 
@@ -1261,7 +1261,7 @@ var printMinigame = function() {
 		}
 
 		var space = spaces[i];
-		messages.push({text:" ​", isMachine:true, delay:4, target:space, cursor:cursor});
+		messages.push({text:" ", isMachine:true, delay:4, target:space, cursor:cursor});
 	}
 
 	printText(messages, "enableMinigame", function(){
@@ -1632,4 +1632,4 @@ preloadHacking();
 document.addEventListener("click", turnOnClick);
 
 //TODO: Testing only so I don't hear the sound
-//mute();
+mute();
