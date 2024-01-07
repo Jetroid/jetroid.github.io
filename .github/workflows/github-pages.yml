@@ -10,8 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: helaili/jekyll-action@2.0.1
-        with:
-          target_branch: 'gh-pages'
-        env:
-          JEKYLL_PAT: ${{ secrets.JEKYLL_PAT }}
+      - uses: helaili/jekyll-action@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        target_branch: 'gh-pages'
