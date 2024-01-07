@@ -16,8 +16,7 @@ var wordlength = 0;
 var attempts = 4;
 //Have we had the 'replenish incorrect attempts' reward?
 var hadRefresh = false;
-//Set of brackets we have clicked, so we don't allow them to be clicked again
-var clickedBrackets = new Set();
+//Counter to assist generating bracket pairs
 var bracketCount = 0;
 //Has the user been locked out?
 var terminalLocked = false;
@@ -558,6 +557,7 @@ var addFeedback = function(feedback){
 var clearEntry = function() {
 	targetText = "";
 	currentText = "";
+	console.log("CLEAR ENTRY");
 	document.getElementById("entry").innerHTML = "";
 	document.getElementById("key2").play();
 	document.getElementById("hack-cursor2").className = "cursor-flash"
@@ -575,11 +575,14 @@ var addEntryCharacter = function() {
 	setTimeout(addEntryCharacter,30+randomDelay);
 }
 var setEntry = function(content){
-	targetText = content;
-	document.getElementById("entry").textContent = "";
-	currentText = "";
-	document.getElementById("hack-cursor2").className = "cursor-on"
-	addEntryCharacter();
+	if (currentText != content) {
+		console.log("'" + currentText + "' '" + content + "'");
+		targetText = content;
+		document.getElementById("entry").textContent = "";
+		currentText = "";
+		document.getElementById("hack-cursor2").className = "cursor-on"
+		addEntryCharacter();
+	}
 }
 
 var setAttempts = function(){
@@ -612,16 +615,12 @@ var clicked = function(span){
 	document.getElementById("enter").play();
 
 	if(span.classList.contains("word")){
-		var word = getWordFromSpan(span);
-		var wordNoSpaces = word.replace(/ /g,"");
-		if (word.match(/\.+/)){
-			//Handle the click on a dud
-			addFeedback(">Error");
-		}else if (wordNoSpaces != goalWord){
+		var word = span.attributes["data-word"];
+		if (word != goalWord){
 			document.getElementById("incorrect").play();
 			var correct = 0;
 			for(i = 0; i < wordlength; i++){
-				if(goalWord.charAt(i) == wordNoSpaces.charAt(i)) correct++;
+				if(goalWord.charAt(i) == word.charAt(i)) correct++;
 			}
 			addFeedback(">" + word);
 			addFeedback(">Entry Denied");
@@ -639,29 +638,15 @@ var clicked = function(span){
 			addFeedback(">is accessed.");
 			setTimeout(login, 2000);
 		}
-	}else if(span.parentElement.classList.contains("bracketpair")) {
-		//Don't do anything if our parent is a bracket pair
-	}else if(span.classList.contains("symbol")){
-		var symbol = span.innerHTML;
-		addFeedback(">" + symbol);
-		addFeedback(">Error");
-	}else if(span.classList.contains("bracketpair")){
-		//Display the selected item
-		//We must go through each child and get it's
-		//content else the <span> tags will preserve
-		var children = span.children;
-		var content = "";
-		for(i = 0; i < children.length; i++){
-			content += children[i].innerHTML;
-		}
-		addFeedback(">" + content);
+	}else if(span.classList.contains("bracketroot")){
+		let bracketGroup = span.attributes["data-bracketroot"];
+		let bracketStr = span.attributes["data-bracketstr"];
 
-		//Make the brackets no longer clickable
-		span.removeAttribute("onclick");
-		var firstChild = span.firstElementChild;
-		firstChild.onclick = function(){clicked(firstChild)};
-		hovercleanup();
-		clickedBrackets.add(firstChild);
+		// Adjust highlighting
+		unhighlightAll();
+		span.classList.add("highlight");
+
+		addFeedback(">" + bracketStr);
 
 		//Choose between replenishing and removing dud
 		if(!hadRefresh && generateRandomInt(0,10) > 7){
@@ -688,6 +673,13 @@ var clicked = function(span){
 			}
 			addFeedback(">Dud removed.");
 		}
+
+		//Make the brackets no longer clickable
+		span.classList.remove("bracketroot");
+	}else if(span.classList.contains("symbol")){
+		var symbol = span.innerHTML;
+		addFeedback(">" + symbol);
+		addFeedback(">Error");
 	}
 }
 
@@ -706,102 +698,19 @@ var addWord = function(symbolSpans, word){
 		var newspan = document.createElement("SPAN");
 		newspan.className = "word word-" + word;
 		newspan.onclick = (function(newspan){ return function(){clicked(newspan);};})(newspan);
-		newspan.onmouseleave = (function(newspan){ return function(){unhover(newspan);};})(newspan);
+		newspan.onmouseleave = unhighlightAll;
 		newspan.onmouseenter = (function(newspan){ return function(){hover(newspan);};})(newspan);
 		newspan.attributes["data-shouldbe"] = word.charAt(i);
 		newspan.attributes["data-charpos"] = i;
+		newspan.attributes["data-word"] = word;
 		newspan.textContent = "";
 		symbolSpans.push(newspan);
 	}
 }
 
-var getWordFromSpan = function(span) {
-	//Determine the correct classname that identifies this word
-	var classes = span.className.split(" ");
-	var wordClass = "";
-	for (var i = 0; i < classes.length; i++){
-		var className = classes[i];
-		if (className.startsWith("word-")) {
-			wordClass = className;
-		}
-	}
-	//replace the "word-" prefix with nothing (to get the word)
-	return wordClass.replace("word-","");
-}
-
 //Generate an Int between lower (inclusive) and upper (exclusive)
 var generateRandomInt = function(lower, upper){
 	return Math.floor(Math.random()*((upper-1)-lower+1)+lower);
-}
-
-var detectClosingBracket = function(span){
-	var opening_bracket = span.innerHTML;
-	if (clickedBrackets.has(span)) {
-		return false;
-	}
-	var object = span;
-	//Get the appropriate closing bracket
-	var closing_bracket = null;
-	switch(opening_bracket) {
-		case "&lt;":
-		closing_bracket = "&gt;";
-		break;
-		case "{":
-		closing_bracket = "}";
-		break;
-		case "[":
-		closing_bracket = "]";
-		break;
-		case "(":
-		closing_bracket = ")";
-		break;
-		default:
-		closing_bracket = null;
-	}
-	//Recursively look at next elements hoping for a closing bracket
-	//If we hit a break or a letter (word), we didn't find one.
-
-	//An array to hold the elements we looked at
-	var arr = [span];
-	do {
-		object = object.nextElementSibling;
-		arr.push(object);
-		if(object.innerHTML == closing_bracket){
-			//Found pair of matched brackets
-			//Return array containing the nodes we visited
-			return arr;
-		} else if(object.classList.contains( "word") ||
-			      object.classList.contains("pointer") ||
-			      object.innerHTML == ""){
-			return false;
-		}
-	} while(true);	//Keep looking until we find the end
-}
-var spantodelete = null;
-var hovercleanup = function() {
-	if(spantodelete == null){
-		return;
-	}
-	var parent = spantodelete.parentNode;
-	var ugly_children = spantodelete.childNodes;
-	var pretty_children = [];
-
-	//JavaScript doesn't have a clone feature... -_-
-	//We copy to a new array to avoid changes affecting our array
-	for (var i = 0; i < ugly_children.length; i++) {
-		var child = ugly_children[i];
-		pretty_children.push(child);
-	}
-
-	//Now we move children of newspan into the parent.
-	for (var i = 0; i < pretty_children.length; i++) {
-		var child = pretty_children[i];
-		spantodelete.removeChild(child);
-		parent.insertBefore(child, spantodelete);
-
-	}
-	parent.removeChild(spantodelete);
-	spantodelete = null;
 }
 var getSpanFromCoords = function() {
 	var isright = hackingCursorX >= 12;
@@ -818,14 +727,7 @@ var hover = function(span) {
 	}
 
 	/* Unhighlight the old stuff */
-	var highlights = document.querySelectorAll("#hacking .highlight");
-	for(var h = 0; h < highlights.length; h++) {
-		var highlight = highlights[h];
-		if(highlight.classList.contains("bracketpair")) {
-			hovercleanup(highlight);
-		}
-		unhover(highlight);
-	}
+	unhighlightAll();
 
 	// Determine our new X and Y position
 	if (symbolSpansRight.includes(span)) {
@@ -838,62 +740,35 @@ var hover = function(span) {
 		hackingCursorY = Math.floor(pos / 12);
 	}
 
-	//Do special stuff if it's a word
+	//Do special stuff if it's a word or the start of a bracket pair
 	if (span.classList.contains("word")) {
-		var word = getWordFromSpan(span);
-		var wordNoSpaces = word.replace(/ /g,"");
+		var word = span.attributes["data-word"];
 		//Hightlight the word
-		var wordSpans = document.getElementsByClassName("word-" + wordNoSpaces);
+		var wordSpans = document.getElementsByClassName("word-" + word);
 		for(var i = 0; i < wordSpans.length; i++) {
 			var wordSpan = wordSpans[i];
 			wordSpan.classList.add("highlight");
 		}
 		setEntry(word);
+	} else if (span.classList.contains("bracketroot")){
+		let bracketGroup = span.attributes["data-bracketroot"];
+		let bracketStr = span.attributes["data-bracketstr"];
+		//Hightlight the brackets
+		var bracketSpans = document.getElementsByClassName("bracketpair-" + bracketGroup);
+		for(let i = 0; i < bracketSpans.length; i++) {
+			let bracketSpan = bracketSpans[i];
+			bracketSpan.classList.add("highlight");
+		}
+		setEntry(bracketStr);
 	} else {
 		span.classList.add("highlight");
 		setEntry(span.textContent);
-		var chr = span.innerHTML[0];
-		//If touch an opening bracket
-		if (chr === '{' || chr === '[' || chr === '(' || span.innerHTML === "&lt;"){
-			var returned = detectClosingBracket(span);
-			var parent = span.parentNode;
-			if(returned){
-				span.removeAttribute("onclick");
-
-				var newspan = document.createElement("SPAN");
-				newspan.className = "bracketpair highlight";
-				newspan.onclick = function(){clicked(newspan)};
-				newspan.onmouseout = function(){hovercleanup();}
-				parent.insertBefore(newspan, span);
-				for (var i = 0; i < returned.length; i++) {
-					parent.removeChild(returned[i]);
-					newspan.appendChild(returned[i]);
-				}
-				spantodelete = newspan;
-				setEntry(newspan.textContent);
-			}
-		}
 	}
 }
-var unhover = function(span) {
-	//Do special stuff if it's a word
-	span.classList.remove("highlight");
-	if (span.classList.contains("word")) {
-		//Determine the correct classname that identifies this word
-		var classes = span.classList;
-		var wordClass = "";
-		for (var i = 0; i < classes.length; i++){
-			var className = classes[i];
-			if (className.startsWith("word-")) {
-				wordClass = className;
-			}
-		}
-		//unhightlight the word
-		var wordSpans = document.getElementsByClassName(wordClass);
-		for(var i = 0; i < wordSpans.length; i++) {
-			var wordSpan = wordSpans[i];
-			wordSpan.classList.remove("highlight");
-		}
+var unhighlightAll = function() {
+	let highlights = document.querySelectorAll("#hacking .highlight");
+	for(let h = 0; h < highlights.length; h++) {
+		highlights[h].classList.remove("highlight");
 	}
 }
 
@@ -928,7 +803,7 @@ var generateSymbolColumn = function(symbolSpans) {
 		var newspan = document.createElement("SPAN");
 		newspan.className = "symbol";
 		newspan.onmouseenter = (function(newspan){return function(){hover(newspan);};})(newspan);
-		newspan.onmouseleave = (function(newspan){return function(){unhover(newspan);};})(newspan);
+		newspan.onmouseleave = unhighlightAll;
 		newspan.onclick = (function(newspan){return function(){clicked(newspan);};})(newspan);
 		newspan.attributes["data-shouldbe"] = symbols[generateRandomInt(0,symbols.length)];
 		newspan.textContent = "";
@@ -987,12 +862,17 @@ var matchBrackets = function(rowArr) {
 				}
 			}
 			// Add the appropriate classes to the spans on a match
+			// and determine the overall string
 			if (hasBracketMatch) {
 				let bracketClass = "bracketpair-" + bracketCount;
+				let bracketStr = "";
 				for (let k = i; k <= j; k++) {
-					rowArr[k].classList.add(bracketClass);
+					let bSpan = rowArr[k];
+					bSpan.classList.add(bracketClass);
+					bracketStr += bSpan.attributes["data-shouldbe"];
 				}
-				startSpan.classList.add("root-" + bracketCount);
+				startSpan.attributes["data-bracketroot"] = bracketCount;
+				startSpan.attributes["data-bracketstr"] = bracketStr;
 				startSpan.classList.add("bracketroot");
 				bracketCount++;
 			}
