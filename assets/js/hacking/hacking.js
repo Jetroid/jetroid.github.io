@@ -18,6 +18,7 @@ var attempts = 4;
 var hadRefresh = false;
 //Set of brackets we have clicked, so we don't allow them to be clicked again
 var clickedBrackets = new Set();
+var bracketCount = 0;
 //Has the user been locked out?
 var terminalLocked = false;
 //Used as a 'loading' distraction.
@@ -99,10 +100,10 @@ var generateDataCorruption = function(){
 	var alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890";
 	var symbols = "~#!\"$%^&*()_-+=[]{}?/,.";
 	var words = ["if","it","is","can","we","space","V4ult Teg","Pos0idon Enerxy","J3tRo1d","data","0x0000","FrxquenFy C00tral","yes","no","maybe","believe","God","food","Dog","THr33","LFser RiMle","D3thclRAW","HeliDX Hne","Help Me","MissiX9ippi QuantuXo.z P3!"];
-	var numsymbols = generateRandomInt(250,300);
+	var symbolsSinceWord = generateRandomInt(250,300);
 	var count = 0;
 
-	while(count < numsymbols) {
+	while(count < symbolsSinceWord) {
 		count++;
 		//Do we do a character or a word?
 		if(generateRandomInt(0,100)<80){
@@ -920,8 +921,9 @@ var generateSymbolColumn = function(symbolSpans) {
 			"-","_","+","=","{","[","}","]",":",";",
 			"@","\'","~","#","<",">",",","?","/",
 			"|","\\"]
-	//Number of symbols since we had a word
-	var numsymbols = 0;
+	// Number of symbols since we had a word
+	var symbolsSinceWord = 0;
+	var rowCounter = 0;
 	while (symbolSpans.length < 17*12) {
 		var newspan = document.createElement("SPAN");
 		newspan.className = "symbol";
@@ -931,12 +933,13 @@ var generateSymbolColumn = function(symbolSpans) {
 		newspan.attributes["data-shouldbe"] = symbols[generateRandomInt(0,symbols.length)];
 		newspan.textContent = "";
 		symbolSpans.push(newspan);
-		numsymbols++;
+		symbolsSinceWord++;
 
 		//Choose to add a word or not
-		if((symbolSpans.length + wordlength < 17*12)
-			&& (numsymbols > 4)
-			&& (numsymbols == 45 || (generateRandomInt(0,17) > 15))){
+		if(((symbolSpans.length + wordlength) < (17*12 - 5)) &&
+		   (symbolsSinceWord > 4) &&
+		   (symbolsSinceWord == 45 || (generateRandomInt(0,17) > 15)) &&
+		   (allWords.length > 0)){
 
 			//Select a random word
 			var wordpos = generateRandomInt(0,allWords.length - 1);
@@ -950,7 +953,49 @@ var generateSymbolColumn = function(symbolSpans) {
 
 			//Generate the spans for the word
 			addWord(symbolSpans, word);
-			numsymbols = 0;
+			symbolsSinceWord = 0;
+		}
+
+		// If we finished a row, calculate if there are any bracket pairs on the row
+		if((rowCounter + 1) === Math.floor(symbolSpans.length / 12)) {
+			let startOfRow = (rowCounter * 12);
+			matchBrackets(symbolSpans.slice(startOfRow, startOfRow + 12));
+			rowCounter++;
+		}
+	}
+}
+// Function takes a list of twelve spans
+var matchBrackets = function(rowArr) {
+	let bracketMatches = {"{":"}","[":"]","(":")","<":">"};
+	for (let i = 0; i < 11; i++) {
+		let startSpan = rowArr[i];
+		let chr = startSpan.attributes["data-shouldbe"];
+		if (chr === '{' || chr === '[' || chr === '(' || chr === "<") {
+			let hasBracketMatch = false;
+			let j;
+			for (j = i+1; j < 12; j++) {
+				let span = rowArr[j];
+				// Can't match brackets through words
+				if (span.classList.contains("word")) {
+					break;
+				}
+				// Check if the span has the matching bracket
+				let chr2 = span.attributes["data-shouldbe"];
+				if (chr2 == bracketMatches[chr]) {
+					hasBracketMatch = true;
+					break;
+				}
+			}
+			// Add the appropriate classes to the spans on a match
+			if (hasBracketMatch) {
+				let bracketClass = "bracketpair-" + bracketCount;
+				for (let k = i; k <= j; k++) {
+					rowArr[k].classList.add(bracketClass);
+				}
+				startSpan.classList.add("root-" + bracketCount);
+				startSpan.classList.add("bracketroot");
+				bracketCount++;
+			}
 		}
 	}
 }
