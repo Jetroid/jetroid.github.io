@@ -64,6 +64,7 @@ var clickedBegin = false;
 var finishedLoading = false;	//Have we finished getting words from remote server?
 window.finishedPrinting = false;	//Have we finished printing the ROBOCO TERMLINK crawl?
 var minigameSetupBegun = false;	//Just used to prevent double triggering of the minigame setup
+var finishPreloadStarted = false; //Just used to prevent double triggering of the minigame cursor setup
 var minigameStarted = false;	//Has the user started playing?
 var enableMinigame = false;		//Can the user interact with the minigame right now?
 var enablePosts = false;		//Can the user interact with the post list?
@@ -1215,6 +1216,11 @@ var beginMinigame = function() {
 };
 
 var finishPreload = function() {
+	if(finishPreloadStarted == true){
+		console.log("REJECTED!");
+		return false;
+	}
+	finishPreloadStarted = true;
 	generateSymbolColumn(symbolSpansLeft);
 	generateSymbolColumn(symbolSpansRight);
 	var container = document.getElementById("hacking-symbols");
