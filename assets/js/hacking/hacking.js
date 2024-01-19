@@ -166,9 +166,17 @@ var fixImages = function(){
 		var image = images[i];
 		var parent = image.parentNode;
 
+		if (parent.classList.contains("image-color")) {
+			continue;
+		}
+
+		LazyLoad.load(image);
+
 		//Make background-image of `var image` equal to the src of the image
 		//as this way we can use background-blend-mode
-		image.style.backgroundImage = 'url(' + image.getAttribute("src") +')';
+		//Use the lowest res image from the srcset to make it crunchier
+		var crunchySrc = image.srcset.split(" ")[0];
+		image.style.backgroundImage = 'url(' + crunchySrc +')';
 
 		/* Create the containers that we use for the
 		fuzzy green effects */
@@ -391,7 +399,9 @@ function generatePage() {
 				/* Images want to be alone on a page,
 				possibly with a em sibling. */
 				var img = document.createElement("img");
-				var imgElem = elem.content.shift();
+				var aElem = elem.content.shift();
+				var imgElem = aElem.content[1];
+				console.log(imgElem);
 				copyAttributes(img, imgElem);
 				newElem.appendChild(img);
 
