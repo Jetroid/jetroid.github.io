@@ -1331,6 +1331,7 @@ var insertGoal = function() {
 		var span = spansToChange[k];
 		span.classList.remove("word-" + wordToReplace);
 		span.classList.add("word-" + goalWord);
+		span.attributes["data-word"] = goalWord;
 		var position = span.attributes["data-charpos"];
 
 		span.attributes["data-shouldbe"] = goalWord[position];
@@ -1563,4 +1564,4 @@ preloadHacking();
 document.addEventListener("click", turnOnClick);
 
 //TODO: Testing only so I don't hear the sound
-mute();
+//mute();
