@@ -25,6 +25,6 @@
   clip-path: inset(50%);
   margin: -1px;
 }
-img:not([src]):not([srcset]) {
+img:not([src]):not([srcset]):not(#information-image) {
   visibility: hidden;
 }
