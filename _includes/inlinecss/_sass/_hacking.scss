@@ -124,6 +124,10 @@ html, body {
     margin-right: -50%;
     transform: translate(-50%, -50%);
 }
+#please-rotate p:nth-child(2) {
+	top: 55%;
+    transform: translate(-55%, -55%);
+}
 .terminal-off #effects1:before {
 	animation: initial;
 	opacity: 0.14;
